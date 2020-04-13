@@ -1,0 +1,669 @@
+@charset "utf-8";
+/*-----主流程全局样式--------*/
+
+section#loading { height:80px; margin:20px 0; background:url(../images/globle/loading.gif) center center no-repeat; }
+#main-area del { color:#999;}
+#main-area .line { height:0; overflow:hidden; margin:10px 0; border-top:1px #ddd solid; border-bottom:1px #fff solid;}
+a.link-talent:link { display:inline-block; height:30px; line-height:28px; font-weight:bold; background:url(../images/booking/talent_map.gif) left top no-repeat; padding-left:32px;}
+a.link-reset { height:20px; line-height:20px; font-size:12px; color:#999; font-weight:normal; background:url(../images/globle/icon-map.png) -40px -400px no-repeat; padding-left:16px;}
+.range {position:relative; height:8px;font-size:0;line-height:0;background:#fff;border:1px #ddd solid; margin-bottom:20px;-moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; }
+.range #meaBox{position:absolute; width:100%; height:6px; top:1px; background-color:#e6e6e6;}
+.range .mea{position:absolute;top:-6px;width:22px;height:20px; background:url(../images/icon-map.png) left -570px no-repeat;}
+.range #mea_l{left:0;}
+.range #mea_r{right:0;}
+
+input[type=checkbox],input[type=radio] { border:0; display: inline-block; margin: 0 2px 0 0; padding: 0;width:14px;height:14px; vertical-align:middle;}
+footer#footer hgroup {z-index:4;}
+/*-----航班查询首页--------*/
+hgroup.flight_finder { }
+hgroup.flight_finder .left { float:left; width:670px; padding:20px 0 0 20px; }
+hgroup.flight_finder .left h2 { font-weight:normal; margin-bottom:15px;}
+hgroup.flight_finder .left h3 { font-weight:normal; font-size:16px;}
+hgroup.flight_finder .left h3 ul { float:left; width:575px; height:32px; padding:13px 0 0 40px; background:url(../images/booking/booking-head.png) left top no-repeat;}
+hgroup.flight_finder .left h3 span { float:right; width:45px; height:45px; position:relative; cursor:pointer; background:#272785 url(../images/booking/booking-head.png) right top no-repeat;}
+hgroup.flight_finder .left h3 span:hover { background-color:#1E1E66;}
+hgroup.flight_finder .left h3 span p { display:none; position:absolute; right:0; top:45px; width:150px; padding-top:2px; margin:0; text-align:right;}
+hgroup.flight_finder .left h3 span p a:link, hgroup.flight_finder .left h3 span p a:visited, hgroup.flight_finder .left h3 span p a:active { display:block; background-color:#ccc; padding:0 10px; margin:1px 0; line-height:30px; font-size:14px; color:#fff;} 
+hgroup.flight_finder .left h3 span p a:hover { background-color:#999;}
+hgroup.flight_finder .left h3 li { float:left; color:#272785; width:65px; padding:0 0 0 50px; font-weight:bold; text-align:left;}
+hgroup.flight_finder .left h3 li a:link, hgroup.flight_finder .left h3 li a:visited, hgroup.flight_finder .left h3 li a:active { color:#fff;}
+hgroup.flight_finder .left fieldset { padding:20px;}
+hgroup.flight_finder .left fieldset ol.flight-type { margin-bottom:20px;}
+hgroup.flight_finder .left fieldset dl { margin-bottom:30px;}
+hgroup.flight_finder .left fieldset div.trip { margin:0; padding-left:30px; background:url(../images/booking/icon-flight-switch.gif) left center no-repeat;position: relative; *background-position-y:20px; }
+hgroup.flight_finder .left fieldset div.trip dl .input { width:120px;}
+hgroup.flight_finder .left fieldset div.trip .huanFlightTerm {height: 22px;left: 0;position: absolute;top: 35px;width: 22px; cursor:pointer;}
+hgroup.flight_finder .left fieldset dl.type { margin-left:70px; margin-bottom:20px;}
+hgroup.flight_finder .left fieldset dl.type label { margin-right:40px;}
+hgroup.flight_finder .left fieldset dl .digital, hgroup.flight_finder .left fieldset dl .cabin { float:left; margin-right:10px; position:relative;}
+hgroup.flight_finder .left fieldset dl .digital span { position:absolute; left:30px; top:20px; color:#666;}
+hgroup.flight_finder .left fieldset dl.num { margin-left:65px;}
+hgroup.flight_finder .left fieldset dl.sel { margin-left:65px; margin-bottom:20px;}
+hgroup.flight_finder .left fieldset dl.btn { text-align:center; position:relative;z-index:10;}
+hgroup.flight_finder .left fieldset dl.dis .input { border:1px #eee solid; color:#ddd;}
+hgroup.flight_finder .left fieldset dl.dis .input.date { background:#f5f5f5 url(../images/icon-map.png) right -356px no-repeat;}
+hgroup.flight_finder .left fieldset dl.dis .input.flightNumber { background:#f5f5f5；}
+hgroup.flight_finder .left fieldset dl.dis .input.city, hgroup.flight_finder .left fieldset dl.dis .input.input_city { background:#f5f5f5 url(../images/globle/icon-map.png) right -315px no-repeat;}
+
+
+
+hgroup.flight_finder .right { float:right; width:266px; padding:14px; background-color:#efefef; }
+hgroup.flight_finder .right .product {}
+hgroup.flight_finder .right .product img { float:left; margin:3px;}
+hgroup.flight_finder .right .hot_search { margin-top:10px; padding:4px;}
+hgroup.flight_finder .right .hot_search .hot_search_title{border-bottom:2px solid #272785;padding-bottom:5px;margin-bottom:5px;}
+hgroup.flight_finder .right .hot_search .hot_search_title b {font-size:14px;}
+hgroup.flight_finder .right .hot_search .hot_search_title u { float:right; margin-top:5px; text-decoration:none;}
+hgroup.flight_finder .right .hot_search li {float: left;margin:5px 0; width:86px; text-align:center;}
+hgroup.flight_finder .right .hot_search li b{ display:block; font-weight: normal;overflow: hidden;white-space: nowrap; }
+hgroup.flight_finder .right .hot_search li b a:link, hgroup.flight_finder .right .hot_search li b a:visited, hgroup.flight_finder .right .hot_search li b a:active{color:#333;} 
+hgroup.flight_finder .right .hot_search li u { text-decoration:none; color:#999;}
+
+hgroup.flight_finder .new-activity { clear:both; height:150px; background-color:#e6e6e6;}
+hgroup.flight_finder .new-activity h2 {background-color: #262F72; color: #FFFFFF; float: left; font-size: 30px; font-weight: normal; height: 115px; line-height: 40px; padding-top: 35px; text-align: center; width: 150px;}
+hgroup.flight_finder .new-activity ul { float:left; width:840px; padding-top:30px;}
+hgroup.flight_finder .new-activity li { float:left; padding-left:30px;}
+hgroup.flight_finder .new-activity li img { float:left;}
+hgroup.flight_finder .new-activity li p { float:left; width:150px; height:110px; padding-left:10px; margin:0; position:relative;}
+hgroup.flight_finder .new-activity li p b { display:block; font-size:16px; color:#666;}
+hgroup.flight_finder .new-activity li p span { position:absolute; left:10px; bottom:10px;}
+
+#main-area ol.flight-type { height:32px; display:block; font-size:14px; border-left:1px #c8c8c8 solid;}
+#main-area ol.flight-type li { float:left; width:92px; height:30px; line-height:30px; font-weight:normal; text-align:center; border:1px #c8c8c8 solid; border-left:none; background:url(../images/globle/bg-map.jpg) left -124px repeat-x; cursor:pointer;}
+#main-area ol.flight-type li.active { background-position: left -154px;}
+
+#main-area ol.currency-type { height:32px; display:block; font-size:12px; border-left:1px #c8c8c8 solid;}
+#main-area ol.currency-type li { float:left; width:92px; height:30px; line-height:30px; font-weight:normal; text-align:center; border:1px #c8c8c8 solid; border-left:none; background:url(../images/globle/bg-map.jpg) left -124px repeat-x; cursor:pointer;}
+#main-area ol.currency-type li.active { background-position: left -154px;}
+
+.recent_record { position:absolute; top:15px; right:30px; padding-right:20px; height:18px; background:url(../images/icon_map_trans.gif) right -1192px no-repeat; _background-position:right -1195px; cursor:pointer; color:#1D1F92; z-index:8;}
+.recent_record.active { background-position:right -1212px; _background-position:right -1215px;}
+.recent_record ul { display:none; position:absolute; width:300px; left:20px; top:18px; padding:10px; border:1px #ccc solid; background-color:#fff; z-index:10;}
+.recent_record li { height:20px; line-height:20px; text-align:left;}
+.recent_record li b { float:left; width:200px; font-weight:normal; color:#1D1F92;}
+.recent_record li u { float:left; width:50px; text-decoration:none; color:#999;}
+.recent_record li i { float:left; width:40px; font-style:normal; color:#999!important;}
+.recent_record li a:link, .recent_record li a:visited, .recent_record li a:active { color:#333; text-decoration:none;}
+.recent_record li a:hover { text-decoration:underline;}
+hgroup.flight-finder .body .btn .recent_record { position:absolute; left:0; top:25px; padding:0; width:125px;}
+/*-----进度条--------*/
+
+
+/*-----进度条--------*/
+#main-area .flight_type { padding:15px 50px;}
+#main-area .flight_type span { float:right; line-height:30px;}
+#main-area .flight_type span a:link, #main-area .flight_type span a:visited, #main-area .flight_type span a:active { color:#1D1F92;}
+#main-area .flight_type ul { float:left; }
+#main-area .flight_type ul li { float:left; height:30px; line-height:30px; font-weight:bold; font-size:16px; color:#999; border-bottom:5px #d1d1d1 solid;}
+#main-area .flight_type ul li.current { color:#272785; border-bottom:5px #272785 solid;}
+#main-area .flight_type ul li a:link, #main-area .flight_type ul li a:visited, #main-area .flight_type ul li a:active { display:block; padding-right:50px; color:#999;} 
+#main-area .flight_type ul li.current a:link, #main-area .flight_type ul li.current a:visited, #main-area .flight_type ul li.current a:active { color:#272785;} 
+
+
+/*-----航班选择页面--------*/
+#main-area .booking-search { padding:20px 15px 15px; z-index:11; position:relative; }
+#main-area .booking-search.od { padding:0 10px; }
+#main-area .booking-search dl { height:32px; line-height:28px; margin:5px 0; position:relative;}
+#main-area .booking-search.od dl { margin:10px 0;}
+#main-area .booking-search dl.condition { padding:0 140px 0 52px;}
+#main-area .booking-search dl.condition figure { float:left; margin-right:5px;}
+#main-area .booking-search dd { float:left; height:26px; padding:2px; border:1px #ddd solid;  background-color:#fff;}
+#main-area .booking-search dd i { padding:0 10px; text-align:right; font-style:normal;}
+#main-area .booking-search dd i#depRtDays {width:38px;}
+#main-area .booking-search dd .input { width:110px; height:25px; border:none; background-color:#fff; vertical-align:top;}
+#main-area .booking-search dd .input:hover { border:none; box-shadow:0 0 0;}
+#main-area .booking-search dd .input.date { height:25px; border:1px #ccc solid; width:112px; background-position: right -38px; vertical-align:top; }
+#main-area .booking-search dd .input.flightNumber { height:25px; border:1px #ccc solid; width:112px; background-position: right -38px; vertical-align:top; }
+#main-area .booking-search dd .input.date.disabled { background-color:#f5f5f5!important; background-position: right -358px;}
+#main-area .booking-search dt { float:left; height:30px;}
+#main-area .booking-search dt.link { float:right;}
+
+section.booking-select { border-top:1px #ddd solid; z-index:10; position:relative;}
+
+section.booking-select aside.right-side {  min-height:1100px; border-left:1px #ddd solid; background-color:#fff;}
+section.booking-select aside.right-side abbr { height:45px; background-color:#f9f9f9; border-bottom:1px #ddd solid;}
+section.booking-select aside.right-side abbr ul { float:left;}
+section.booking-select aside.right-side abbr li { float:left; width:100px; height:40px; line-height:150%; font-size:12px; color:#666; padding:5px 20px 0 30px; position:relative;}
+section.booking-select aside.right-side abbr li:hover { background-color:#eee;}
+section.booking-select aside.right-side abbr li.active { width:auto; font-weight:bold; color:#1D1F92; border-left:1px #ddd solid; border-right:1px #ddd solid; border-bottom:1px #fff solid; background-color:#fff;}
+section.booking-select aside.right-side abbr li b { display:block; font-weight:normal; font-size:14px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
+section.booking-select aside.right-side abbr li.active b { color:#1D1F92; font-weight:bold;}
+section.booking-select aside.right-side abbr li i { position:absolute; left:10px; top:10px; width:15px; height:4px; background:url(../images/globle/icon-map.png) left -680px no-repeat;}
+section.booking-select aside.right-side abbr li i.rt { height:11px;}
+section.booking-select aside.right-side abbr span { float:left; padding:20px 0 0 10px; font-size:12px; cursor:pointer;}
+
+section.booking-select .flight-selected {background-color:#fff; border:5px #ddd solid;}
+section.booking-select .flight-selected h2 { height:40px; line-height:40px; padding-left:30px; font-size:14px; background:url(../images/globle/icon-map.png) 10px -695px no-repeat; position:relative; border-bottom:1px #ddd solid;}
+section.booking-select .flight-selected h2 span { position:absolute; right:10px; top:0; line-height:40px; font-size:16px!important;}
+section.booking-select .flight-selected article { padding:10px 10px 10px 20px;position:relative;}
+section.booking-select #flight-selected.mt { border-top:5px #ddd solid;}
+section.booking-select #flight-selected.mt .flight-selected { border-top:none;}
+section.booking-select #flight-selected.mt .flight-selected details { height:40px;}
+section.booking-select #flight-selected.mt .flight-selected details:hover { height:auto;}
+section.booking-select .flight-selected article dl { line-height:150%; margin-bottom:5px; font-size:12px;}
+section.booking-select .flight-selected article dl b { font-size:20px;}
+section.booking-select .flight-selected article dl span { }
+section.booking-select .flight-selected article dl span.arrow { display:inline-block; width:24px; height:11px; background:url(../images/icon-map.png) left -976px no-repeat;}
+section.booking-select .flight-selected strong { display:block; width:80px; height:26px; line-height:26px; text-align:center; color:#fff; background:#303c91 url(../images/icon-map.png) right -950px no-repeat; cursor:pointer;}
+
+
+section.booking-select aside.right-side .flight-title { height:25px; line-height:20px; padding:10px 0; margin:0 20px; border-bottom:1px #ddd solid; font-size:12px; font-weight:normal;z-index:3;}
+section.booking-select aside.right-side .flight-title strong { float:left; width:420px; line-height:30px; font-size:18px; height:30px; font-weight:normal; padding:0 20px; background:url(../images/icon-map.png) left -700px no-repeat;}
+section.booking-select aside.right-side .flight-title em { float:left; margin:5px 0; font-style:normal;}
+
+section.booking-select .lowest-price { display:none; position:absolute; right:0; top:45px; width:729px; padding:10px 20px 20px; color:#666; border:1px #284284 solid; background-color:#fff; box-shadow:0 0 5px #666; cursor:default;}
+section.booking-select .lowest-price .arrow { position:absolute; width:17px; height:11px; right:20px; top:-11px; background:url(../images/booking/icon-booking.png) left -188px no-repeat;}
+section.booking-select .lowest-price .close { position:absolute; width:32px; height:32px; left:-15px; top:-15px; cursor:pointer; background:url(../images/booking/icon-booking.png) left -396px no-repeat;}
+section.booking-select .lowest-price aside.week { height:30px; line-height:30px; padding-left:92px;}
+section.booking-select .lowest-price aside.week li { float:left; width:90px; text-align:center; font-size:16px;}
+section.booking-select .lowest-price aside.date { float:left; width:90px; border:1px #ccc solid; border-right:none;box-shadow:-2px 0 5px #ccc;}
+section.booking-select .lowest-price aside.date li { background-color:#fff; height:57px; font-size:20px; padding:20px 0; text-align:center; color:#3551ba;}
+section.booking-select .lowest-price aside.date li.prev { padding:0; cursor:pointer; height:98px; background:#f8f8f8 url(../images/booking/icon-booking.png) center -200px no-repeat;}
+section.booking-select .lowest-price aside.date li.next { padding:0; cursor:pointer; height:98px; background:#f8f8f8 url(../images/booking/icon-booking.png) center -298px no-repeat;}
+section.booking-select .lowest-price aside.date li b { display:block;}
+section.booking-select .lowest-price aside.day { float:left; width:637px; border-left:1px #ccc solid; border-top:1px #ccc solid; font-size:12px;box-shadow:2px 0 5px #ccc;}
+section.booking-select .lowest-price aside.day li { float:left; width:90px; height:48px; color:#666; line-height:16px; border:1px #ccc solid; border-top:none; border-left:none; position:relative; background: -moz-linear-gradient(left, #f5f5f5, white 50%);background: -webkit-gradient(linear, 0 0, 0 50%, from(#f5f5f5), to(white)); z-index:1; cursor:pointer;}
+section.booking-select .lowest-price aside.day li a { display:block; height:40px; padding-top:8px; padding-left:8px;}
+section.booking-select .lowest-price aside.day li.holiday {background:none repeat scroll 0 0 #ffdcff;}
+section.booking-select .lowest-price aside.day li.disabled {background:none #eee; color:#999; cursor:default;}
+section.booking-select .lowest-price aside.day li.m { width:0px; padding:0; margin:0; border:0; z-index:2;}
+section.booking-select .lowest-price aside.day li.m em { position:absolute; left:-6px; top:0; background-color:#1D1F92; text-align:center;line-height: 13px; width:12px; height:43px; padding-top:5px; color:#fff; z-index:9; font-style:normal;}
+section.booking-select .lowest-price aside.day li:hover { background:none; background-color:#33529e; color:#fff;}
+section.booking-select .lowest-price aside.day li:hover a:link, section.booking-select .lowest-price aside.day li:hover a:visited, section.booking-select .lowest-price aside.day li:hover a:active { color:#fff;}
+section.booking-select .lowest-price aside.day li.disabled:hover { cursor:text;background:none repeat scroll 0 0 #ddd; color:#999;}
+section.booking-select .lowest-price aside.day li.active { background:none; background-color:#EC1623; color:#fff;}
+section.booking-select .lowest-price aside.day li.active b { color:#ffff00;}
+section.booking-select .lowest-price aside.day li i { display:block; font-weight:bold;}
+section.booking-select .lowest-price aside.day li i.dis { color:#ccc;}
+section.booking-select .lowest-price aside.day li span { position:absolute; bottom:2px; right:7px; width:45px; height:18px; line-height:16px; text-align:center; }
+section.booking-select .lowest-price aside.day li span.qkk {background:url(../images/qkk.png) left top no-repeat;cursor:pointer;}
+section.booking-select .lowest-price aside.day li span.none { width:74px; left:10px; display:block; background-color:#e6e7e7; color:#999;}
+section.booking-select .lowest-price aside.day li span a:link, section.booking-select .lowest-price aside.day li span a:visited, section.booking-select .lowest-price aside.day li span a:active { color:#1D1F92; text-decoration:none;}
+section.booking-select .lowest-price aside.day li span a:hover { text-decoration:underline;} 
+section.booking-select .lowest-price aside.day li b { position:absolute; right:7px; bottom:5px; color:#1D1F92;}
+section.booking-select .lowest-price aside.day li.rest b { color:#666666;}
+section.booking-select .lowest-price aside.day li.rest b.low { color:#EC1623;}
+section.booking-select .lowest-price aside.day li sub { position:absolute; left:30px; top:7px; color:#EC1623; font-size:12px; font-weight:bold;}
+section.booking-select .lowest-price aside.day li u { text-decoration:none; position:absolute; right:3px; top:3px; background:url(../images/bg_lowest.gif) left top no-repeat; text-align:center; width:29px; height:21px; line-height:120%; color:#fff;}
+section.booking-select .lowest-price aside.day li.lowest b { color:#515bff;}
+section.booking-select .lowest-price aside.day li.lowest { background:none; background-color:#c7dbed;}
+section.booking-select .lowest-price aside.day li.lowest:hover { background:none; background-color:#ffdcff;}
+section.booking-select .right-side .line { margin:0 20px!important; }
+
+aside.right-side .flight-section { padding:10px 20px 20px; background:url(../images/booking/bg-shadow.jpg) 570px top no-repeat; position:relative;}
+aside.right-side #flight-info .flight-section { border-top:2px transparent solid; cursor:pointer;z-index:4;}
+
+aside.right-side #flight-info .flight-section:hover { box-shadow:0 2px 5px #999;}
+aside.right-side #flight-info .flight-section.active { border-top:2px #3556a7 solid; cursor:default;}
+aside.right-side .flight-section.active .body.more { display:block;}
+aside.right-side .flight-section .head { font-size:14px;}
+aside.right-side .flight-section .head dl { height:50px;}
+aside.right-side .flight-section .head dl.trans { clear:both; text-align:center; height:auto; padding-right:210px; font-size:12px; margin-bottom:10px; color:#999;}
+aside.right-side .flight-section .head dl dt { float:left;}
+aside.right-side .flight-section .head dl dt a.no { font-size:12px;}
+aside.right-side .flight-section .head dl dd { float:right;}
+aside.right-side .flight-section .head dl dt b { font-size:22px;}
+aside.right-side .flight-section .head dl dt.icon { line-height:100%; padding:2px 2px 0 0;}
+aside.right-side .flight-section .head dl dt.left { width:150px; text-align:left;}
+aside.right-side .flight-section .head dl dt.center { width:55px; padding-top:10px; font-size:12px; text-align:center; margin:5px 10px; background:url(../images/globle/icon-map.png) left -650px no-repeat;}
+aside.right-side .flight-section .head dl dt.right { width:150px; text-align:right;}
+
+aside.right-side .flight-section .head dl dd.btn { width:160px; text-align:center; padding-top:10px; position:relative;}
+aside.right-side .flight-section .head dl dd.btn em { position:absolute; left:0; top:0; width:160px; text-align:center;}
+aside.right-side .flight-section .head dl dd.btn input { width:120px; }
+aside.right-side .flight-section .head dl dd.btn input.submit {background:url("../images/globle/loading.gif") no-repeat scroll left center / 27%;color:#000;}
+
+
+aside.right-side .flight-section .body { clear:both; padding:0 20px 0 0; color:#999;}
+aside.right-side .flight-section .body.more { display:none;}
+aside.right-side .flight-section .body em { position:absolute; left:0; top:0; width:90px;}
+aside.right-side .flight-section .body ul { clear:both; background-color:#f8f8f8; height:30px; margin:10px 0;}
+
+aside.right-side .flight-section .body li { float:left; height:25px; line-height:25px; }
+aside.right-side .flight-section .body li.c-1 { padding-right:15px; text-align:left; width:60px;}
+aside.right-side .flight-section .body li.c-2 { width:150px; text-align:right; }
+aside.right-side .flight-section .body li.c-3 { width:75px; text-align:center; }
+aside.right-side .flight-section .body li.c-4 { width:140px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;margin-left: 145px;}
+aside.right-side .flight-section .body li.c-4 a {color:#999;}
+aside.right-side .flight-section .body li.c-5 { width:85px;left: 50px;}
+aside.right-side .flight-section .body li.c-6 { width:auto;}
+aside.right-side .flight-section .body li.c-7 { float:right; text-align:center;}
+aside.right-side .flight-section .body li.c-7 .button.red, aside.right-side .flight-section .body li.c-7 .button.lightred, aside.right-side .flight-section .body li.c-7 .button.gray { width:120px;}
+aside.right-side .flight-section .body li.c-7 .button.submit {background:url("../images/globle/loading.gif") no-repeat scroll left center / 27%;color:#000;}
+
+
+aside.right-side .flight-section .expand {position:absolute; right:62px; bottom:6px; color:#1D1F92; padding-right:25px; width:auto; background:url(../images/globle/icon-map.png) right -482px no-repeat; cursor:pointer;}
+aside.right-side .flight-section .packup { display:none;position:absolute; right:68px; bottom:6px; color:#1D1F92; padding-right:25px; width:auto; background:url(../images/globle/icon-map.png) left -514px no-repeat; cursor:pointer;}
+aside.right-side .flight-section.active .expand { display:none; background-position: right -514px; }
+aside.right-side .flight-section.active .packup { display:block; background-position: right -514px;}
+
+section#btn-confirm { text-align:center; padding:50px 0;}
+section#btn-confirm.right { text-align:right;}
+section#btn-confirm input { margin:0 20px;}
+
+/*---------多目的地----------*/
+#btn_add_od_flight { float:left; margin-right:5px;}
+#btn_del_od_flight { cursor:pointer; position:absolute; left:10px; top:10px; width:11px; height:10px; background: url(../images/globle/icon-map.png) -40px -430px no-repeat;}
+#btn_reset { float:right;}
+#section_2, #section_3, #section_4 { display:none;}
+#main-area .booking-search.od dl del { position:absolute; top:0; left:1px; width:646px; height:32px; z-index:11; filter:alpha(opacity=80); -moz-opacity:0.8; opacity:0.8; background-color:#f9f9f9;}
+#main-area .booking-search.od dl.active del { display:none;}
+#main-area .booking-search.od dl .button-search, #main-area .booking-search.od dl .button-edit { display:none;}
+#main-area .booking-search.od dl.active .button-search { display:block;}
+#main-area .booking-search.od dl.active .button-edit { display:none;}
+#main-area .booking-search.od dl.editable .button-search { display:none;}
+#main-area .booking-search.od dl.editable .button-edit { display:block;}
+#main-area .booking-search.od dd.no { position:relative; border:none; font-size:18px; font-family:Arial, Helvetica, sans-serif; text-align:right; width:35px; padding-right:15px; }
+#main-area .booking-search.od dd .input { width:130px;}
+#main-area .booking-search.od dd .input.date { margin-right:2px; width:100px;}
+
+/*------旅客资料页面-------*/
+.button.skyblue { height:40px; line-height:40px; font-size:14px; font-weight:bold; background-image:none; background-color:#15A0E5;}
+.button.darkblue { height:40px; line-height:40px; font-size:14px; font-family:Microsoft Yahei; background-image:none; font-weight:bold; background-color:#7A7A7A;}
+.button.navblue { background-color: #3559A0; background-image: none;  font-size: 14px; font-weight: bold; height: 50px; line-height: 50px; padding: 0 50px; }
+#btn_passenger.darkblue { height: 50px; line-height: 50px; padding: 0 50px; }
+
+#main-area .passenger_new { position:relative; padding:0 220px 40px 0;}
+#main-area .passenger_new .info { }
+#main-area .passenger_new .info h2 { height:45px; line-height:45px; color:#666; padding:0 20px; font-size:16px;}
+#main-area .passenger_new .info .body { padding:20px; background-color:#fff;}
+#main-area .passenger_new .info .body .person {padding-left: 80px; position: relative; }
+#main-area .passenger_new .info .body .person b { left:10px; position: absolute; top:0; font-size:16px; }
+#main-area .passenger_new .info .body .person label { color: #666666; float: left; height: 25px; line-height: 25px; margin-right: 8px; text-overflow:ellipsis; overflow: hidden;  white-space: nowrap; width: 107px; }
+#main-area .passenger_new .info .body .person .onoff { position: absolute; top: 10px; right: 18px; cursor:pointer; }
+#ffp { padding: 0 10px; overflow-y:hidden; height:25px; }
+#main-area .passenger_new .info .body .box { float:left; width:320px; border:1px #dfe0e0 solid; background-color:#f9f9f9; margin:10px; padding:10px 10px 0; position:relative; overflow:hidden; }
+#main-area .passenger_new .info .body .box:hover { border-color:#D8B166; box-shadow: 0 0 1px #F1CA7E; }
+#main-area .passenger_new .info .body .box .close { position:absolute; right:5px; top:5px; line-height:100%; width:20px; height:20px; line-height:20px; font-size:14px; text-align:center; color:#333; font-style:normal; cursor:pointer;}
+#main-area .passenger_new .info .body .box .type { line-height:20px; padding:0 10px; color:#666;}
+#main-area .passenger_new .info .body .box .type b { font-size:16px; font-weight:normal; color:#35358d;}
+#main-area .passenger_new .info .body .box .type span { color:#999; padding-left:5px;}
+#main-area .passenger_new .info .body .box .type em { position:absolute; right:20px; top:10px; font-style:normal;}
+#main-area .passenger_new .info .body .row { height:30px; line-height:30px; padding:10px 0 5px;}
+#main-area .passenger_new .info .body .row .col1 { float:left; width:70px; text-align:right; padding-right:10px; font-size:14px; }
+#main-area .passenger_new .info .body .row .col1 i { color:#FF4500; }
+#main-area .passenger_new .info .body .row .col2 { float:left; width:240px; }
+#main-area .passenger_new .info .body .row .col2.infant { color:#FF4500; text-align:left; }
+#main-area .passenger_new .info .body .row .col2 .input { width:220px; font-size:14px; padding:6px;}
+#main-area .passenger_new .info .body .row .col2 .input.input_s { width:125px; }
+#main-area .passenger_new .info .body .row .col2 .input.input_p { width:80px; }
+#main-area .passenger_new .info .body .row .col2 .select { padding: 5px; width: 204px; }
+#main-area .passenger_new .info .body .row .col2 .select.select_s { width: 60px; }
+#main-area .passenger_new .info .body .row .col2 .select.select_p { width: 130px; }
+#main-area .passenger_new .info .body .row .col2 .radioSpan { margin-right:10px;}
+
+#main-area .passenger_new .info .body .box_btn { float:left; width:340px;border:1px #dfe0e0 dashed; font-size:14px; margin:10px;text-align:center;}
+#main-area .passenger_new .info .body .box_btn a:link, #main-area .passenger_new .info .body .box_btn a:visited, #main-area .passenger_new .info .body .box_btn a:active { color:#999; display:block; height:170px; padding-top:110px; background-color:#fff;}
+#main-area .passenger_new .info .body .box_btn a:hover { background-color:#f9f9f9;}
+#main-area .passenger_new .info .body .row.text { text-align:center; }
+#main-area .passenger_new .info .body .row.insurRow { height:50px; line-height:20px; }
+#main-area .passenger_new .info .body .row.insurRow select { width:135px; }
+#main-area .passenger_new .info .body .row.insurRow .txt { float:right; padding-right:20px; }
+
+#main-area .passenger_new .info.noborder h2 { border:none; background-image:none;}
+#main-area .passenger_new .info.noborder .body { border:none; background-color:transparent; color:#666; padding-top:0;}
+
+#main-area .passenger_new .infoFloat { position:absolute; left:740px; top:0; width:220px; z-index:999; }
+#main-area .passenger_new .infoFloat h2 { height:45px; line-height:45px; color:#666; padding:0 20px; font-size:16px; position:relative;}
+#main-area .passenger_new .infoFloat h2 span { position:absolute; right:20px; top:0; color:#999; font-weight:normal;}
+#main-area .passenger_new .infoFloat .body { padding:10px; }
+#main-area .passenger_new .infoFloat .body li { float:left; width:70px; padding-right:14px; margin:5px; height:30px; line-height:30px; position:relative; text-align:center; color:#35358D; background-color:#fff; border:1px #DFE0E0 solid; cursor:pointer; }
+#main-area .passenger_new .infoFloat .body li.error { background-color:rgb(150 , 15 , 15); }
+#main-area .passenger_new .infoFloat .body li i { position:absolute; right:5px; top:8px; line-height:100%; width:14px; height:14px; color:#35358D; font-style:normal; cursor:pointer;}
+#main-area .passenger_new .infoFloat .body li div { width: 62px; padding: 0 3px; text-overflow:ellipsis; overflow: hidden; white-space: nowrap; }
+#main-area .passenger_new .infoFloat .body .itext {line-height:180%; padding:5px; font-size:14px; color:#999;}
+#main-area .passenger_new .infoFloat .body .itext i {font-style:normal;}
+#main-area .passenger_new .infoFloat .body .itotal { color:#000; height:35px; padding-top:10px; font-size:14px; border-top:1px #3C5AA3 solid;}
+#main-area .passenger_new .infoFloat .body .iprice { float:right; text-align:right; color:#ff0000; font-weight:bold;}
+#main-area .passenger_new .infoFloat .body .iname { float:left;}
+#main-area .passenger_new .infoFloat .errorTip{ margin-top: 10px; padding: 10px; border: 1px solid rgb(252, 206, 146); background-color: seashell; color: #FFF5EE; }
+#main-area .passenger_new .infoFloat .errorTips b { border-bottom:1px #ccc dashed; display:block;padding-bottom:5px;margin-bottom:5px; color:#333; }
+#main-area .passenger_new .infoFloat .errorTips .itext { color:#000; line-height:25px; padding: 5px; }
+
+#main-area .passenger_new .btn_confirm { text-align:center; padding-left:220px;}
+
+.txtCenter { text-align:center; }
+
+#condition ul { margin:0 30px; }
+#condition ul li { list-style-type: disc; color:#999; }
+
+/*座位紧张提示*/
+#main-area .pSeatAlarm { margin-bottom: 10px; width: 100%; background-color: #fcce92 ; height: 25px; }
+#main-area .pSeatAlarm .text { color: #7c3f06; padding: 5px; }
+#main-area .pSeatAlarm li { float:left; }
+
+/*新select*/
+.ui_select { overflow:hidden; }
+.ui_select ul {  }
+.ui_select ul li { display:none; }
+.ui_select ul li.active { display:block; }
+#main-area .passenger_new .info .body .row .col2 .ui_select.select { width: 192px; border: 1px solid #CCCCCC; padding: 1px 0 1px 10px; height: 28px; }
+#main-area .passenger_new .info .body .row .col2 .ui_select.select ul { width: 170px; }
+
+
+/*mask*/
+.mask { position:absolute; text-align:center; color:#FFF; font-weight:bold; }
+.mask.blue { background-color:rgb(60,89,165); }
+
+
+/*换票窗口*/
+#confirmTRN { width:890px; height:115px; }
+/*---------旅客资料页面结束---------*/
+
+
+/*----------资料确认页面----------*/
+
+#content .box-new { border:1px #ccc solid;}
+#content .box-new h2 { font-size:16px; font-weight:normal; background-color:#f1f1f1; padding:0 20px; line-height:40px; border-bottom:3px #1183BC solid;}
+#content .box-new .body {}
+table.tableBox { width:100%;}
+table.tableBox thead td { text-align:center; height:30px; background-color:#efefef; border-bottom:1px #ccc solid;}
+table.tableBox tbody td { text-align:center; height:30px; padding:5px; background-color:#f7f7f7; border-bottom:1px #ccc solid;}
+table.tableBox tbody td.price { color:#FC3839; font-weight:bold; }
+#content .box-new .foot { text-align:right; padding:20px 20px 10px; background-color:#efefef;}
+#content .box-new .foot strong { color:#FC3839; font-size:18px;}
+#content .box-new .foot b { font-size:14px; font-weight:normal;}
+
+
+
+
+
+#flight_aircraft { position:absolute; left:0; top:0; width:auto; *width:530px; *+width:530px; z-index:11; }
+#flight_aircraft .arrow { width:19px; height:10px; overflow:hidden; background:url(../images/icon_map_trans.gif) -10px -1427px no-repeat; position:relative; z-index:2; margin-left:180px;}
+#flight_aircraft.no .arrow { margin-left:60px;}
+#flight_aircraft .head { height:27px; line-height:27px; padding:0 5px 0 10px; background:url(../images/bg_map.jpg) left -88px repeat-x; color:#fff; -moz-box-shadow:2px 2px 2px #666; box-shadow:2px 2px 2px #666;}
+#flight_aircraft .head b { float:left;}
+#flight_aircraft .head i { float:right; width:15px; height:15px; margin-top:5px; background:url(../images/icon_close.gif) left top no-repeat; cursor:pointer;}
+#flight_aircraft .body { padding:10px; line-height:16px; border:1px #ccc solid; background-color:#fff; position:relative; z-index:1; margin-top:-1px; -moz-box-shadow:0 0 5px #999; box-shadow:0 0 5px #999;}
+#flight_aircraft .body img { max-width:480px;}
+#flight_aircraft .body span { color:#666; padding-left:40px;}
+
+
+#main-area .order_info { border-bottom:1px #ddd solid; border-top:1px #ddd solid;}
+#main-area .order_info h2 { height:30px; line-height:28px; color:#fff; padding:0 10px; font-size:14px; background:url(../images/globle/bg_map.jpg) left top repeat-x;}
+#main-area .order_info .body { padding:10px; background-color:#fff; text-align:center; }
+#main-area .order_info .body .row { margin-top:10px; font-size:16px;}
+#main-area .order_info .body .row .col1 { float:left; width:160px; text-align:center; color:#999; font-size:14px;}
+#main-area .order_info .body .row .col2 { float:left; width:520px; color:#999; }
+#main-area .order_info .body .row .col2 b { color:#333; font-weight:normal;}
+#main-area .order_info .body .row .col3 { float:left; width:120px; text-align:center; font-weight:bold; color:#0E87B2;}
+#main-area .order_info .body .row .col4 { float:left; width:128px; text-align:center; font-size:12px;}
+#main-area .order_info .body #pk { text-align:center; color:#999; padding-top:10px; *padding-top:0; cursor:pointer;}
+#main-area .order_info .body #ex { text-align:center; color:#999; padding-top:10px; *padding-top:0; cursor:pointer;}
+#main-area .order_info .body .row1 { text-align:center; margin-top:10px; line-height:150%; font-size:16px;}
+#main-area .order_info .body .ex { display:none; }
+#main-area .order_info .body .row1 .col1 { float:left; width:145px; color:#999;}
+#main-area .order_info .body .row1 .col2 { float:left; width:260px; color:#999; }
+#main-area .order_info .body .row1 .col2 b { font-size:16px; color:#333; margin-left:5px; }
+#main-area .order_info .body .row1 .col3 { float:left; width:120px; color:#999; }
+#main-area .order_info .body .row1 .col4 { float:left; width:85px; text-align:center; font-size:12px; color:#999;}
+#main-area .order_info .body .row1 .col4 span { cursor:pointer; }
+#main-area .order_info .body .row1 .col5 { float:left; width:315px; text-align:center; font-size:12px; color:#999 }
+
+#main-area .pay { margin-top:20px;}
+#main-area .pay .title { background:#f2f2f2 url(../images/icon_pay.gif) 20px center no-repeat; padding:20px; margin-bottom:10px; padding-left:90px; line-height:150%; position:relative;}
+#main-area .pay .title b { font-size:14px; display:block; margin-bottom:5px;}
+#main-area .pay .title i { font-style:normal; color:#EC1623;}
+#main-area .pay .title span { display:block; color:#666;}
+#main-area .pay .title a:link, #main-area .pay .title a:visited, #main-area .pay .title a:active { color:#EC1623; text-decoration:underline;}
+#main-area .pay .title a:hover { text-decoration:none;}
+#main-area .pay .title_note { margin-bottom:10px; color:#EC1623; padding:20px 20px 20px 90px; line-height:150%; background:#FBECD7 url(../images/icon_paynote.gif) 20px center no-repeat;}
+#main-area .pay .title_note b { display:block; text-align:center; font-size:14px;}
+
+#main-area .pay .title .count_time { position:absolute; right:30px; top:30px; width:180px; border:1px #ccc solid; text-align:center;}
+#main-area .pay .title .count_time .n { height:20px; background-color:#f1f1f1; margin:-10px auto; width:90px;}
+#main-area .pay .title .count_time .t { color:#14A907; line-height:50px; font-size:20px; font-family:Microsoft Yahei; font-weight:bold;}
+
+#main-area .pay .promote { margin-bottom:10px;}
+#main-area .pay .promote .head { background-color:#e6e6e6; height:20px; padding:8px 10px 0; font-weight:bold;}
+#main-area .pay .promote .head span { font-weight:normal;}
+#main-area .pay .promote .body { border:2px #e6e6e6 solid; border-top:0; padding:20px;}
+#main-area .pay .promote .body .list { padding:0 20px 10px; border-bottom:1px #ccc solid; margin-bottom:10px;}
+#main-area .pay .promote .body .list li { height:20px; line-height:20px; color:#666;}
+#main-area .pay .promote .body .list li b { color:#EC1623;}
+#main-area .pay .promote .body .list a:link, #main-area .pay .promote .body .list a:visited, #main-area .pay .promote .body .list a:active { color:#666; text-decoration:underline;}
+#main-area .pay .promote .body .flight { margin-bottom:10px; line-height:150%; padding:0 20px 0 60px; background:url(../images/icon_flight.gif) left center no-repeat;}
+#main-area .pay .promote .body .flight b { display:block; font-size:14px;}
+
+#main-area .pay .promote .body .row { height:30px;}
+#main-area .pay .promote .body .row .col1 { float:left; width:150px; text-align:right; padding-top:4px; _padding-top:8px;}
+#main-area .pay .promote .body .row .col2 { float:left; width:300px;}
+#main-area .pay .promote .body .row .col2 .input { width:220px;} 
+#main-area .pay .promote .body .row a:link, #main-area .pay .promote .body .row a:visited, #main-area .pay .promote .body .row a:active { text-decoration:underline; color:#EC1623;}
+#main-area .pay .calculate { float:right; font-size:14px; font-weight:bold; _width:280px;}
+#main-area .pay .calculate li { padding-left:20px; height:20px; line-height:20px;}
+#main-area .pay .calculate li em { float:left; width:100px; text-align:right; font-style:normal;}
+#main-area .pay .calculate li b { float:right; text-align:right; color:#EC1623;}
+#main-area .pay .calculate li b.f16 { font-size:16px;}
+#main-area .pay .calculate span { clear:both; display:block; text-align:right; font-weight:normal; font-size:12px; border-top:2px #EC1623 solid; margin-top:5px; padding-top:10px;}
+#main-area .pay .calculate span .input { width:105px; margin-bottom:5px;}
+
+#main-area .pay .payment { margin-top:15px; margin-bottom:10px;}
+#main-area .pay .payment .head { height:28px; padding-left:330px; position:relative;}
+#main-area .pay .payment .head b { position:absolute; top:15px; left:80px; text-align:center; padding:0 5px; font-family:Microsoft Yahei; background-color:#fff; height:30px; line-height:30px; font-size:24px; font-weight:normal;}
+#main-area .pay .payment .head span { position:absolute; top:5px; right:0; color:#666;}
+#main-area .pay .payment .head span a:link, #main-area .pay .payment .head span a:visited, #main-area .pay .payment .head span a:active { color:#1D1F92; text-decoration:none;}
+#main-area .pay .payment .head span a:hover { text-decoration:underline;}
+
+#main-area .pay .payment .head li { float:left; font-size:14px; height:26px; _height:28px; line-height:26px; _line-height:30px; overflow:hidden; width:120px; margin:0 1px; background-color:#D9E6F6; text-align:center; cursor:pointer; color:#1D1F92;}
+#main-area .pay .payment .head li.active { color:#fff; margin-top:-5px; margin-bottom:2px; _margin-bottom:0; height:35px; line-height:35px; _line-height:40px; font-weight:bold; background-color:#A9CAEB;}
+#main-area .pay .line { height:1px; overflow:hidden; margin-bottom:10px; border-bottom:1px #ccc solid;}
+#main-area .pay .payment .body { border:2px #A9CAEB solid; border-top-width:4px; padding:30px 20px 10px;}
+#main-area .pay .payment .quick { padding-bottom:10px;}
+#main-area .pay .payment .quick img { border:1px #ccc solid; margin-right:20px;}
+#main-area .pay .payment .quick .input { width:100px;}
+#main-area .pay .payment .quick .other { font-size:14px; color:#1D1F92; padding-right:20px; background:url(../images/icon_map_trans.gif) right -1192px no-repeat; cursor:pointer;}
+#main-area .pay .payment .input_row { background-color:#d9e6f7; padding:10px; float:left; margin-left:20px; display:inline; color:#1D1F92;}
+#main-area .pay .payment .input_row .input { width:228px;}
+#main-area .pay .payment .bank {}
+#main-area .pay .payment .bank b { display:block; margin-bottom:10px; line-height:150%;}
+#main-area .pay .payment .bank b span { font-weight:normal; color:#666;}
+#main-area .pay .payment .bank li { float:left; width:20%; height:42px; margin-bottom:10px; position:relative;}
+#main-area .pay .payment .bank li i { position:absolute; right:10px; top:-10px; width:22px; height:20px; background:url(../images/icon_map_trans.gif) left -1005px no-repeat;}
+#main-area .pay .payment .bank img { border:1px #ccc solid;}
+#main-area .pay .payment .bank img.selected { border:1px red solid;}
+#main-area .pay .payment .pay_note { margin-bottom:20px;}
+#main-area .pay .payment a:link, #main-area .pay .payment a:visited, #main-area .pay .payment a:active { color:#EC1623; text-decoration:underline;}
+#main-area .pay .payment a:hover { text-decoration:none;}
+#main-area .pay #otherPay { display:none;}
+
+#main-area .pay .pay_flight_info { padding:10px 70px; background:url(../images/icon_flight.gif) left center no-repeat; font-size:14px;}
+#main-area .pay .pay_flight_info .row { margin:5px 0; line-height:150%;}
+#main-area .pay .pay_flight_info .row .col { float:left; color:#666;}
+#main-area .pay .pay_flight_info .row .col u { text-decoration:line-through; color:#999;}
+#main-area .pay .pay_flight_info .row .col i { font-style:normal; color:#EC1623;}
+
+#main-area .pay .cost { text-align:center; padding-top:20px; font-size:14px; font-weight:bold;}
+#main-area .pay .cost i { color:#EC1623; font-style:normal; font-size:16px;}
+#main-area .pay .box .head { height:26px;}
+#main-area .pay .box .body { padding:0;}
+
+#main-area .done { padding-top:10px;}
+#main-area .done b{font-size:12px; color:#666; margin-bottom:5px;line-height: 30px;}
+#main-area .done .head { background:#f2f2f2 url(../images/icon_success.gif) 325px 23px no-repeat; padding:20px; padding-left:100px; margin-bottom:20px; line-height:150%;}
+#main-area .done .head.fail { background:#f2f2f2 url(../images/icon_fail.gif) 40px center no-repeat;}
+#main-area .done .head h1 { font-size:16px; color:#0CB303; font-family:Microsoft Yahei; margin-bottom:5px; padding-left: 280px; line-height:38px;}
+#main-area .done .head h1 span { font-size:14px; color:#333;}
+#main-area .done .head.fail h1 { color:#EC1623;}
+#main-area .done .head h2 { font-weight:normal; font-size:12px;}
+#main-area .done .head h2 input{margin-top:15px; margin-left: 300px;}
+#main-area .done .head h2 i { color:#EC1623; font-style:normal; font-weight:bold;}
+#main-area .done .head a:link, #main-area .done .head a:visited, #main-area .done .head a:active { text-decoration:underline; color:#666;}
+#main-area .done .head a:hover { text-decoration:none; color:#333;}
+#main-area .done .body { padding:10px 0 30px 100px; border-bottom:1px #ccc solid; margin-bottom:20px;}
+#main-area .done .body b { float:left; font-size:14px;}
+#main-area .done .body ul { float:left; width:240px;}
+#main-area .done .body li { position:relative; height:25px; line-height:25px; padding-left:25px; font-weight:bold; background:url(../images/icon_map_trans.gif) left -855px no-repeat;}
+#main-area .done .body li.e2 { background-position:left -880px;}
+#main-area .done .body li.e3 { background-position:left -905px;}
+#main-area .done .body li.e4 { background-position:left -930px;}
+#main-area .done .body li.e5 { background-position:left -955px;}
+#main-area .done .body li.e6 { background-position:left -980px;}
+#main-area .done .body li a:link, #main-area .done .body li a:visited, #main-area .done .body li a:active { color:#EC1623; text-decoration:underline;}
+#main-area .done .body li a:hover { text-decoration:none;}
+#main-area .done .body li span { display:none; position:absolute; top:20px; left:25px;}
+#main-area .done .body li span .input { width:140px;}
+#main-area .done .body li span .button { width:50px;}
+
+#main-area .extra {}
+#main-area .extra .head { height:60px; line-height:65px; color:#666; font-size:20px; padding-left:70px; font-weight:bold; background:url(../images/bg_extra_title.gif) left top no-repeat;font-family:Microsoft Yahei; margin-bottom:10px;}
+#main-area .extra .body {}
+#main-area .extra .body .box { border:1px #82B0E4 solid; margin-bottom:20px;}
+#main-area .extra .body .box h1 { font-weight:normal; height:30px; line-height:25px; padding:0 10px; background-color:#ADCAEC;}
+#main-area .extra .body .box h1 b { float:left; width:165px; height:26px; margin-top:3px; border:1px #8F9CAD solid; border-bottom:none; color:#004492; text-align:center; font-size:14px; background:url(../images/bg_map.jpg) left -1153px repeat-x;}
+#main-area .extra .body .box h1 span { float:right; padding-top:3px;}
+#main-area .extra .body .box.color2 { border:1px #fbde77 solid;}
+#main-area .extra .body .box.color2 h1 { background-color:#fce69a;}
+#main-area .extra .body .box.color2 h1 b { border:1px #FAD759 solid; border-bottom:none; color:#9E7A02; background-position:left -1179px;}
+#main-area .extra .body .box.color3 { border:1px #99bee9 solid;}
+#main-area .extra .body .box.color3 h1 { background-color:#bcd4f0;}
+#main-area .extra .body .box.color3 h1 b { border:1px #82B0E4 solid; border-bottom:none; color:#01737E; background-position:left -1205px;}
+
+#main-area .extra .body .box h2 { font-weight:normal; padding:10px;}
+#main-area .extra .body .box h2 li { float:left; width:100px; height:105px; padding:10px 10px 10px 160px; margin:10px 26px; display:inline; color:#666; background-color:#eee; position:relative; line-height:160%;}
+#main-area .extra .body .box h2 li i { position:absolute; left:10px; top:10px;}
+#main-area .extra .body .box h2 li b { color:#333;}
+#main-area .extra .body .box h2 li span { color:#EC1623; font-weight:bold;}
+#main-area .extra .body .box h2 li .button { margin-top:4px;}
+#main-area .extra .body .box h3 { font-weight:normal; padding:10px;}
+#main-area .extra .body .box h3 { font-weight:normal; padding:10px;}
+#main-area .extra .body .box h3 li { border-right: 1px solid #CCCCCC;color: #666666;display: inline;float: left;line-height: 160%;margin: 5px 10px 5px 5px;padding-left: 110px;position: relative;width: 200px;}
+#main-area .extra .body .box h3 li.last{margin-right: 0px; border-right: medium none;}
+#main-area .extra .body .box h3 li i { position:absolute; left:0; top:0; width:102px; font-style:normal; text-align:center; color:#34529A;}
+#main-area .extra .body .box h3 li i em { font-size:14px; font-style:normal;}
+#main-area .extra .body .box h3 li i u { color:#999; text-decoration:none;}
+#main-area .extra .body .box h3 li b { display:block; background:url(../images/icon_prize.gif) left center no-repeat; color:#0053A9; font-size:14px;}
+#main-area .extra .body .box h3 li span { color:#EC1623; font-weight:bold;}
+#main-area .extra .body .box h3 li .button { margin-top:4px;}
+#main-area .extra .body .box h3 .promote { float:right; width:208px;}
+#main-area .extra .body .box h3 .promote b { float:left; width:20px; height:110px; padding-top:10px; font-weight:normal; color:#CB3304; text-align:center; background:url(../images/bg_map.jpg) left -1231px repeat-x;}
+#main-area .extra .body .box h3 .promote span { float:left; width:178px; padding-left:10px; line-height:200%;}
+#main-area .extra .body .box h4 { font-weight:normal; padding:10px;}
+#main-area .extra .body .box h4 li { float:left; width:170px; padding-left:200px; margin:5px; display:inline; color:#EC1623; position:relative; line-height:160%;}
+#main-area .extra .body .box h4 li i { position:absolute; left:0; top:0; width:102px; font-style:normal; text-align:center; color:#34529A;}
+#main-area .extra .body .box h4 li i em { font-size:14px; font-style:normal;}
+#main-area .extra .body .box h4 li i u { color:#999; text-decoration:none;}
+#main-area .extra .body .box h4 li b { color:#333;}
+#main-area .extra .body .box h4 li span { color:#EC1623; font-weight:bold;}
+#main-area .extra .body .box h4 li .button { margin-top:4px;}
+#main-area .extra .body .box h4 .promote { float:right; width:208px;}
+#main-area .extra .body .box h4 .promote b { float:left; width:20px; height:110px; padding-top:10px; font-weight:normal; color:#01717D; text-align:center; background:url(../images/bg_map.jpg) left -1371px repeat-x;}
+#main-area .extra .body .box h4 .promote span { float:left; width:178px; padding-left:10px; line-height:160%;}
+#main-area .extra .body .box h4 .promote span i { color:#EC1623; font-style:normal;}
+
+#flight_booking_ajax { height:400px; overflow:hidden;}
+#flight_booking_ajax.auto { height:auto;}
+
+#main-area .waiting { padding-top:40px; margin-bottom:25px; text-align:center; font-weight:bold; color:#000;}
+#main-area .waiting img { margin:10px 0;}
+
+#main-area .search_fail { margin:50px auto; width:660px; padding:20px; background-color:#FBECD7;}
+#main-area .search_fail h1 { font-size:18px; height:35px; line-height:35px; padding-left:40px; background:url(../images/icon_fail.gif) left center no-repeat;}
+#main-area .search_fail h2 { font-weight:normal; line-height:30px; margin-bottom:20px; padding-left:40px;}
+#main-area .search_fail h3 { font-weight:normal;}
+#main-area .search_fail a:link, #main-area .search_fail a:visited, #main-area .search_fail a:active { color:#EC1623;} 
+#main-area .search_fail a:hover { text-decoration:underline;}
+
+#pay_popup { z-index:99999; position:fixed; width:500px; top:0; left:0; padding:40px 100px; border:3px #e6e6e6 solid; background-color:#fff;}
+*html #pay_popup{position:absolute;top:expression(eval(document.documentElement.scrollTop));}
+#pay_popup i { position:absolute; left:70px; left:50px; width:32px; height:32px; background:url(../images/icon_fail.gif) left center no-repeat;}
+#pay_popup h1 { color:#E7002E; font-size:20px;font-family:Microsoft Yahei; margin-bottom:5px;}
+#pay_popup h2 { border-top:1px #ccc solid; border-bottom:1px #ccc solid; padding:10px 0; margin-bottom:20px; color:#666; font-size:14px;}
+#pay_popup a:link, #pay_popup a:visited, #pay_popup a:active { font-size:14px; color:#0CB303; font-weight:bold; text-decoration:underline;} 
+#pay_popup u { position:absolute; right:10px; top:10px; width:24px; height:24px; cursor:pointer; background:url(../images/icon_map.gif) left -1066px no-repeat;}
+#pay_popup u:hover { background-position:left -1090px;}
+
+#shift { position:fixed; bottom:0; right:0; width:30px; height:30px; background:url(../images/icon_map.gif) left -1114px no-repeat; cursor:pointer; display:none;}
+#shift:hover { background-position:-30px -1114px;}
+
+.ticket_recommend { width:945px; margin-bottom:10px; display: none;}
+.ticket_recommend .head { height:30px; line-height:30px; position:relative;}
+.ticket_recommend .head b { height:30px; font-size:14px; padding:0 40px; background:url(../images/icon_plane.gif) left center no-repeat;}
+.ticket_recommend .head span { position:absolute; right:0; top:0;}
+.ticket_recommend .head a:link, .ticket_recommend .head a:visited, .ticket_recommend .head a:active { color:#999; text-decoration:none;}
+.ticket_recommend .head a:hover { text-decoration:underline; color:#666;} 
+.ticket_recommend .body { border:1px #ccc solid; border-right:none;}
+.ticket_recommend .body li { float:left; cursor:pointer; width:117px; height:65px; padding-top:5px; line-height:20px; text-align:center; border-right:1px #ccc solid; color:#666;}
+.ticket_recommend .body li.hover { background-color:#EC1623; color:#fff;}
+.ticket_recommend .body li span { display:block;}
+.ticket_recommend .body li b { display:block; font-size:14px; color:#EC1623;}
+.ticket_recommend .body li.hover b { color:#fff;}
+.ticket_recommend .body li i { display:block; font-style:normal;}
+.ticket_recommend .body li a:link, .ticket_recommend .body li a:visited, .ticket_recommend .body li a:active { color:#666; text-decoration:none;}
+.ticket_recommend .body li.hover a:link, .ticket_recommend .body li.hover a:visited, .ticket_recommend .body li.hover a:active { color:#fff;}
+.ticket_recommend .body li a:hover { text-decoration:underline;}
+#layerIframe {display:none;}
+input.button.orange.long {}
+
+/*赠票人旅客资料广告*/
+#main-area .flight_info .mastercard-info { width:695px; height:70px; padding:43px 0 18px 255px; text-align:left; background:url(http://easternmiles.ceair.com/resource2/images/booking/bg_mastercard.jpg) left top no-repeat; text-align:center;}
+#main-area .flight_info .Uplus-info { width:695px; height:70px; padding:43px 0 18px 255px; text-align:left; background:url(http://easternmiles.ceair.com/resource2/images/booking/bg_Uplus.jpg) left top no-repeat; text-align:center;}
+#main-area .flight_info .DOMWSD-info { width:695px; height:70px; padding:43px 0 18px 255px; text-align:left; background:url(http://easternmiles.ceair.com/resource2/images/booking/bg_domwsd.jpg) left top no-repeat; text-align:center;}
+#main-area .flight_info .QLTP-info { width:695px; height:70px; padding:43px 0 18px 255px; text-align:left; background:url(http://easternmiles.ceair.com/resource2/images/booking/bg_QLTP.jpg) left top no-repeat; text-align:center;}
+#main-area .flight_info .spring_sf-info { width:695px; height:70px; padding:43px 0 18px 255px; text-align:left; background:url(http://easternmiles.ceair.com/resource2/images/booking/bg_spring_sf.jpg) left top no-repeat; text-align:center;}
+#main-area .flight_info .spring_myzy-info { width:695px; height:70px; padding:43px 0 18px 255px; text-align:left; background:url(http://easternmiles.ceair.com/resource2/images/booking/bg_spring_myzy.jpg) left top no-repeat; text-align:center;}
+/*套票*/
+#main-area .done.taopiao h2 { text-align:center; font-size:30px; margin-bottom:20px; font-family:Microsoft Yahei; font-weight:normal;}
+#main-area .done.taopiao .text { padding:20px; line-height:180%;}
+#main-area .done.taopiao .text strong { display:block; font-size:14px;}
+
+
+
+/*-----------支付完成-----------*/
+hgroup#done {}
+hgroup#done section.basic { background:url(../images/booking/bg-done-basic.png) right bottom no-repeat; padding:20px; margin-bottom:20px; box-shadow:-3px -3px 3px #aaa; position:relative;}
+hgroup#done section.basic .note { position:absolute; width:30px; height:32px; right:10px; top:10px; background:url(../images/globle/icon-map.png) -70px -1110px no-repeat;}
+hgroup#done section.basic .left { float:left; width:680px; color:#666; background:url(../images/booking/bg-done.jpg) right bottom no-repeat;}
+hgroup#done section.basic .right { float:right; width:250px;color:#666;}
+hgroup#done section.basic .left .title { width:520px; padding:15px 10px 10px 120px; background-color:#fff; position:relative;}
+hgroup#done section.basic .left .title i { position:absolute; left:81px; top:19px; width:30px; height:30px; background:url(../images/globle/icon-map.png) -30px -1362px no-repeat;}
+#waiting { position:absolute; left:81px; top:55px; width:30px; height:30px; background:url(../images/globle/icon-map.png) 0px -1362px no-repeat;}
+#ok { position:absolute; left:81px; top:65px; width:30px; height:30px; background:url(../images/globle/icon-map.png) -30px -1362px no-repeat;}
+#failed { position:absolute; left:81px; top:65px; width:30px; height:30px; background:url(../images/globle/icon-map.png) -60px -1362px no-repeat;}
+hgroup#done section.basic .left .title h2 { font-size:26px; margin-bottom:10px;}
+hgroup#done section.basic .left .info { padding:20px 10px 0 120px;}
+hgroup#done section.basic .left .info b { font-size:14px;}
+
+hgroup#done section.extra { background-color:#f2eff4; padding-bottom:20px; box-shadow:0 0 5px #aaa;}
+hgroup#done section.extra .share { margin:0 auto; width:680px; padding:20px 0;}
+hgroup#done section.extra .share ul { float:left;}
+hgroup#done section.extra .share ul li { float:left; width:50px; height:20px; line-height:20px; margin-right:20px; padding-top:50px; text-align:center; background:url(../images/globle/icon-map.png) left -1200px no-repeat; color:#999; cursor:pointer;}
+hgroup#done section.extra .share ul li.sina { background-position: left -1200px;}
+hgroup#done section.extra .share ul li.tencent { background-position: -50px -1200px;}
+hgroup#done section.extra .share ul li.mail { background-position: -100px -1200px;}
+hgroup#done section.extra .share ul li.sina:hover, hgroup#done section.extra .share ul li.sina.active { background-position: left -1270px; color:#6484CB;}
+hgroup#done section.extra .share ul li.tencent:hover, hgroup#done section.extra .share ul li.tencent.active { background-position: -50px -1270px; color:#6484CB;}
+hgroup#done section.extra .share ul li.mail:hover, hgroup#done section.extra .share ul li.mail.active { background-position: -100px -1270px; color:#6484CB;}
+hgroup#done section.extra .share .btn-share { float:left; width:106px; height:73px; margin-left:-1px; border:none; color:#fff; font-size:16px; font-weight:bold; background:url(../images/booking/button-blue.gif) left top no-repeat; cursor:pointer;}
+hgroup#done section.extra .share .enterShare {height:61px;float:left;width:320px;}
+hgroup#done section.extra .share .email {height:20px;border:1px solid #ddd;float:left;color:#666;width:180px;}
+
+hgroup#done section.extra .share .textarea { float:left; width:325px; height:61px; margin:0; border:1px #ddd solid; color:#666;resize:none;}
+hgroup#done section.extra .share .taEmail { float:left; width:325px; height:35px; margin:2px 0 0; border:1px #ddd solid; color:#666;resize:none;}
+
+hgroup#done section.extra .list { background:#fff url(../images/booking/bg-done-list.gif) 50px center no-repeat; min-height:110px; padding:30px 300px 20px 220px; position:relative;}
+hgroup#done section.extra .list .erweima { position:absolute; right:20px; top:20px; min-height:71px; font-size:14px; background-color:#f8f8f8; padding:30px 20px 20px 110px;}
+hgroup#done section.extra .list .erweima i { position:absolute; left:20px; top:20px;}
+hgroup#done section.extra .list .erweima b { display:block; margin-bottom:10px; font-size:20px; color:#6061a1;}
+hgroup#done section.extra .list p { padding:30px 0 0 30px;}
+hgroup#done section.extra .list p span { margin-right:20px;}
+.button-cart { width:114px; height:31px; padding-left:25px; color:#fff; border:none; background:url(../images/booking/btn-share.gif) left center no-repeat; cursor:pointer;}
+hgroup#done section.extra figure.recommend { padding:20px 40px;background-color: #fff;}
+hgroup#done section.extra figure.recommend figcaption { height:30px; line-height:30px; position:relative; font-size:16px; color:#999;}
+hgroup#done section.extra figure.recommend figcaption span { position:absolute; right:0; top:0; font-size:12px;}
+hgroup#done section.extra figure.recommend ul { border-left:1px #ddd solid; height:75px;}
+hgroup#done section.extra figure.recommend ul li { float:left; width:150px; height:63px; padding-top:10px; border:1px #ddd solid; border-left:none; background-color:#fff; text-align:center;}
+hgroup#done section.extra figure.recommend ul li:hover { box-shadow:0 0 5px #ccc; background-color:#f5f5f5;}
+hgroup#done section.extra figure.recommend ul li b { display:block; font-size:14px; margin-bottom:2px;}
+hgroup#done section.extra figure.recommend ol { border-left:1px #ddd solid; height:105px;}
+hgroup#done section.extra figure.recommend ol li { float:left; width:150px; height:104px;border:1px #ddd solid; border-left:none; background-color:#fff; text-align:center;}
+hgroup#done section.extra figure.recommend ol li:hover { box-shadow:0 0 5px #999; background-color:#f5f5f5;}
+hgroup#done section.extra figure.recommend ol li img { width:150px; height:82px;}
+hgroup#done section.extra figure.recommend ol li b { display:block; height:22px; line-height:22px; font-weight:normal; background-color:#465fa0; color:#fff; font-size:12px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
+
+
+/**隐藏**/
+.none { display:none; }
+
+/**removeLayer**/
+.removeLayer { width:100%;height:100%;position:fixed;background-color:#999;opacity:0.2;filter:alpha(opacity=20);-moz-opacity:0.2;z-index:11;top:0;left:0;}

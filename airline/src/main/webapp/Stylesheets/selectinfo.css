@@ -1,0 +1,63 @@
+@charset "utf-8";
+
+/*常用联系人选择*/
+.select_results {padding:10px 10px 20px;border: 1px #ccc solid;background-color:#fff;position: absolute;font-size: 12px;overflow:hidden;z-index:10;}
+.select_results ul {width: 100%;list-style-position: outside;list-style: none;padding: 0;margin: 0;}
+.select_results_iframe {position: absolute;overflow:hidden;}
+.select_results iframe {overflow: hidden;position: absolute;z-index:1;}
+.select_results .list {float:left;overflow-y: auto;overflow-x: hidden;width:100%;}
+.select_results ul {width:100%;#width:94%;}
+.select_results li {padding: 0px 1px;cursor: pointer;overflow: hidden;text-align:right;line-height:18px;height:18px;}
+.select_results li span {float: left; font-size:12px}
+.select_results .select_over {background-color: highlight;color: highlighttext;}
+.select_results .select {border-bottom: 1px dashed #AAAAAA;color: #666666;display: block;line-height: 20px;margin-bottom:5px;padding: 0 0 5px 5px;border-top:none;border-left:none;border-right:none;}
+.select_results .tips {background:#F8F8F8;color: #000;font-size: 12px; font-family:Arial, Helvetica, sans-serif;font-weight: bold;height: 23px;line-height: 23px;margin-bottom: 5px;}
+.select_results .hotCity {float: left;width:100%;border: none; }
+.select_results .hotCity .city {float: left;width: 100%;border-bottom: 1px dashed #AAAAAA;margin-top:5px;padding-bottom:5px;}
+.select_results .hotCity .city li{display:inline;}
+.select_results .hotCity .title{color:#0FA600;float:left;width: 100%;border-bottom: 1px dashed #AAAAAA;margin-top:5px;padding-bottom:5px;}
+.select_results .hotCity li {width: 24%;float: left;text-align:left;}
+.select_results span.tcClose{display:inline-block; cursor:pointer; position:absolute; width:12px; height:12px; right:8px; top:8px; background: url(../images/tcClose.gif) no-repeat;}
+.num{/* position:absolute; right:10px; bottom:10px; height:18px;*/}
+.num li{float:left;display:inline;margin-left: 3px;color:#000;text-align:center;line-height:20px;font-weight:bold; width:20px;height:20px;font-size:11px;
+cursor:pointer;overflow:hidden;margin:0 2px; background-color:#fff; filter:alpha(opacity=80); moz-opacity:0.8; opacity:0.8;}
+.num li.on{color:#fff;background-color:#3399FE;filter:alpha(opacity=100); -moz-opacity:1.0; opacity:1.0;}
+.num li.on2{color:#fff;background-color:#CC0000;filter:alpha(opacity=100); -moz-opacity:1.0; opacity:1.0;}
+
+/*城市选择*/
+.city_box { /*z-index:100;*/ display: inline-block; padding-right: 0px !important; }
+.city_box i { position: absolute; right: 2px; top: 2px; *top: 4px;*+ top: 4px;width: 20px; height: 17px; background: url(../images/icon_city.gif) top left no-repeat; cursor: pointer; }
+.city_box #city_fields { position: absolute; top: 22px; left: 0; width: 342px; background-color: #fff; z-index: 99; }
+#iframe_ie6 { position: absolute; top: 22px; left: 0; width: 342px; background-color: #fff; z-index: 98; }
+#city_fields { border: 1px #164DA0 solid; background-color: #fff; position: absolute; left: 0; top: 0; font-size: 12px; overflow: hidden; width: 320px; font-family: Verdana, Arial, Helvetica, sans-serif; -moz-box-shadow: 2px 2px 5px #333; -webkit-box-shadow: 2px 2px 5px #333; }
+#city_fields ul { width: 100%; list-style-position: outside; list-style: none; padding: 0; margin: 0; }
+#city_fields_iframe { position: absolute; overflow: hidden; }
+#city_fields iframe { overflow: hidden; position: absolute; z-index: 1; }
+#city_fields .list { overflow-y: auto; overflow-x: hidden; }
+#city_fields ul { width: 100%; }
+#city_fields li { cursor: pointer; font: menu; overflow: hidden; text-align: left; }
+#city_fields li span { }
+#city_fields .select_over { background-color: #00B7EC; color: #fff; }
+#city_fields .select { background: #EDF5FF; color: #666; font-size: 12px; height: 23px; line-height: 23px; margin-bottom: 5px; padding: 0 5px; }
+#city_fields .tips { background: #67A1E2; color: #fff; font-size: 12px; height: 23px; line-height: 23px; margin-bottom: 5px; padding: 0 5px; position: relative; display: none; }
+#city_fields .tips span { position: absolute; right: 4px; top: 4px; background: url(../images/icon_city_close.gif) left top no-repeat; width: 15px; height: 15px; cursor: pointer; }
+#city_fields .type { }
+#city_fields .type ul { margin: 0; padding: 0; }
+#city_fields .type li { float: left; width: 50%; text-align: center; height: 24px !important; line-height: 24px !important; padding: 0 !important; color: #fff; background: url(../images/type_active.jpg) top center repeat-x; }
+#city_fields .type li.active { color: #fff; background: none; background-color: #fff; color: #333; }
+#city_fields .hotCity { padding: 10px; }
+#city_fields .hotCity .city { margin-top: 5px; padding-bottom: 5px; display: none; }
+#city_fields #domestic_city .hotCity .city li { display: inline; width: 18%; float: left; text-align: left; padding: 1px; overflow: hidden; height: 18px; line-height: 18px; border: 1px solid #fff; color: #333; }
+#city_fields #domestic_city .hotCity .city li span { color: #333; }
+#city_fields #inter_city .hotCity .city li { display: inline; width: 23%; float: left; text-align: left; padding: 2px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; height: 18px; border: 1px solid #fff; }
+#city_fields .hotCity .city li.hover { background-color: #EDF5FF; border: 1px solid #47ADF3 !important; }
+#city_fields #inter_city .hotCity .city.long li { height: auto; }
+#city_fields .hotCity .title { }
+#city_fields .hotCity .city_body { background-color: #fff; position: relative; z-index: 1; margin-top: -1px; }
+#city_fields .hotCity .title .col { float: left; height: 16px; border: 1px #fff solid; line-height: 16px; width: auto; padding: 0 6px; display: inline; cursor: pointer; color: #164DA0; }
+#city_fields .hotCity .title .col.active { border: 1px #67A1E2 solid; background-color: #fff; color: #164DA0; }
+#inter_city .hotCity .title .col { padding: 0 16px; }
+/* 新添加的样式 */
+#searchDiv { overflow-y: auto; overflow-x: hidden; height: 200px; width:200px;}
+#searchDiv li { height: 20px !important; line-height: 20px !important; padding: 0px; color: #0055AA !important; padding: 0 10px; }
+#searchDiv li.hover { background-color: #EDF5FF; }

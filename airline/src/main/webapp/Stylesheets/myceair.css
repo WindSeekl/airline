@@ -1,0 +1,303 @@
+@charset "utf-8";
+.myceair {}
+.myceair .left .home { position:absolute; width:41px; height:41px; left:0; top:0; background:url(../images/myceair/icon_myceair_home.gif) left top no-repeat; }
+.myceair .left { position:relative; float:left; width:168px; padding:5px; margin-bottom:20px; border:1px #ccc solid; background-color:#fcfcfc; }
+.myceair .right { float:left; width:760px; padding-left:10px; margin-bottom:20px; }
+.myceair .left .head { text-align:center; padding:10px 0; }
+.myceair .left .menu {}
+.myceair .left .menu a:link, .myceair .left .menu a:visited, .myceair .left .menu a:active { display:block; height:50px; line-height:50px; margin:5px 0; padding-left:70px; color:#082355; text-shadow: rgba(255, 255, 255, 1) 0px 1px 0px; background:url(../images/bg_menu_myceair.jpg) left top no-repeat; }
+.myceair .left .menu a:hover, .myceair .left .menu.current a { color:#fff; text-shadow: rgba(0, 0, 0, 1) 0px 1px 0px; text-decoration:none;}
+.myceair .left .menu.m1 a { background-position:left top;}
+.myceair .left .menu.m1 a:hover, .myceair .left .menu.m1.current a { background-position:-170px top;}
+.myceair .left .menu.m2 a { background-position:left -50px;}
+.myceair .left .menu.m2 a:hover, .myceair .left .menu.m2.current a { background-position:-170px -50px;}
+.myceair .left .menu.m3 a { background-position:left -100px;}
+.myceair .left .menu.m3 a:hover { background-position:-170px -100px;}
+.myceair .left .menu.m4 a { background-position:left -150px;}
+.myceair .left .menu.m4 a:hover, .myceair .left .menu.m4.current a { background-position:-170px -150px;}
+.myceair .left .menu.m5 a, .myceair .left .menu.m5.current a { background-position:left -200px;}
+.myceair .left .menu.m5 a:hover, .myceair .left .menu.m5.current a { background-position:-170px -200px;}
+.myceair .left .menu.m6 a { background-position:left -250px;}
+.myceair .left .menu.m6 a:hover { background-position:-170px -250px;}
+.myceair .left .menu.m7 a { background-position:left -300px;}
+.myceair .left .menu.m7 a:hover,.myceair .left .menu.m7.current a { background-position:-170px -300px;}
+.myceair .left .menu.m8 a { background-position:left -350px;}
+.myceair .left .menu.m8 a:hover { background-position:-170px -350px;}
+.myceair .left .menu.m9 a { background-position:left -400px;}
+.myceair .left .menu.m9 a:hover,.myceair .left .menu.m9.current a { background-position:-170px -400px;}
+.myceair .left .menu.m10 a { background-position:left -450px;}
+.myceair .left .menu.m10 a:hover { background-position:-170px -450px;}
+.myceair .left .menu.m11 a { background-position:left -500px;}
+.myceair .left .menu.m11 a:hover, .myceair .left .menu.m11.current a { background-position:-170px -500px;}
+.myceair .left .menu.m12 a { background-position:left -550px;}
+.myceair .left .menu.m12 a:hover, .myceair .left .menu.m12.current a { background-position:-170px -550px;}
+
+.myceair .child { padding:0 10px;}
+.myceair .child a { float:left; width:50%; margin:4px 0;}
+
+.myceair .list { padding:0 5px;}
+.myceair .list li { margin:5px 0 5px 10px; list-style:square;}
+
+.myceair .userinfo { border:1px #ccc solid; background-color:#fff; margin-bottom:20px;}
+.myceair .userinfo .head { padding:10px;position: relative;}
+.myceair .userinfo .head span.blue { position:absolute; right:10px; top:5px;}
+.myceair .userinfo .body { padding:10px; position:relative;}
+.myceair .userinfo .body span.blue { position:absolute; right:20px; top:0;}
+.myceair .userinfo .foot { background-color:#f0f0f0; height:30px; line-height:30px; text-align:right; padding:0 10px; position:relative;}
+.myceair .userinfo .foot span { position:absolute; left:10px; top:0;}
+
+
+
+#main-area .my_travel {}
+#main-area .my_travel .title { background-color:#4361ad; height:30px; line-height:28px; padding:0 10px; margin-bottom:10px;}
+#main-area .my_travel .head { border:1px #ccc solid; border-bottom:none; background-color:#fff; padding:10px 10px 0; height:32px; line-height:25px;}
+#main-area .my_travel .head b { float:left; font-weight:normal;}
+#main-area .my_travel .head span { float:right; padding-top:3px;}
+#main-area .my_travel .head b a:link, #main-area .my_travel .head b a:visited, #main-area .my_travel .head b a:active { display:inline-block; width:68px; height:31px; padding-left:22px; margin-right:5px; background:url(../images/myceair/button_map.jpg) left -62px no-repeat;}
+#main-area .my_travel .head b a:hover { text-decoration:none; background-position:-90px -62px; color:#fff;}
+#main-area .my_travel .head b a.current:link, #main-area .my_travel .head b a.current:visited, #main-area .my_travel .head b a.current:active { color:#fff;}
+#main-area .my_travel .head b a#all:link, #main-area .my_travel .head b a#all:visited, #main-area .my_travel .head b a#all:active { width:80px; padding-left:0; text-align:center; background-position:left -62px;}
+#main-area .my_travel .head b a#all:hover { background-position:-90px -62px;}
+#main-area .my_travel .head b a#all.current:link, #main-area .my_travel .head b a#all.current:visited, #main-area .my_travel .head b a#all.current:active { background-position:-90px -62px;}
+
+#main-area .my_travel .head b a#before:link, #main-area .my_travel .head b a#before:visited, #main-area .my_travel .head b a#before:active { background-position:left -93px;}
+#main-area .my_travel .head b a#before:hover { background-position:-90px -93px;}
+#main-area .my_travel .head b a#before.current:link, #main-area .my_travel .head b a#before.current:visited, #main-area .my_travel .head b a#before.current:active { background-position:-90px -93px;}
+#main-area .my_travel .head b a#furture:link, #main-area .my_travel .head b a#furture:visited, #main-area .my_travel .head b a#furture:active { background-position:left -124px;}
+#main-area .my_travel .head b a#furture:hover { background-position:-90px -124px;}
+#main-area .my_travel .head b a#furture.current:link, #main-area .my_travel .head b a#furture.current:visited, #main-area .my_travel .head b a#furture.current:active { background-position:-90px -124px;}
+#main-area .my_travel .head b a#like:link, #main-area .my_travel .head b a#like:visited, #main-area .my_travel .head b a#like:active { background-position:left -155px;}
+#main-area .my_travel .head b a#like:hover { background-position:-90px -155px;}
+#main-area .my_travel .head b a#like.current:link, #main-area .my_travel .head b a#like.current:visited, #main-area .my_travel .head b a#like.current:active { background-position:-90px -155px;}
+
+#main-area .my_travel .head b a#outdate:link, #main-area .my_travel .head b a#outdate:visited, #main-area .my_travel .head b a#outdate:active { background-position:left -244px;}
+#main-area .my_travel .head b a#outdate:hover { background-position:-90px -244px;}
+#main-area .my_travel .head b a#outdate.current:link, #main-area .my_travel .head b a#outdate.current:visited, #main-area .my_travel .head b a#outdate.current:active { background-position:-90px -244px;}
+
+#main-area .my_travel .head span a:link, #main-area .my_travel .head span a:visited, #main-area .my_travel .head span a:active { display:inline-block; padding:0 10px; height:20px; line-height:20px; text-align:center; border:1px #adcaed solid; background:url(../images/bg_map.jpg) left -720px repeat-x; color:#2b77d1;}
+#main-area .my_travel .head span a:hover { text-decoration:underline;}
+
+#main-area .my_travel .map { margin-bottom:10px;}
+#main-area .my_travel .foot { height:25px; padding:5px; margin-bottom:10px; background-color:#f0f0f0;}
+#main-area .my_travel .foot .add { float:right;}
+#main-area .my_travel .foot .share { float:right; margin-left:20px;}
+#main-area .my_travel .foot .range { float:right; margin-left:20px; position:relative;}
+#main-area .my_travel .foot .range .btn { display:block; text-align:right; padding-right:6px; width:65px; height:26px; background:url(../images/myceair/range_bg.gif) left top no-repeat;}
+#main-area .my_travel .foot .range .slide { position:absolute; right:-5px; top:36px; width:716px; height:49px; border:1px #ffaf51 solid; background-color:#faccb3; padding:5px;}
+#main-area .my_travel .foot .range .slide .arrow { position:absolute; top:-11px; right:30px; width:16px; height:11px; background:url(../images/myceair/arrow_map.gif) left -182px no-repeat;}
+#main-area .my_travel .foot .range .slide li { float:left; width:116px; height:49px; padding:0 5px; background:url(../images/bg_map.jpg) left -1104px repeat-x; margin:0 9px;}
+#main-area .my_travel .foot .range .slide li i { float:left; width:36px; height:49px; background:url(../images/myceair/icon_map.gif) left -870px no-repeat;}
+#main-area .my_travel .foot .range .slide li i.no1 { background-position:left -919px;}
+#main-area .my_travel .foot .range .slide li i.no2 { background-position:left -968px;}
+#main-area .my_travel .foot .range .slide li i.no3 { background-position:left -1017px;}
+#main-area .my_travel .foot .range .slide li span { float:left;}
+#main-area .my_travel .foot .range .slide li span u { text-decoration:none; color:#EC1623;}
+
+#main-area .my_travel .note { margin-bottom:10px;}
+#main-area .my_travel .note h1 { background:url(../images/myceair/note_red.gif) left bottom no-repeat;}
+#main-area .my_travel .note h1 b { display:block; height:30px; line-height:30px; background:url(../images/myceair/icon_map_trans.gif) left -809px no-repeat; padding-left:30px; font-size:14px; color:#EC1623;}
+#main-area .my_travel .note h2 { font-weight:normal; padding:10px; border-bottom:2px #ccc solid; line-height:180%;}
+
+#main-area .my_travel .range { margin-bottom:10px;}
+#main-area .my_travel .range h1 { height:30px; line-height:30px; padding-left:35px; font-size:14px; color:#fff; background:url(../images/myceair/range_title.gif) left top no-repeat;}
+#main-area .my_travel .range h2 { font-weight:normal; border:1px #82afe4 solid;}
+#main-area .my_travel .range .num { margin:0 auto; width:15px; height:15px; line-height:14px; font-weight:bold; color:#fff; text-align:center; background:url(../images/myceair/icon_map_trans.gif) -15px -839px no-repeat; font-size:11px;}
+#main-area .my_travel .range .num.front { background-position:left -839px;}
+#main-area .my_travel .range .progress { margin:0 auto; width:130px; height:3px; overflow:hidden; background-color:#eee;}
+#main-area .my_travel .range .progress i { float:left; width:auto; height:3px; background-color:#e98a56;}
+#main-area .my_travel .range a.range_list:link, #main-area .my_travel .range a.range_list:visited, #main-area .my_travel .range a.range_list:active { display:inline-block; width:74px; height:22px; background:url(../images/myceair/button_map.jpg) -105px -32px no-repeat; text-align:center; color:#666;} 
+#main-area .my_travel .range a.range_list:hover { text-decoration:none; color:#000;}
+
+
+.myceair .page { text-align:right; padding:10px; border-top:1px #ccc solid;}
+.myceair .page .input { width:50px;}
+.myceair .table_div {}
+.myceair .table_div .tab { height:29px;position:relative;} 
+.myceair .table_div .tab ul { margin:0; padding:0;} 
+.myceair .table_div .tab li { float:left; width:auto; height:25px; line-height:22px; color:#4262AD; font-size:14px; padding:2px 20px; margin:0 2px 0 0; display:inline; background-color:#D8DEEC; cursor:pointer;}
+.myceair .table_div .tab li.active { height:25px; line-height:22px; color:#FFF; font-weight:bold; font-size:14px; background-color:#4461AD;}
+.myceair .table_div .tab span { position:absolute; right:0; top:8px;}
+.myceair .table_div .tab span a:link, .myceair .table_div .tab span a:visited, .myceair .table_div .tab span a:active { text-decoration:none; color:#164DA0; padding:4px; margin:0 5px;}
+.myceair .table_div .tab span a:hover { text-decoration:underline;}
+.myceair .table_div .tab span a.current:link, .myceair .table_div .tab span a.current:visited, .myceair .table_div .tab span a.current:active { background-color:#164DA0; color:#fff;}
+.myceair .table_div .tab_content { display:none; }
+
+.tab_content.promotion {}
+.tab_content.promotion .images img { margin-top:10px; width:728px;}
+
+
+table.table1 { width:100%;line-height:150%;}
+table.table1 tbody tr {}
+table.table1 tbody tr:hover td {  }
+table.table1 thead td { background-color:#fff; color:#336699; border-bottom:2px #ddd solid;  height:25px; text-align:center;}
+table.table1 tbody td { padding:0 10px; height:30px; text-align:center;}
+table.table1 tbody td b { color:#EC1623;}
+table.table1 tbody td i { color:#999; font-style:normal;}
+table.table1 tbody td a:link, table.table1 tbody td a:visited, table.table1 tbody td a:active { color:#EC1623; text-decoration:underline;} 
+table.table1 tbody td a:hover { text-decoration:none;}
+
+#maxSize { border:2px solid #434343; z-index:999;}
+#maxSize .head {height:37px; background-color: #fff; font-size:14px;}
+#maxSize .head .look {padding:6px 10px 2px;float:left;}
+#maxSize .head .cancel {float:right;padding:10px;cursor:pointer;}
+#maxSize .body {float:left;} 
+#layerDiv {filter:alpha(opacity=65); -moz-opacity:0.65; opacity: 0.65;}
+
+#maxSize .head .look b { float:left; font-weight:normal; font-size:12px;}
+#maxSize .head .look span { float:right; padding-top:3px;}
+#maxSize .head .look b a:link, #maxSize .head .look b a:visited, #maxSize .head .look b a:active { display:inline-block; width:68px; height:31px; line-height:20px; padding-left:22px; margin-right:5px; background:url(../images/myceair/button_map.jpg) left -62px no-repeat;}
+#maxSize .head .look b a:hover { text-decoration:none; background-position:-90px -62px; color:#fff;}
+#maxSize .head .look b a.current:link, #maxSize .head .look b a.current:visited, #maxSize .head .look b a.current:active { color:#fff;}
+#maxSize .head .look b a#all:link, #maxSize .head .look b a#all:visited, #maxSize .head .look b a#all:active { width:80px; padding-left:0; text-align:center; background-position:left -62px;}
+#maxSize .head .look b a#all:hover { background-position:-90px -62px;}
+#maxSize .head .look b a#all.current:link, #maxSize .head .look b a#all.current:visited, #maxSize .head .look b a#all.current:active { background-position:-90px -62px;}
+
+#maxSize .head .look b a#before:link, #maxSize .head .look b a#before:visited, #maxSize .head .look b a#before:active { background-position:left -93px;}
+#maxSize .head .look b a#before:hover { background-position:-90px -93px;}
+#maxSize .head .look b a#before.current:link, #maxSize .head .look b a#before.current:visited, #maxSize .head .look b a#before.current:active { background-position:-90px -93px;}
+#maxSize .head .look b a#furture:link, #maxSize .head .look b a#furture:visited, #maxSize .head .look b a#furture:active { background-position:left -124px;}
+#maxSize .head .look b a#furture:hover { background-position:-90px -124px;}
+#maxSize .head .look b a#furture.current:link, #maxSize .head .look b a#furture.current:visited, #maxSize .head .look b a#furture.current:active { background-position:-90px -124px;}
+#maxSize .head .look b a#like:link, #maxSize .head .look b a#like:visited, #maxSize .head .look b a#like:active { background-position:left -155px;}
+#maxSize .head .look b a#like:hover { background-position:-90px -155px;}
+#maxSize .head .look b a#like.current:link, #maxSize .head .look b a#like.current:visited, #maxSize .head .look b a#like.current:active { background-position:-90px -155px;}
+
+#maxSize .head .look b a#outdate:link, #maxSize .head .look b a#outdate:visited, #maxSize .head .look b a#outdate:active { background-position:left -244px;}
+#maxSize .head .look b a#outdate:hover { background-position:-90px -244px;}
+#maxSize .head .look b a#outdate.current:link, #maxSize .head .look b a#outdate.current:visited, #maxSize .head .look b a#outdate.current:active { background-position:-90px -244px;}
+
+
+
+
+.myceair .personal_info {}
+.myceair .personal_info .head { border:1px #ccc solid; border-right:none; width:622px;}
+.myceair .personal_info .head li {cursor: pointer;float: left; position:relative; font-size: 14px; height:30px; line-height:28px; border-right:1px #ccc solid; text-align: center;width:310px; background:url(../images/globle/bg_map.jpg) left -170px repeat-x;}
+
+.myceair .personal_info .head li.active {color:#1D37AB; background-position:left -200px;}
+.myceair .personal_info .head li i { display:none; position:absolute; width:9px; height:5px; left:150px; bottom:-5px; background:url(../images/globle/icon_arrow.png) -5px -39px no-repeat;filter:alpha(opacity=40); -moz-opacity:0.4; opacity: 0.4;}
+.myceair .personal_info .head li.active i { display:block;}
+.myceair .personal_info .body { padding:20px; margin-top: -40px}
+.myceair .personal_info .name { border-top:1px #ccc solid; position:relative; margin:25px 50px 20px 55px;}
+.myceair .personal_info .name b { position:absolute; left:-55px; top:-10px; *top:-8px; *+top:-8px;}
+.myceair .personal_info .name span { display:none; position:absolute; right:0; top:-12px;border:1px #94A3DA solid; background-color:#B6BFE8; color:#2036AD; padding:0px 0px; line-height:16px;}
+.myceair .personal_info .name span:hover { border:1px #E95150 solid; background-color:#FFA8A7; color:#CD0000;}
+.myceair .personal_info .name span a { color:#2036AD;}
+.myceair .personal_info .name span:hover a { color:#CD0000;}
+.myceair .personal_info .name span.block { display:block;}
+.myceair .personal_info .row.center { display:block; text-align:center; padding-top:20px;display: none;}
+.myceair .personal_info .row { padding-bottom:10px; *padding-top:5px; clear:both; display:table; line-height:20px;}
+.myceair .personal_info .row .col1 { float:left; width:120px; text-align:right;}
+.myceair .personal_info .row .col2 { float:left; width:240px;}
+.myceair .personal_info .row .col3 { float:left; width:600px; position:relative;}
+.myceair .personal_info .row .col3 .idtype { padding-bottom:10px;}
+.myceair .personal_info .row .input { width:220px;}
+.myceair .personal_info .row .col3 .btn { position:absolute; right:90px; bottom:12px;}
+.myceair .personal_info .row .col3 .btn a.type_add { margin:0 5px; display:inline-block; height:16px; line-height:16px; background:url(../images/talent/talent_map.gif) left -240px no-repeat; padding-left:20px;}
+.myceair .personal_info .row .col3 .btn a.type_del { margin:0 5px; display:inline-block; height:16px; line-height:16px; background:url(../images/talent/talent_map.gif) left -260px no-repeat; padding-left:20px;}
+
+.myceair .orderSearch_wait { padding:50px 0; text-align:center;}
+
+
+.myceair .tools {}
+.myceair .tools .banner { margin-bottom:10px;}
+
+.myceair .tools .manage .head { border-bottom:5px #eee solid; padding-bottom:5px; font-size:14px; font-weight:bold;}
+.myceair .tools .manage .body { padding:10px 0; background-color:#fff;}
+.myceair .tools .manage .body .boxs { float:left; width:234px; height:220px; margin:0 8px; display:inline; border:1px #eae9e9 solid; background:#f1f1f3 url(../images/chuxing_bg.jpg) left top repeat-x;}
+.myceair .tools .manage .body .boxs b { display:block; text-align:center; font-size:14px; height:40px; line-height:40px;}
+.myceair .tools .manage .body .boxs li { float:left; width:92px; height:34px; line-height:34px; margin:12px; display:inline; color:#333; text-align:center; background:#f1f1f3 url(../images/tools_bg.gif) left top no-repeat; position:relative;}
+.myceair .tools .manage .body .boxs li.dis { filter:alpha(opacity=40); moz-opacity:0.4; opacity:0.4; } 
+.myceair .tools .manage .body .boxs li i { position:absolute; width:18px; height:18px; right:-5px; top:-5px; background:url(../images/icon_tools.gif) left top no-repeat; cursor:pointer;}
+.myceair .tools .manage .body .boxs li.dis i { background-position:left -18px; cursor:default; display:none;}
+.myceair .tools .my_tools { border:1px #eae9e9 solid; border-top:5px #eee solid; background:#fff url(../images/chuxing_bg.jpg) left bottom repeat-x; padding-bottom:10px;}
+.myceair .tools .my_tools b { display:block; margin:0 auto; width:234px; height:31px; line-height:31px; text-align:center; font-size:14px; background:url(../images/tools_title.gif) left top no-repeat;}
+.myceair .tools .my_tools ul { padding-top:20px;}
+.myceair .tools .my_tools li { float:left; width:92px; height:34px; line-height:34px; margin:12px; display:inline; color:#333; text-align:center; background:#f1f1f3 url(../images/tools_bg.gif) left top no-repeat; position:relative;}
+.myceair .tools .my_tools li.blank { background-position:left -34px;}
+.myceair .tools .my_tools li i { position:absolute; width:18px; height:18px; right:-5px; top:-5px; background:#f1f1f3 url(../images/icon_tools.gif) left -18px no-repeat; cursor:pointer;}
+.myceair .tools .note { color:#666; padding-top:5px;}
+
+
+/*常用联系人*/
+.myceair .right .body .b_content.tab2 {position:relative;}
+.myceair .right .body .showDetail {display:none;position:absolute;width:405px; left:155px;top:80px; z-index:11;color:#FFF;}
+.myceair .right .body .showDetail .head {height:40px;position:relative;background-color: #5793DA;width: 405px;border:none;}
+.myceair .right .body .showDetail .head a {color:#FFF;position:absolute;right:10px;width:70px;}
+.myceair .right .body .showDetail .head .namee { padding:10px; height:20px; width:300px; white-space:nowrap;text-overflow: ellipsis;overflow:hidden;}
+.myceair .right .body .showDetail .body {position:relative;width:350px;float:right;padding-right:6px;background-color: #5793DA;}
+.myceair .right .body .showDetail .body ul {display:none;padding:10px 10px 10px 40px;line-height:25px;}
+.myceair .right .body .showDetail .body li {height: 45px;}
+.myceair .right .body .showDetail .body .detail_btn input {margin-left:45px;}
+.myceair .right .body .main_div { border:1px #ccc solid; border-top-width:2px; background-color:#fff; padding:15px; poisition: relative; z-index:11; height: 498px; }
+.myceair .right .body .overFlow { z-index: 10; height: 448px; top:65px; *top:68px; position: absolute; background-color: #FFFFFF; filter:alpha(opacity=80); moz-opacity:0.8; opacity:0.8;}
+.myceair .right .body .main_div.domestic { margin-top:-532px;}
+.myceair .right .body .userinfoDiv { z-index:10; overflow: hidden; background-color:#fff; position:relative; margin:-10px -20px; height: 531px;}
+.myceair .right .body .main_div .head { color:#999;border:none; width:auto; line-height:150%; margin-bottom:10px;}
+.myceair .right .body .main_div .head b { display:block; color:#333; font-size:14px;}
+.myceair .right .body .main_div .body { padding:0; z-index: 1;}
+.myceair .right .body .main_div .body .contact { float:left; width:335px; height:435px; padding:10px; position:relative; background:#e6e6e6;}
+.myceair .right .body .main_div .body .contact.domestic {margin-top:0px;}
+.myceair .right .body .main_div .body .contact.oversea { float:right; background-position:-350px bottom;}
+.myceair .right .body .main_div .body .contact ul { height:270px; overflow:hidden; overflow-y:auto; }
+.myceair .right .body .main_div .body .contact li { float:left; height:24px; line-height:24px; color:#fff; padding:0 5px; background-color:#5793DA; margin:0 4px 10px; cursor:pointer;width:62px;text-align:center;white-space:nowrap;-o-text-overflow: ellipsis;text-overflow: ellipsis;overflow:hidden;}
+.myceair .right .body .main_div .body .contact li.active { left:36px; top:94px; position:absolute; z-index:20; }
+.myceair .right .body .main_div .body .contact li.green { background-color:#0EB200 }
+.myceair .right .body .main_div .body .contact span { left:110px; bottom:80px; position:absolute;}
+.myceair .right .body .main_div .body .contact span a:link, .myceair .right .body .main_div .body .contact span a:visited, .myceair .right .body .main_div .body .contact span a:active { display:inline-block; width:90px; height:30px; line-height:28px; padding-left:50px; text-align:left; color:#fff; text-decoration:none; font-size:14px; background:url(../images/button_map.jpg) left -214px no-repeat;}
+.myceair .right .body .main_div .body .contact span a:hover { text-decoration:none;}
+.myceair .right .body .main_div .body .contact b { position:absolute; bottom:135px; left:120px; font-size:18px; color:#666; font-family:Microsoft Yahei; font-weight:normal; }
+.myceair .right .body .main_div .body .inputArea { display:none; }
+.myceair .right .body .main_div .body .inputArea.active { display:block; }
+.myceair .right .body .main_div .body #America {display:none;}
+.myceair .right .body .main_div .body .name { font-weight:bold; height:25px; line-height:25px; border-bottom:1px #ccc solid;border-top:none;margin-left:0px;}
+.myceair .right .body .main_div .body .row { height:35px;padding:0 0 6px 0;}
+.myceair .right .body .main_div .body .row i { color:#DC4E02;}
+.myceair .right .body .main_div .body .row .col { padding-left:100px; padding-top:10px;}
+.myceair .right .body .main_div .body .row .col .input_rc { margin-left: 15px; }
+.myceair .right .body .main_div .body .row .col1 { float:left; width:100px; text-align:right;}
+.myceair .right .body .main_div .body .row .col2 { float:left; width:400px;}
+.myceair .right .body .main_div .body .row .col2 .input_p { border: 1px solid #CCCCCC; padding: 2px; width:300px; }
+.myceair .right .body .main_div .body .row .col2 .input_p.error { border: 1px solid #F00; }
+.myceair .right .body .main_div .body .row .col2 .ffpNo { width:150px; }
+.myceair .right .body .main_div .body .row .col2 select { border: 1px solid #CCCCCC; padding: 3px; margin-right:1px; max-width: 140px; }
+.myceair .right .body .main_div.domestic .body .row .col2 .input_p { width:300px; }
+.myceair .right .body .main_div.oversea .body .row .col2 .input_p { width:180px; }
+.myceair .right .body .main_div.oversea .body .row .col2 .input_p.paxNameLast { width:106px; }
+.myceair .right .body .main_div.domestic .body .row .col2 .ffpNo { width:150px; }
+.myceair .right .body .main_div.domestic .body .row .col2 select { width:140px; }
+.myceair .right .body .main_div.oversea .body .row .col2 select { width:186px;max-width: 186px; }
+.myceair .right .body .main_div.oversea .body .row .col2 { width:186px;max-width: 186px; }
+.myceair .right .body .main_div.oversea .body .row .col2 .ffpAirline {width:98px;}
+.myceair .right .body .main_div.oversea .body .row .col2 .select.paxGender { width:60px; }
+.myceair .right .body .main_div.oversea .body .row .col2 .select.nationCode { width:60px; }
+.myceair .right .body .main_div.oversea .body .row .col2 .select.docaState { width:120px; }
+.myceair .right .body .main_div.oversea .body .row .col2 .ffpNo {width:72px;}
+.myceair .right .body .main_div .body.inter .row .col2 { float:left; width:250px;}
+.myceair .right .body .main_div .body .line { height:1px; border-top:1px #ccc dashed; overflow:hidden; margin:5px 0;}
+.myceair .right .body .main_div .body .btn { padding-top:6px; border-top:1px #ccc solid; text-align:center;line-height:30px;}
+.myceair .right .body .main_div .body .btn.nopadding { }
+.myceair .right .body .main_div .body .btn #AmericaButton {border: 1px solid #CCCCCC;cursor: pointer;margin-bottom: 5px;margin-left: 257px;width: 200px;}
+.myceair .right .body .main_div .body .btn input { margin:0 20px;}
+.myceair .right .body .main_div .body .btn .orange { display:none; }
+.myceair .right .body .main_div .body .btn .active { display:inline-block; }
+
+#sessionTrack {display:none;}
+
+.myceair .right .order-info { border:1px #ccc solid; background-color:#f9f9f9; padding:20px 20px 13px; margin-bottom:10px; position:relative;}
+.myceair .right .order-info p {margin-bottom: 15px;}
+.myceair .right .order-info h2 { margin-bottom:10px; font-size:12px;}
+.myceair .right .order-info h2 strong { font-size:16px;}
+.myceair .right .order-info .text { position:absolute; right:30px; top:23px; text-align:left; line-height:150%;}
+.myceair .right .order-info ul { margin-top:10px;}
+.myceair .right .order-info li { float:left; padding-right:20px; border-right:1px #999 dotted; margin-right:20px; line-height:200%;}
+.myceair .right .order-info li b { font-size:14px; }
+.myceair .right .order-info li img {padding:0 2px 3px 0;}
+.myceair .right .order-info a:link, a:visited, a:active { color:#285dab;}
+
+
+
+
+
+
+
+

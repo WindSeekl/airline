@@ -1,0 +1,512 @@
+@CHARSET "UTF-8";
+/* 查找订单 */
+.searchForm {
+border: 1px #ccc solid;
+background-color: #f9f9f9;
+padding: 20px;
+}
+.searchForm dl {
+height: 40px;
+}
+ .searchForm dt {
+float: left;
+margin-right: 10px;
+}
+.searchForm dt.normal {
+border: 2px solid #cc3333;
+height: 30px;
+margin-right: 0;
+}
+.searchForm dt.normal .optional {
+position: relative;
+text-align: left;
+width: 90px;
+float: left;
+z-index: 9;
+}
+.main .searchForm dt.normal .optional h4 {
+line-height: 30px;
+background-color: #e6e5e5;
+padding-left: 10px;
+font-weight: normal;
+font-size: 12px;
+cursor: pointer;
+}
+.searchForm dt.normal .optional ul {
+z-index: 9;
+display: none;
+box-shadow: 0px 3px 5px #666;
+}
+.searchForm dt.normal .optional ul li {
+background-color: #fff;
+float: none !important;
+border-bottom: 1px dashed #cccccc;
+cursor: pointer;
+padding: 5px;
+}
+.searchForm dd {
+float: left;
+}
+input.button-search {
+width: 120px;
+height: 32px;
+font-weight: bold;
+padding: 0 0 0 10px;
+font-size: 14px;
+color: #fff;
+border: 0;
+background: #303C91 url(../images/icon-map.png) left -600px no-repeat;
+cursor: pointer;
+background-color: #CC3333!important;
+}
+.dataList {
+position: relative;
+border: 1px #ccc solid;
+border-top: none;
+background-color: #f9f9f9;
+}
+
+article{
+display: block;
+}
+
+element.style {
+}
+abbr, address, article, aside, audio, canvas, command, datalist, details, dialog, figure, figcaption, footer, header, hgroup, keygen, mark, meter, menu, menuitem, nav, progress, ruby, section, summary, time, video, fieldset, dir {
+margin: 0;
+padding: 0;
+border: 0;
+display: block;
+}
+user agent stylesheetarticle, aside, footer, header, hgroup, main, nav, section {
+display: block;
+}
+Inherited from body
+body {
+color: #333;
+font-family: Microsoft Yahei, Arial, Helvetica, sans-serif;
+background: #fff url(../images/main-bg.jpg) left top;
+font-size: 12px;
+margin: 0;
+padding: 0;
+}
+shadowLeft {
+position: absolute;
+left: -7px;
+top: 0;
+background-color: #262F72;
+}
+mark.shadowLeft {
+width: 7px;
+height: 58px;
+background-position: -225px -270px;
+}
+mark.icon {
+display: inline-block;
+width: 20px;
+height: 20px;
+line-height: 18px;
+margin: 0;
+padding: 0;
+background: url(../images/bg-map.png) left 1000px no-repeat;
+}
+.head {
+height: 50px;
+line-height: 50px;
+padding: 0 10px;
+border: none;
+background-color: #262F72;
+font-size: 14px;
+font-weight: bold;
+}
+.dataList ul {
+clear: both;
+text-align: center;
+padding: 10px;
+border-top: 1px #ccc solid;
+color: #666;
+zoom: 1;
+}
+
+ul, menu, dir {
+display: block;
+list-style-type: disc;
+-webkit-margin-before: 1em;
+-webkit-margin-after: 1em;
+-webkit-margin-start: 0px;
+-webkit-margin-end: 0px;
+-webkit-padding-start: 40px;
+}
+
+.dataList ul.head li.c1 {
+text-align: center;
+}
+
+.dataList ul li.c1 {
+width: 140px;
+text-align: left;
+}
+
+.dataList ul.head li {
+color: #fff!important;
+padding: 0!important;
+border: 0!important;
+}
+
+.dataList ul li {
+float: left;
+cursor: pointer;
+}
+li {
+list-style: none;
+}
+
+.dataList ul li.c2 {
+width: 238px;
+border-left: 1px #ccc solid;
+border-right: 1px #ccc solid;
+padding: 10px 0 15px 0;
+font-size: 14px;
+}
+.dataList ul li.c3 {
+width: 110px;
+padding-top: 10px;
+}
+.dataList ul li.c4 {
+width: 80px;
+padding-top: 10px;
+text-align: left;
+position: relative;
+}
+.dataList ul li.c5 {
+width: 100px;
+padding-top: 30px;
+cursor: pointer;
+position: relative;
+z-index: 10;
+}
+.dataList ul li.c6 {
+width: 98px;
+padding-top: 27px;
+position: relative;
+}
+
+.dataList mark.shadowLeft {
+position: absolute;
+left: -7px;
+top: 1px;
+background-color: #262F72;
+}
+mark.shadowLeft {
+width: 7px;
+height: 58px;
+background-position: -226px -270px;
+}
+.dataList mark.shadowRight {
+position: absolute;
+right: -6px;
+top: 0.5px;
+background-color: #262F72;
+}
+mark.shadowRight {
+width: 7px;
+height: 58px;
+background-position: -232px -270px;
+}
+.dataList ul.head {
+height: 50px;
+line-height: 50px;
+padding: 0 10px;
+border: none;
+background-color: #262F72;
+font-size: 14px;
+font-weight: bold;
+}
+
+/* 订单详情 */
+
+.dataList ul.passengerHead {
+height: 50px;
+padding: 0 20px;
+border: none;
+background-color: #262F72;
+}
+.dataList ul.passengerHead li.name {
+line-height: 50px;
+font-size: 14px;
+line-height: 35px;
+margin: 0 50px;
+}
+.dataList ul.passengerHead li {
+color: #fff;
+padding: 0;
+height: 42px;
+padding-top: 8px;
+margin: 0 5px;
+line-height: 120%;
+cursor: pointer;
+max-width: 80px;
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
+}
+.dataList ul.passengerHead li.active {
+width: auto;
+background-color: #FFFFFF;
+color: #2468B9;
+min-width: 100px;
+border-radius: 4px 4px 0 0;
+margin-top: 5px;
+}
+li.active mark.male {
+background-position: -20px -40px;
+}
+.detail .basic {
+background-color: #f9f9f9;
+padding: 20px;
+position: relative;
+}
+.detail .basic .text {
+float: left;
+}
+.detail .basic .text dl {
+height: 20px;
+line-height: 20px;
+margin: 5px 0;
+}
+.detail .basic .text dl dt {
+float: left;
+width: 65px;
+color: #999;
+}
+.detail .basic .text dl dd {
+float: left;
+width: 168px;
+}
+.detail .basic .jiage {
+float: right;
+}
+.detail .basic .jiage mark {
+vertical-align: text-bottom;
+}
+mark.personalPrice {
+width: 60px;
+height: 22px;
+background-position: -76px -305px;
+}
+span.price.red {
+color: #D42826;
+}
+span.price.normal {
+font-size: 18px;
+font-weight: normal;
+}
+span.price {
+color: #333;
+font-size: 30px;
+line-height: 150%;
+font-weight: bold;
+}
+.detail .basic .jiage p u {
+float: left;
+text-decoration: none;
+border-right: 1px #ddd dotted;
+text-align: center;
+padding-right: 10px;
+margin-right: 10px;
+}
+.clear {
+clear: both;
+height: 0;
+overflow: hidden;
+}
+.detail .travelSection {
+margin: 0 0 50px 0;
+padding: 0 24px 10px 24px;
+}
+.detail .travelSection .box {
+border: 1px #ccc solid;
+background-color: #fff;
+padding: 10px;
+margin-bottom: 10px;
+position: relative;
+}
+ .detail .travelSection .box .body {
+padding: 0 0;
+color: #666;
+}
+.detail .travelSection .box .body .flight {
+padding-bottom: 5px;
+}
+.detail .travelSection .box .body .flight .f1 {
+float: left;
+line-height: 200%;
+margin-top: -5px;
+margin-left:50px;
+width: 151px;
+}
+.detail .travelSection .box .body .flight .f2 dt.time mark {
+display: block;
+margin: 8px auto 8px auto;
+}
+mark.owBig {
+width: 76px;
+height: 22px;
+background-position: left -283px;
+vertical-align: middle;
+}
+.detail .travelSection .box .body .price {
+position: relative;
+z-index: 6;
+}
+ .detail .travelSection .box .body .price dl.p1 {
+padding-right: 30px;
+margin-left:50px;
+}
+.detail .travelSection .box .body .price dl {
+float: left;
+padding: 10px 0;
+}
+ .detail .travelSection .box .body .price dl dt {
+float: left;
+}
+ .detail .travelSection .box .body .price dl dt mark {
+margin: 12px 12px 0 0;
+}
+mark.fPrice {
+width: 28px;
+height: 30px;
+background-position: -50px -460px;
+}
+ .detail .travelSection .box .body .price dl dd {
+float: left;
+}
+.detail .travelSection .box .body .price dl b {
+font-size: 14px;
+padding: 0 5px;
+font-weight: normal;
+color: #333333;
+}
+.detail .travelSection .box .body .flight .f2 {
+float: right;
+}
+.detail .travelSection .box .body .flight .f2 dt {
+float: left;
+width: 130px;
+text-align: right;
+}
+.detail .travelSection .box .body .flight .f2 dt b {
+font-size: 16px;
+font-weight: normal;
+}
+.detail .travelSection .box .body .flight .f2 dt time {
+font-size: 25px;
+color: #000;
+}
+ .detail .travelSection .box .body .flight .f2 dt.time {
+width: 76px;
+margin: 15px 5px 0;
+text-align: center;
+position: relative;
+z-index: 5;
+}
+.detail .travelSection .box .body .flight .f2 dd.weather {
+display: none;
+}
+.detail .travelSection .box .body .flight .f2 dd {
+float: left;
+width: 30px;
+margin: 25px 5px;
+text-align: center;
+}
+.detail .travelSection .box .body .flight .f2 dt.l {
+text-align: left;
+}
+.detail .travelSection .box .body .flight .f2 dt.l {
+text-align: left;
+}
+.detail .travelSection .box .body .flight .f2 dt time {
+font-size: 25px;
+color: #000;
+}
+ul, ol, dl, dd, dt {
+margin: 0;
+padding: 0;
+display: block;
+}
+ol {
+display: block;
+list-style-type: decimal;
+-webkit-margin-after: 1em;
+-webkit-margin-start: 0px;
+-webkit-margin-end: 0px;
+}
+.detail .travelSection .box .body .price dl li {
+padding: 2px 20px 2px 5px;
+}
+.detail .travelSection .box .body .price dl.p2 {
+border-left: 1px solid #ccc;
+border-right: 1px solid #ccc;
+padding: 10px 35px;
+}
+.detail .travelSection .box .body .price dl dt {
+float: left;
+}
+ .detail .travelSection .box .body .price dl dt mark {
+margin: 12px 12px 0 0;
+}
+mark.fTax {
+width: 28px;
+height: 30px;
+background-position: -78px -460px;
+}
+.detail .travelSection .box .body .price dl dd {
+float: left;
+}
+.detail .travelSection .box .body .price dl b {
+font-size: 14px;
+padding: 0 5px;
+font-weight: normal;
+color: #333333;
+}
+.detail .travelSection .box .body .price dl li {
+padding: 2px 20px 2px 5px;
+}
+.detail .travelSection .box .body .price dl.p3 {
+padding-left: 35px;
+}
+ .detail .travelSection .box .body .price dl dt {
+float: left;
+}
+.detail .travelSection .box .body .price dl dt mark {
+margin: 12px 12px 0 0;
+}
+mark.fInsurance {
+width: 28px;
+height: 30px;
+background-position: -106px -460px;
+}
+.detail .travelSection .box .body .price dl dd {
+float: left;
+}
+dd {
+display: block;
+
+}
+element.style {
+}
+#myceair .main .detail .travelSection .box .body .price dl dd {
+float: left;
+}
+p {
+margin-top: 0px;
+margin-bottom: 10px;
+line-height: 180%;
+}
+p {
+display: block;
+-webkit-margin-before: 1em;
+-webkit-margin-after: 1em;
+-webkit-margin-start: 0px;
+-webkit-margin-end: 0px;
+}

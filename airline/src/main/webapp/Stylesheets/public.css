@@ -1,0 +1,381 @@
+@charset "utf-8";
+/* CSS Document */
+div.error_msg{ margin: 0;padding: 0;position: relative;text-align: center;}
+abbr, address, article, aside, audio, canvas, command, datalist, details, dialog, figure, figcaption, footer, header, hgroup, keygen, mark, meter, menu, menuitem, nav, progress, ruby, section, summary, time, video,fieldset,dir { margin:0; padding:0; border:0; display:block;}
+a:link, a:visited, a:active { color:#666; text-decoration: none;}
+a:hover { color: #333; text-decoration: none;}
+body { color: #333; font-family:Microsoft Yahei, Arial, Helvetica, sans-serif; background:#fff url(../images/main-bg.jpg) left top; font-size: 12px; margin: 0; padding: 0;}
+p { margin-top:0px; margin-bottom:10px; line-height:180%; }
+form { border: 0; margin: 0; padding: 0; display: inline;}
+h1,h2,h3,h4 { margin:0;}
+h1 { font-size:20px;}
+h2 { font-size:18px;}
+h3 { font-size:16px;}
+h4 { font-size:14px;}
+ul,ol,dl,dd,dt { margin:0; padding:0; display:block;}
+li { list-style:none;}
+img { border: 0; vertical-align:middle;}
+img.imgLeft { float:left; margin-right:20px;}
+.clear { clear:both; height:0; *height:auto; overflow:hidden; *overflow:inherit;}
+input, select, textarea { font-size:12px; font-family:Microsoft Yahei, Arial, Helvetica, sans-serif;}
+select { padding:2px; border:1px #ccc solid;}
+textarea { padding:5px; height:100px;}
+input.input { border:1px #9797af solid; background-color:#f5f5f8; height:18px; padding:2px;}
+input.input.big { font-size:14px; padding:5px;}
+input.input.city,input.input.input_city { font-size:14px; background:#f5f5f8 url(../images/icon-map.png) right 6px no-repeat; padding-right:30px!important; overflow:hidden; }
+input.input.date { background:#f5f5f8 url(../images/icon-map.png) right -36px no-repeat; padding-right:30px!important; overflow:hidden;}
+input.input.disabled { border:1px #ccc solid!important; background-color:#dcdde0!important; color:#ccc!important;}
+input.input:hover { border:1px #D8B166 solid; box-shadow:0 0 1px #F1CA7E;}
+input:focus, select:focus, textarea:focus { }
+input:hover, select:hover, textarea:hover {  }
+input[type=checkbox],input[type=radio] { border:0; display: inline-block; margin: 0 2px 0 0; padding: 0;width:14px;height:14px; vertical-align:text-top;}
+input[type=text] { }
+input[type=submit] { }
+input.button { height:28px; line-height:28px; text-align:center; overflow:visible; border:1px #28358B solid; padding:0 15px; color:#fff; background: url(../images/bg-button.jpg) left top repeat-x; cursor:pointer;}
+input.button:hover { background-position: left -30px;}
+input.button:active { background-position: left -60px;}
+input.button.lightred { border:1px #BF2C2A solid; background-position: left -90px; font-weight:bold;}
+input.button.lightred:hover { background-position: left -120px;}
+input.button.lightred:active { background-position: left -150px;}
+input.button.red { border:1px #813630 solid; background-position: left -180px; font-weight:bold;}
+input.button.red:hover { background-position: left -210px;}
+input.button.red:active { background-position: left -240px;}
+input.button.gray { border:1px #ccc solid; color:#333; font-weight:bold; background-position: left -270px;}
+input.button.gray:hover { background-position: left -300px;}
+input.button.gray:active { background-position: left -330px;}
+
+input.button-red { width:260px; height:50px; line-height:50px; text-align:center; color:#fff; font-size:24px; border:0; background:#CC3333 url(../images/globle/icon-map.png) 220px -88px no-repeat; cursor:pointer;}
+input.button-red:hover { background-color:#BD2F2F;}
+input.button-blue { width:260px; height:50px; line-height:50px; text-align:center; color:#fff; font-size:24px; border:0; background:#262F72 url(../images/globle/icon-map.png) 220px -88px no-repeat; cursor:pointer;}
+input.button-blue:hover { background-color:#1F275F;}
+input.button-normal { height:42px; line-height:42px; text-align:center; overflow:visible; border:0; padding:0 70px; color:#fff; font-size:14px; background-color:#262F72; cursor:pointer;}
+input.button-normal:hover { background-color:#1F275F;}
+input.button-square { height:32px; text-align:center; overflow:visible; border:1px #ddd solid; padding:0 10px; font-size:14px; color:#666; background:url(../images/globle/bg-map.jpg) left -65px repeat-x; cursor:pointer;}
+input.button-square.bold { font-weight:bold;}
+input.button-square:hover { border:1px #ccc solid; background-position: left -74px; color:#1D1F92;}
+input.button-square:active { border:1px #ccc solid; background-position: left -94px; color:#1D1F92;}
+input.button-search { width:80px; height:32px; font-weight:bold; font-size:14px; color:#fff; border:0; background:#303C91 url(../images/globle/icon-map.png) left -600px no-repeat; cursor:pointer;}
+input.button-search:hover { background-color:#35358D;}
+input.button-search:active { background-color:#283675;}
+input.button-edit { width:120px; height:32px; font-size:14px; color:#1D1F92; border:0; background:none; cursor:pointer;}
+
+/*-----------颜色-----------*/
+.red, .red a:link, .red a:visited, .red a:active { color:#EC1623;}
+.red a:hover { text-decoration:underline;}
+.blue, .blue a:link, .blue a:visited, .blue a:active { color:#1D1F92;}
+.blue a:hover { text-decoration:underline;}
+.white, .white a:link, .white a:visited, .white a:active { color:#fff;}
+.white a:hover { text-decoration:underline;}
+.underline, .underline a:link, .underline a:visited, .underline a:active { text-decoration:underline;}
+.underline a:hover { text-decoration:none;}
+
+
+/*----------公共样式-------------*/
+.digital { height:22px; line-height:22px;}
+.digital b { float:left; font-weight:normal; margin-right:5px;}
+.digital i { float:left; width:16px; height:20px; line-height:20px; font-style:normal; text-align:center; border:1px #ccc solid; background-color:#ccc; color:#666; cursor:pointer; -moz-user-select: none; /*火狐*/
+-webkit-user-select: none; /*webkit浏览器*/
+-ms-user-select: none; /*IE10*/
+-khtml-user-select: none; /*早期浏览器*/
+user-select: none;}
+.digital i:hover { border:1px #D8B166 solid; box-shadow:0 0 1px #F1CA7E; color:#272785;}
+.digital label { float:left; border-top:1px #ccc solid; border-bottom:1px #ccc solid; padding:0; height:20px; overflow:hidden;}
+.digital label .input-num { float:left; width:15px; height:16px; padding:2px;color:#666; border:0; text-align:center; vertical-align:top;}
+.switch-tab { height:30px;}
+.switch-tab b { display:block; font-weight:normal; font-size:14px;}
+.switch-tab li { float:left; padding:0 10px; height:22px; line-height:22px; border:1px #ccc solid; cursor:pointer;
+background-image: -moz-linear-gradient(top, #ffffff, #cccccc); /* Firefox */
+background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #ffffff), color-stop(1, #cccccc)); /* Saf4+, Chrome */
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#cccccc', GradientType='0'); /* IE*/
+ -moz-user-select: none; /*火狐*/
+-webkit-user-select: none; /*webkit浏览器*/
+-ms-user-select: none; /*IE10*/
+-khtml-user-select: none; /*早期浏览器*/
+user-select: none;}
+.switch-tab li.active {background-image: -moz-linear-gradient(top, #cccccc, #ffffff); /* Firefox */
+background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #cccccc), color-stop(1, #ffffff)); /* Saf4+, Chrome */
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#cccccc', endColorstr='#ffffff', GradientType='0'); /* IE*/}
+.switch-tab-blue { height:30px; line-height:30px; border-bottom:1px #ccc solid; margin-top:10px; padding:0 0 1px;}
+.switch-tab-blue b { float:left; padding-right:6px; font-weight:normal; }
+.switch-tab-blue li { float:left; padding:0 10px; margin-left:1px; height:30px; cursor:pointer; background-color:#d9dbeb;overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
+.switch-tab-blue li.active { background-color:#515db4; color:#fff;}
+.b_, .b_content_inner, none { display:none;}
+.block { display:block;}
+
+/*--------5.页面顶部到菜单部分--------*/
+header#header { min-width:990px; height:75px; background:#fff url(../images/bg.jpg) left top; border-bottom:3px #CC3333 solid; text-shadow: rgba(255, 255, 255, 1) 0px 1px 0px; *position:relative; *z-index:6;}
+header#header hgroup { margin:0 auto; width:990px; position:relative;}
+header#header h2 { float:left;  padding-top:12px;}
+header#header .topLogo { float:left;  padding-left:50px;}
+header#header abbr { float:right; width:52px; margin-top:10px; margin-left:20px; padding-top:35px; background:url(../images/globle/icon_virtual.png) top center no-repeat; text-align:center; }
+header#header address { float:right; *width:100px; text-align:right; margin:10px 0 0 20px; font-style:normal; color:#1D1F92;}
+header#header address.text {}
+header#header address details { display:block; margin-bottom:5px; position:relative; height:25px; line-height:25px; z-index:6;}
+header#header address details.down { z-index:9;}
+header#header address details.up { z-index:10;}
+header#header address details img { vertical-align:text-bottom;}
+header#header address details summary { cursor:pointer; *+float:right; padding:0 25px 0 10px; line-height:25px; background:url(../images/globle/icon_arrow.png) right -28px no-repeat; *background-position:right -30px;}
+header#header address details.active summary { background-color:#1d3c7c; background-position:right -68px; *background-position:right -70px; color:#fff; text-shadow: rgba(0, 0, 0, 1) 0px 1px 0px;}
+header#header address details nav { display:none; border:none; position:absolute; top:25px; right:0; background-color:#1d3c7c; margin:0; padding:10px 15px; width:180px;  z-index:8; text-shadow: rgba(0, 0, 0, 1) 0px 0 0px; text-align:left;}
+header#header address details.active nav { display:block;}
+header#header address details nav b { display:block; font-weight:normal;}
+header#header address details nav p { margin:5px 0 0;}
+header#header address details nav.friend { width:240px;}
+header#header address details nav .row { margin-bottom:15px;}
+header#header address details nav .row.btn { margin-bottom:0; text-align:right;}
+header#header address details nav select { width:180px; margin-bottom:5px; background-color:#fff;}
+header#header address details nav .left { float:left; width:130px; padding-right:20px;}
+header#header address details nav .right { float:left; width:69px; padding-left:20px; border-left:1px #666 solid;}
+header#header address details nav li { height:35px; line-height:32px; padding:0 10px; border-bottom:1px #666 solid;}
+header#header address.text p { height:25px; line-height:25px; margin-bottom:5px;}
+header#header .szn { position:absolute; left:415px; top:0; height:75px; overflow:hidden;}
+
+menu#menu { background:url(../images/bg-map.jpg) left top repeat-x; *position:relative; *z-index:5;}
+menu#menu nav { margin:0 auto; width:990px; height:64px;}
+menu#menu nav li { float:left; width:130px; padding-left:20px; margin-left:-9px; font-size:16px; color:#fff; font-weight:bold; line-height:64px; position:relative; cursor:pointer; z-index:5;}
+menu#menu nav li i { position:absolute; right:0; top:0; width:79px; height:64px; background:url(../images/bg-menu.png) right top no-repeat; z-index:9;}
+menu#menu nav li.current {background-color:#CC3333;}
+menu#menu nav li a:link, menu#menu nav li a:visited, menu#menu nav li a:active { color:#fff; display:block; position:relative;z-index:10;}
+menu#menu nav li#menu-home { width:80px; margin:0; padding:0; text-indent:-9999px;}
+menu#menu nav li#menu-home i { background-position: right top;}
+menu#menu nav li#menu-myceair i { background-position: right -70px;}
+menu#menu nav li#menu-booking i { background-position: right -140px;}
+menu#menu nav li#menu-status i { background-position: right -210px;}
+menu#menu nav li#menu-selfservice i { background-position: right -280px;}
+menu#menu nav li#menu-guide i { background-position: right -350px;}
+menu#menu nav li.current#menu-home i { background-position: 9px top;}
+menu#menu nav li.current#menu-myceair i { background-position: 9px -70px;}
+menu#menu nav li.current#menu-booking i { background-position: 9px -140px;}
+menu#menu nav li.current#menu-status i { background-position: 9px -210px;}
+menu#menu nav li.current#menu-selfservice i { background-position: 9px -280px;}
+menu#menu nav li.current#menu-guide i { background-position: 9px -350px;}
+
+span.more { background:url(../images/globle/icon_map.gif) left -150px no-repeat; padding-left:25px;}
+
+section#background { height:580px; z-index:7; background:url(../images/globle/img-banner.jpg) center top no-repeat;}
+/*section#background.hue-rotate {
+-webkit-animation-name:hue-rotate;
+-webkit-animation-duration:15s;
+-webkit-animation-delay:0;
+-webkit-animation-timing-function:linear;
+-webkit-animation-iteration-count:infinite;
+-webkit-animation-direction:alternate;
+-webkit-animation-play-state:running;}*/
+@-webkit-keyframes hue-rotate
+{
+0% { -webkit-filter:hue-rotate(-180deg);}
+100% { -webkit-filter:hue-rotate(0deg);}
+}
+section#background a:link, section#background a:visited, section#background a:active { display:block; height:580px;}
+section#blank { height:0px;}
+aside#float-promotion { position:fixed; left:-80px; bottom:100px; width:92px; z-index:99; }
+aside#float-promotion b { display:block; height:73px; background:url(../images/globle/icon-map.png) left -151px no-repeat; cursor:pointer; position:relative; z-index:2;}
+aside#float-promotion ul { padding:15px 10px 5px; margin:-20px 21px 0; width:30px; background-color:#fff; box-shadow: 0 0 5px #666;}
+aside#float-promotion li { width:30px; height:30px; background:#fff url(../images/globle/icon-map.png) left -230px no-repeat; text-indent:-9999px; cursor:pointer;}
+aside#float-promotion li a:link, aside#float-promotion li a:visited aside#float-promotion li a:active { display:block; width:30px; height:30px;} 
+aside#float-promotion li:hover { background-color:#eee;} 
+aside#float-promotion li a:focus { outline: none; } 
+aside#float-promotion li.p-2 { background-position: -30px -230px;}
+aside#float-promotion li.p-3 { background-position: -60px -230px;}
+aside#float-promotion li.p-4 { background-position: left -260px;}
+aside#float-promotion li.p-5 { background-position: -30px -260px;}
+aside#float-promotion li.p-6 { background-position: -60px -260px; position:relative;}
+aside#float-promotion li.p-6 i { display:none; text-indent:0; position:absolute; right:30px; bottom:0; z-index:9; border:1px #ccc solid; padding:5px; background-color:#fff;}
+aside#float-promotion li.p-7 { background-position: left -290px;}
+aside#float-promotion span { display:block; text-align:center;}
+/*--------------------*/
+
+
+/*-------------主体内容部分-----------*/
+#main-area { margin:0 auto; width:990px; min-height:500px; padding-bottom:20px;}
+#main-area .position { height:35px; line-height:35px; color:#666; }
+#main-area .position h1,#main-area .position h2 { display:inline; font-size:12px; font-weight:normal;}
+#main-area .position a:link, #main-area .position a:visited, #main-area .position a:active { color:#666;}
+#main-area .position a:hover { text-decoration:underline;}
+#main-area #content { background-color:#f9f9f9; padding:0 20px;}
+#main-area #content.auto { padding:0;}
+#backtop { position:fixed; bottom:120px; width:40px; height:40px; background:url(../images/globle/icon-map.png) left -400px no-repeat; cursor:pointer;}
+/*--------------------*/
+
+/*--------6.页角部分--------*/
+footer#footer { height:100px; background:#fff url(../images/footer.jpg) left top; text-shadow: rgba(0, 0, 0, .95) 0px 1px 0px; box-shadow:0 0 10px #666; color:#fff; z-index:10; }
+footer#footer.fixed { position:fixed; bottom:0; left:0; width:100%;}
+footer#footer hgroup { margin:0 auto; width:950px; line-height:200%; padding:20px;  position:relative; z-index:8;}
+footer#footer i { position:absolute; right:20px; top:30px;}
+footer#footer a:link, footer#footer a:visited, footer#footer a:active { margin:0 2px; color:#fff;} 
+/*--------------------*/
+
+
+
+/*calendar*/
+.Jcalendar { -moz-box-shadow:3px 3px 3px #666666; box-shadow:3px 3px 3px #666666; overflow:hidden;height:205px;}
+.Jcalendar li{list-style: none outside none;text-align: center;}
+.Jcalendar ul{padding:0; margin:0;}
+.Jcalendar { background-color:#f2f2f2; color:#222222; padding:0.5em; _padding-bottom:0; z-index: 1000;float: left;position: absolute; border: 1px solid #ccc;}
+.Jcalendar.single {width: 16em;}
+.Jcalendar.double {width: 488px;}
+#ifrcalendar {width: 505px; height: 217px;z-index: 999;position: absolute;border:none;z-index:999;}
+#removeCal {position:absolute;left:0;top:0;z-index:998;}
+.Jcalendar .Jcal_group0{float: left; display:inline; background-color:#fff;overflow:hidden;}
+.Jcalendar .Jcal_group1{float: right;display:inline; background-color:#fff;overflow:hidden;}
+.Jcalendar.single .Jcal_group0 {width:99%;}
+.Jcalendar.single .Jcal_group1 {width:99%;}
+.Jcalendar.double .Jcal_group0 {width:49%;}
+.Jcalendar.double .Jcal_group1 {width:49%;}
+.Jcalendar .Jcal_group0.active .Jcal_body {position:absolute;top:32px;left:8px;width:243px;background-color:#FFF;}
+.Jcalendar .Jcal_group1.active .Jcal_body {position:absolute;top:32px;left:254px;width:243px;background-color:#FFF;}
+.Jcalendar .Jcal_body .selectMonth {margin-top:10px;}
+.Jcalendar .Jcal_body .selectMonth li {float:left;width:65px;padding:5px;line-height:25px;text-align:center;}
+.Jcalendar .Jcal_body .selectMonth li.disable {color:#999;}
+.Jcalendar .Jcal_body .selectMonth li.able {cursor:pointer;}
+.Jcalendar .Jcal_body .selectMonth li.able.today {color: #fff;background-color: #CC3333;}
+.Jcalendar .Jcal_body .selectMonth li.able.selected {color: #fff;background-color: #ADCCEB;}
+.Jcalendar .Jcal_body .selectMonth li.able:hover {color: #164D9F;background-color: #ADCCEB;}
+.Jcalendar .Jcal_body .selectYear {margin-top:10px;}
+.Jcalendar .Jcal_body .selectYear li {float:left;width:65px;padding:5px;line-height:25px;text-align:center;}
+.Jcalendar .Jcal_body .selectYear li.disable {color:#999;}
+.Jcalendar .Jcal_body .selectYear li.able {cursor:pointer;}
+.Jcalendar .Jcal_body .selectYear li.able.today {color: #fff;background-color: #CC3333;}
+.Jcalendar .Jcal_body .selectYear li.able.selected {color: #fff;background-color: #ADCCEB;}
+.Jcalendar .Jcal_body .selectYear li.able:hover {color: #164D9F;background-color: #ADCCEB;}
+.Jcalendar .Jcal_body .selectTenYear {margin-top:5px;}
+.Jcalendar .Jcal_body .selectTenYear li {float:left;width:38px;padding:3px;line-height:18px;text-align:left;cursor:pointer;}
+.Jcalendar .Jcal_body .selectTenYear li:hover {color: #164D9F;background-color: #ADCCEB;}
+.Jcalendar .foot{background-color: #f2f2f2;color: gray;border-top: 1px solid #f2f2f2;float: left;width: 48%;height: 20px; line-height:20px;position:absolute;top:188px;_position:relative;_top:0px;}
+.Jcalendar .foot .rightfooter{float: right;cursor: pointer;padding: 3px;}
+.Jcalendar .foot .leftfooter{float: left;cursor: pointer;padding: 3px;}
+.Jcalendar .Jcal_group0 .foot {left:6px;_left:2px;}
+.Jcalendar .Jcal_group1 .foot {right:6px;_right:2px;}
+.Jcalendar.double .Jcal_group0 .foot .rightfooter {display:none;}
+.Jcalendar.double .Jcal_group1 .foot .leftfooter {display:none;}
+.Jcalendar .Jcal_head{ background:url(../images/globle/bg-map.jpg) center top repeat-x;color: #FFFFFF;font-weight: bold;position: relative;height: 24px; line-height:20px;z-index: 1}
+.Jcalendar .icon_arrow{height: 11px;position: absolute;top: 7px;width: 10px; overflow:hidden;background-image: url(../images/globle/icon_map_trans.gif);}
+.Jcalendar .Jcal_head .Prev{background-position: -12px -1440px; left: 10px; cursor:pointer;}
+.Jcalendar .Jcal_head .Next{background-position: left -1451px; right: 10px; cursor:pointer;}
+.Jcalendar .Jcal_head .Prev:hover{background-position: left -1440px;}
+.Jcalendar .Jcal_head .Next:hover{background-position: -12px -1451px;}
+.Jcalendar.double .Jcal_group0 .Jcal_head .Next{display:none;}
+.Jcalendar.double .Jcal_group1 .Jcal_head .Prev{display:none;}
+.Jcalendar .Year_Months{float:left; height: 18px;padding-left: 42px;padding-top: 2px;}
+.Jcalendar .Year_Months.month .Year {padding-left:60px;}
+.Jcalendar .Year_Months.month .Month {display:none;}
+.Jcalendar .Year_Months.year .tenYear {padding-left:35px;cursor:pointer;}
+.Jcalendar .Year_Months.tenYear {display:none;}
+.Jcalendar .Month{float: left;padding-left:25px;}
+.Jcalendar .Month .thisMonth{width: auto;display: block;cursor: pointer;}
+.Jcalendar .Months{display: none;width: 50px; height: 18px;}
+.Jcalendar .Year{float:left;padding-left: 10px;}
+.Jcalendar .Year .thisYear{width: 70px;display: block;cursor: pointer;}
+.Jcalendar .Years{display: none;width: 50px;height: 18px;}
+.Jcalendar .Jcal_body {float: left;width: 100%;height:158px;overflow:hidden;}
+.Jcalendar .Jcal_body .weekline{height: 19px; padding:0 5px;color: #164D9F;}
+.Jcalendar .Jcal_body .weekline li{float: left;font-size: 12px;width: 32px;padding-top: 5px;}
+.Jcalendar .weekend{color: #164D9F;}
+.Jcalendar .Days{position: relative;float:left;padding: 5px;}
+.Jcalendar .Days .cell{height: 15px;width:32px;float:left;text-align: center;font-size: 12px;padding: 3px 0;}
+.Jcalendar .Days .cell.able{cursor: pointer;}
+.Jcalendar .Days .cell.able.selected { color: #164D9F;background-color: #ADCCEB;font-weight: bold; }
+.Jcalendar .Days .cell.able:hover{color: #164D9F;background-color: #ADCCEB;}
+.Jcalendar .Days .cell.disable{color:#999;}
+.Jcalendar .Days .cell.today{color: #fff;background-color: #CC3333;font-weight: bold;}
+.Jcalendar .changeYear {position:absolute;left:112px;top:120px;display:none;background-color:#FFF;}
+.Jcalendar .changeMonth {position:absolute;left:8px;top:32px;display:none;background-color:#FFF;}
+.Jcalendar.double .changeYear .cybody {overflow:hidden;}
+.Jcalendar.double .changeYear .cy {overflow:hidden;display:none;position:absolute;width:0px;height:0px;}
+.Jcalendar.double .changeYear ul {margin:17px;}
+.Jcalendar.double .changeYear li {float:left;width:40px;padding:3px;}
+.Jcalendar .Year_Months .oySelect {padding-left:10px;float:left;color:#999;cursor:pointer;}
+.Jcalendar .Year_Months .tySelect {padding-left:35px;float:left;color:#999;cursor:pointer;}
+.Jcalendar .Year_Months .oySelect.active {color:#FFF;}
+.Jcalendar .Year_Months .tySelect.active {color:#FFF;}
+
+
+/*alert弹出层*/
+#AlertShield{position:fixed;left:0px;top:0px;width:100%;z-Index:10000;opacity:0.4;background:#000000;display:none;}
+*html #AlertShield{position:absolute;top:expression(eval(document.documentElement.scrollTop));}
+#AlertFram{position:fixed;background-color:#F6F6F6;border:2px solid #D1D1D1;width:500px;font-size:14px;z-index:10002;display:none;}
+*html #AlertFram{position:absolute;}
+#AlertFram h1 {background:url('../images/headprocess.jpg') center -9px repeat-x;border-bottom:2px solid #D1D1D1; font-size:14px; line-height:28px;padding-left:15px;}
+#AlertFram h2 {background:url('../images/icon_fail.gif') 20px 20px no-repeat; font-size:14px; font-weight:normal; padding:25px 20px 20px 60px; line-height:150%; color:#cb4411;}
+#AlertFram h2 span { text-align:center; display:block; padding-right:40px; margin-top:20px;}
+
+/*城市选择*/
+.city_box { /*z-index:100;*/ display: inline-block; padding-right: 0px !important; }
+.city_box i { position: absolute; right: 2px; top: 2px; *top: 4px;*+ top: 4px;width: 20px; height: 17px; background: url(../images/icon_city.gif) top left no-repeat; cursor: pointer; }
+.city_box #city_fields { position: absolute; top: 22px; left: 0; width: 342px; background-color: #fff; z-index: 99; }
+#iframe_ie6 { position: absolute; top: 22px; left: 0; width: 342px; background-color: #fff; z-index: 98; }
+#city_fields { border: 1px #ccc solid; background-color: #f2f2f2; padding:0; position: absolute; left: 0; top: 0; font-size: 12px; overflow: hidden; width: 320px; font-family: Verdana, Arial, Helvetica, sans-serif; -moz-box-shadow:3px 3px 3px #666666; box-shadow:3px 3px 3px #666666;}
+#city_fields ul { width: 100%; list-style-position: outside; list-style: none; padding: 0; margin: 0; }
+#city_fields_iframe { position: absolute; overflow: hidden; }
+#city_fields iframe { overflow: hidden; position: absolute; z-index: 1; }
+#city_fields .list { overflow-y: auto; overflow-x: hidden; }
+#city_fields ul { width: 100%; }
+#city_fields li { cursor: pointer; font: menu; overflow: hidden; text-align: left; }
+#city_fields li span { }
+#city_fields .select_over { background-color: #00B7EC; color: #fff; }
+#city_fields .select { background: #EDF5FF; color: #666; font-size: 12px; height: 23px; line-height: 23px; margin-bottom: 5px; padding: 0 5px; }
+#city_fields .tips { background: #272785; color: #fff; font-size: 12px; height: 23px; line-height: 23px; margin-bottom: 5px; padding: 0 5px; position: relative; display: none; }
+#city_fields .tips span { position: absolute; right: 4px; top: 4px; background: url(../images/icon_city_close.gif) left top no-repeat; width: 15px; height: 15px; cursor: pointer; }
+#city_fields .type { }
+#city_fields .type ul { margin: 0; padding: 0; }
+#city_fields .type li { float: left; width: 50%; text-align: center; height: 28px !important; line-height: 28px !important; padding: 0 !important; color: #fff; background: url(../images/globle/bg-map.jpg) center top repeat-x; }
+#city_fields .type li.active { color: #fff; background: none; background-color: #f2f2f2; color: #333; }
+#city_fields .hotCity { padding: 10px; }
+#city_fields .hotCity .city { margin-top: 5px; padding-bottom: 5px; display: none; }
+#city_fields #domestic_city .hotCity .city li { display: inline; width: 18%; float: left; text-align: left; padding: 1px; overflow: hidden; height: 18px; line-height: 18px; border: 1px solid #f2f2f2; color: #333; }
+#city_fields #domestic_city .hotCity .city li span { color: #333; }
+#city_fields #inter_city .hotCity .city li { display: inline; width: 23%; float: left; text-align: left; padding: 2px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; height: 18px; border: 1px solid #f2f2f2; }
+#city_fields .hotCity .city li.hover { background-color: #EDF5FF; border: 1px solid #47ADF3 !important; }
+#city_fields #inter_city .hotCity .city.long li { height: auto; }
+#city_fields .hotCity .title { }
+#city_fields .hotCity .city_body { background-color: #f2f2f2; position: relative; z-index: 1; margin-top: -1px; }
+#city_fields .hotCity .title .col { float: left; height: 16px; border: 1px #f2f2f2 solid; line-height: 16px; width: auto; padding: 0 6px; display: inline; cursor: pointer; color: #272785; }
+#city_fields .hotCity .title .col.active { border: 1px #272785 solid; background-color: #272785; color: #fff; }
+#inter_city .hotCity .title .col { padding: 0 16px; }
+#searchDiv { height: 200px; overflow-x: hidden; overflow-y: auto; width: 200px;}
+#searchDiv li { color: #0055AA !important; height: 20px !important; line-height: 20px !important; padding: 0 10px;}
+#searchDiv li.hover { background-color: #EDF5FF;}
+
+/*--------price style---------*/
+span.price { color:#333; font-size:30px; line-height:150%; font-weight:bold;}
+span.price.normal { font-size:18px; font-weight:normal;}
+span.price.red { color:#D42826;}
+span.price dfn { font-family:Arial; font-size:12px; margin-right:2px; vertical-align:middle; font-style:normal;}
+span.price.normal dfn { color:#999; vertical-align:middle;}
+span.price i { font-size:12px; color:#999; vertical-align:middle; font-style:normal; font-weight:normal;}
+
+/*--------tips style---------*/
+span.tip { border-bottom:1px #666 dashed; margin:0 !important; padding:0 !important; position:relative; cursor:help; z-index:9;}
+span.tip .div-tip { display:none; position:absolute; left:0; top:18px; min-width:280px; text-align:left; font-size:12px !important; cursor:default; box-shadow:2px 2px 0px #ddd;}
+span.tip .div-tip b { display:block; *+width:280px; height:25px; line-height:25px; padding:0 10px; margin:0 !important; background-color:#1183BC; color:#fff; font-size:12px!important;}
+span.tip .div-tip i { display:block; height:6px; background:url(../images/globle/icon-map.png) 10px -440px no-repeat; }
+span.tip .div-tip p { margin:0 !important; font-size:12px !important; padding:5px 10px; border:1px #ccc solid; background-color:#fff;}
+
+/*--------select style---------*/
+figure.mu-select { display:inline-block; position:relative; z-index:9; background:url(../images/globle/bg-map.jpg) left -64px repeat-x;}
+figure.mu-select.auto { width:auto;}
+figure.mu-select.active { z-index:12; background-position: left -94px;}
+figure.mu-select figcaption { padding:0 25px 0 10px; height:30px; line-height:30px; border:1px #ddd solid; background:url(../images/globle/icon-map.png) right -476px no-repeat;overflow:hidden; text-overflow:ellipsis; white-space:nowrap; cursor:pointer;}
+figure.mu-select.active figcaption { background-position: right -506px;}
+figure.mu-select dir { display:none; position:absolute; top:31px; left:0; width:118px; line-height:22px; border:1px #ddd solid; background-color:#fff; padding:0;}
+figure.mu-select dir .digital { margin:10px;}
+figure.mu-select dir li { cursor:pointer; padding:2px 10px;}
+figure.mu-select dir li:hover { background-color:#eee;}
+
+
+.float_tips { position:absolute; z-index:999; padding:2px 10px; line-height:180%; -moz-box-shadow:1px 1px 2px #ccc; box-shadow:1px 1px 2px #ccc; border:1px #c1c1c1 solid; background-color:#fff; color:#999;}
+.ifr_float_tips {position:absolute;padding: 2px 10px;border:none;}
+
+/*搜索框*/
+#_Selector dl.flight-type { height: 22px; padding-bottom: 10px; text-align: center; }
+#_Selector dl.flight-type dt { width: 50px; padding-right: 0; cursor: pointer;}
+#_Selector dt.active { background-color: #272785; color: #FFFFFF }
+#_Selector .form-field { height: 30px; margin: 0 auto 20px auto; }
+#_Selector .form-field .input { padding:5px; margin-left:5px;}
+#_Selector .form-field .input.date { width:149px; margin-left:19px;}
+#_Selector  dt { float: left; padding-right:20px; }
+#_Selector  dd { float: left; }
+#_Selector  input.radio { margin-right: 20px; margin-top: 3px; }
+div.error_msg { margin: 0 0 10px; padding: 0; position: relative; text-align: center; }
+#_Selector p { text-align:center;}
+#_Selector input.blue { margin:0 auto; font-size: 24px; height:45px; color: #fff; background-color:#004689; padding:0 20px; border:0; border-radius:5px; }
