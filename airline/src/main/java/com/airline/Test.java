@@ -8,6 +8,7 @@ public class Test {
 		System.out.println("一袋米要扛二楼");
 		System.out.println("啥是gay？那撸多！");
 		System.out.println("辛辣天塞");
+		System.out.println("卡通 扩卡没卡阔");
 	}
 
 }
