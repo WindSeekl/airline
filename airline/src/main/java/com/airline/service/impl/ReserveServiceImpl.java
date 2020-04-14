@@ -14,7 +14,7 @@ public class ReserveServiceImpl implements ReserveService{
 	private ReserveRepository reserveRepository;
 
 	@Override
-	public List<String> queryReserve(Reserve reserve) {
+	public List<Reserve> queryReserve(Reserve reserve) {
 		// TODO Auto-generated method stub
 		return reserveRepository.queryReserve(reserve);
 	}
