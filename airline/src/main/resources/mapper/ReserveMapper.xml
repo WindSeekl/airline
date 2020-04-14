@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.airline.repository.ReserveMapper">
+	<select id="queryReserve" parameterType="reserve" resultType="reserve">
+		select * from reserve 
+		<where>
+			<if test="customerName!=null">
+				and customerName=#{customerName}
+			</if>
+			<if test="reserveId!=''">
+				and reserveId=#{reserveId}
+			</if>
+			<if test="orderDate!=''">
+				and orderDate=#{orderDate}
+			</if>
+		</where>
+	</select>
+	
+	<insert id="insertReserve" parameterType="reserve">
+		insert into reserve values(#{reserveId},#{cardId},#{userName},#{flightId},#{benginDate},#{endDate},#{benginSite},#{endSite},#{seatId},#{money},#{travelDate},#{state},#{customerName})
+	</insert>
+	<update id="updateState" parameterType="reserve">
+		update reserve set state=#{state} where reserveId=#{reserveId}
+	</update>
+</mapper>
