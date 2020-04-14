@@ -8,7 +8,14 @@ public class Customer {
 	private String IDNumber;			 //身份证
 	private String phone;				 //手机号码
 	private String email;			     //电子邮箱
+	private String sex;
 	
+	public String getSex() {
+		return sex;
+	}
+	public void setSex(String sex) {
+		this.sex = sex;
+	}
 	public int getCustomerId() {
 		return customerId;
 	}
@@ -55,7 +62,7 @@ public class Customer {
 	@Override
 	public String toString() {
 		return "Customer [customerId=" + customerId + ", customerName=" + customerName + ", password=" + password
-				+ ", realName=" + realName + ", IDNumber=" + IDNumber + ", phone=" + phone + ", email=" + email + "]";
+				+ ", realName=" + realName + ", IDNumber=" + IDNumber + ", phone=" + phone + ", email=" + email
+				+ ", sex=" + sex + "]";
 	}
-	
 }

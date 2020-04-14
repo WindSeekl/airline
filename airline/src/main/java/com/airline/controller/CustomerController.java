@@ -2,6 +2,7 @@ package com.airline.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,14 +18,14 @@ public class CustomerController {
 	@Autowired
 	private CustomerService customerService;
 	@RequestMapping("/insertCustomer")
-	public String insertCustomer(Customer customer, HttpServletRequest req, HttpServletResponse resp) {
+	public String insertCustomer(Customer customer, String retypepassword, HttpServletRequest req, HttpServletResponse resp) {
 		String res = null;
 		if(!customer.getCustomerName().isEmpty())
 			res = customerService.insertCustomer(customer);
 		else
 			res = "客户名不能为空";
-		String jsonStr = JSONObject.toJSONString(res);
-		
-		return jsonStr;
+		HttpSession session = req.getSession();
+		session.setAttribute("res", res);
+		return "background/addcustomer";
 	}
 }

@@ -25,7 +25,12 @@
 <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/excanvas.min.js"></script><![endif]-->
 </head>
 
-<body>
+<body onload="<% HttpSession se = request.getSession();
+			String res = (String)se.getAttribute("res");
+			if(res != null){ 
+			%>alter(<%=res%>)
+			<%se.setAttribute("res", null);
+			}%>">
 
 	<div class="mainwrapper">
 
@@ -141,22 +146,21 @@
 			<div class="maincontent">
 				<div class="maincontentinner">
 					<div class="row-fluid">
-					<form action="../BgregUser.action" class="editprofileform"
+					<form action="../insertCustomer" class="editprofileform"
 								method="post">
 						<div class="span4 profile-left">
 
 
-						<form>
 							<div class="widgetbox personal-information">
 							
 								<h4 class="widgettitle">个人资料</h4>
 								<div class="widgetcontent">
 									<p>
-										<label>用户名:</label> <input type="text" name="user.username"
+										<label>用户名:</label> <input type="text" name="customerName"
 											class="input-xlarge" value="" />
 									</p>
 									<p>
-										<label>密码:</label> <input type="password" name="user.password"
+										<label>密码:</label> <input type="password" name="password"
 											class="input-xlarge" value="" />
 									</p>
 									<p>
@@ -164,9 +168,9 @@
 											class="input-xlarge" value="" />
 									</p>
 									<p>
-										<label>性别:</label> <input type="radio" name="user.sex"
-											class="input-xlarge" value="0" />男 <input type="radio"
-											name="user.sex" class="input-xlarge" value="1" />女
+										<label>性别:</label> <input type="radio" name="sex"
+											class="input-xlarge" value="男" />男 <input type="radio"
+											name="sex" class="input-xlarge" value="女" />女
 									</p>
 								</div>
 							</div>
@@ -178,20 +182,20 @@
 									<h4 class="widgettitle">联系信息</h4>
 									<div class="widgetcontent">
 										<p>
-											<label>真实姓名:</label> <input type="text" name="user.realName"
+											<label>真实姓名:</label> <input type="text" name="realName"
 												class="input-xlarge" value="" />
 										</p>
 										<p>
-											<label>身份证号:</label> <input type="text" name="user.identificationCard"
+											<label>身份证号:</label> <input type="text" name="IDNumber"
 												class="input-xlarge" value="" />
 										</p>
 
 										<p>
-											<label>联系电话：</label> <input type="text" name="user.phoneNumber"
+											<label>联系电话：</label> <input type="text" name="phone"
 												class="input-xlarge" value="" />
 										</p>
 										<p>
-											<label>联系邮箱:</label> <input type="text" name="user.email"
+											<label>联系邮箱:</label> <input type="text" name="email"
 												class="input-xlarge" value="" />
 										</p>
 										<p align="center">
@@ -227,5 +231,8 @@
 
 	</div>
 	<!--mainwrapper-->
+	<script type="text/javascript">
+	
+	</script>
 </body>
 </html>
