@@ -146,9 +146,9 @@
 						<div class="span4 profile-left">
 
 
-
+						<form>
 							<div class="widgetbox personal-information">
-
+							
 								<h4 class="widgettitle">个人资料</h4>
 								<div class="widgetcontent">
 									<p>
