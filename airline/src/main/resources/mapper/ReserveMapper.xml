@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.airline.repository.ReserveMapper">
+<mapper namespace="com.airline.repository.ReserveRepository">
 	<select id="queryReserve" parameterType="reserve" resultType="reserve">
 		select * from reserve 
 		<where>
