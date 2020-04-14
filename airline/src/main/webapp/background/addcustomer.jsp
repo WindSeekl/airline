@@ -11,7 +11,9 @@
 <link rel="stylesheet" href="css/style.default.css" type="text/css" />
 
 <link rel="stylesheet" href="css/responsive-tables.css">
-<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+<!-- <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script> -->
+<!-- <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script> -->
+<script src="../Script/jquery-1.8.3.min.js"></script>
 <script type="text/javascript" src="js/jquery-migrate-1.1.1.min.js"></script>
 <script type="text/javascript" src="js/jquery-ui-1.9.2.min.js"></script>
 <script type="text/javascript" src="js/modernizr.min.js"></script>
@@ -25,13 +27,7 @@
 <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/excanvas.min.js"></script><![endif]-->
 </head>
 
-<body onload="<% HttpSession se = request.getSession();
-			String res = (String)se.getAttribute("res");
-			if(res != null){ 
-			%>alter(<%=res%>)
-			<%se.setAttribute("res", null);
-			}%>">
-
+<body>
 	<div class="mainwrapper">
 
 		<div class="header">
@@ -146,8 +142,8 @@
 			<div class="maincontent">
 				<div class="maincontentinner">
 					<div class="row-fluid">
-					<form action="../insertCustomer" class="editprofileform"
-								method="post">
+					<form action="#" class="editprofileform"
+								method="post" id="editForm">
 						<div class="span4 profile-left">
 
 
@@ -199,7 +195,7 @@
 												class="input-xlarge" value="" />
 										</p>
 										<p align="center">
-											<button type="submit" class="btn btn-primary">提交</button>
+											<button type="button" onclick="commit();" class="btn btn-primary">提交</button>
 										</p>
 									</div>
 								</div>
@@ -232,7 +228,19 @@
 	</div>
 	<!--mainwrapper-->
 	<script type="text/javascript">
-	
+		function commit(){
+			jQuery.ajax({
+				url:'../insertCustomer',
+				data:jQuery("#editForm").serialize(),
+				type:"post",
+				dataType:'json',
+				success:function(data){
+					alert(data.res)
+				},error:function(data){
+					alert("失败")
+				}
+			})
+		}
 	</script>
 </body>
 </html>
