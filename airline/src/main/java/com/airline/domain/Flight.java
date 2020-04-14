@@ -1,54 +1,53 @@
 package com.airline.domain;
 
 public class Flight {
-	private String beginsite;//起始地
-	private String endsite;//抵达地
-	private String jtime;//航班日期
-	private String airine;//航空公司
-	private String airno;//航空号
+	private String beginSite;//起始地
+	private String endSite;//抵达地
+	private String jTime;//航班日期
+	private String airline;//航空公司
+	private String airNo;//航空号
 	private Seat state;//舱位
 	
+	public String getBeginSite() {
+		return beginSite;
+	}
+	public void setBeginSite(String beginSite) {
+		this.beginSite = beginSite;
+	}
+	public String getEndSite() {
+		return endSite;
+	}
+	public void setEndSite(String endSite) {
+		this.endSite = endSite;
+	}
 	public Seat getState() {
 		return state;
 	}
 	public void setState(Seat state) {
 		this.state = state;
 	}
-	public String getBeginsite() {
-		return beginsite;
+	
+	public String getjTime() {
+		return jTime;
 	}
-	public void setBeginsite(String beginsite) {
-		this.beginsite = beginsite;
+	public void setjTime(String jTime) {
+		this.jTime = jTime;
 	}
-	public String getEndsite() {
-		return endsite;
+	public String getAirline() {
+		return airline;
 	}
-	public void setEndsite(String endsite) {
-		this.endsite = endsite;
+	public void setAirline(String airline) {
+		this.airline = airline;
 	}
-	public String getJtime() {
-		return jtime;
+	public String getAirNo() {
+		return airNo;
 	}
-	public void setJtime(String jtime) {
-		this.jtime = jtime;
-	}
-	public String getAirine() {
-		return airine;
-	}
-	public void setAirine(String airine) {
-		this.airine = airine;
-	}
-	public String getAirno() {
-		return airno;
-	}
-	public void setAirno(String airno) {
-		this.airno = airno;
+	public void setAirNo(String airNo) {
+		this.airNo = airNo;
 	}
 	@Override
 	public String toString() {
-		return "Flight [beginsite=" + beginsite + ", endsite=" + endsite + ", jtime=" + jtime + ", airine=" + airine
-				+ ", airno=" + airno + ", state=" + state + "]";
+		return "Flight [beginSite=" + beginSite + ", endSite=" + endSite + ", jTime=" + jTime + ", airline=" + airline
+				+ ", airNo=" + airNo + ", state=" + state + "]";
 	}
-	
-	
 }
