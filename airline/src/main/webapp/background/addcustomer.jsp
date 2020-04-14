@@ -240,6 +240,7 @@
 					alert("失败")
 				}
 			})
+			document.getElementById('editForm').reset();
 		}
 	</script>
 </body>
