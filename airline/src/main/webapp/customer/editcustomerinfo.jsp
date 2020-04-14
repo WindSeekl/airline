@@ -99,11 +99,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</div>
 							<div class="row">
 								<div class="col1">真实姓名：</div>
-								<div class="col2 blue"><input type="text" name="user.realName" value="${currentUser.realName}">&nbsp;</div>
+								<div class="col2 blue"><input type="text" name="user.realName" value="${currentUser.realName}"  disabled="disabled">&nbsp;</div>
 							</div>
                             <div class="row">
 								<div class="col1">身份证号：</div>
-								<div class="col2 blue"><input type="text" name="user.identificationCard" value="${currentUser.identificationCard}">&nbsp;</div>
+								<div class="col2 blue"><input type="text" name="user.identificationCard" value="${currentUser.identificationCard}"  disabled="disabled">&nbsp;</div>
 								<div class="col2 blue">&nbsp;</div>
 							</div>
 							<div class="clear"></div>
