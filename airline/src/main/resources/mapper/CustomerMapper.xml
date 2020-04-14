@@ -53,4 +53,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			</if>
 		</trim>
 	</insert>
+	
+	<update id="editPassword" parameterType="customer">
+		update customer set password = #{password} where customerName = #{customerName}
+	</update>
 </mapper>

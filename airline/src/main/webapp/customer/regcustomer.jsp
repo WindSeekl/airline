@@ -48,7 +48,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 												用户名：
 											</td>
 											<td width="20%">
-												<input type="text" name="user.username" value="" id="username"></td>
+												<input type="text" name="customerName" value="" id="customerName"></td>
 											<td width="40%" align="left">
 												<span class="error"></span>
 											</td>
@@ -58,7 +58,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 												密码：
 											</td>
 											<td>
-												<input type="password" name="user.password" value="" id="password"></td>
+												<input type="password" name="password" value="" id="password"></td>
 											<td align="left">
 												<span  class="error"></span>
 											</td>
@@ -69,7 +69,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 												确认密码：
 											</td>
 											<td>
-												<input type="password" name="confirm_password" value=""></td>
+												<input type="password" name="retypepassword" value=""></td>
 											<td align="left">
 												<span  class="error"></span>
 											</td>
@@ -80,9 +80,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 												性别：
 											</td>
 											<td>
-												<input type="radio" name="user.sex" id="sexM" value="0">
+												<input type="radio" name="sex" id="sexM" value="男">
 												<label for="sexM">男</label>
-												<input type="radio" name="user.sex" id="sexF" value="1">
+												<input type="radio" name="sex" id="sexF" value="女">
 												<label for="sexF">女</label>
 											</td>
 											<td align="left" height="14px">
@@ -91,10 +91,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 										<tr>
 											<td align="right">
 												<b style="color: #F00;">*</b>
-												真是姓名：
+												真实姓名：
 											</td>
 											<td>
-												<input type="text" name="user.realName" value="" id="realName"></td>
+												<input type="text" name="realName" value="" id="realName"></td>
 											<td align="left">
 
 											</td>
@@ -105,7 +105,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 												证件号码：
 											</td>
 											<td>
-												<input type="text" name="user.identificationCard" value="" id="idtext0"></td>
+												<input type="text" name="IDNumber" value="" id="idtext0"></td>
 											<td align="left">
 		
 											</td>
@@ -125,7 +125,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 												手机号码：
 											</td>
 											<td width="20%">
-												<input type="text" name="user.phoneNumber" value="" id="phoneNumber"></td>
+												<input type="text" name="phone" value="" id="phoneNumber"></td>
 											<td align="left" width="40%">
 	
 											</td >
@@ -136,7 +136,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 												电子邮件：
 											</td>
 											<td >
-												<input type="text" name="user.email" value="" id="easten_form_registerDto_email" style=""></td>
+												<input type="text" name="email" value="" id="easten_form_registerDto_email" style=""></td>
 											<td align="left" >
 
 											</td >
@@ -146,6 +146,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</div>
 							<div class="L_p">
 								<div style="text-align: center; margin-top: 10px;">
+								<input type="hidden" name="mark" value="注册">
 									<input type="button"  value="提交" id="login1"></div>
 							</div>
 							<div class="clear"></div>
@@ -191,88 +192,96 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </div>
 <script type="text/javascript">
 $("#login1").click(function (){
-	if($("#easten_form").valid()){
-	        $("#easten_form").submit();
-	        postForm();
-	}
-});
+	$.ajax({
+		url:'../insertCustomer',
+		data:jQuery("#easten_form").serialize(),
+		type:"post",
+		dataType:'json',
+		success:function(data){
+			alert(data.res)
+		},error:function(data){
+			alert("失败")
+		}
+	})
+	document.getElementById('editForm').reset();
+});/* 
 	$("#easten_form").validate({
 		rules: {
-			"user.username": {
+			"customerName": {
 				required: true,
 				remote: {
 					    type: "post",
-					    url: "validateusername.action",
+					    url: "../insertCustomer",
 					    dataType: "json",
 						data: {
-						  username: function() {
-						  return $("#username").val()
+						  customerName: function() {
+						  return $("#customerName").val()
 						         }
 						  }
 					}
 			},
-			"user.password": {
+			"password": {
 				required: true,
 				minlength: 6
 			},
-			"confirm_password": {
+			"retypepassword": {
 				required: true,
 				minlength: 6,
 				equalTo: '#password'
 			},
-			"user.sex": {
+			"sex": {
 				required: true
 			},
-			"user.realName": {
+			"realName": {
 				required: true
 			},
-			"user.email": {
+			"email": {
 				required: true,
 				email: true
 			},
-			"user.phoneNumber": {
+			"phone": {
 				required: true,
 				number:true,
 				minlength: 11,
 				maxlength: 11
 
 			},
-			"user.identificationCard": {
+			"IDNumber": {
 				required: true,
 				minlength: 18
 			}
 		},
 		messages: {
-			"user.username": {
+			"customerName": {
 				required: '用户名不能为空',
 				remote:'用户名已存在'
 			},
-			"user.password":{
+			"password":{
 				required:'请输入密码',
 				minlength:'密码不能小于6个字符'
 			},
-			"confirm_password": {
+			"retypepassword": {
 				required: '请输入确认密码',
 				minlength: '确认密码不能小于6个字符',
 				equalTo: '两次输入密码不一致不一致'
 			},
-			"user.sex": {
+			"sex": {
 				required: "请选择性别"
 			},
-			"user.realName": {
+			"realName": {
 				required: "请输入真实姓名"
 			},
-			"user.email": {
+			"email": {
 				required: "请输入电子邮箱",
 				email: "请输入正确格式的电子邮箱"
 			},
-			"user.phoneNumber": {
+			"phone": {
 				required: "请输入手机号码",
 				minlength: "手机号码为11位",
 				maxlength: "手机号码为11位",
 				number:"请输入合法的数字"
 			},
-			"user.identificationCard": {
+			"IDNumber": {
 				required: "请输入身份证号码",
 				minlength: "请正确输入您的身份证号码"
 			}
@@ -280,7 +289,7 @@ $("#login1").click(function (){
 		errorPlacement: function(error, element) {
 			error.appendTo(element.parent().next());
 		}
-	});
+	}); */
 </script>
 </body>
 </html>

@@ -13,14 +13,30 @@ public class CustomerServiceImpl implements CustomerService {
 	private CustomerRepository customerRepository;
 
 	@Override
-	public String insertCustomer(Customer customer) {
+	public String insertCustomer(Customer customer, String mark) {
 		// TODO Auto-generated method stub
 		Customer cust = customerRepository.queryCustomer(customer.getCustomerName());
 		if(cust == null) {
 			customerRepository.insertCustomer(customer);
-			return "增加成功";
-		} else {
+			if(mark.equals("注册"))
+				return "注册成功";
+			else
+				return "增加成功";
+		} else
 			return "客户已存在";
-		}
+	}
+
+	@Override
+	public String editPassword(Customer customer, String oldPassword) {
+		// TODO Auto-generated method stub
+		Customer cust = customerRepository.queryCustomer(customer.getCustomerName());
+		if(cust.getPassword().equals(oldPassword)) {
+			if(!cust.getPassword().equals(customer.getPassword())){
+				customerRepository.editPassword(customer);
+				return "修改成功";
+			} else
+				return "新密码不能与旧密码相同";
+		} else
+			return "旧密码错误";
 	}
 }

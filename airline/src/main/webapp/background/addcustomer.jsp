@@ -195,6 +195,7 @@
 												class="input-xlarge" value="" />
 										</p>
 										<p align="center">
+								<input type="hidden" name="mark" value="增加">
 											<button type="button" onclick="commit();" class="btn btn-primary">提交</button>
 										</p>
 									</div>

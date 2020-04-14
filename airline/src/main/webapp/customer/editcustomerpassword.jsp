@@ -84,7 +84,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<div class="body">
 						<div class="b_content active" rel="tab1">
                        
-                            <form action="editPasswordUserAction.action" method="post" id="editpassword_form">
+                            <form action="#" method="post" id="editpassword_form">
 							<div class="name">
 								<b class="blue bold">更改密码</b> <span class="gray block">
 								<input id="editpassword" style="width:40px; height: 25px;" type="button" value="保存"></span>
@@ -92,12 +92,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</div>
 							<div class="row">
 								<div class="col1">当前密码：</div>
-								<div class="col2 blue"><input id="password" type="password" name="password" value="">&nbsp;</div>
+								<div class="col2 blue"><input id="password" type="password" name="oldPassword" value="">&nbsp;</div>
 								<span id="error"></span>
 							</div>
 							<div class="row">
 								<div class="col1">新密码：</div>
-								<div class="col2 blue"><input id="newpwd" type="password" name="user.password">
+								<div class="col2 blue"><input id="newpwd" type="password" name="password">
 								&nbsp;	
 								</div>
 							</div>
@@ -126,15 +126,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	 $("#editpassword").click(function (){
 	        	$.ajax({
 	                type: "post",
-	                url: "validateeditpassword.action",
-	                data: {password:$("#password").val()},
+	                url: "../editPassword",
+	                data: $("#editpassword_form").serialize(),
 	                dataType: "json",
 	                success: function(data){
-	                	if(data){
-	        	        	$("#editpassword_form").submit();
-	        	        	postForm();}
-	                	else{
-	                	  $('#error').html("原密码错误"); }
+        	        	alert(data.res)
+	                },error: function(data){
+	                	alert("修改失败")
 	                }
 	            });
 	    });

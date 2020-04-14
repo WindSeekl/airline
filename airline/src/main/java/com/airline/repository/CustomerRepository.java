@@ -9,4 +9,7 @@ public interface CustomerRepository {
 	int insertCustomer(Customer customer);
 	
 	Customer queryCustomer(String customerName);
+	
+	int editPassword(Customer customer);
+	
 }
