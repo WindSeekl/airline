@@ -6,10 +6,14 @@ public class Flight {
 	private String jtime;//航班日期
 	private String airine;//航空公司
 	private String airno;//航空号
-	private String aircraftcabin;//舱位
-	private String poll;//票数
-	private String ticket;//票价
+	private Seat state;//舱位
 	
+	public Seat getState() {
+		return state;
+	}
+	public void setState(Seat state) {
+		this.state = state;
+	}
 	public String getBeginsite() {
 		return beginsite;
 	}
@@ -40,29 +44,11 @@ public class Flight {
 	public void setAirno(String airno) {
 		this.airno = airno;
 	}
-	public String getAircraftcabin() {
-		return aircraftcabin;
-	}
-	public void setAircraftcabin(String aircraftcabin) {
-		this.aircraftcabin = aircraftcabin;
-	}
-	public String getPoll() {
-		return poll;
-	}
-	public void setPoll(String poll) {
-		this.poll = poll;
-	}
-	public String getTicket() {
-		return ticket;
-	}
-	public void setTicket(String ticket) {
-		this.ticket = ticket;
-	}
 	@Override
 	public String toString() {
 		return "Flight [beginsite=" + beginsite + ", endsite=" + endsite + ", jtime=" + jtime + ", airine=" + airine
-				+ ", airno=" + airno + ", aircraftcabin=" + aircraftcabin + ", poll=" + poll + ", ticket=" + ticket
-				+ "]";
+				+ ", airno=" + airno + ", state=" + state + "]";
 	}
+	
 	
 }
