@@ -9,10 +9,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<if test="customerName!=null">
 				and customerName=#{customerName}
 			</if>
-			<if test="reserveId!=''">
+			<if test="reserveId!=null">
 				and reserveId=#{reserveId}
 			</if>
-			<if test="orderDate!=''">
+			<if test="orderDate!=null">
 				and orderDate=#{orderDate}
 			</if>
 		</where>
