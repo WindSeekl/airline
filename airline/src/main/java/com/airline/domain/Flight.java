@@ -9,6 +9,7 @@ public class Flight {
 	private String aircraftcabin;//舱位
 	private String poll;//票数
 	private String ticket;//票价
+	
 	public String getBeginsite() {
 		return beginsite;
 	}
