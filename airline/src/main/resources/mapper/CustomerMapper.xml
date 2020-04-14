@@ -8,7 +8,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 
 	<insert id="insertCustomer" parameterType="customer">
-		insert into airline
+		insert into customer
 		<trim prefix="(" suffix=")" suffixOverrides=",">
 			customerName,
 			<if test="password != ''">
