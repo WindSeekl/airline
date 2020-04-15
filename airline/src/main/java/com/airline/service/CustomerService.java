@@ -1,5 +1,7 @@
 package com.airline.service;
 
+import java.util.List;
+
 import com.airline.domain.Customer;
 
 public interface CustomerService {
@@ -10,4 +12,6 @@ public interface CustomerService {
 	String editPassword(Customer customer, String oldPassword);
 	
 	String editInfo(Customer customer);
+	
+	List<Customer> queryCustomers();
 }

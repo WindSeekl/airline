@@ -6,6 +6,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="queryCustomer" parameterType="String" resultType="customer">
 		select * from customer where customerName = #{customerName}
 	</select>
+	
+	<select id="queryCustomers" resultType="customer">
+		select * from customer
+	</select>
 
 	<insert id="insertCustomer" parameterType="customer">
 		insert into customer

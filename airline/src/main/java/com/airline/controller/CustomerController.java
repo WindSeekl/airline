@@ -1,12 +1,16 @@
 package com.airline.controller;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.airline.domain.Customer;
 import com.airline.service.CustomerService;
@@ -62,5 +66,13 @@ public class CustomerController {
 		map.put("res", res);
 		JSONObject json = JSONObject.fromObject(map);
 		return json;
+	}
+	
+	@RequestMapping(value = "/queryCustomers")
+	public ModelAndView queryCustomers(HttpServletRequest req) {
+		ModelAndView mv = new ModelAndView("background/findcustomer");
+		List<Customer> list = customerService.queryCustomers();
+		req.getSession().setAttribute("customers", list);
+		return mv;
 	}
 }

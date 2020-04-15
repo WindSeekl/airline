@@ -62,7 +62,7 @@
 							订票客户管理</a>
 						<ul>
 							<li><a href="addcustomer.jsp">增加客户信息</a></li>
-							<li><a href="../BgfindAllUser.action">查询客户信息</a></li>
+							<li><a href="../queryCustomers">查询客户信息</a></li>
 						</ul></li>
 					<li class="dropdown"><a href=""><span
 							class="iconfa-pencil"></span> 航班机票管理</a>

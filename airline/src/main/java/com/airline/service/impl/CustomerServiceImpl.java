@@ -1,5 +1,7 @@
 package com.airline.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -55,5 +57,11 @@ public class CustomerServiceImpl implements CustomerService {
 			return "修改成功";
 		}
 		return "信息相同改你🐎改";
+	}
+
+	@Override
+	public List<Customer> queryCustomers() {
+		// TODO Auto-generated method stub
+		return customerRepository.queryCustomers();
 	}
 }
