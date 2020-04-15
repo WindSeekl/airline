@@ -10,7 +10,7 @@
 <html>
 <head>
 <base href="<%=basePath%>">
-<title>My JSP 'index.jsp' starting page</title>
+<title>个人信息</title>
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
 <meta http-equiv="expires" content="0">
@@ -84,10 +84,9 @@
 					<a href="customer/customerinfo.jsp">个人信息</a>
 				</div>
 
-				<div class="menu font14 bold m2">
-					<a href="findAllOrderAction.action">机票订单</a>
+				<div class="menu font14 bold m2"><a href="order/ordershow.jsp">机票订单</a></div>
+				<div class="child">
 				</div>
-				<div class="child"></div>
 				<div class="menu font14 bold m9">
 					<a href="customer/editcustomerpassword.jsp">更改密码</a>
 				</div>

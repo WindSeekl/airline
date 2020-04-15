@@ -50,4 +50,17 @@ public class CustomerController {
 		JSONObject json = JSONObject.fromObject(map);
 		return json;
 	}
+	
+	@RequestMapping(value = "/editInfo", method = RequestMethod.POST)
+	public JSONObject editInfo(Customer customer) {
+		String res = null;
+		Map<String,String> map=new HashMap<String, String>();
+		if(!customer.getPassword().isEmpty()) {
+			res = customerService.editInfo(customer);
+		} else
+			res = "信息不能为空";
+		map.put("res", res);
+		JSONObject json = JSONObject.fromObject(map);
+		return json;
+	}
 }

@@ -12,4 +12,5 @@ public interface CustomerRepository {
 	
 	int editPassword(Customer customer);
 	
+	int editInfo(Customer customer);
 }
