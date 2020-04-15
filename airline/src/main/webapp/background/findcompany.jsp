@@ -76,7 +76,7 @@
         <div class="leftmenu">        
            <ul class="nav nav-tabs nav-stacked">
 					<li class="nav-header">Navigation</li>
-					<li class="active"><a href="../countOrderAction.action"><span
+					<li class="active"><a href="index.jsp"><span
 							class="iconfa-laptop"></span> 首页</a></li>
 					<li class="dropdown"><a href=""><span class="iconfa-group"></span>
 							订票客户管理</a>

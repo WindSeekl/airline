@@ -77,19 +77,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div class="leftmenu">
 				<ul class="nav nav-tabs nav-stacked">
 					<li class="nav-header">Navigation</li>
-					<li><a href="index.jsp"><span
+					<li><a href="background/index.jsp"><span
 							class="iconfa-laptop"></span> 首页</a></li>
 					<li class="dropdown active"><a href=""><span class="iconfa-group"></span>
 							订票客户管理</a>
 						<ul style="display:block;">
-							<li><a href="addcustomer.jsp">增加客户信息</a></li>
-							<li class="active"><a href="../BgfindAllUser.action">查询客户信息</a></li>
+							<li><a href="background/addcustomer.jsp">增加客户信息</a></li>
+							<li class="active"><a href="queryCustomers">查询客户信息</a></li>
 						</ul></li>
 					<li class="dropdown"><a href=""><span
 							class="iconfa-pencil"></span> 航班机票管理</a>
 						<ul>
-							<li><a href="ticketjuge.jsp">订票审核</a></li>
-							<li><a href="bounce.jsp">退票管理</a></li>
+							<li><a href="background/ticketjuge.jsp">订票审核</a></li>
+							<li><a href="background/bounce.jsp">退票管理</a></li>
 							<li><a href="../findAllUserAllOrderAction.action">其他订单信息管理</a></li>
 						</ul></li>
 					<li class="dropdown"><a href=""><span class="iconfa-plane"></span>
@@ -104,7 +104,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<li class="dropdown"><a href=""><span
 							class=" iconfa-group"></span> 航空公司管理</a>
 						<ul>
-							<li><a href="addcompany.jsp">增加航空公司</a></li>
+							<li><a href="background/addcompany.jsp">增加航空公司</a></li>
 							<li><a href="../showplanemodelCompanyAction.action">添加公司机型</a>
 							<li><a href="../findCompanyAction.action">查询航空公司</a></li>
 						</ul></li>
