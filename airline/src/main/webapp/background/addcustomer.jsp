@@ -1,7 +1,8 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-
-
-
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -65,7 +66,7 @@
 							订票客户管理</a>
 						<ul style="display:block;">
 							<li class="active"><a href="addcustomer.jsp">增加客户信息</a></li>
-							<li><a href="../BgfindAllUser.action">查询客户信息</a></li>
+							<li><a href="<%=basePath%>queryCustomers">查询客户信息</a></li>
 						</ul></li>
 					<li class="dropdown"><a href=""><span
 							class="iconfa-pencil"></span> 航班机票管理</a>
@@ -92,8 +93,9 @@
 							<li class="dropdown"><a href=""><span
 							class="iconfa-plane"></span> 机型管理</a>
 						<ul>
-							<li><a href="addplanemodel.jsp">增加机型</a></li>
-							<li><a href="../findPlaneModelAction.action">查询机型</a></li>
+							<li><a href="<%=basePath %>background/addplanemodel.jsp">增加机型</a></li>
+							<li><a href="<%=basePath %>queryList">查询机型</a></li>
+							<li><a href="<%=basePath %>queryPlanemodel">修改机型信息</a></li>
 						</ul></li>	
 					<li><a href="printtable.jsp"><span class="iconfa-th-list"></span>
 							报表打印管理</a></li>

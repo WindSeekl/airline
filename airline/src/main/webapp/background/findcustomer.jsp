@@ -111,8 +111,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<li class="dropdown"><a href=""><span
 							class="iconfa-plane"></span> 机型管理</a>
 						<ul>
-							<li><a href="addplanemodel.jsp">增加机型</a></li>
-							<li><a href="../findPlaneModelAction.action">查询机型</a></li>
+							<li><a href="<%=basePath %>background/addplanemodel.jsp">增加机型</a></li>
+							<li><a href="<%=basePath %>queryList">查询机型</a></li>
+							<li><a href="<%=basePath %>queryPlanemodel">修改机型信息</a></li>
 						</ul></li>	
 					<li><a href="printtable.jsp"><span class="iconfa-th-list"></span>
 							报表打印管理</a></li>

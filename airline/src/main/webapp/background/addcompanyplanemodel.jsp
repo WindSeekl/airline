@@ -1,6 +1,8 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-
-
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -75,13 +77,13 @@
         <div class="leftmenu">        
             <ul class="nav nav-tabs nav-stacked">
 					<li class="nav-header">Navigation</li>
-					<li class="active"><a href="../countOrderAction.action"><span
+					<li><a href="../countOrderAction.action"><span
 							class="iconfa-laptop"></span> 首页</a></li>
 					<li class="dropdown"><a href=""><span class="iconfa-group"></span>
 							订票客户管理</a>
 						<ul>
 							<li><a href="addcustomer.jsp">增加客户信息</a></li>
-							<li><a href="../BgfindAllUser.action">查询客户信息</a></li>
+							<li><a href="<%=basePath%>queryCustomers">查询客户信息</a></li>
 						</ul></li>
 					<li class="dropdown"><a href=""><span
 							class="iconfa-pencil"></span> 航班机票管理</a>
@@ -99,18 +101,19 @@
 							<li><a href="../findpastscheduleFlightAction.action">以往航班计划</a></li>
 							<li><a href="../bgfindAllFlightAction.action">查询航班信息</a></li>
 						</ul></li>
-					<li class="dropdown"><a href=""><span
+					<li class="dropdown active"><a href=""><span
 							class=" iconfa-group"></span> 航空公司管理</a>
-						<ul>
+						<ul style="display:block;">
 							<li><a href="addcompany.jsp">增加航空公司</a></li>
-							<li><a href="../showplanemodelCompanyAction.action">添加公司机型</a>
+							<li class="active"><a href="../showplanemodelCompanyAction.action">添加公司机型</a>
 							<li><a href="../findCompanyAction.action">查询航空公司</a></li>
 						</ul></li>
 							<li class="dropdown"><a href=""><span
 							class="iconfa-plane"></span> 机型管理</a>
 						<ul>
-							<li><a href="addplanemodel.jsp">增加机型</a></li>
-							<li><a href="../findPlaneModelAction.action">查询机型</a></li>
+							<li><a href="<%=basePath %>background/addplanemodel.jsp">增加机型</a></li>
+							<li><a href="<%=basePath %>queryList">查询机型</a></li>
+							<li><a href="<%=basePath %>queryPlanemodel">修改机型信息</a></li>
 						</ul></li>	
 					<li><a href="printtable.jsp"><span class="iconfa-th-list"></span>
 							报表打印管理</a></li>
