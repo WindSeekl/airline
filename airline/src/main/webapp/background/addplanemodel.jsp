@@ -136,34 +136,36 @@
 				<div class="maincontentinner">
 					<div class="row-fluid">
 						<div class="span8" style="margin-left:20%;">
-							<form action="../savePlaneModelAction.action" class="editprofileform"
-								method="post">
+						
+							<form action="#" class="editprofileform"
+								method="post" id = "editprofileform">
 								<div class="widgetbox personal-information">
 									<h4 class="widgettitle">添加机型</h4>
 									<div class="widgetcontent">
 
 										<p>
-											<label style="width: 130px;">机型名：</label> <input type="text" name="planemodel.PlaneModelCode"
+											<label style="width: 130px;">机型名：</label> <input type="text" name="planemodelName"
 												class="input-xlarge" value="" />
 										</p>
 										<p>
-											<label style="width: 130px;">头等舱容纳总人数：</label> <input type="text" name="planemodel.firstClassTotality"
+											<label style="width: 130px;">头等舱容纳总人数：</label> <input type="text" name="fnumber"
 												class="input-xlarge" value="" />
 										</p>
 										<p>
-											<label style="width: 130px;">公务舱容纳总人数：</label> <input type="text" name="planemodel.businessClassTotality"
+											<label style="width: 130px;">公务舱容纳总人数：</label> <input type="text" name="bnumber"
 												class="input-xlarge" value="" />
 										</p>
 										<p>
-											<label style="width: 130px;">经济舱容纳总人数：</label> <input type="text" name="planemodel.touristClassTotality"
+											<label style="width: 130px;">经济舱容纳总人数：</label> <input type="text" name="enumber"
 												class="input-xlarge" value="" />
 										</p>
 	                                    <p align="center">
-											<input type="submit" class="btn btn-primary" value="提交">
+											<input type="submit" class="btn btn-primary" onclick="commit();" value="提交" >
 										</p>
 									</div>
 								</div>
 							</form>
+							
 						</div>
 						<!--span8-->
 					</div>
@@ -191,6 +193,22 @@
 
 	</div>
 	<!--mainwrapper-->
+	</script>
+	<script type="text/javascript">
+		function commit(){
+			jQuery.ajax({
+				url:'../insertPlanemodel',
+				data:jQuery("#editprofileform").serialize(),
+				type:"post",
+				dataType:'json',
+				success:function(data){
+					alert(data.res)
+				},error:function(data){
+					alert("失败")
+				}
+			})
+			document.getElementById('editprofileform').reset();
+		}
 	</script>
 </body>
 </html>

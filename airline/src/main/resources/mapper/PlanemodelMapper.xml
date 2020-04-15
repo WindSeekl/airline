@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.airline.repository.PlanemodelRepository">
+	<select id="queryPlanemodel" resultType="planemodel">
+		select * from planemodel
+	</select>
+	<select id="queryPlanemodelOne" resultType="planemodel" parameterType="String">
+		select * from planemodel where planemodelName=#{planemodelName}
+	</select>
+	<insert id="insertPlanemodel" parameterType="planemodel">
+		insert into planemodel values(#{planemodelName},#{fnumber},#{bnumber},#{enumber})
+	</insert>
+	<update id="updatePlanemodel" parameterType="planemodel">
+		update planemodel set fnumber=#{fnumber},bnumber=#{bnumber},enumber=#{enumber} where planemodelName=#{planemodelName}
+	</update>
+</mapper>
