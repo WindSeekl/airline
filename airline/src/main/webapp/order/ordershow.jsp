@@ -38,18 +38,14 @@
 <body>
 	<!--header-->
 	<header id="header"> <hgroup>
-	<s:if test="#session.currentUser">
 		<address class="text blue">
-			<p style="padding-bottom: 15px;">欢迎您，${currentUser.username}&nbsp;&nbsp;<a href="login.jsp">注销</a></p>
+			<p>欢迎您，${currentUser.username}&nbsp;&nbsp;<a href="login.jsp">注销</a></p>
 		</address>
-	</s:if> <s:else>
 		<address class="text blue">
-			<p >
+			<p>
 				<a id="login" href="login.jsp">登录</a>&nbsp; | &nbsp; <a
 					id="register" target="_blank" href="regcustomer.jsp">注册</a>
 			</p>
-		</address>
-	</s:else>
 	<div class="clear"></div>
 	</hgroup> </header>
 	<!--end header-->
@@ -67,16 +63,14 @@
 	<!--end content-->
 
 	<!-- 第一个下拉菜单 -->
-	
-			<section class="menu-dropdown"
-		id="dropdown-booking" >
-	<div id="main-area">
-
+	<section class="menu-dropdown" id="dropdown-booking" style="height:540px;"> 
+	<hgroup id="booking" style="min-height:410px;" margin:0 auto; > 
+	<article id="tabTicket" class="b_content block">
+	<div id="main-area" style="min-height: 520px">
 		<div class="position gray">
 			您的位置：<a href="index.jsp">首页</a> &gt;
 			<h1>我的东航</h1>
 		</div>
-
 		<div class="myceair">
 			<div class="left">
 				<div class="home"></div>
@@ -86,7 +80,7 @@
 				</div>
 
 				<div class="menu font14 bold m2">
-					<a href="findAllOrderAction.action">机票订单</a>
+					<a href="order/ordershow.jsp">机票订单</a>
 				</div>
 				<div class="child"></div>
 				<div class="menu font14 bold m9">
@@ -96,10 +90,10 @@
 			<div class="right" style="padding-left: 0px;">
 				<div class="personal_info" id="switch">
 					
-						<div class="b_content active" rel="tab1">
+						<div class="b_content active" >
 
 							<fieldset class="searchForm">
-								<form name="formSearch">
+								<form name="formSearch" action="#" id="querybyID" method="get">
 									<p>
 										<span>* 初始查询结果仅向您显示7天内的信息</span>
 									</p>
@@ -122,8 +116,8 @@
 									</dl>
 									<br>
 									<dl class="advance" style="display: block;">
-										<dt>
-											预订日期 <input type="text" class="input date"  id="date"
+										<dt>								
+											预订日期 <input type="date" class="input date Wdate"  id="date"
 												onfocus="WdatePicker()"> 
 												<input type="button" value="查询"  id="orderdate">
 										</dt>
@@ -132,7 +126,6 @@
 										onclick="javascript:location.href='http://easternmiles.ceair.com/myceair/old_order.html';">
 									<a href="http://easternmiles.ceair.com/myceair/old_order.html"></a></mark>
 								</form>
-
 							</fieldset>
 
 							<article class="dataList"> <mark
@@ -148,63 +141,15 @@
 								<li class="c6" style="width: 100px; margin-top: 8px;">操作</li>
 								<div class="clear"></div>
 							</ul>
-							<s:iterator value="#request.orderList">
-							<ul name="orderInfo">
-								<li class="c1">订单Id：<s:property value="orderId"/>
-									<br> 下单时间<br> <s:date format="yyyy-MM-dd HH:mm:ss" name="orderTime"/><br>
-									<br> <a class="blue" name="orderNo" target="_blank"
-									href="fingByidOrderAction.action?orderId=<s:property value="orderId"/>">查看订单详情
-										》</a></li>
-								<li class="c2" style="width: 220px;"><b
-									title="白云机场 -虹桥机场 T2"> <s:property value="flightNumber"/><br> <span
-										class="airport"><s:property value="startPoint"/>&nbsp;<s:property value="startPointAirport"/> </span> -- <span class="airport"><s:property value="endPoint"/>&nbsp;<s:property value="endPointAirport"/></span>
-								</b> <time><s:date format="HH:mm" name="startTime"/>-<s:date format="HH:mm" name="arrivalTime"/></time><s:date format="yyyy-MM-dd" name="startTime"/><br></li>
-								<li class="c3"
-									style="width:80px; padding-top:35px; padding-bottom: 44px; border-right: 1px #ccc solid;">
-									<span><s:property value="name"/> </span>
-								</li>
-								<li class="c4"
-									style="width:80px; padding-top:35px; padding-bottom: 44px; text-align: center; border-right: 1px #ccc solid;">
-									<span class="red">￥ <s:property value="price"/></span> <aside class="tips long"
-										name="INSTips" style="top: -64px; opacity: 0; display: none;">
-									<p></p>
-									<mark class="icon boxTri"></mark> </aside>
-								</li>
-								<li class="c5"
-									style="border-right: 1px #ccc solid; padding-top:35px; padding-bottom: 44px;">
-									<s:if test="orderProperty==1">等待付款</s:if>
-									<s:if test="orderProperty==2">已付款(等待确认)</s:if>
-									<s:if test="orderProperty==3">等待取票</s:if>
-									<s:if test="orderProperty==9">退票中</s:if>
-									<s:if test="orderProperty==4">已退票</s:if>
-									<s:if test="orderProperty==5">已失效</s:if>
-									<s:if test="orderProperty==6">未通过审核</s:if>
-									<s:if test="orderProperty==7">不符合退票规定</s:if>
-									<s:if test="orderProperty==8">已完成</s:if>
-									
-									
-								</li>
-								<li class="c6 tall"
-									style="width:90px;  padding-bottom: 44px; padding-top: 35px;">
-									<s:if test="orderProperty==1"><a onClick="pay(<s:property value="orderId"/>);" style="padding-left: 20px; float: left">付款</a> <a onClick="cancel(<s:property value="orderId"/>);" style="padding-left: 5px;">取消</a></s:if>
-									<s:if test="orderProperty==2"><a onClick="cancel(<s:property value="orderId"/>);">取消</a></s:if>
-									<s:if test="orderProperty==3"><a onClick="bounce(<s:property value="orderId"/>);" id="cancel">退票</a></s:if>
-									<s:if test="orderProperty==4">已退票</s:if>
-									<s:if test="orderProperty==5">已失效</s:if>
-									<s:if test="orderProperty==6">未通过审核</s:if>
-									<s:if test="orderProperty==7">不符合退票规定</s:if>
-									<s:if test="orderProperty==8">已完成</s:if>
-									<s:if test="orderProperty==9">退票中</s:if>
-								</li>
-								<div class="clear"></div>
+							<ul id="data">
+								
 							</ul>
-							</s:iterator>
 							
 							</article>
 						</div>
 					<div style="margin-top:20px; float: right;">
-                           <s:if test="#request.pageNow!=1"><a href="findAllOrderAction.action?page=<s:property value="#request.pageNow-1" />">上一页</a></s:if>
-                           <s:if test="#request.pageNow!=#request.pageCount"><a href="findAllOrderAction.action?page=<s:property value="#request.pageNow+1" />">下一页</a></s:if>
+                           <a href="#" /> 上一页</a>
+                           <a href="#" />下一页</a>
                      </div>
 				</div>
 			</div>
@@ -225,7 +170,7 @@
 <script type="text/javascript">
 $("#button-search").click(function(){
 	var id = $("#orderid").val();
-	window.location='findByOrderIdOrderAction.action?orderId='+id;
+	querybyID()
 });
 $("#orderdate").click(function(){
 	var date = $("#date").val();
@@ -248,6 +193,63 @@ function bounce(id) {
 	if(conf) {
 		window.location='bounceOrderAction.action?orderId='+id;
 	}
+}
+function querybyID(){
+		$.ajax({
+		url:"../queryOrder",
+		data:null,
+		type:"post",
+		dataType:"json",
+		success:function(data){
+			console.log(data);
+			for ( var i in data) {
+				var html="<ul name='orderInfo'>";
+					html += "<li class='c1'>订单Id："+data[i].reserveId+"<br/> ";
+					html += "<br> ";
+					html += "下单时间:"+data[i].orderDate+"<br/>";
+					html += "<br>"; 
+					html += "<a class='blue' name='orderNo' target='_blank' href='/order/ordershowdetail.jsp'>";
+					html += "查看订单详情></a>";
+					html += "</li>";
+					html += "<li class='c2' style='width: 220px;'>";
+					html += "<b title='白云机场 -虹桥机场 T2'> ";
+					html += "<br/>";
+					html += "<span class='airport'>";
+					html += "&nbsp;";
+					html += "</span>";
+					html += ""+data[i].benginSite+" --"+data[i].endSite+"<br/>";
+					html += "<span class='airport'>";
+					html += "&nbsp;";	
+					html += "</span>";
+					html += "</b>";
+					html += ""+data[i].benginDate+"<br/>-<br/>"+data[i].endDate+"";  
+					html += "<li class='c3'";
+					html += "style='width:80px; padding-top:35px; padding-bottom: 44px; border-right: 1px #ccc solid;'>";
+					html += "<span>"+data[i].userName+"</span>";
+					html += "</li>";
+					html += "<li class='c4' style='width:80px; padding-top:35px; padding-bottom: 44px; text-align: center; border-right: 1px #ccc solid;'>";
+					html += "<span class='red'>"+data[i].money+"￥ </span>";
+					html += "<aside class='tips long' name='INSTips' style='top: -64px; opacity: 0; display: none;'>";
+					html += "<p></p>";
+					html += "<mark class='icon boxTri'></mark> </aside>";
+					html += "</li>";
+					html += "<li class='c5' style='border-right: 1px #ccc solid; padding-top:35px; padding-bottom: 44px;'><br/>";
+					html += ""+data[i].state+"";
+					html += "</li>";
+					html += "<li class='c6 tall' style='width:90px;  padding-bottom: 44px; padding-top: 35px;'>";
+					html += "<a href='#'>付款</a>";
+					html += "<br/>";
+					html += "<a href='#'>取消订单</a>";
+					html += "<br/>";
+					html += "<a href='#'>申请退票</a>";
+					html += "</li>";
+					html += "<div class='clear'></div>";
+					html += "</ul>";
+					$("#data").append(html);
+					
+			}
+		}
+	})
 }
 </script>
 
