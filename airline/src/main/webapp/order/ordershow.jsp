@@ -256,6 +256,3 @@ function querybyID(){
 
 </body>
 </html>
-
-
-
