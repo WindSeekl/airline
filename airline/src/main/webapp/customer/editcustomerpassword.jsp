@@ -87,8 +87,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             <form action="#" method="post" id="editpassword_form">
 							<div class="name">
 								<b class="blue bold">更改密码</b> <span class="gray block">
-								<input id="editpassword" style="width:40px; height: 25px;" type="button" value="保存"></span>
-								
+								<input id="editpassword" style="width:40px; height: 25px;" type="button" value="保存"></span>			
 							</div>
 							<div class="row">
 								<div class="col1">当前密码：</div>

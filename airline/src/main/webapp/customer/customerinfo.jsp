@@ -31,7 +31,6 @@
 	href="Stylesheets/customerinfo.css">
 
 </head>
-
 <body>
 	<!--header-->
 	<header id="header"> <hgroup>

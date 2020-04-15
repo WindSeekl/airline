@@ -35,7 +35,6 @@
 <script type="text/javascript"
 	src="Script/My97DatePicker/WdatePicker.js"></script>
 </head>
-
 <body>
 	<!--header-->
 	<header id="header"> <hgroup>
