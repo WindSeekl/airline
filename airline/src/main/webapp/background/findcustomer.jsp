@@ -190,7 +190,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								</tr>
 							</thead>
 							<tbody>
-							<s:iterator var="allcustomer" value="#session.allcustomer">
 							<c:forEach var="allcustomer" items="${sessionScope.customers}">
 								<tr class="gradeX">
 									<td class="aligncenter"><span class="center"> <input
@@ -207,7 +206,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									<td class="center">${allcustomer.email }</td>
 								</tr>
 								</c:forEach>
-								</s:iterator>
 							</tbody>
 						</table>
 
