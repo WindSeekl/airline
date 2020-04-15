@@ -1,5 +1,8 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -89,16 +92,16 @@
 						<ul>
 							<li><a href="addplanemodel.jsp">增加机型</a></li>
 							<li><a href="../findPlaneModelAction.action">查询机型</a></li>
+							<li><a href="<%=basePath %>queryPlanemodel">修改机型信息</a></li>
 						</ul></li>	
 					<li><a href="printtable.jsp"><span class="iconfa-th-list"></span>
 							报表打印管理</a></li>
-					<s:if test="#session.currentAdmin.jurisdiction==0">
 					<li class="dropdown"><a href=""><span class="iconfa-user"></span>
 							人员用户管理</a>
 						<ul>
 							<li><a href="addnormaladmin.jsp">增加普通管理员</a></li>
 							<li><a href="../findAllAdmin.action">查询普通管理员</a></li>
-						</ul></li></s:if>
+						</ul></li>
 			</div>
 			<!--leftmenu-->
 
@@ -191,9 +194,7 @@
 	</div>
 	<!--rightpanel-->
 
-	</div>
 	<!--mainwrapper-->
-	</script>
 	<script type="text/javascript">
 		function commit(){
 			jQuery.ajax({

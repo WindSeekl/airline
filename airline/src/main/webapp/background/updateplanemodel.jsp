@@ -1,24 +1,28 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Shamcey - Metro Style Admin Template</title>
-<link rel="stylesheet" href="css/style.default.css" type="text/css" />
-<link rel="stylesheet" href="css/responsive-tables.css">
-<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
-<script type="text/javascript" src="js/jquery-migrate-1.1.1.min.js"></script>
-<script type="text/javascript" src="js/jquery-ui-1.9.2.min.js"></script>
-<script type="text/javascript" src="js/modernizr.min.js"></script>
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/jquery.cookie.js"></script>
-<script type="text/javascript" src="js/jquery.uniform.min.js"></script>
-<script type="text/javascript" src="js/flot/jquery.flot.min.js"></script>
-<script type="text/javascript" src="js/flot/jquery.flot.resize.min.js"></script>
-<script type="text/javascript" src="bjs/responsive-tables.js"></script>
-<script type="text/javascript" src="js/custom.js"></script>
+<link rel="stylesheet" href="<%=basePath %>background/css/style.default.css" type="text/css" />
+<link rel="stylesheet" href="<%=basePath %>background/css/responsive-tables.css">
+<script type="text/javascript" src="<%=basePath %>background/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/jquery-migrate-1.1.1.min.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/jquery-ui-1.9.2.min.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/modernizr.min.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/jquery.uniform.min.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/flot/jquery.flot.min.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/flot/jquery.flot.resize.min.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/responsive-tables.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/custom.js"></script>
 <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/excanvas.min.js"></script><![endif]-->
 </head>
 
@@ -88,8 +92,9 @@
 							<li class="dropdown"><a href=""><span
 							class="iconfa-plane"></span> 机型管理</a>
 						<ul>
-							<li><a href="addplanemodel.jsp">增加机型</a></li>
+							<li><a href="<%=basePath%>/background/addplanemodel.jsp">增加机型</a></li>
 							<li><a href="../findPlaneModelAction.action">查询机型</a></li>
+							<li><a href="<%=basePath %>queryPlanemodel">修改机型信息</a></li>
 						</ul></li>	
 					<li><a href="printtable.jsp"><span class="iconfa-th-list"></span>
 							报表打印管理</a></li>
@@ -145,31 +150,35 @@
 				<div class="maincontentinner">
 					<div class="row-fluid">
 						<div class="span8">
-							<form action="../updatePlaneModelAction.action" class="editprofileform"
-								method="post">
+						
+							<form action="#" class="uform"
+								method="post" id="uform">
 								<div class="widgetbox personal-information">
 									<h4 class="widgettitle">机型信息</h4>
 									<div class="widgetcontent">
 						
 										<p>
-											<label style="width: 130px;">机型名：</label> <input type="text" name="planemodel.planeModelCode"
-												class="input-xlarge" value="${ planemodel.planeModelCode}" />
+											<label style="width: 130px;">机型名：</label> 
+											<select class="form-control" name="planemodelName">
+													<c:forEach items="${planemodelList}" var="planemodel">
+														<option value ="${planemodel.planemodelName}" >${planemodel.planemodelName}</option>
+													</c:forEach>
+                                            </select>
 										</p>
 										<p>
-											<label style="width: 130px;">头等舱容纳总人数：</label> <input type="text" name="planemodel.firstClassTotality"
-												class="input-xlarge" value="${planemodel.firstClassTotality }" />
+											<label style="width: 130px;">头等舱容纳总人数：</label> <input type="text" name="fnumber"
+												class="input-xlarge" />
 										</p>
 										<p>
-											<label style="width: 130px;">公务舱容纳总人数：</label> <input type="text" name="planemodel.businessClassTotality"
-												class="input-xlarge" value="${ planemodel.businessClassTotality}" />
+											<label style="width: 130px;">公务舱容纳总人数：</label> <input type="text" name="bnumber"
+												class="input-xlarge" />
 										</p>
 										<p>
-											<label style="width: 130px;">经济舱容纳总人数：</label> <input type="text" name="planemodel.touristClassTotality"
-												class="input-xlarge" value="${planemodel.touristClassTotality }" />
+											<label style="width: 130px;">经济舱容纳总人数：</label> <input type="text" name="enumber"
+												class="input-xlarge" />
 										</p>
 										 <p align="center">
-										 <input name="id" value="${planemodel.planeModelId }" hidden="hidden"> 
-											<input type="submit" class="btn btn-primary" value="修改信息">
+											<input type="submit" class="btn btn-primary" value="修改信息" onclick="com()">
 										</p>
 									</div>
 								</div>
@@ -200,6 +209,21 @@
 
 	</div>
 	<!--mainwrapper-->
+	<script type="text/javascript">
+		function com(){
+			jQuery.ajax({
+				url:'../updatePlanemodel',
+				data:jQuery("#uform").serialize(),
+				type:"post",
+				dataType:'json',
+				success:function(data){
+					alert(data.res)
+				},error:function(data){
+					alert("失败")
+				}
+			})
+		}
+	</script>
 </body>
 </html>
 
