@@ -35,7 +35,6 @@
 <script type="text/javascript"
 	src="Script/My97DatePicker/WdatePicker.js"></script>
 </head>
-
 <body>
 	<!--header-->
 	<header id="header"> <hgroup>
@@ -85,7 +84,7 @@
 				</div>
 
 				<div class="menu font14 bold m2">
-					<a href="findAllOrderAction.action">机票订单</a>
+					<a href="order/ordershow.jsp">机票订单</a>
 				</div>
 				<div class="child"></div>
 				<div class="menu font14 bold m9">

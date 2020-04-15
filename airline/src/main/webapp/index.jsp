@@ -185,6 +185,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </div>
 <script type="text/javascript">
 $("#btn_flight_search").click(function (){
+	alert("111")
 	if($("#flight_form").valid()){
 		$.ajax({
             type: "post",
