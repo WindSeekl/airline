@@ -39,4 +39,21 @@ public class CustomerServiceImpl implements CustomerService {
 		} else
 			return "旧密码错误";
 	}
+
+	@Override
+	public String login(Customer customer) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String editInfo(Customer customer) {
+		// TODO Auto-generated method stub
+		Customer cust = customerRepository.queryCustomer(customer.getCustomerName());
+		if(!cust.getPhone().equals(customer.getPhone()) && !cust.getEmail().equals(customer.getEmail())){
+			customerRepository.editInfo(customer);
+			return "修改成功";
+		}
+		return "信息相同改你🐎改";
+	}
 }

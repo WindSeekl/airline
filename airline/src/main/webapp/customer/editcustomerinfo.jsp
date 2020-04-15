@@ -7,7 +7,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
 <head>
 <base href="<%=basePath%>">
-<title>My JSP 'index.jsp' starting page</title>
+<title>修改个人信息</title>
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
 <meta http-equiv="expires" content="0">
@@ -25,9 +25,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!--header-->
 <header id="header">
   <hgroup>
-    <s:if test="#session.currentUser">
+    <s:if test="#session.customer">
       <address class="text blue">
-    <p>欢迎您，${currentUser.username}&nbsp;&nbsp;<a href="login.jsp">注销</a></p>
+    <p>欢迎您，${customer.username}&nbsp;&nbsp;<a href="login.jsp">注销</a></p>
     </address>
     </s:if>
     <s:else>
@@ -83,27 +83,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</div>
 							<div class="row">
 								<div class="col1">用户名：</div>
-								<div class="col2 blue"><input type="text" name="user.username" value="${currentUser.username}"  disabled="disabled" >&nbsp;</div>
+								<div class="col2 blue"><input type="text" name="user.username" value="${customer.customerName}"  disabled="disabled" >&nbsp;</div>
 							</div>
 							<div class="row">
 								<div class="col1">性别：</div>
 								<div class="col2 blue">
-								<s:if test="#session.currentUser.sex==0">
-								<input checked="checked" type="radio" name="user.sex" value="0">男
-								<input type="radio" name="user.sex" value="1">女
+								<s:if test="#session.customer.sex==0">
+								<input checked="checked" type="radio" name="user.sex" value="男" disabled="disabled" >男
+								<input type="radio" name="user.sex" value="女" disabled="disabled" >女
 								</s:if><s:else>
-								<input  type="radio" name="user.sex" value="0">男
-								<input checked="checked" type="radio" name="user.sex" value="1">女
+								<input  type="radio" name="user.sex" value="男" disabled="disabled" >男
+								<input checked="checked" type="radio" name="user.sex" value="女" disabled="disabled" >女
 								</s:else>
 								&nbsp;</div>
 							</div>
 							<div class="row">
 								<div class="col1">真实姓名：</div>
-								<div class="col2 blue"><input type="text" name="user.realName" value="${currentUser.realName}"  disabled="disabled">&nbsp;</div>
+								<div class="col2 blue"><input type="text" name="user.realName" value="${customer.realName}"  disabled="disabled">&nbsp;</div>
 							</div>
                             <div class="row">
 								<div class="col1">身份证号：</div>
-								<div class="col2 blue"><input type="text" name="user.identificationCard" value="${currentUser.identificationCard}"  disabled="disabled">&nbsp;</div>
+								<div class="col2 blue"><input type="text" name="user.identificationCard" value="${customer.IDNumber}"  disabled="disabled">&nbsp;</div>
 								<div class="col2 blue">&nbsp;</div>
 							</div>
 							<div class="clear"></div>
@@ -112,9 +112,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</div>
 							<div class="row">
 								<div class="col1">手机号码：</div>
-								<div class="col2 blue"><input type="text" name="user.phoneNumber" value="${currentUser.phoneNumber}">&nbsp;</div>
+								<div class="col2 blue"><input type="text" name="user.phoneNumber" value="${customer.phone}">&nbsp;</div>
 								<div class="col1">邮件地址：</div>
-								<div class="col2 blue"><input type="text" name="user.email" value="${currentUser.email}">&nbsp;</div>
+								<div class="col2 blue"><input type="text" name="user.email" value="${customer.email}">&nbsp;</div>
 							</div>
 							<div class="clear"></div>
                             <div class="line"></div>  
