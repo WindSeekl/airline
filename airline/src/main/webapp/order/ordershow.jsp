@@ -1,6 +1,8 @@
 <%@ page language="java"
 	import="java.util.*,com.*"
 	pageEncoding="UTF-8"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+	
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -106,7 +108,7 @@
 												</h4>
 											</div>
 											<input style="width: 300px;" type="text" name="exactQuery" id = "orderid"
-												class="input" value="" cond="pnrNo" maxlength="6"> <input
+												class="input" value="${Reserve.reserveId }" cond="pnrNo" maxlength="6"> <input
 												type="hidden" name="orderType" value="01">
 										</dt>
 										<dd>
@@ -170,7 +172,12 @@
 <script type="text/javascript">
 $("#button-search").click(function(){
 	var id = $("#orderid").val();
-	querybyID()
+	if (id == "") {
+		alert("请输入 订单号！");
+	}else{
+		querybyID()
+	}
+	
 });
 $("#orderdate").click(function(){
 	var date = $("#date").val();
@@ -201,9 +208,14 @@ function querybyID(){
 		type:"post",
 		dataType:"json",
 		success:function(data){
+			var id = $("#orderid").val();
 			console.log(data);
 			for ( var i in data) {
-				var html="<ul name='orderInfo'>";
+				if(data[i].reserveId != id){
+					//alert("没有数据！");
+					continue;
+				}else{
+					var html="<ul name='orderInfo'>";
 					html += "<li class='c1'>订单Id："+data[i].reserveId+"<br/> ";
 					html += "<br> ";
 					html += "下单时间:"+data[i].orderDate+"<br/>";
@@ -217,12 +229,12 @@ function querybyID(){
 					html += "<span class='airport'>";
 					html += "&nbsp;";
 					html += "</span>";
-					html += ""+data[i].benginSite+" --"+data[i].endSite+"<br/>";
+					html += ""+data[i].benginSite+" —"+data[i].endSite+"<br/>";
 					html += "<span class='airport'>";
 					html += "&nbsp;";	
 					html += "</span>";
 					html += "</b>";
-					html += ""+data[i].benginDate+"<br/>-<br/>"+data[i].endDate+"";  
+					html += ""+data[i].benginDate+"（出发）<br/>——<br/>"+data[i].endDate+"（抵达）";  
 					html += "<li class='c3'";
 					html += "style='width:80px; padding-top:35px; padding-bottom: 44px; border-right: 1px #ccc solid;'>";
 					html += "<span>"+data[i].userName+"</span>";
@@ -246,7 +258,8 @@ function querybyID(){
 					html += "<div class='clear'></div>";
 					html += "</ul>";
 					$("#data").append(html);
-					
+				}
+				
 			}
 		}
 	})
