@@ -15,4 +15,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<update id="updatePlanemodel" parameterType="planemodel">
 		update planemodel set fnumber=#{fnumber},bnumber=#{bnumber},enumber=#{enumber} where planemodelName=#{planemodelName}
 	</update>
+	<delete id="deletePlanemodel" parameterType="planemodel">
+		delete from planemodel where planemodelName=#{planemodelName}
+	</delete>
 </mapper>

@@ -35,4 +35,10 @@ public class PlanemodelServiceImpl implements PlanemodelService{
 		// TODO Auto-generated method stub
 		return planemodelRepository.updatePlanemodel(planemodel);
 	}
+
+	@Override
+	public int deletePlanemodel(Planemodel planemodel) {
+		// TODO Auto-generated method stub
+		return planemodelRepository.deletePlanemodel(planemodel);
+	}
 }

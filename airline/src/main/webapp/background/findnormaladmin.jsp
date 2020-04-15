@@ -19,28 +19,6 @@
 <script type="text/javascript" src="js/modernizr.min.js"></script>
 <script type="text/javascript" src="js/responsive-tables.js"></script>
 <script type="text/javascript" src="js/custom.js"></script>
-<!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/excanvas.min.js"></script><![endif]-->
-<script type="text/javascript">
-	jQuery(document).ready(function() {
-		// dynamic table
-		jQuery('#dyntable').dataTable({
-			"sPaginationType" : "full_numbers",
-			"aaSortingFixed" : [ [ 0, 'asc' ] ],
-			"fnDrawCallback" : function(oSettings) {
-				jQuery.uniform.update();
-			}
-		});
-
-		jQuery('#dyntable2').dataTable({
-			"bScrollInfinite" : true,
-			"bScrollCollapse" : true,
-			"sScrollY" : "300px"
-		});
-
-
-
-	});
-</script>
 </head>
 
 <body>

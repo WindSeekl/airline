@@ -9,4 +9,5 @@ public interface PlanemodelService {
 	Planemodel queryPlanemodelOne(String planemodelName);
 	int insertPlanemodel(Planemodel planemodel);
 	int updatePlanemodel(Planemodel planemodel);
+	int deletePlanemodel(Planemodel planemodel);
 }

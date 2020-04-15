@@ -1,26 +1,29 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Shamcey - Metro Style Admin Template</title>
-<link rel="stylesheet" href="css/style.default.css" type="text/css" />
-
-<link rel="stylesheet" href="css/responsive-tables.css">
-<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
-<script type="text/javascript" src="js/jquery-migrate-1.1.1.min.js"></script>
-<script type="text/javascript" src="js/jquery-ui-1.9.2.min.js"></script>
-<script type="text/javascript" src="js/modernizr.min.js"></script>
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/jquery.cookie.js"></script>
-<script type="text/javascript" src="js/jquery.uniform.min.js"></script>
-<script type="text/javascript" src="js/flot/jquery.flot.min.js"></script>
-<script type="text/javascript" src="js/flot/jquery.flot.resize.min.js"></script>
-<script type="text/javascript" src="js/responsive-tables.js"></script>
-<script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="js/custom.js"></script>
+<link rel="stylesheet" href="<%=basePath %>background/css/style.default.css" type="text/css" />
+<link rel="stylesheet" href="<%=basePath %>background/css/responsive-tables.css">
+<script type="text/javascript" src="<%=basePath %>background/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/jquery-migrate-1.1.1.min.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/jquery-ui-1.9.2.min.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/modernizr.min.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/jquery.uniform.min.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/flot/jquery.flot.min.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/flot/jquery.flot.resize.min.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/responsive-tables.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/custom.js"></script>
 <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/excanvas.min.js"></script><![endif]-->
 <script type="text/javascript">
 	jQuery(document).ready(function() {
@@ -108,8 +111,9 @@
 							<li class="dropdown"><a href=""><span
 							class="iconfa-plane"></span> 机型管理</a>
 						<ul>
-							<li><a href="addplanemodel.jsp">增加机型</a></li>
-							<li><a href="../findPlaneModelAction.action">查询机型</a></li>
+							<li><a href="<%=basePath %>background/addplanemodel.jsp">增加机型</a></li>
+							<li><a href="<%=basePath %>queryList">查询机型</a></li>
+							<li><a href="<%=basePath %>queryPlanemodel">修改机型信息</a></li>
 						</ul></li>	
 					<li><a href="printtable.jsp"><span class="iconfa-th-list"></span>
 							报表打印管理</a></li>
@@ -154,18 +158,15 @@
 						<h4 class="widgettitle">机型信息</h4>
 						<table class="table table-bordered responsive" id="dyntable">
 										<colgroup>
-								<col class="con0" style="align: center; width: 4%" />
-								<col class="con1" />
 								<col class="con0" />
 								<col class="con1" />
 								<col class="con0" />
-                                <col class="con1" />
+								<col class="con1" />
+								<col class="con0" />
 							</colgroup>
 							<thead>
 								<tr>
-									<th class="centeralign"><input type="checkbox"
-										class="checkall" /></th>
-									<th>机型Id</th>
+									<th class="centeralign"></th>
 									<th>机型号</th>
 									<th>头等舱总数量</th>
 									<th>公务舱总数量</th>
@@ -174,18 +175,18 @@
 								</tr>
 							</thead>
 							<tbody>
-							<s:iterator value="#session.planeModelList">
+								<c:forEach var="planemodel" items="${planemodelList}">
 								<tr>
-									<td class="centeralign"><input type="checkbox" /></td>
-									<td><s:property value="planeModelId" /></td>
-									<td><s:property value="planeModelCode" /></td>
-									<td><s:property value="firstClassTotality" /></td>
-									<td><s:property value="businessClassTotality" /></td>
-									<td><s:property value="touristClassTotality" /></td>
-									<td class="centeralign"><a href="../alterPlaneModelAction.action?id=<s:property value="planeModelId" />" class="deleterow"><span
-											class="icon-edit"></span></a></td>
+									<form action="<%=basePath%>deletePlanemodel" method="post">
+										<input name = "planemodelName" value="${planemodel.planemodelName}" type="hidden"/>
+										<td>${planemodel.planemodelName}</td>
+										<td>${planemodel.fnumber}</td>
+										<td>${planemodel.bnumber}</td>
+										<td>${planemodel.enumber}</td>
+										<td><button>删除</button> </td>
+									</form>
 								</tr>
-								</s:iterator>
+								</c:forEach>
 							</tbody>
 						</table>
 					</div>
