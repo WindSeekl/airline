@@ -191,25 +191,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</thead>
 							<tbody>
 							<s:iterator var="allcustomer" value="#session.allcustomer">
-							<c:forEach var="allcustomer" items="">
+							<c:forEach var="allcustomer" items="${sessionScope.customers}">
 								<tr class="gradeX">
 									<td class="aligncenter"><span class="center"> <input
 											type="checkbox" />
 									</span></td>
 									<td class="center">${allcustomer.customerId }</td>
-									<td class="center">${allcustomer.username }</td>
+									<td class="center">${allcustomer.customerName }</td>
 									<td class="center">${allcustomer.password }</td>
-									<td class="center">
-									<s:if test="#allcustomer.sex == 0">
-									男
-									</s:if>
-									<s:else>
-									女
-									</s:else>
+									<td class="center">${allcustomer.sex }
 									</td>
 									<td class="center">${allcustomer.realName }</td>
-									<td class="center">${allcustomer.identificationCard }</td>
-									<td class="center">${allcustomer.phoneNumber }</td>
+									<td class="center">${allcustomer.IDNumber }</td>
+									<td class="center">${allcustomer.phone }</td>
 									<td class="center">${allcustomer.email }</td>
 								</tr>
 								</c:forEach>
