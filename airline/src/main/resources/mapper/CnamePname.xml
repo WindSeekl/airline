@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.airline.repository.CnamePnameRepository">
+	<select id="queryCnamePname" parameterType="String" resultType="cnamePname">
+		select * from cnamepname where companyName = #{companyName}
+	</select><!-- 根据公司名查询数据 -->
+	
+	<select id="queryPname" parameterType="java.util.List"  resultType="planemodel">
+		select * from planemodel where 
+		<foreach collection="list" item="planemodelName" open="planemodelName in (" close=")" separator=",">
+			#{planemodelName}
+		</foreach>
+	</select><!-- 根据机型包含查询 -->
+	
+	<select id="queryNotPname" parameterType="java.util.List"  resultType="planemodel">
+		select * from planemodel where 
+		<foreach collection="list" item="planemodelName" open="planemodelName not in (" close=")" separator=",">
+			#{planemodelName}
+		</foreach>
+	</select><!-- 根据机型不包含查询 -->
+	
+	<delete id="deleteCnamePname" parameterType="cnamePname">
+		delete from cnamepname where planemodelName = #{planemodelName}
+	</delete>
+	
+	<insert id="insertCnamePname" parameterType="cnamePname">
+		insert into cnamepname values(#{companyName},#{planemodelName})
+	</insert>
+	
+</mapper>

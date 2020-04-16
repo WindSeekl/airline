@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -9,21 +10,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Shamcey - Metro Style Admin Template</title>
-<link rel="stylesheet" href="css/style.default.css" type="text/css" />
-
-<link rel="stylesheet" href="css/responsive-tables.css">
-<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
-<script type="text/javascript" src="js/jquery-migrate-1.1.1.min.js"></script>
-<script type="text/javascript" src="js/jquery-ui-1.9.2.min.js"></script>
-<script type="text/javascript" src="js/modernizr.min.js"></script>
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/jquery.cookie.js"></script>
-<script type="text/javascript" src="js/jquery.uniform.min.js"></script>
-<script type="text/javascript" src="js/flot/jquery.flot.min.js"></script>
-<script type="text/javascript" src="js/flot/jquery.flot.resize.min.js"></script>
-<script type="text/javascript" src="js/responsive-tables.js"></script>
-<script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="js/custom.js"></script>
+<link rel="stylesheet" href="<%=basePath %>background/css/style.default.css" type="text/css" />
+<link rel="stylesheet" href="<%=basePath %>background/css/responsive-tables.css">
+<script type="text/javascript" src="<%=basePath %>background/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/jquery-migrate-1.1.1.min.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/jquery-ui-1.9.2.min.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/modernizr.min.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/jquery.uniform.min.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/flot/jquery.flot.min.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/flot/jquery.flot.resize.min.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/responsive-tables.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/custom.js"></script>
 <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/excanvas.min.js"></script><![endif]-->
 <script type="text/javascript">
 	jQuery(document).ready(function() {
@@ -95,7 +95,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<li class="dropdown"><a href=""><span class="iconfa-plane"></span>
 							航班信息管理</a>
 						<ul>
-							<li><a href="../findCompanyFlightAction.action">增加航班信息</a></li>
+							<li><a href="<%=basePath%>queryCompanyPlanemodel">增加航班信息</a></li>
 							<li><a href="addflightschedule.jsp">增加航班计划</a></li>
 							<li><a href="../addscheduleFlightAction.action">安排航班计划</a></li>
 							<li><a href="../findpastscheduleFlightAction.action">以往航班计划</a></li>
@@ -104,9 +104,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<li class="dropdown active"><a href=""><span
 							class=" iconfa-group"></span> 航空公司管理</a>
 						<ul style="display:block;">
-							<li><a href="addcompany.jsp">增加航空公司</a></li>
-							<li class="active"><a href="../showplanemodelCompanyAction.action">添加公司机型</a>
-							<li><a href="../findCompanyAction.action">查询航空公司</a></li>
+							<li><a href="<%=basePath %>background/addcompany.jsp">增加航空公司</a></li>
+							<li><a href="<%=basePath %>queryCnamePname">添加公司机型</a>
+							<li><a href="<%=basePath %>queryCompanys">查询航空公司</a></li>
+							<li><a href="<%=basePath %>getCompanyInfo">修改航空公司信息</a></li>
 						</ul></li>
 							<li class="dropdown"><a href=""><span
 							class="iconfa-plane"></span> 机型管理</a>
@@ -151,28 +152,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <div class="pageicon"><span class="iconfa-laptop"></span></div>
             <div class="pagetitle">
                 <h1>
-                <form action="../showplanemodelCompanyAction.action" method="get">
-                <select name="companyName">
-                <s:iterator value="#session.allCompany">
-                <option  value="<s:property value="companyName"/>"><s:property value="companyName"/> </option>
-                </s:iterator>
-                </select>
-                <input type="submit" value="提交">
-                </form>
+                	<form action="queryPname" class="editprofileform" method="post" >
+						<select name="companyName">
+							<c:forEach items="${companyList}" var="company">
+								<option value ="${company.companyName}" >${company.companyName}</option>
+							</c:forEach>
+						</select>
+						<input type="submit" class="btn btn-primary" >
+					</form>
                 </h1>
-                
             </div>
         </div><!--pageheader-->
         <div class="maincontent">
  					<div class="maincontentinner">
-						<h4 class="widgettitle">(<s:property value="#session.company.companyName"/>)&nbsp;已经拥有的机型</h4>
+						<h4 class="widgettitle">已经拥有的机型</h4>
 						<table class="table table-bordered responsive" >
-
 							<thead>
 								<tr>
-									<th class="centeralign"><input type="checkbox"
-										class="checkall" /></th>
-									<th>机型Id</th>
+									<th class="centeralign"></th>
 									<th>机型号</th>
 									<th>头等舱总数量</th>
 									<th>公务舱总数量</th>
@@ -181,29 +178,30 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								</tr>
 							</thead>
 							<tbody>
-							<s:iterator value="#session.exitPlaneModel">
-								<tr>
-									<td class="centeralign"><input type="checkbox" /></td>
-									<td><s:property value="planeModelId" /></td>
-									<td><s:property value="planeModelCode" /></td>
-									<td><s:property value="firstClassTotality" /></td>
-									<td><s:property value="businessClassTotality" /></td>
-									<td><s:property value="touristClassTotality" /></td>
-									<td class="centeralign"><a href="../removeplanemodelCompanyAction.action?planemModelId=<s:property value="planeModelId" />&companyId=<s:property value="#session.company.companyId" />" class="deleterow"><span
-											class="icon-edit"></span></a></td>
-								</tr>
-								</s:iterator>
+								<c:if test="${not empty pnameList}">
+									<c:forEach items="${pnameList}" var="planemodel">
+										<form action="<%=basePath%>deleteCnamePname" method="post">
+										<tr>
+											<td class="centeralign"></td>
+											<input type="hidden" name="planemodelName" value="${planemodel.planemodelName}"/>
+											<input type="hidden" name="companyName" value="${companyName}"/>
+											<td>${planemodel.planemodelName}</td>
+											<td>${planemodel.fnumber}</td>
+											<td>${planemodel.bnumber}</td>
+											<td>${planemodel.enumber}</td>
+											<td class="centeralign"><input type="submit" class="btn btn-primary" value="移除"/></td>
+										</tr>
+										</form>
+									</c:forEach>
+								</c:if>
 							</tbody>
 						</table>
 						<br>
 						<h4 class="widgettitle">可以添加的机型</h4>
 						<table class="table table-bordered responsive" >
-
 							<thead>
 								<tr>
-									<th class="centeralign"><input type="checkbox"
-										class="checkall" /></th>
-									<th>机型Id</th>
+									<th class="centeralign"></th>
 									<th>机型号</th>
 									<th>头等舱总数量</th>
 									<th>公务舱总数量</th>
@@ -212,18 +210,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								</tr>
 							</thead>
 							<tbody>
-								<s:iterator value="#session.noexitPlaneModel">
-								<tr>
-									<td class="centeralign"><input type="checkbox" /></td>
-									<td><s:property value="planeModelId" /></td>
-									<td><s:property value="planeModelCode" /></td>
-									<td><s:property value="firstClassTotality" /></td>
-									<td><s:property value="businessClassTotality" /></td>
-									<td><s:property value="touristClassTotality" /></td>
-									<td class="centeralign"><a href="../addplanemodelCompanyAction.action?planemModelId=<s:property value="planeModelId" />&companyId=<s:property value="#session.company.companyId" />" class="deleterow"><span
-											class="icon-edit"></span></a></td>
-								</tr>
-								</s:iterator>
+								<c:if test="${not empty notPnameList}">
+									<c:forEach items="${notPnameList}" var="planemodel">
+										<form action="<%=basePath%>insertCnamePname" method="post">
+											<tr>
+												<td class="centeralign"></td>
+												<input type="hidden" name="planemodelName" value="${planemodel.planemodelName}"/>
+												<input type="hidden" name="companyName" value="${companyName}"/>
+												<td>${planemodel.planemodelName}</td>
+												<td>${planemodel.fnumber}</td>
+												<td>${planemodel.bnumber}</td>
+												<td>${planemodel.enumber}</td>
+												<td class="centeralign"><input type="submit" class="btn btn-primary" value="添加"/></td>
+											</tr>
+										</form>
+									</c:forEach>
+								</c:if>
+								
 							</tbody>
 						</table>
 					</div>

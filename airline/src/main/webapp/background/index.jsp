@@ -65,7 +65,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							订票客户管理</a>
 						<ul>
 							<li><a href="addcustomer.jsp">增加客户信息</a></li>
-							<li><a href="../queryCustomers">查询客户信息</a></li>
+							<li><a href="<%=basePath%>queryCustomers">查询客户信息</a></li>
 						</ul></li>
 					<li class="dropdown"><a href=""><span
 							class="iconfa-pencil"></span> 航班机票管理</a>
@@ -86,8 +86,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<li class="dropdown"><a href=""><span
 							class=" iconfa-group"></span> 航空公司管理</a>
 						<ul>
-							<li><a href="addcompany.jsp">增加航空公司</a></li>
-							<li><a href="../showplanemodelCompanyAction.action">添加公司机型</a>
+							<li><a href="<%=basePath %>background/addcompany.jsp">增加航空公司</a></li>
+							<li><a href="<%=basePath %>queryCnamePname">添加公司机型</a>
 							<li><a href="<%=basePath %>queryCompanys">查询航空公司</a></li>
 							<li><a href="<%=basePath %>getCompanyInfo">修改航空公司信息</a></li>
 						</ul></li>
