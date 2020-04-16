@@ -7,6 +7,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from company where companyName = #{companyName}
 	</select>
 	
+	<select id="queryCompanys" resultType="company">
+		select * from company
+	</select>
+	
+	<delete id="deleteCompany" parameterType="String">
+		delete from company where companyName = #{companyName}
+	</delete>
+	
 	<insert id="insertCompany" parameterType="company">
 		insert into company values(0,#{companyName},#{companyCode},#{companyInfo},#{companyUrl},#{companyPhone})
 	</insert>

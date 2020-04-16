@@ -1,5 +1,7 @@
 package com.airline.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +24,19 @@ public class CompanyServiceImpl implements CompanyService{
 			return "添加成功";
 		} else
 			return "该公司已存在";
+	}
+
+	@Override
+	public List<Company> queryCompanys() {
+		// TODO Auto-generated method stub
+		return companyRepository.queryCompanys();
+	}
+
+	@Override
+	public String deleteCompany(String companyName) {
+		// TODO Auto-generated method stub
+		companyRepository.deleteCompany(companyName);
+		return "删除成功";
 	}
 
 }
