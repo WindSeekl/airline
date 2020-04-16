@@ -3,6 +3,10 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.airline.repository.CompanyRepository">
+	<select id="queryCompany" parameterType="String" resultType="company">
+		select * from company where companyName = #{companyName}
+	</select>
+	
 	<insert id="insertCompany" parameterType="company">
 		insert into company values(0,#{companyName},#{companyCode},#{companyInfo},#{companyUrl},#{companyPhone})
 	</insert>

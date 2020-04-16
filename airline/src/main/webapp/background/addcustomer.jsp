@@ -239,11 +239,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				dataType:'json',
 				success:function(data){
 					alert(data.res)
+					if(data.res=="增加成功"){
+						document.getElementById('editForm').reset();
+					}
 				},error:function(data){
 					alert("失败")
 				}
 			})
-			document.getElementById('editForm').reset();
 		}
 	</script>
 </body>

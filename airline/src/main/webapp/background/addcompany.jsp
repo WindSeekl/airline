@@ -141,8 +141,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div class="maincontent">
 				<div class="maincontentinner">
 					<div class="row-fluid">
-						<form action="../saveCompanyAction.action" class="editprofileform"
-							method="post">
+						<form action="#" class="editprofileform"
+							method="post" id="editForm">
 							<div class="span8"
 								style="margin-left:5%; float: left; width: 500px;">
 
@@ -152,28 +152,28 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 										<p>
 											<label>公司名：</label> <input type="text"
-												name=company.companyName class="input-xlarge" value="" />
+												name=companyName class="input-xlarge" value="" />
 										</p>
 										<p>
 											<label>公司代码:</label> <input type="text"
-												name="company.companyCode" class="input-xlarge" />
+												name="companyCode" class="input-xlarge" />
 										</p>
 										<p>
 											<label>公司信息:</label> <input type="text"
-												name="company.companyInformation" class="input-xlarge"
+												name="companyInfo" class="input-xlarge"
 												value="" />
 										</p>
 										<p>
 											<label>公司网址:</label> <input type="text"
-												name="company.companyUrl" class="input-xlarge" value="" />
+												name="companyUrl" class="input-xlarge" value="" />
 										</p>
 										<p>
 											<label>公司电话:</label> <input type="text"
-												name="company.companyPhoneNumber" class="input-xlarge"
+												name="companyPhone" class="input-xlarge"
 												value="" />
 										</p>
 										<p align="center">
-											<input type="submit" class="btn btn-primary" value="保存" />
+											<input type="button" onclick="commit();" class="btn btn-primary" value="保存" />
 										</p>
 									</div>
 								</div>
@@ -181,6 +181,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</div>
 							<div class="span4 profile-left" style="float: left">
 
+						</form>
 
 
 								<div class="widgetbox personal-information">
@@ -203,7 +204,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 							</div>
 							<!--span8-->
-						</form>
 					</div>
 					<!--row-fluid-->
 
@@ -227,8 +227,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</div>
 	<!--rightpanel-->
 
-	</div>
-	<!--mainwrapper-->
+	<script type="text/javascript">
+		function commit(){
+			jQuery.ajax({
+				url:'../insertCompany',
+				data:jQuery("#editForm").serialize(),
+				type:"post",
+				dataType:'json',
+				success:function(data){
+					alert(data.res)
+					if(data.res=="添加成功"){
+						document.getElementById('editForm').reset();
+					}
+				},error:function(data){
+					alert("失败")
+				}
+			})
+		}
 	</script>
 </body>
 </html>
