@@ -177,8 +177,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 											<label style="width: 130px;">经济舱容纳总人数：</label> <input type="text" name="enumber"
 												class="input-xlarge" />
 										</p>
-										 <p align="center">
-											<button onclick="com();" class="btn btn-primary">修改信息</button>
+										 <p align="center">	
+											<input type="button" class="btn btn-primary" onclick="com()" value="修改信息">
 										</p>
 									</div>
 								</div>

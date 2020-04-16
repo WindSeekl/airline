@@ -162,7 +162,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 												class="input-xlarge" value="" />
 										</p>
 	                                    <p align="center">
-											<button onclick="commit();" class="btn btn-primary">提交</button>
+											<input type="button" onclick="commit();" class="btn btn-primary" value="提交"/>
 										</p>
 									</div>
 								</div>
