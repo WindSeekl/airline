@@ -76,7 +76,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<li class="dropdown"><a href=""><span class="iconfa-plane"></span>
 							航班信息管理</a>
 						<ul>
-							<li><a href="../findCompanyFlightAction.action">增加航班信息</a></li>
+							<li><a href="<%=basePath%>queryCompanyPlanemodel">增加航班信息</a></li>
 							<li><a href="addflightschedule.jsp">增加航班计划</a></li>
 							<li><a href="../addscheduleFlightAction.action">安排航班计划</a></li>
 							<li><a href="../findpastscheduleFlightAction.action">以往航班计划</a></li>
@@ -85,9 +85,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<li class="dropdown"><a href=""><span
 							class=" iconfa-group"></span> 航空公司管理</a>
 						<ul>
-							<li><a href="addcompany.jsp">增加航空公司</a></li>
+							<li><a href="<%=basePath %>background/addcompany.jsp">增加航空公司</a></li>
 							<li><a href="../showplanemodelCompanyAction.action">添加公司机型</a>
-							<li><a href="../findCompanyAction.action">查询航空公司</a></li>
+							<li><a href="<%=basePath %>queryCompanys">查询航空公司</a></li>
 						</ul></li>
 							<li class="dropdown"><a href=""><span
 							class="iconfa-plane"></span> 机型管理</a>
@@ -178,7 +178,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 												class="input-xlarge" />
 										</p>
 										 <p align="center">
-											<input type="submit" class="btn btn-primary" value="修改信息" onclick="com()">
+											<button onclick="com();" class="btn btn-primary">修改信息</button>
 										</p>
 									</div>
 								</div>
@@ -218,6 +218,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				dataType:'json',
 				success:function(data){
 					alert(data.res)
+					if(data.res=="修改成功"){
+						document.getElementById('uform').reset();
+					}
 				},error:function(data){
 					alert("失败")
 				}

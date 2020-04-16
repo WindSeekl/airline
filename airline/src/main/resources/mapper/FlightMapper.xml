@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.airline.repository.FlightRepository">
+	<insert id="insertFlight" parameterType="Flight">
+		insert into flight values(0,#{flightNo},#{beginSite},#{endSite},#{beginTime},#{endTime},#{beginAir},#{endAir},#{fprice},#{bprice},#{eprice},#{companyName},#{planemodelName})
+	</insert>
+	<select id="queryFlight" resultType="Flight">
+		select * from flight
+	</select>
+	<select id="queryFlightOne" resultType="Flight" parameterType="String">
+		select * from flight where flightNo=#{flightNo}
+	</select>
+	<update id="updateFlight" parameterType="Flight">
+		update flight 
+		<set >
+			<if test="beginSite!=''">
+				beginSite=#{beginSite},
+			</if>
+			<if test="endSite!=''">
+				endSite=#{endSite},
+			</if>
+			<if test="beginTime!=''">
+				beginTime=#{beginTime},
+			</if>
+			<if test="endTime!=''">
+				endTime=#{endTime},
+			</if>
+			<if test="beginAir!=''">
+				beginAir=#{beginAir},
+			</if>
+			<if test="endAir!=''">
+				endAir=#{endAir},
+			</if>
+			<if test="fprice!=''">
+				fprice=#{fprice},
+			</if>
+			<if test="bprice!=''">
+				bprice=#{bprice},
+			</if>
+			<if test="eprice!=''">
+				eprice=#{eprice},
+			</if>
+			<if test="planemodelName!=''">
+				planemodelName=#{planemodelName},
+			</if>
+		</set>
+		where flightNo=#{flightNo}
+	</update>
+	<delete id="deleteFlight" parameterType="Flight">
+		delete from flight where flightNo=#{flightNo}
+	</delete>
+</mapper>

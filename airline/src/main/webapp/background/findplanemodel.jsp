@@ -95,7 +95,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<li class="dropdown"><a href=""><span class="iconfa-plane"></span>
 							航班信息管理</a>
 						<ul>
-							<li><a href="../findCompanyFlightAction.action">增加航班信息</a></li>
+							<li><a href="<%=basePath%>queryCompanyPlanemodel">增加航班信息</a></li>
 							<li><a href="addflightschedule.jsp">增加航班计划</a></li>
 							<li><a href="../addscheduleFlightAction.action">安排航班计划</a></li>
 							<li><a href="../findpastscheduleFlightAction.action">以往航班计划</a></li>
@@ -104,9 +104,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<li class="dropdown"><a href=""><span
 							class=" iconfa-group"></span> 航空公司管理</a>
 						<ul>
-							<li><a href="addcompany.jsp">增加航空公司</a></li>
+							<li><a href="<%=basePath %>background/addcompany.jsp">增加航空公司</a></li>
 							<li><a href="../showplanemodelCompanyAction.action">添加公司机型</a>
-							<li><a href="../findCompanyAction.action">查询航空公司</a></li>
+							<li><a href="<%=basePath %>queryCompanys">查询航空公司</a></li>
 						</ul></li>
 							<li class="dropdown"><a href=""><span
 							class="iconfa-plane"></span> 机型管理</a>

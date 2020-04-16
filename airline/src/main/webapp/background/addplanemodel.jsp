@@ -74,7 +74,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<li class="dropdown"><a href=""><span class="iconfa-plane"></span>
 							航班信息管理</a>
 						<ul>
-							<li><a href="../findCompanyFlightAction.action">增加航班信息</a></li>
+							<li><a href="<%=basePath%>queryCompanyPlanemodel">增加航班信息</a></li>
 							<li><a href="addflightschedule.jsp">增加航班计划</a></li>
 							<li><a href="../addscheduleFlightAction.action">安排航班计划</a></li>
 							<li><a href="../findpastscheduleFlightAction.action">以往航班计划</a></li>
@@ -83,9 +83,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<li class="dropdown"><a href=""><span
 							class=" iconfa-group"></span> 航空公司管理</a>
 						<ul>
-							<li><a href="addcompany.jsp">增加航空公司</a></li>
+							<li><a href="<%=basePath %>background/addcompany.jsp">增加航空公司</a></li>
 							<li><a href="../showplanemodelCompanyAction.action">添加公司机型</a>
-							<li><a href="../findCompanyAction.action">查询航空公司</a></li>
+							<li><a href="<%=basePath %>queryCompanys">查询航空公司</a></li>
 						</ul></li>
 							<li class="dropdown"><a href=""><span
 							class="iconfa-plane"></span> 机型管理</a>
@@ -139,7 +139,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<div class="maincontentinner">
 					<div class="row-fluid">
 						<div class="span8" style="margin-left:20%;">
-						
 							<form action="#" class="editprofileform"
 								method="post" id = "editprofileform">
 								<div class="widgetbox personal-information">
@@ -163,7 +162,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 												class="input-xlarge" value="" />
 										</p>
 	                                    <p align="center">
-											<input type="submit" class="btn btn-primary" onclick="commit();" value="提交" >
+											<button onclick="commit();" class="btn btn-primary">提交</button>
 										</p>
 									</div>
 								</div>
@@ -204,11 +203,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				dataType:'json',
 				success:function(data){
 					alert(data.res)
+					if(data.res=="添加成功"){
+						document.getElementById('editForm').reset();
+					}
 				},error:function(data){
 					alert("失败")
 				}
 			})
-			document.getElementById('editprofileform').reset();
 		}
 	</script>
 </body>

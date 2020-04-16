@@ -25,15 +25,29 @@ public class PlanemodelServiceImpl implements PlanemodelService{
 	}
 
 	@Override
-	public int insertPlanemodel(Planemodel planemodel) {
+	public String insertPlanemodel(Planemodel planemodel) {
 		// TODO Auto-generated method stub
-		return planemodelRepository.insertPlanemodel(planemodel);
+		Planemodel p = planemodelRepository.queryPlanemodelOne(planemodel.getPlanemodelName());
+		String res=null;
+		if(p==null) {
+			if(planemodel.getPlanemodelName().isEmpty()) {
+				res = "机型不能为空";
+			}else {
+				int i = planemodelRepository.insertPlanemodel(planemodel);
+				res = i==1?"添加成功":"添加失败";
+			}
+		}else{
+			res = "该机型已添加";
+		}
+		return res;
 	}
 
 	@Override
-	public int updatePlanemodel(Planemodel planemodel) {
+	public String updatePlanemodel(Planemodel planemodel) {
 		// TODO Auto-generated method stub
-		return planemodelRepository.updatePlanemodel(planemodel);
+		int i = planemodelRepository.updatePlanemodel(planemodel);
+		String res = i==1?"修改成功":"修改失败";
+		return res;
 	}
 
 	@Override

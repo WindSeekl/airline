@@ -7,7 +7,7 @@ import com.airline.domain.Planemodel;
 public interface PlanemodelService {
 	List<Planemodel> queryPlanemodel();
 	Planemodel queryPlanemodelOne(String planemodelName);
-	int insertPlanemodel(Planemodel planemodel);
-	int updatePlanemodel(Planemodel planemodel);
+	String insertPlanemodel(Planemodel planemodel);
+	String updatePlanemodel(Planemodel planemodel);
 	int deletePlanemodel(Planemodel planemodel);
 }
