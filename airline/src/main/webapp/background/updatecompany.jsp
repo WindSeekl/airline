@@ -1,26 +1,29 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Shamcey - Metro Style Admin Template</title>
-<link rel="stylesheet" href="css/style.default.css" type="text/css" />
+<link rel="stylesheet" href="<%=basePath %>background/css/style.default.css" type="text/css" />
 
-<link rel="stylesheet" href="css/responsive-tables.css">
-<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
-<script type="text/javascript" src="js/jquery-migrate-1.1.1.min.js"></script>
-<script type="text/javascript" src="js/jquery-ui-1.9.2.min.js"></script>
-<script type="text/javascript" src="js/modernizr.min.js"></script>
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/jquery.cookie.js"></script>
-<script type="text/javascript" src="js/jquery.uniform.min.js"></script>
-<script type="text/javascript" src="js/flot/jquery.flot.min.js"></script>
-<script type="text/javascript" src="js/flot/jquery.flot.resize.min.js"></script>
-<script type="text/javascript" src="js/responsive-tables.js"></script>
-<script type="text/javascript" src="js/custom.js"></script>
+<link rel="stylesheet" href="<%=basePath %>background/css/responsive-tables.css">
+<script type="text/javascript" src="<%=basePath %>background/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/jquery-migrate-1.1.1.min.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/jquery-ui-1.9.2.min.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/modernizr.min.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/jquery.uniform.min.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/flot/jquery.flot.min.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/flot/jquery.flot.resize.min.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/responsive-tables.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/custom.js"></script>
 </head>
 
 <body>
@@ -138,7 +141,7 @@
 			<div class="maincontent">
 				<div class="maincontentinner">
 					<div class="row-fluid">
-						<form action="../updateCompanyAction.action" class="editprofileform"
+						<form action="#" class="editprofileform" id="editprofileform"
 							method="post">
 							<div class="span8"
 								style="margin-left:5%; float: left; width: 500px;">
@@ -147,12 +150,11 @@
 									<h4 class="widgettitle">航空公司信息</h4>
 									<div class="widgetcontent">
 
+													<c:forEach items="${companyInfo}" var="company">
 										<p>
 											<label>公司名：</label>
 											<select name="companyName" style="width:284px">
-													<c:forEach items="${companyInfo}" var="company">
 														<option value ="${company.companyName}" >${company.companyName}</option>
-													</c:forEach>
 											</select>
 										</p>
 										<p>
@@ -172,15 +174,17 @@
 												class="input-xlarge" value="${company.companyPhone }" />
 										</p>
 										<p align="center">
-										<input name="companyId" value="${company.companyId}" hidden="hidden">
-											<input type="submit" class="btn btn-primary" value="保存" />
+											<input type="button" onclick="commit();" class="btn btn-primary" value="保存" />
 										</p>
+										
+													</c:forEach>
 									</div>
 								</div>
 
 							</div>
 								<div class="span4 profile-left" style="float: left">
 
+						</form>
 
 
 								<div class="widgetbox personal-information">
@@ -203,7 +207,6 @@
 
 							</div>
 							<!--span8-->
-						</form>
 					</div>
 					<!--row-fluid-->
 
@@ -226,10 +229,26 @@
 
 	</div>
 	<!--rightpanel-->
-
-	</div>
-	<!--mainwrapper-->
+	
+	<script type="text/javascript">
+		function commit(){
+			jQuery.ajax({
+				url:'../updateCompany',
+				data:jQuery("#editprofileform").serialize(),
+				type:"post",
+				dataType:'json',
+				success:function(data){
+					alert(data.res)
+					if(data.res=="修改成功"){
+						location.href="<%=basePath%>getCompanyInfo"
+					}
+				},error:function(data){
+					alert("失败")
+				}
+			})
+		}
 	</script>
+	
 </body>
 </html>
 

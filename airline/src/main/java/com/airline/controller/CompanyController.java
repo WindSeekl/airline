@@ -7,6 +7,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -52,5 +53,16 @@ public class CompanyController {
 		List<Company> list = companyService.queryCompanys();
 		mv.addObject("companyInfo", list);
 		return mv;
+	}
+	
+	@RequestMapping(value = "/updateCompany", method = RequestMethod.POST)
+	public JSONObject updateCompany(Company company) {
+		String res = null;
+		System.out.println(company);
+		Map<String, String> map = new HashMap<String, String>();
+		res = companyService.updateCompany(company);
+		map.put("res", res);
+		JSONObject json = JSONObject.fromObject(map);
+		return json;
 	}
 }
