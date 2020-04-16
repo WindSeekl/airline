@@ -39,4 +39,11 @@ public class CompanyServiceImpl implements CompanyService{
 		return "删除成功";
 	}
 
+	@Override
+	public String updateCompany(Company company) {
+		// TODO Auto-generated method stub
+		companyRepository.updateCompany(company);
+		return "修改成功";
+	}
+
 }

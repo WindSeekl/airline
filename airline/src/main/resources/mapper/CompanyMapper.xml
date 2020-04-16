@@ -18,4 +18,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<insert id="insertCompany" parameterType="company">
 		insert into company values(0,#{companyName},#{companyCode},#{companyInfo},#{companyUrl},#{companyPhone})
 	</insert>
+	
+	<update id="updateCompany" parameterType="company">
+		update company 
+		<set>
+			<if test="companyCode!=''">
+				companyCode=#{companyCode},
+			</if>
+			<if test="companyInfo!=null">
+				companyInfo=#{companyInfo},
+			</if>
+			<if test="companyUrl!=null">
+				companyUrl=#{companyUrl},
+			</if>
+			<if test="companyPhone!=null">
+				companyPhone=#{companyPhone}
+			</if>
+		</set>
+	</update>
 </mapper>

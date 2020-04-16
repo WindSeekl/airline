@@ -89,6 +89,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<li><a href="addcompany.jsp">增加航空公司</a></li>
 							<li><a href="../showplanemodelCompanyAction.action">添加公司机型</a>
 							<li><a href="<%=basePath %>queryCompanys">查询航空公司</a></li>
+							<li><a href="<%=basePath %>getCompanyInfo">修改航空公司信息</a></li>
 						</ul></li>
 					<li class="dropdown"><a href=""><span class="iconfa-plane"></span>
 							机型管理</a>

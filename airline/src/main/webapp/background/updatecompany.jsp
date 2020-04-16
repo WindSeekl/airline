@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE html>
 <html>
@@ -130,7 +131,7 @@
 					<span class="iconfa-laptop"></span>
 				</div>
 				<div class="pagetitle">
-					<h1>添加航空公司</h1>
+					<h1>修改航空公司信息</h1>
 				</div>
 			</div>
 			<!--pageheader-->
@@ -147,24 +148,28 @@
 									<div class="widgetcontent">
 
 										<p>
-											<label>公司名：</label> <input type="text" name="company.companyName"
-												class="input-xlarge" value="${company.companyName }" />
+											<label>公司名：</label>
+											<select name="companyName" style="width:284px">
+													<c:forEach items="${companyInfo}" var="company">
+														<option value ="${company.companyName}" >${company.companyName}</option>
+													</c:forEach>
+											</select>
 										</p>
 										<p>
-											<label>公司代码:</label> <input type="text" name="company.companyCode"
+											<label>公司代码:</label> <input type="text" name="companyCode"
 												class="input-xlarge" value="${company.companyCode}"/>
 										</p>
 										<p>
-											<label>公司信息:</label> <input type="text" name="company.companyInformation"
-												class="input-xlarge" value="${company.companyInformation }" />
+											<label>公司信息:</label> <input type="text" name="companyInfo"
+												class="input-xlarge" value="${company.companyInfo }" />
 										</p>
 										<p>
-											<label>公司网址:</label> <input type="text" name="company.companyUrl"
+											<label>公司网址:</label> <input type="text" name="companyUrl"
 												class="input-xlarge" value="${company.companyUrl }" />
 										</p>
 										<p>
-											<label>公司电话:</label> <input type="text" name="company.companyPhoneNumber"
-												class="input-xlarge" value="${company.companyPhoneNumber }" />
+											<label>公司电话:</label> <input type="text" name="companyPhone"
+												class="input-xlarge" value="${company.companyPhone }" />
 										</p>
 										<p align="center">
 										<input name="companyId" value="${company.companyId}" hidden="hidden">

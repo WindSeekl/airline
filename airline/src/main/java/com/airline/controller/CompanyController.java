@@ -1,5 +1,6 @@
 package com.airline.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -42,6 +43,14 @@ public class CompanyController {
 	public ModelAndView deleteCompany(Company company) {
 		ModelAndView mv = new ModelAndView("forward:queryCompanys");
 		companyService.deleteCompany(company.getCompanyName());
+		return mv;
+	}
+	
+	@RequestMapping("/getCompanyInfo")
+	public ModelAndView getCompanyInfo() {
+		ModelAndView mv = new ModelAndView("background/updatecompany");
+		List<Company> list = companyService.queryCompanys();
+		mv.addObject("companyInfo", list);
 		return mv;
 	}
 }

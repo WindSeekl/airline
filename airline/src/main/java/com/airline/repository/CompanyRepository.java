@@ -15,4 +15,6 @@ public interface CompanyRepository {
 	int insertCompany(Company company);
 	
 	int deleteCompany(String companyName);
+	
+	int updateCompany(Company company);
 }

@@ -10,4 +10,6 @@ public interface CompanyService {
 	List<Company> queryCompanys();
 	
 	String deleteCompany(String companyName);
+	
+	String updateCompany(Company company);
 }
