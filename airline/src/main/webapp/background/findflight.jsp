@@ -78,7 +78,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							订票客户管理</a>
 						<ul>
 							<li><a href="addcustomer.jsp">增加客户信息</a></li>
-							<li><a href="../BgfindAllUser.action">查询客户信息</a></li>
+							<li><a href="<%=basePath%>queryCustomers">查询客户信息</a></li>
 						</ul></li>
 					<li class="dropdown"><a href=""><span
 							class="iconfa-pencil"></span> 航班机票管理</a>
@@ -90,24 +90,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<li class="dropdown"><a href=""><span class="iconfa-plane"></span>
 							航班信息管理</a>
 						<ul>
-							<li><a href="../findCompanyFlightAction.action">增加航班信息</a></li>
+							<li><a href="<%=basePath%>queryCompanyPlanemodel">增加航班信息</a></li>
 							<li><a href="addflightschedule.jsp">增加航班计划</a></li>
 							<li><a href="../addscheduleFlightAction.action">安排航班计划</a></li>
 							<li><a href="../findpastscheduleFlightAction.action">以往航班计划</a></li>
-							<li><a href="../bgfindAllFlightAction.action">查询航班信息</a></li>
+							<li><a href="<%=basePath%>queryFlight">查询航班信息</a></li>
 						</ul></li>
 					<li class="dropdown"><a href=""><span
 							class=" iconfa-group"></span> 航空公司管理</a>
 						<ul>
-							<li><a href="addcompany.jsp">增加航空公司</a></li>
-							<li><a href="../showplanemodelCompanyAction.action">添加公司机型</a>
-							<li><a href="../findCompanyAction.action">查询航空公司</a></li>
+							<li><a href="<%=basePath %>background/addcompany.jsp">增加航空公司</a></li>
+							<li><a href="<%=basePath %>queryCnamePname">添加公司机型</a>
+							<li><a href="<%=basePath %>queryCompanys">查询航空公司</a></li>
+							<li><a href="<%=basePath %>getCompanyInfo">修改航空公司信息</a></li>
 						</ul></li>
 							<li class="dropdown"><a href=""><span
 							class="iconfa-plane"></span> 机型管理</a>
 						<ul>
-							<li><a href="addplanemodel.jsp">增加机型</a></li>
-							<li><a href="../findPlaneModelAction.action">查询机型</a></li>
+							<li><a href="<%=basePath %>background/addplanemodel.jsp">增加机型</a></li>
+							<li><a href="<%=basePath %>queryList">查询机型</a></li>
+							<li><a href="<%=basePath %>queryPlanemodel">修改机型信息</a></li>
 						</ul></li>	
 					<li><a href="printtable.jsp"><span class="iconfa-th-list"></span>
 							报表打印管理</a></li>
@@ -142,7 +144,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<li><a href="brown">Brown</a></li>
 					</ul></li>
 			</ul>
-
 			<div class="pageheader">
 				<div class="pageicon">
 					<span class="iconfa-laptop"></span>
@@ -153,10 +154,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</div>
 			</div>
 			<!--pageheader-->
-
 			<div class="maincontent">
 					<div class="maincontentinner">
 						<h4 class="widgettitle">所有航班</h4>
+						<c:if test="${empty flightList}">
+							<h4 align="center">没有查询到航班信息</h4>
+						</c:if>
+						<c:if test="${not empty flightList}">
 						<table id="table" class="table table-bordered responsive">
 							<thead>
 								<tr>
@@ -196,6 +200,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								</c:forEach>
 							</tbody>
 						</table>
+						</c:if>
 					</div>
         </div><!--maincontent-->
 			</div>

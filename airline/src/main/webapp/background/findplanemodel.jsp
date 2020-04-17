@@ -157,6 +157,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <div class="maincontent">
  					<div class="maincontentinner">
 						<h4 class="widgettitle">机型信息</h4>
+						<c:if test="${empty planemodelList}">
+							<h4 align="center">没有查询到航班信息</h4>
+						</c:if>
+						<c:if test="${not empty planemodelList}">
 						<table class="table table-bordered responsive">
 										<colgroup>
 								<col class="con0" />
@@ -190,6 +194,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								</c:forEach>
 							</tbody>
 						</table>
+						</c:if>
 					</div>
         </div><!--maincontent-->
         

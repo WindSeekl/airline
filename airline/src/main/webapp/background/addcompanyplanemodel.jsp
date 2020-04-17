@@ -166,6 +166,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <div class="maincontent">
  					<div class="maincontentinner">
 						<h4 class="widgettitle">已经拥有的机型</h4>
+						<c:if test="${empty pnameList}">
+							<h4 align="center">没有查询到已有机型</h4>
+						</c:if>
+						<c:if test="${not empty pnameList}">
 						<table class="table table-bordered responsive" >
 							<thead>
 								<tr>
@@ -178,7 +182,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								</tr>
 							</thead>
 							<tbody>
-								<c:if test="${not empty pnameList}">
 									<c:forEach items="${pnameList}" var="planemodel">
 										<form action="<%=basePath%>deleteCnamePname" method="post">
 										<tr>
@@ -193,11 +196,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 										</tr>
 										</form>
 									</c:forEach>
-								</c:if>
+								
 							</tbody>
 						</table>
+						</c:if>
 						<br>
 						<h4 class="widgettitle">可以添加的机型</h4>
+						<c:if test="${empty notPnameList}">
+							<h4 align="center">没有查询到可添加机型</h4>
+						</c:if>
+						<c:if test="${not empty notPnameList}">
 						<table class="table table-bordered responsive" >
 							<thead>
 								<tr>
@@ -210,7 +218,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								</tr>
 							</thead>
 							<tbody>
-								<c:if test="${not empty notPnameList}">
+								
 									<c:forEach items="${notPnameList}" var="planemodel">
 										<form action="<%=basePath%>insertCnamePname" method="post">
 											<tr>
@@ -225,10 +233,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 											</tr>
 										</form>
 									</c:forEach>
-								</c:if>
+								
 								
 							</tbody>
 						</table>
+						</c:if>
 					</div>
         </div><!--maincontent-->
         

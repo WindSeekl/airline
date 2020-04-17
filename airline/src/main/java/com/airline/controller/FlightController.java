@@ -80,7 +80,6 @@ public class FlightController {
 	}
 	@RequestMapping("deleteFlight")
 	public ModelAndView deleteFlight(String flightNo) {
-		System.out.println("进入了："+flightNo);
 		ModelAndView mv = new ModelAndView("forward:queryFlight");
 		flightService.deleteFlight(flightNo);
 		return mv;
