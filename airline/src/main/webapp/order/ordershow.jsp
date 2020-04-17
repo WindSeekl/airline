@@ -206,7 +206,7 @@ function bounce(id) {
 		//data[i].reserveId
 		for ( var i in data) {				
 			if(id == ''){
-				
+				$("#data").empty();
 					var html="<ul name='orderInfo'>";
 					html += "<li class='c1'>订单Id："+data[i].reserveId+"<br/> ";
 					html += "<br> ";
@@ -250,7 +250,7 @@ function bounce(id) {
 					html += "</ul>";
 					$("#data").append(html);
 				}else if(data[i].reserveId == id){
-					
+					$("#data").empty();
 					var html="<ul name='orderInfo'>";
 					html += "<li class='c1'>订单Id："+data[i].reserveId+"<br/> ";
 					html += "<br> ";
@@ -309,6 +309,7 @@ function bounce(id) {
 		success:function(data){
 			for ( var i in data) {
 				if(data[i].orderDate == date){
+					$("#data").empty();
 					var html="<ul name='orderInfo'>";
 					html += "<li class='c1'>订单Id："+data[i].reserveId+"<br/> ";
 					html += "<br> ";
@@ -354,6 +355,7 @@ function bounce(id) {
 					break;
 				}
 				if(date==""){
+					$("#data").empty();
 					var html = "<ul name='orderInfo'>";
 					html += "<p>没有数据</p>";
 					html += "</ul>";
