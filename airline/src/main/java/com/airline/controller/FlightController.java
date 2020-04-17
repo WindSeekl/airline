@@ -27,7 +27,7 @@ public class FlightController {
 	@Autowired
 	private CnamePnameService cnamePnameService;
 	@RequestMapping("queryCompanyPlanemodel")
-	public ModelAndView queryFlight() {
+	public ModelAndView queryCompanyPlanemodel() {
 		ModelAndView mv = new ModelAndView("background/addflight");
 		List<Company> CompanyList = companyServiceImpl.queryCompanys();
 		mv.addObject("companyList", CompanyList);
@@ -51,5 +51,38 @@ public class FlightController {
 		map.put("res", res);
 		JSONObject json = JSONObject.fromObject(map);
 		return json;
+	}
+	@RequestMapping("queryFlight")
+	public ModelAndView queryFlight() {
+		ModelAndView mv = new ModelAndView("background/findflight");
+		List<Flight> flightList = flightService.queryFlight();
+		mv.addObject("flightList", flightList);
+		return mv;
+	}
+	@RequestMapping("queryUpdateFlight")
+	public ModelAndView queryUpdateFlight(String flightNo) {
+		Flight flight = flightService.queryFlightOne(flightNo);
+		String companyName = flight.getCompanyName();
+		List<String> list=cnamePnameService.queryCnamePname(companyName);
+		List<Planemodel> pnameList=cnamePnameService.queryPname(list);
+		ModelAndView mv = new ModelAndView("background/updateflight");
+		mv.addObject("planemodelList", pnameList);
+		mv.addObject("flight", flight);
+		return mv;
+	}
+	@RequestMapping("updateFlight")
+	public JSONObject updateFlight(Flight flight) {
+		Map<String, String> map = new HashMap<String, String>();
+		String res = flightService.updateFlight(flight);
+		map.put("res", res);
+		JSONObject json = JSONObject.fromObject(map);
+		return json;
+	}
+	@RequestMapping("deleteFlight")
+	public ModelAndView deleteFlight(String flightNo) {
+		System.out.println("进入了："+flightNo);
+		ModelAndView mv = new ModelAndView("forward:queryFlight");
+		flightService.deleteFlight(flightNo);
+		return mv;
 	}
 }

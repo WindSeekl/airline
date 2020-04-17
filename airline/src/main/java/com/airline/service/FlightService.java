@@ -9,5 +9,5 @@ public interface FlightService {
 	Flight queryFlightOne(String flightNo);
 	String insertFlight(Flight flight);
 	String updateFlight(Flight flight);
-	int deleteFlight(Flight flight);
+	void deleteFlight(String flightNo);
 }

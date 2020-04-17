@@ -1,26 +1,29 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Shamcey - Metro Style Admin Template</title>
-<link rel="stylesheet" href="css/style.default.css" type="text/css" />
-
-<link rel="stylesheet" href="css/responsive-tables.css">
-<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
-<script type="text/javascript" src="js/jquery-migrate-1.1.1.min.js"></script>
-<script type="text/javascript" src="js/jquery-ui-1.9.2.min.js"></script>
-<script type="text/javascript" src="js/modernizr.min.js"></script>
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/jquery.cookie.js"></script>
-<script type="text/javascript" src="js/jquery.uniform.min.js"></script>
-<script type="text/javascript" src="js/flot/jquery.flot.min.js"></script>
-<script type="text/javascript" src="js/flot/jquery.flot.resize.min.js"></script>
-<script type="text/javascript" src="js/responsive-tables.js"></script>
-<script type="text/javascript" src="js/custom.js"></script>
-<script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" href="<%=basePath %>background/css/style.default.css" type="text/css" />
+<link rel="stylesheet" href="<%=basePath %>background/css/responsive-tables.css">
+<script type="text/javascript" src="<%=basePath %>background/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/jquery-migrate-1.1.1.min.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/jquery-ui-1.9.2.min.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/modernizr.min.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/jquery.uniform.min.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/flot/jquery.flot.min.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/flot/jquery.flot.resize.min.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/responsive-tables.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/custom.js"></script>
 <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/excanvas.min.js"></script><![endif]-->
 <script type="text/javascript">
 	jQuery(document).ready(function() {
@@ -157,8 +160,7 @@
 						<table id="table" class="table table-bordered responsive">
 							<thead>
 								<tr>
-									<th class="centeralign"><input type="checkbox"
-										class="checkall" /></th>
+									<th class="centeralign"></th>
 									<th>航班ID</th>
 									<th>航班号</th>
 									<th>机型</th>
@@ -171,27 +173,27 @@
 								</tr>
 							</thead>
 							<tbody>
-							<s:iterator value="#session.bgflightList">
-								<tr>
-									<td class="centeralign"></td>
-									<td><s:property value="flightId"/> </td>
-									<td><s:property value="flightNumber"/></td>
-									<td><s:property value="planemodel.planeModelCode"/></td>
-									<td><s:property value="startPoint"/></td>
-									<td><s:property value="endPoint"/></td>
-									<td><s:date name="startTime" format="HH:mm:ss"/></td>
-									<td><s:date name="arrivalTime" format="HH:mm:ss"/></td>
-									<td><s:property value="companyName"/></td>
-									<td>
-									<a href="../alterFlightAction.action?flightId=<s:property value="flightId" />" class="editrow">
-									<span class="icon-edit"></span>
-									</a>&nbsp;
-									<a href="../deleteFlightAction.action?flightId=<s:property value="flightId" />" class="deleterow">
-									<span class="icon-trash"></span>
-									</a>
-									</td>
-								</tr>
-							</s:iterator>
+								<c:forEach var="flight" items="${flightList}">
+									<tr>
+										<td class="centeralign"></td>
+										<td>${flight.flightId}</td>
+										<td>${flight.flightNo}</td>
+										<td>${flight.planemodelName}</td>
+										<td>${flight.beginSite}</td>
+										<td>${flight.endSite}</td>
+										<td>${flight.beginTime}</td>
+										<td>${flight.endTime}</td>
+										<td>${flight.companyName}</td>
+										<td>
+											<a href="<%=basePath%>queryUpdateFlight?flightNo=${flight.flightNo}">
+												<span class="icon-edit"></span>
+											</a>&nbsp;
+											<a href="<%=basePath%>deleteFlight?flightNo=${flight.flightNo}">
+												<span class="icon-trash"></span>
+											</a>
+										</td>
+									</tr>
+								</c:forEach>
 							</tbody>
 						</table>
 					</div>
@@ -201,8 +203,10 @@
 
 		</div>
 		<!--rightpanel-->
-
-	</div>
 	<!--mainwrapper-->
+	<script type="text/javascript">
+		
+	
+	</script>
 </body>
 </html>

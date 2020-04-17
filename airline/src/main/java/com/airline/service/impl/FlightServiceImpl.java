@@ -50,8 +50,7 @@ public class FlightServiceImpl implements FlightService{
 	}
 
 	@Override
-	public int deleteFlight(Flight flight) {
-		// TODO Auto-generated method stub
-		return 0;
+	public void deleteFlight(String flightNo) {
+		flightRepository.deleteFlight(flightNo);
 	}
 }

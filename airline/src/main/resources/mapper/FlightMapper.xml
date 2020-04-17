@@ -48,7 +48,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</set>
 		where flightNo=#{flightNo}
 	</update>
-	<delete id="deleteFlight" parameterType="Flight">
+	<delete id="deleteFlight" parameterType="String">
 		delete from flight where flightNo=#{flightNo}
 	</delete>
 </mapper>

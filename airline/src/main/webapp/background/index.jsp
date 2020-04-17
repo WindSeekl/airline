@@ -81,7 +81,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<li><a href="addflightschedule.jsp">增加航班计划</a></li>
 							<li><a href="../addscheduleFlightAction.action">安排航班计划</a></li>
 							<li><a href="../findpastscheduleFlightAction.action">以往航班计划</a></li>
-							<li><a href="../bgfindAllFlightAction.action">查询航班信息</a></li>
+							<li><a href="<%=basePath%>queryFlight">查询航班信息</a></li>
 						</ul></li>
 					<li class="dropdown"><a href=""><span
 							class=" iconfa-group"></span> 航空公司管理</a>
