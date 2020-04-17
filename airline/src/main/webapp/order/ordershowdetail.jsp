@@ -34,6 +34,7 @@
 	href="Stylesheets/ordershowdetail.css">
 <script type="text/javascript"
 	src="Script/My97DatePicker/WdatePicker.js"></script>
+	<script src="Script/jquery-1.8.3.min.js"></script>
 </head>
 
 <body>
@@ -104,16 +105,16 @@
 						</ul>
 						<div class="detail">
 							<div class="basic" style="">
-								<div class="text">
+								<div class="text" id="data">
 									<dl>
 										<dt>证件类型</dt>
 										<dd>身份证</dd>
 										<dt>手机号码</dt>
-										<dd><s:property value="#session.order.phoneNumber"/></dd>
+										<dd>${Reserve.phoneNum}</dd>
 									</dl>
 									<dl>
 										<dt>证件号码</dt>
-										<dd><s:property value="#session.order.identificationCard"/></dd>
+										<dd>${Reserve.cardId}</dd>
 									</dl>
 								</div>
 								<div class="jiage" style="margin-top:-25px">
@@ -122,7 +123,7 @@
 										<span class="price normal red">￥<s:property value="#session.order.price+20+120"/></span>
 									</p>
 									<p>
-										<u>机票<br>￥<s:property value="#session.order.price"/>
+										<u>机票<br>￥${Reserve.money}
 										</u><u insureprice="20">保险<br>￥ 20
 										</u><u>税费<br>￥ 120
 										</u>
@@ -183,7 +184,6 @@
 			src="http://pic.c-ctrip.com/vacation_v2/bottom_banner3.jpg"
 			class="bottom_banner_r" alt="日本航空" width="356" height="111">
 	</div>
-
 </body>
 </html>
 

@@ -23,9 +23,7 @@ public class OrderController {
 	public JSONArray queryOrder(Reserve reserve) {
 		List<Reserve> list = reserveService.queryReserve(reserve);
 		JSONArray json = JSONArray.fromObject(list);
-		String str = re.getReserveId();
-		System.out.println(str);
-		System.out.println(list);
+		//System.out.println(list);
 		return json;
 	}
 }

@@ -119,8 +119,7 @@
 									<br>
 									<dl class="advance" style="display: block;">
 										<dt>								
-											预订日期 <input type="text" class="input date Wdate"  id="date"
-												onfocus="WdatePicker()"> 
+											预订日期 <input type="text" class="input date Wdate"  id="date"> 
 												<input type="button" value="查询"  id="orderdate">
 										</dt>
 									</dl>
@@ -170,15 +169,12 @@
 </section> 
 <script type="text/javascript">
 $("#button-search").click(function(){
+	var id = $("#orderid").val();
 		querybyID()
 });
 $("#orderdate").click(function(){
 	var date = $("#date").val();
-	if(data != null){
 		querybyDate();
-	}else{
-		alert("请输入日期！");
-	}
 });
 function pay(id) {
 	var conf = confirm('确认付款！');
@@ -205,9 +201,12 @@ function bounce(id) {
 		type:"post",
 		dataType:"json",
 		success:function(data){
-			var id = $("#orderid").val();
-			console.log(data);
-			for ( var i in data) {
+		var id = $("#orderid").val();
+		console.log(data);
+		//data[i].reserveId
+		for ( var i in data) {				
+			if(id == ''){
+				
 					var html="<ul name='orderInfo'>";
 					html += "<li class='c1'>订单Id："+data[i].reserveId+"<br/> ";
 					html += "<br> ";
@@ -250,10 +249,50 @@ function bounce(id) {
 					html += "<div class='clear'></div>";
 					html += "</ul>";
 					$("#data").append(html);
-				if (data[i].reserveId != id) {
-					alert("xxxx");
-				}else{
-					alert("没有数据！");
+				}else if(data[i].reserveId == id){
+					
+					var html="<ul name='orderInfo'>";
+					html += "<li class='c1'>订单Id："+data[i].reserveId+"<br/> ";
+					html += "<br> ";
+					html += "下单时间:"+data[i].orderDate+"<br/>";
+					html += "<br>"; 
+					html += "<a class='blue' name='orderNo' target='_blank' href='/order/ordershowdetail.jsp'>";
+					html += "查看订单详情></a>";
+					html += "</li>";
+					html += "<li class='c2' style='width: 220px;'>";
+					html += "<br/>";
+					html += "<span class='airport'>";
+					html += "&nbsp;";
+					html += "</span>";
+					html += ""+data[i].benginSite+" — "+data[i].endSite+"<br/>";
+					html += "<span class='airport'>";
+					html += "&nbsp;";	
+					html += "</span>";
+					html += "</b>";
+					html += ""+data[i].benginDate+"（出发）<br/>——<br/>"+data[i].endDate+"（抵达）";  
+					html += "<li class='c3'";
+					html += "style='width:80px; padding-top:35px; padding-bottom: 44px; border-right: 1px #ccc solid;'>";
+					html += "<span>"+data[i].userName+"</span>";
+					html += "</li>";
+					html += "<li class='c4' style='width:80px; padding-top:35px; padding-bottom: 44px; text-align: center; border-right: 1px #ccc solid;'>";
+					html += "<span class='red'>"+data[i].money+"￥ </span>";
+					html += "<aside class='tips long' name='INSTips' style='top: -64px; opacity: 0; display: none;'>";
+					html += "<p></p>";
+					html += "<mark class='icon boxTri'></mark> </aside>";
+					html += "</li>";
+					html += "<li class='c5' style='border-right: 1px #ccc solid; padding-top:35px; padding-bottom: 44px;'><br/>";
+					html += ""+data[i].state+"";
+					html += "</li>";
+					html += "<li class='c6 tall' style='width:90px;  padding-bottom: 44px; padding-top: 35px;'>";
+					html += "<a href='#'>付款</a>";
+					html += "<br/>";
+					html += "<a href='#'>取消订单</a>";
+					html += "<br/>";
+					html += "<a href='#'>申请退票</a>";
+					html += "</li>";
+					html += "<div class='clear'></div>";
+					html += "</ul>";
+					$("#data").append(html);
 				}
 			}
 		}
@@ -269,55 +308,57 @@ function bounce(id) {
 		dataType:"json",
 		success:function(data){
 			for ( var i in data) {
-				if(data[i].orderDate != date){
+				if(data[i].orderDate == date){
+					var html="<ul name='orderInfo'>";
+					html += "<li class='c1'>订单Id："+data[i].reserveId+"<br/> ";
+					html += "<br> ";
+					html += "下单时间:"+data[i].orderDate+"<br/>";
+					html += "<br>"; 
+					html += "<a class='blue' name='orderNo' target='_blank' href='/order/ordershowdetail.jsp'>";
+					html += "查看订单详情></a>";
+					html += "</li>";
+					html += "<li class='c2' style='width: 220px;'>";
+					html += "<br/>";
+					html += "<span class='airport'>";
+					html += "&nbsp;";
+					html += "</span>";
+					html += ""+data[i].benginSite+" — "+data[i].endSite+"<br/>";
+					html += "<span class='airport'>";
+					html += "&nbsp;";	
+					html += "</span>";
+					html += "</b>";
+					html += ""+data[i].benginDate+"（出发）<br/>——<br/>"+data[i].endDate+"（抵达）";  
+					html += "<li class='c3'";
+					html += "style='width:80px; padding-top:35px; padding-bottom: 44px; border-right: 1px #ccc solid;'>";
+					html += "<span>"+data[i].userName+"</span>";
+					html += "</li>";
+					html += "<li class='c4' style='width:80px; padding-top:35px; padding-bottom: 44px; text-align: center; border-right: 1px #ccc solid;'>";
+					html += "<span class='red'>"+data[i].money+"￥ </span>";
+					html += "<aside class='tips long' name='INSTips' style='top: -64px; opacity: 0; display: none;'>";
+					html += "<p></p>";
+					html += "<mark class='icon boxTri'></mark> </aside>";
+					html += "</li>";
+					html += "<li class='c5' style='border-right: 1px #ccc solid; padding-top:35px; padding-bottom: 44px;'><br/>";
+					html += ""+data[i].state+"";
+					html += "</li>";
+					html += "<li class='c6 tall' style='width:90px;  padding-bottom: 44px; padding-top: 35px;'>";
+					html += "<a href='#'>付款</a>";
+					html += "<br/>";
+					html += "<a href='#'>取消订单</a>";
+					html += "<br/>";
+					html += "<a href='#'>申请退票</a>";
+					html += "</li>";
+					html += "<div class='clear'></div>";
+					html += "</ul>";
+					$("#data").append(html);
+					break;
+				}
+				if(date==""){
 					var html = "<ul name='orderInfo'>";
-						html += "<p>没有数据</p>";
-						html += "</ul>";
-						$("#data").append(html);
-						//return;
-				}else{
-						var html="<ul name='orderInfo'>";
-						html += "<li class='c1'>订单Id："+data[i].reserveId+"<br/> ";
-						html += "<br> ";
-						html += "下单时间:"+data[i].orderDate+"<br/>";
-						html += "<br>"; 
-						html += "<a class='blue' name='orderNo' target='_blank' href='/order/ordershowdetail.jsp'>";
-						html += "查看订单详情></a>";
-						html += "</li>";
-						html += "<li class='c2' style='width: 220px;'>";
-						html += "<br/>";
-						html += "<span class='airport'>";
-						html += "&nbsp;";
-						html += "</span>";
-						html += ""+data[i].benginSite+" — "+data[i].endSite+"<br/>";
-						html += "<span class='airport'>";
-						html += "&nbsp;";	
-						html += "</span>";
-						html += "</b>";
-						html += ""+data[i].benginDate+"（出发）<br/>——<br/>"+data[i].endDate+"（抵达）";  
-						html += "<li class='c3'";
-						html += "style='width:80px; padding-top:35px; padding-bottom: 44px; border-right: 1px #ccc solid;'>";
-						html += "<span>"+data[i].userName+"</span>";
-						html += "</li>";
-						html += "<li class='c4' style='width:80px; padding-top:35px; padding-bottom: 44px; text-align: center; border-right: 1px #ccc solid;'>";
-						html += "<span class='red'>"+data[i].money+"￥ </span>";
-						html += "<aside class='tips long' name='INSTips' style='top: -64px; opacity: 0; display: none;'>";
-						html += "<p></p>";
-						html += "<mark class='icon boxTri'></mark> </aside>";
-						html += "</li>";
-						html += "<li class='c5' style='border-right: 1px #ccc solid; padding-top:35px; padding-bottom: 44px;'><br/>";
-						html += ""+data[i].state+"";
-						html += "</li>";
-						html += "<li class='c6 tall' style='width:90px;  padding-bottom: 44px; padding-top: 35px;'>";
-						html += "<a href='#'>付款</a>";
-						html += "<br/>";
-						html += "<a href='#'>取消订单</a>";
-						html += "<br/>";
-						html += "<a href='#'>申请退票</a>";
-						html += "</li>";
-						html += "<div class='clear'></div>";
-						html += "</ul>";
-						$("#data").append(html);
+					html += "<p>没有数据</p>";
+					html += "</ul>";
+					$("#data").append(html);	
+					break;	
 				}
 			}
 		}
