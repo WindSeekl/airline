@@ -220,7 +220,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				success:function(data){
 					alert(data.res)
 					if(data.res=="修改成功"){
-						window.location.reload;
+						
+						document.getElementById('uform').reset();
 					}
 				},error:function(data){
 					alert("失败")

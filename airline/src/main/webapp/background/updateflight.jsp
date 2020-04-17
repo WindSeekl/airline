@@ -247,7 +247,7 @@
 				success:function(data){
 					alert(data.res)
 					if(data.res=="修改成功"){
-						document.getElementById('edform').reset();
+						window.location.reload;
 					}
 				},error:function(data){
 					alert("失败")
