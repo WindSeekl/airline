@@ -32,4 +32,23 @@ public class AdminServiceImpl implements AdminService{
 		return adminRepository.queryAminds();
 	}
 
+	@Override
+	public String updateAdmin(Admin admin) {
+		// TODO Auto-generated method stub
+		Admin ad = adminRepository.queryAdmin(admin.getAdminName());
+		if(!ad.getPassword().equals(admin.getPassword())) {
+			adminRepository.updateAdmin(admin);
+			return "修改成功";
+		}
+		return "密码一样改你🐎";
+	}
+
+	@Override
+	public String deleteAdmin(String adminName) {
+		// TODO Auto-generated method stub
+		adminRepository.deleteAdmin(adminName);
+		return "删除成功";
+	}
+
+	
 }

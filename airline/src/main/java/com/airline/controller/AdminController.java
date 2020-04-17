@@ -44,4 +44,34 @@ public class AdminController {
 		mv.addObject("admins", list);
 		return mv;
 	}
+
+	@RequestMapping(value="/findByIdAdmin")
+	public ModelAndView findByIdAdmin(String adminName) {
+		ModelAndView mv = new ModelAndView("background/updatenormaladmin");
+		mv.addObject("adminName", adminName);
+		return mv;
+	}
+
+	@RequestMapping(value="/updateAdmin", method = RequestMethod.POST)
+	public JSONObject updateAdmin(Admin admin, String retypepassword) {
+		String res = null;
+		Map<String,String> map=new HashMap<String, String>();
+		if(admin.getPassword().equals(retypepassword)){
+			res = adminService.updateAdmin(admin);
+		} else
+			res = "两次输入密码必须相同";
+		map.put("res", res);
+		JSONObject json = JSONObject.fromObject(map);
+		return json;
+	}
+
+	@RequestMapping(value="/deleteAdmin", method = RequestMethod.POST)
+	public JSONObject deleteAdmin(String adminName) {
+		String res = null;
+		Map<String,String> map=new HashMap<String, String>();
+		res = adminService.deleteAdmin(adminName);
+		map.put("res", res);
+		JSONObject json = JSONObject.fromObject(map);
+		return json;
+	}
 }

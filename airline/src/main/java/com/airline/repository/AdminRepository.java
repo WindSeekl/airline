@@ -13,4 +13,8 @@ public interface AdminRepository {
 	List<Admin> queryAminds();
 	
 	int insertAdmin(Admin admin);
+	
+	int updateAdmin(Admin admin);
+	
+	int deleteAdmin(String adminName);
 }

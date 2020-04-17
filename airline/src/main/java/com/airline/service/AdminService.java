@@ -8,4 +8,8 @@ public interface AdminService {
 	String insertAdmin(Admin admin);
 	
 	List<Admin> qeuryAdmins();
+	
+	String updateAdmin(Admin admin);
+	
+	String deleteAdmin(String adminName);
 }

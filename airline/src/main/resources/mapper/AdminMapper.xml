@@ -14,4 +14,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<insert id="insertAdmin" parameterType="admin">
 		insert into admin values(0,#{adminName},#{password},#{permission})
 	</insert>
+	
+	<update id="updateAdmin" parameterType="admin">
+		update admin set password = #{password} where adminName = #{adminName}
+	</update>
+	
+	<delete id="deleteAdmin" parameterType="String">
+		delete from admin where adminName = #{adminName}
+	</delete>
 </mapper>

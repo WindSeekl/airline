@@ -1,25 +1,28 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Shamcey - Metro Style Admin Template</title>
-<link rel="stylesheet" href="css/style.default.css" type="text/css" />
+<link rel="stylesheet" href="<%=basePath %>background/css/style.default.css" type="text/css" />
 
-<link rel="stylesheet" href="css/responsive-tables.css">
-<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
-<script type="text/javascript" src="js/jquery-migrate-1.1.1.min.js"></script>
-<script type="text/javascript" src="js/jquery-ui-1.9.2.min.js"></script>
-<script type="text/javascript" src="js/modernizr.min.js"></script>
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/jquery.cookie.js"></script>
-<script type="text/javascript" src="js/jquery.uniform.min.js"></script>
-<script type="text/javascript" src="js/flot/jquery.flot.min.js"></script>
-<script type="text/javascript" src="js/flot/jquery.flot.resize.min.js"></script>
-<script type="text/javascript" src="js/responsive-tables.js"></script>
-<script type="text/javascript" src="js/custom.js"></script>
+<link rel="stylesheet" href="<%=basePath %>background/css/responsive-tables.css">
+<script type="text/javascript" src="<%=basePath %>background/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/jquery-migrate-1.1.1.min.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/jquery-ui-1.9.2.min.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/modernizr.min.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/jquery.uniform.min.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/flot/jquery.flot.min.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/flot/jquery.flot.resize.min.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/responsive-tables.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/custom.js"></script>
 <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/excanvas.min.js"></script><![endif]-->
 </head>
 
@@ -144,29 +147,29 @@
 				<div class="maincontentinner">
 					<div class="row-fluid">
 						<div class="span8">
-							<form action="editprofile.jsp" class="editprofileform"
+							<form action="#" class="editprofileform" id="editprofileform"
 								method="post">
 								<div class="widgetbox personal-information">
 									<h4 class="widgettitle">修改管理员</h4>
 									<div class="widgetcontent">
 										<p>
-											<label>用户名:</label> <input type="text" name="realname"
-												class="input-xlarge" value=""  disabled="disabled"/>
+											<label>用户名:</label> <input type="text" name="adminName"
+												class="input-xlarge" value="${adminName}"  disabled="disabled"/>
 										</p>
 										<p>
-											<label>密码:</label> <input type="text" name="realname"
+											<label>密码:</label> <input type="text" name="password"
 												class="input-xlarge" value="" />
 										</p>
 										<p>
-											<label>确认密码:</label> <input type="text" name="realname"
+											<label>确认密码:</label> <input type="text" name="retypepassword"
 												class="input-xlarge" value="" />
 										</p>
 										<p>
-											<label>权限:</label> <input type="text" name="realname"
+											<label>权限:</label> <input type="text" name="permission"
 												class="input-xlarge" value="" />
 										</p>
-										<p align="center">
-											<button type="submit" class="btn btn-primary">提交</button>
+										<p align="center"><input type="hidden" name="adminName" value="${adminName}"/>
+											<button type="button" onclick="commit();" class="btn btn-primary">提交</button>
 										</p>
 									</div>
 								</div>
@@ -197,6 +200,25 @@
 
 	</div>
 	<!--mainwrapper-->
+	
+	<script type="text/javascript">
+		function commit(){
+			jQuery.ajax({
+				url:'../updateAdmin',
+				data:jQuery("#editprofileform").serialize(),
+				type:"post",
+				dataType:'json',
+				success:function(data){
+					alert(data.res)
+					if(data.res=="修改成功"){
+						document.getElementById('editprofileform').reset();
+					}
+				},error:function(data){
+					alert("失败")
+				}
+			})
+		}
+	</script>
 </body>
 </html>
 

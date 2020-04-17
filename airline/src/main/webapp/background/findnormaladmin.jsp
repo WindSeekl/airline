@@ -23,6 +23,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script type="text/javascript" src="<%=basePath %>background/js/modernizr.min.js"></script>
 <script type="text/javascript" src="<%=basePath %>background/js/responsive-tables.js"></script>
 <script type="text/javascript" src="<%=basePath %>background/js/custom.js"></script>
+<style type="text/css">
+input{border:0;}
+
+</style>
 </head>
 
 <body>
@@ -98,8 +102,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<li class="dropdown"><a href=""><span class="iconfa-user"></span>
 							人员用户管理</a>
 						<ul style="display: block">
-							<li><a href="addnormaladmin.jsp">增加普通管理员</a></li>
-							<li class="active"><a href="<%=basePath %>findAllAdmin.action">查询普通管理员</a></li>
+							<li><a href="background/addnormaladmin.jsp">增加普通管理员</a></li>
+							<li class="active"><a href="<%=basePath %>findAllAdmin">查询普通管理员</a></li>
 						</ul></li>
 				</ul>
 			</div>
@@ -155,35 +159,45 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									<th>用户名</th>
 									<th>密码</th>
 									<th>权限</th>
-									<th>&nbsp;</th>
+									<th>操作</th>
 								</tr>
 							</thead>
-							<tbody>
-							<c:forEach var="admin" items="${admins}">
-								<tr>
-									<td class="centeralign"><input type="checkbox" /></td>
-									<td>${admin.adminId }</td>
-									<td>${admin.adminName }</td>
-									<td>${admin.password} </td>
-									<td>
-										<c:if test="${admin.permission} == 0">
-										超级管理员
-										</c:if>
-										<c:if test="${admin.permission} == 1">
-										普通管理员
-										</c:if>
-									</td>
-									<td class="centeralign">
-											<a href="../findByIdAdmin.action?admin.administratorsId=${allAdmin.administratorsId }">
-											<span class="icon-edit"></span></a>&nbsp;
-											<a href="../deleteAdmin.action?admin.administratorsId=${allAdmin.administratorsId }" class="deleterow">
-											<span class="icon-trash"></span>
-											</a>
-											</td>
-								</tr>
-								</c:forEach>
-							</tbody>
+							<c:if test="${not empty admins}">
+								<tbody>
+								<c:forEach var="admin" items="${admins}">
+									<tr>
+										<td class="centeralign"><input type="checkbox" /></td>
+										<td>${admin.adminId }</td>
+										<td>${admin.adminName }</td>
+										<td>${admin.password} </td>
+										<td>
+											<c:if test="${admin.permission==0}">
+											超级管理员
+											</c:if>
+											<c:if test="${admin.permission==1}">
+											普通管理员
+											</c:if>
+										</td>
+										<td class="centeralign">
+												<a href="../findByIdAdmin?adminName=${admin.adminName}">
+												<span class="icon-edit"></span></a>&nbsp;
+												<form id="deleteAdmin" style="display: inline">
+													<input type="hidden" name="adminName" value="${admin.adminName}">
+													<input type="button" onclick="commit();" class="icon-trash">
+												</form>
+												<%-- <a href="../deleteAdmin.action?admin.administratorsId=${admin.adminName }" class="deleterow">
+												<span class="icon-trash"></span>
+												</a> --%>
+												</td>
+									</tr>
+									</c:forEach>
+								</tbody>
+							</c:if>
 						</table>
+						
+							<c:if test="${empty admins}">
+								<center><h3>未获取到普通管理员信息</h3></center>
+							</c:if>
 					</div>
 					<!--maincontentinner-->
 				</div>
@@ -194,5 +208,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 		</div>
 		<!--mainwrapper-->
+		
+		<script type="text/javascript">
+		function commit(){
+			jQuery.ajax({
+				url:'../deleteAdmin',
+				data:jQuery("#deleteAdmin").serialize(),
+				type:"post",
+				dataType:'json',
+				success:function(data){
+					alert(data.res)
+					location.href="<%=basePath %>findAllAdmin"
+				},error:function(data){
+					alert("删除失败")
+				}
+			})
+		}
+	</script>
 </body>
 </html>
