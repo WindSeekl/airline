@@ -15,7 +15,14 @@ public class Reserve {
 	private String state;//订单状态
 	private String customerName;//登录用户名
 	private String orderDate;//下单时间
+	private String phoneNum;//手机号
 	
+	public String getPhoneNum() {
+		return phoneNum;
+	}
+	public void setPhoneNum(String phoneNum) {
+		this.phoneNum = phoneNum;
+	}
 	public String getOrderDate() {
 		return orderDate;
 	}
@@ -105,6 +112,8 @@ public class Reserve {
 		return "Reserve [reserveId=" + reserveId + ", cardId=" + cardId + ", userName=" + userName + ", flightId="
 				+ flightId + ", benginDate=" + benginDate + ", endDate=" + endDate + ", benginSite=" + benginSite
 				+ ", endSite=" + endSite + ", seatId=" + seatId + ", money=" + money + ", travelDate=" + travelDate
-				+ ", state=" + state + ", customerName=" + customerName + ", orderDate=" + orderDate + "]";
+				+ ", state=" + state + ", customerName=" + customerName + ", orderDate=" + orderDate + ", phoneNum="
+				+ phoneNum + "]";
 	}
+	
 }
