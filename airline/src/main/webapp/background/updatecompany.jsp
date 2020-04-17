@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Shamcey - Metro Style Admin Template</title>
+<title>修改航空公司信息</title>
 <link rel="stylesheet" href="<%=basePath %>background/css/style.default.css" type="text/css" />
 
 <link rel="stylesheet" href="<%=basePath %>background/css/responsive-tables.css">
