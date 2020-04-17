@@ -27,6 +27,5 @@ public class OrderController {
 		System.out.println(str);
 		System.out.println(list);
 		return json;
-		
 	}
 }

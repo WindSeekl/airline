@@ -167,7 +167,6 @@
 	</div>
 
 	</div>
-
 </section> 
 <script type="text/javascript">
 $("#button-search").click(function(){
