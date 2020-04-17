@@ -77,7 +77,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<li class="dropdown"><a href=""><span class="iconfa-plane"></span>
 							航班信息管理</a>
 						<ul>
-							<li><a href="<%=basePath%>queryFlight">增加航班信息</a></li>
+							<li><a href="<%=basePath%>queryCompanyPlanemodel">增加航班信息</a></li>
 							<li><a href="addflightschedule.jsp">增加航班计划</a></li>
 							<li><a href="../addscheduleFlightAction.action">安排航班计划</a></li>
 							<li><a href="../findpastscheduleFlightAction.action">以往航班计划</a></li>
@@ -101,17 +101,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<li><a href="printtable.jsp"><span class="iconfa-th-list"></span>
 							报表打印管理</a></li>
 
-
+					<s:if test="#session.currentAdmin.jurisdiction==0">
 					<li class="dropdown"><a href=""><span class="iconfa-user"></span>
 							人员用户管理</a>
 						<ul>
 							<li><a href="addnormaladmin.jsp">增加普通管理员</a></li>
 							<li><a href="../findAllAdmin.action">查询普通管理员</a></li>
-						</ul></li>
+						</ul></li></s:if>
 				</ul>
 			</div>
+			<!--leftmenu-->
 
 		</div>
+		<!-- leftpanel -->
 
 		<div class="rightpanel">
 

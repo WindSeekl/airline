@@ -12,8 +12,8 @@ import org.springframework.web.servlet.ModelAndView;
 import com.airline.domain.Company;
 import com.airline.domain.Flight;
 import com.airline.domain.Planemodel;
+import com.airline.service.CnamePnameService;
 import com.airline.service.FlightService;
-import com.airline.service.PlanemodelService;
 import com.airline.service.impl.CompanyServiceImpl;
 
 import net.sf.json.JSONObject;
@@ -23,16 +23,25 @@ public class FlightController {
 	@Autowired
 	private CompanyServiceImpl companyServiceImpl;
 	@Autowired
-	private PlanemodelService planemodelService;
-	@Autowired
 	private FlightService flightService;
+	@Autowired
+	private CnamePnameService cnamePnameService;
 	@RequestMapping("queryCompanyPlanemodel")
-	public ModelAndView queryCompanyPlanemodel() {
+	public ModelAndView queryFlight() {
 		ModelAndView mv = new ModelAndView("background/addflight");
 		List<Company> CompanyList = companyServiceImpl.queryCompanys();
-		List<Planemodel> PlanemodelList = planemodelService.queryPlanemodel();
 		mv.addObject("companyList", CompanyList);
-		mv.addObject("planemodelList", PlanemodelList);
+		return mv;
+	}
+	@RequestMapping("queryCompanyByPlanemodel")
+	public ModelAndView queryCompanyByPlanemodel(String companyName) {
+		ModelAndView mv = new ModelAndView("background/addflight");
+		List<Company> CompanyList = companyServiceImpl.queryCompanys();
+		List<String> list=cnamePnameService.queryCnamePname(companyName);
+		List<Planemodel> pnameList=cnamePnameService.queryPname(list);
+		mv.addObject("companyName", companyName);
+		mv.addObject("planemodelList", pnameList);
+		mv.addObject("companyList", CompanyList);
 		return mv;
 	}
 	@RequestMapping("insertFlight")

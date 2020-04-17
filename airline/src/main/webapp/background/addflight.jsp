@@ -138,6 +138,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</div>
 				<div class="pagetitle">
 					<h1>添加航班</h1>
+					<h1>
+						<form action="<%=basePath%>queryCompanyByPlanemodel" method="post">
+							<select name="companyName" style="width:200px">
+									<c:forEach items="${companyList}" var="company">
+										<option value ="${company.companyName}" >${company.companyName}</option>
+									</c:forEach>
+							</select>
+							<input type="submit" class="btn btn-primary">
+						</form>
+					</h1>
 				</div>
 			</div>
 			<!--pageheader-->
@@ -148,9 +158,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<form action="#" class="editprofileform"
 								method="post" id = "editprofileform">
 								<div class="widgetbox personal-information">
-									<h4 class="widgettitle">添加航班</h4>
+									<h4 class="widgettitle">添加航班(${companyName})</h4>
 									<div class="widgetcontent">
-										<p>
+										<%-- <p>
 											<label>航空公司:</label> 
 											<select name="companyName" style="width:284px">
 													<c:forEach items="${companyList}" var="company">
@@ -158,7 +168,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 													</c:forEach>
 											</select>
 											
-										</p>
+										</p> --%>
 										<p>
 											<label>航班号：</label> 
 											<input type="text"  name="flightNo" class="input-xlarge" value="" />
@@ -220,6 +230,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 											</select>
 										</p>
 										<p align="center">
+											<input type="hidden" value="${companyName}"/>
 											<input type="button" class="btn btn-primary" onclick="commit()" value="提交">
 										</p>
 									</div>
