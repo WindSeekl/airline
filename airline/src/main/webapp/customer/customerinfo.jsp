@@ -84,7 +84,7 @@
 					<a href="customer/customerinfo.jsp">个人信息</a>
 				</div>
 
-				<div class="menu font14 bold m2"><a href="order/ordershow.jsp">机票订单</a></div>
+				<div class="menu font14 bold m2"><a href="<%=basePath%>queryOrder">机票订单</a></div>
 				<div class="child">
 				</div>
 				<div class="menu font14 bold m9">

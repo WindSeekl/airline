@@ -75,8 +75,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           <input class="text" id="hid_real_city_name" name="real_index_city" style="display: none">
           </span></dt>
         <dd>目的地<br>
-          <span class="city_box"> </span>
+          <span class="city_box">
           <input type="text" name="endPoint" id="arrDd" class="input city" value="广州" onKeyUp="input_keyup();" onClick="append_city(this.id);" onBlur="input_blur()" onFocus="if(value=='广州'){value='';style.color='#606060';}" >
+           </span>
         </dd>
       </dl>
       <dl class="form-field">
