@@ -17,7 +17,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			</if>
 		</where>
 	</select>
-	
 	<insert id="insertReserve" parameterType="reserve">
 		insert into reserve values(#{reserveId},#{cardId},#{userName},#{flightId},#{benginDate},#{endDate},#{benginSite},#{endSite},#{seatId},#{money},#{travelDate},#{state},#{customerName})
 	</insert>

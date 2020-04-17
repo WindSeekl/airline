@@ -18,12 +18,14 @@ import net.sf.json.JSONArray;
 public class OrderController {
 	@Autowired
 	private ReserveService reserveService;
+	private Reserve re = new Reserve();
 	@RequestMapping(value = "/queryOrder", method = RequestMethod.POST)
 	public JSONArray queryOrder(Reserve reserve) {
 		List<Reserve> list = reserveService.queryReserve(reserve);
 		JSONArray json = JSONArray.fromObject(list);
+		String str = re.getReserveId();
+		System.out.println(str);
 		System.out.println(list);
 		return json;
-		
 	}
 }

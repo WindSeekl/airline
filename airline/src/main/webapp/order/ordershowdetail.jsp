@@ -136,7 +136,7 @@
 									<div class="flight">
 										<dl class="f1">
 											航空公司：<s:property value="#session.order.companyName"/>
-											<br>航班号&nbsp;&nbsp;&nbsp;：<s:property value="#session.order.flightNumber"/>
+											<br>航&nbsp;班&nbsp;号&nbsp;：<s:property value="#session.order.flightNumber"/>
 											<br>舱&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;位：
 											<s:if test="#session.order.cabinClass==0">头等舱</s:if>
 											<s:if test="#session.order.cabinClass==1">公务舱</s:if>
@@ -186,6 +186,7 @@
 
 </body>
 </html>
+
 
 
 
