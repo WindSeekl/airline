@@ -1,11 +1,14 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Shamcey - Metro Style Admin Template</title>
+<title>增加普通管理员</title>
 <link rel="stylesheet" href="css/style.default.css" type="text/css" />
 
 <link rel="stylesheet" href="css/responsive-tables.css">
@@ -93,13 +96,12 @@
 						</ul></li>	
 					<li><a href="printtable.jsp"><span class="iconfa-th-list"></span>
 							报表打印管理</a></li>
-					<s:if test="#session.currentAdmin.jurisdiction==0">
 					<li class="dropdown"><a href=""><span class="iconfa-user"></span>
 							人员用户管理</a>
-						<ul>
-							<li><a href="addnormaladmin.jsp">增加普通管理员</a></li>
-							<li><a href="../findAllAdmin.action">查询普通管理员</a></li>
-						</ul></li></s:if>
+						<ul style="display: block;">
+							<li class="active"><a href="addnormaladmin.jsp">增加普通管理员</a></li>
+							<li><a href="<%=basePath %>findAllAdmin">查询普通管理员</a></li>
+						</ul></li>
 				</ul>
 			</div>
 			<!--leftmenu-->
@@ -135,7 +137,7 @@
 				</div>
 				<div class="pagetitle">
 					<h5>All Features Summary</h5>
-					<h1>Dashboard</h1>
+					<h1>增加普通管理员</h1>
 				</div>
 			</div>
 			<!--pageheader-->
@@ -144,17 +146,17 @@
 				<div class="maincontentinner">
 					<div class="row-fluid">
 						<div class="span8">
-							<form action="../saveAdmin.action" class="editprofileform"
+							<form action="#" class="editprofileform" id="editprofileform"
 								method="post">
 								<div class="widgetbox personal-information">
 									<h4 class="widgettitle">增加管理员</h4>
 									<div class="widgetcontent">
 										<p>
-											<label>用户名:</label> <input type="text" name="admin.username"
+											<label>用户名:</label> <input type="text" name="adminName"
 												class="input-xlarge" value="" />
 										</p>
 										<p>
-											<label>密码:</label> <input type="text" name="admin.password"
+											<label>密码:</label> <input type="text" name="password"
 												class="input-xlarge" value="" />
 										</p>
 
@@ -163,7 +165,7 @@
 												class="input-xlarge" value="" />
 										</p>
 										<p align="center">
-											<button type="submit" class="btn btn-primary">提交</button>
+											<button type="button" onclick="commit();" class="btn btn-primary">提交</button>
 										</p>
 									</div>
 								</div>
@@ -194,6 +196,24 @@
 
 	</div>
 	<!--mainwrapper-->
+	<script type="text/javascript">
+		function commit(){
+			jQuery.ajax({
+				url:'../insertAdmin',
+				data:jQuery("#editprofileform").serialize(),
+				type:"post",
+				dataType:'json',
+				success:function(data){
+					alert(data.res)
+					if(data.res=="添加成功"){
+						document.getElementById('editprofileform').reset();
+					}
+				},error:function(data){
+					alert("失败")
+				}
+			})
+		}
+	</script>
 </body>
 </html>
 

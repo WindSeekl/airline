@@ -1,24 +1,28 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Shamcey - Metro Style Admin Template</title>
-<link rel="stylesheet" href="css/style.default.css" type="text/css" />
+<link rel="stylesheet" href="<%=basePath %>background/css/style.default.css" type="text/css" />
 
-<link rel="stylesheet" href="css/responsive-tables.css">
-<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
-<script type="text/javascript" src="js/jquery-migrate-1.1.1.min.js"></script>
-<script type="text/javascript" src="js/jquery-ui-1.9.2.min.js"></script>
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/jquery.uniform.min.js"></script>
-<script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="js/jquery.cookie.js"></script>
-<script type="text/javascript" src="js/modernizr.min.js"></script>
-<script type="text/javascript" src="js/responsive-tables.js"></script>
-<script type="text/javascript" src="js/custom.js"></script>
+<link rel="stylesheet" href="<%=basePath %>background/css/responsive-tables.css">
+<script type="text/javascript" src="<%=basePath %>background/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/jquery-migrate-1.1.1.min.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/jquery-ui-1.9.2.min.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/jquery.uniform.min.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/modernizr.min.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/responsive-tables.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/custom.js"></script>
 </head>
 
 <body>
@@ -53,7 +57,7 @@
 			<div class="leftmenu">
 				<ul class="nav nav-tabs nav-stacked">
 					<li class="nav-header">Navigation</li>
-					<li ><a href="index.jsp"><span
+					<li ><a href="<%=basePath %>background/index.jsp"><span
 							class="iconfa-laptop"></span> 首页</a></li>
 					<li class="dropdown"><a href=""><span class="iconfa-group"></span>
 							订票客户管理</a>
@@ -91,13 +95,12 @@
 						</ul></li>	
 					<li><a href="printtable.jsp"><span class="iconfa-th-list"></span>
 							报表打印管理</a></li>
-					<s:if test="#session.currentAdmin.jurisdiction==0">
 					<li class="dropdown"><a href=""><span class="iconfa-user"></span>
 							人员用户管理</a>
-						<ul>
+						<ul style="display: block">
 							<li><a href="addnormaladmin.jsp">增加普通管理员</a></li>
-							<li><a href="../findAllAdmin.action">查询普通管理员</a></li>
-						</ul></li></s:if>
+							<li class="active"><a href="<%=basePath %>findAllAdmin.action">查询普通管理员</a></li>
+						</ul></li>
 				</ul>
 			</div>
 			<!--leftmenu-->
@@ -156,19 +159,19 @@
 								</tr>
 							</thead>
 							<tbody>
-							<s:iterator var="allAdmin" value="#session.allAdmin">
+							<c:forEach var="admin" items="${admins}">
 								<tr>
 									<td class="centeralign"><input type="checkbox" /></td>
-									<td>${allAdmin.administratorsId }</td>
-									<td>${allAdmin.username }</td>
-									<td>${allAdmin.password} </td>
+									<td>${admin.adminId }</td>
+									<td>${admin.adminName }</td>
+									<td>${admin.password} </td>
 									<td>
-									<s:if test="#allAdmin.jurisdiction == 0">
-									高级管理员
-									</s:if>
-									<s:else>
-									普通管理员
-									</s:else>
+										<c:if test="${admin.permission} == 0">
+										超级管理员
+										</c:if>
+										<c:if test="${admin.permission} == 1">
+										普通管理员
+										</c:if>
 									</td>
 									<td class="centeralign">
 											<a href="../findByIdAdmin.action?admin.administratorsId=${allAdmin.administratorsId }">
@@ -178,7 +181,7 @@
 											</a>
 											</td>
 								</tr>
-								</s:iterator>
+								</c:forEach>
 							</tbody>
 						</table>
 					</div>

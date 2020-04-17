@@ -101,13 +101,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<li><a href="printtable.jsp"><span class="iconfa-th-list"></span>
 							报表打印管理</a></li>
 
-					<s:if test="#session.currentAdmin.jurisdiction==0">
 					<li class="dropdown"><a href=""><span class="iconfa-user"></span>
 							人员用户管理</a>
 						<ul>
 							<li><a href="addnormaladmin.jsp">增加普通管理员</a></li>
-							<li><a href="../findAllAdmin.action">查询普通管理员</a></li>
-						</ul></li></s:if>
+							<li><a href="<%=basePath %>findAllAdmin">查询普通管理员</a></li>
+						</ul></li>
 				</ul>
 			</div>
 			<!--leftmenu-->
