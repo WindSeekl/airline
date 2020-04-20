@@ -56,7 +56,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				success : function(data) {
 					alert(data.res)
 					if(data.res == "登录成功"){
-						location.href="background/index.jsp";
+						location.href="<%=basePath%>background/index.jsp";
 					}
 				}
 			});

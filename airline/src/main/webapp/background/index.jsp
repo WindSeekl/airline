@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Shamcey - Metro Style Admin Template</title>
+<title>航空订票系统</title>
 <link rel="stylesheet" href="css/style.default.css" type="text/css" />
 
 <link rel="stylesheet" href="css/responsive-tables.css">
@@ -47,7 +47,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								</c:if>	
 								</h5>
 								<ul>
-									<li><a href="<%=basePath %>logoutAdmin">注销</a></li>
+									<c:if test="${not empty admin}">
+										<li><a href="<%=basePath %>logoutAdmin">注销</a></li>
+									</c:if>
+									<c:if test="${empty admin}">
+										<li><a href="login.jsp">登录</a></li>
+									</c:if>
 								</ul>
 							</div>
 						</div>
