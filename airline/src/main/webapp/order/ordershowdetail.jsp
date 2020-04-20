@@ -132,7 +132,6 @@
 								</div>
 								<div class="clear"></div>
 							</div>
-							
 							<section class="travelSection" style="">
 							<div class="box" name="AIR" style="margin-rigth:25px;">
 								<div class="body" style="margin-top:1px;">

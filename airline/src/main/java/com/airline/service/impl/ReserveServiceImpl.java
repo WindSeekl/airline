@@ -35,6 +35,6 @@ public class ReserveServiceImpl implements ReserveService{
 	public List<Reserve> queryReserveDetail(Reserve reserve) {
 		// TODO Auto-generated method stub
 		System.out.println("Service 的 ReserveId： "+reserve.getReserveId());
-		return reserveRepository.queryReserveDetail();
+		return reserveRepository.queryReserveDetail(); 
 	}
 }

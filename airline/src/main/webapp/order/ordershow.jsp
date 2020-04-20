@@ -216,7 +216,7 @@
 			</div>
 		</div>
 		 
-		 			 <div class="bottom_banner" style="z-index:-10; margin-left: -20;">
+		 <div class="bottom_banner" style="z-index:-10; margin-left: -20;">
 		<img src="http://pic.c-ctrip.com/vacation_v2/bottom_banner1.jpg"
 			class="bottom_banner_l" alt="吉祥航空" width="353" height="111"><img
 			src="http://pic.c-ctrip.com/vacation_v2/bottom_banner2.jpg"

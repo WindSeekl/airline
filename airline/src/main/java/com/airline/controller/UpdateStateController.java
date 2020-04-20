@@ -28,7 +28,7 @@ public class UpdateStateController {
 		reserve.setState(state);
 		int str = reserveService.updateState(reserve);
 		mv.addObject("state",str);
-		return mv;
+		return mv; 
 	}
 	@RequestMapping("pay")
 	public ModelAndView pay(Reserve reserve,String state) {

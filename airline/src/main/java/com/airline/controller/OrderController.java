@@ -29,7 +29,7 @@ public class OrderController {
 		JSONArray json = JSONArray.fromObject(list);
 		//System.out.println(list);
 		return json;
-	}*/
+	}*/ 
 	@RequestMapping("queryOrder")
 	public ModelAndView queryOrder(HttpSession session,Reserve reserve) {
 		//String customerName = (String) session.getAttribute("uname");   //从session中获取登录用户的用户名
