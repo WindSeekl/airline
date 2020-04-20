@@ -45,7 +45,14 @@ public class CustomerServiceImpl implements CustomerService {
 	@Override
 	public String login(Customer customer) {
 		// TODO Auto-generated method stub
-		return null;
+		Customer cust = customerRepository.queryCustomer(customer.getCustomerName());
+		if(cust != null) {
+			if(cust.getPassword().equals(customer.getPassword())) {
+				return "登录成功";
+			} else
+				return "密码错误";
+		} else
+			return "用户不存在";
 	}
 
 	@Override

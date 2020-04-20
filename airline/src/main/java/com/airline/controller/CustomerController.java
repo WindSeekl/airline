@@ -42,7 +42,6 @@ public class CustomerController {
 	public JSONObject editPassword(String oldPassword, Customer customer, String retypepassword) {
 		String res = null;
 		Map<String,String> map=new HashMap<String, String>();
-		customer.setCustomerName("陈龙野");
 		if(!customer.getPassword().isEmpty()) {
 			if(customer.getPassword().equals(retypepassword)) {
 				res = customerService.editPassword(customer, oldPassword);
@@ -74,5 +73,20 @@ public class CustomerController {
 		List<Customer> list = customerService.queryCustomers();
 		req.getSession().setAttribute("customers", list);
 		return mv;
+	}
+
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	public JSONObject login(Customer customer, HttpServletRequest req) {
+		String res = null;
+		Map<String,String> map=new HashMap<String, String>();
+		if(!customer.getCustomerName().isEmpty() && !customer.getPassword().isEmpty()) {
+			res = customerService.login(customer);
+			if(res.equals("登录成功"))
+				req.getSession().setAttribute("customer", customer);
+		} else 
+			res = "账户名和密码不能为空";
+		map.put("res", res);
+		JSONObject json = JSONObject.fromObject(map);
+		return json;
 	}
 }
