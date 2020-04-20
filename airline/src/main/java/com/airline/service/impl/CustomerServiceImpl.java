@@ -21,7 +21,7 @@ public class CustomerServiceImpl implements CustomerService {
 		if(cust == null) {
 			customerRepository.insertCustomer(customer);
 			if(mark.equals("注册"))
-				return "注册成功";
+				return "注册成功，即将前往登录";
 			else
 				return "增加成功";
 		} else
@@ -59,7 +59,9 @@ public class CustomerServiceImpl implements CustomerService {
 	public String editInfo(Customer customer) {
 		// TODO Auto-generated method stub
 		Customer cust = customerRepository.queryCustomer(customer.getCustomerName());
-		if(!cust.getPhone().equals(customer.getPhone()) && !cust.getEmail().equals(customer.getEmail())){
+		System.out.println(cust);
+		System.out.println(customer);
+		if(!cust.getPhone().equals(customer.getPhone()) || !cust.getEmail().equals(customer.getEmail())){
 			customerRepository.editInfo(customer);
 			return "修改成功";
 		}
@@ -70,5 +72,11 @@ public class CustomerServiceImpl implements CustomerService {
 	public List<Customer> queryCustomers() {
 		// TODO Auto-generated method stub
 		return customerRepository.queryCustomers();
+	}
+
+	@Override
+	public Customer loginInfo(String customerName) {
+		// TODO Auto-generated method stub
+		return customerRepository.queryCustomer(customerName);
 	}
 }

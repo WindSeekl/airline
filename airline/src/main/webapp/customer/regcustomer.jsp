@@ -199,6 +199,9 @@ $("#login1").click(function (){
 		dataType:'json',
 		success:function(data){
 			alert(data.res)
+			if(data.res=="注册成功，即将前往登录"){
+				location.href="<%=basePath%>login.jsp"
+			}
 		},error:function(data){
 			alert("失败")
 		}

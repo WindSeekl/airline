@@ -52,7 +52,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <menu id="menu">
   <nav>
     <ul class="menu_index">
-      <a href="customer/customerinfo.jsp"><li id="menu-myceair">我的信息<i></i></li></a>
+      <a href="<%=basePath%>customerinfo?customerName=${customer}"><li id="menu-myceair">我的信息<i></i></li></a>
        <a href="flight/flightshow.jsp"><li id="menu-booking" class="current">预订行程<i></i></li></a>
     </ul>
   </nav>

@@ -9,7 +9,21 @@ public class Customer {
 	private String phone;				 //手机号码
 	private String email;			     //电子邮箱
 	private String sex;
+	private String registerTime;
+	private int integral;
 	
+	public String getRegisterTime() {
+		return registerTime;
+	}
+	public void setRegisterTime(String registerTime) {
+		this.registerTime = registerTime;
+	}
+	public int getIntegral() {
+		return integral;
+	}
+	public void setIntegral(int integral) {
+		this.integral = integral;
+	}
 	public String getSex() {
 		return sex;
 	}
@@ -63,6 +77,8 @@ public class Customer {
 	public String toString() {
 		return "Customer [customerId=" + customerId + ", customerName=" + customerName + ", password=" + password
 				+ ", realName=" + realName + ", IDNumber=" + IDNumber + ", phone=" + phone + ", email=" + email
-				+ ", sex=" + sex + "]";
+				+ ", sex=" + sex + ", registerTime=" + registerTime + ", integral=" + integral + "]";
 	}
+	
+	
 }

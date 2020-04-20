@@ -13,5 +13,7 @@ public interface CustomerService {
 	
 	String editInfo(Customer customer);
 	
+	Customer loginInfo(String customerName);
+	
 	List<Customer> queryCustomers();
 }

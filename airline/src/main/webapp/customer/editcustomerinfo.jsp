@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*,com.*" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -19,22 +20,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link rel="stylesheet" type="text/css" href="Stylesheets/mystyle.css">
 <link rel="stylesheet" type="text/css" href="Stylesheets/myceair.css">
 <link rel="stylesheet" type="text/css" href="Stylesheets/customerinfo.css">
+<script src="<%=basePath %>Script/jquery-1.8.3.min.js"></script>
 </head>
 
 <body>
 <!--header-->
 <header id="header">
   <hgroup>
-    <s:if test="#session.customer">
-      <address class="text blue">
-    <p>欢迎您，${customer.username}&nbsp;&nbsp;<a href="login.jsp">注销</a></p>
-    </address>
-    </s:if>
-    <s:else>
+    <c:if test="${not empty customer}">
     <address class="text blue">
-    <p> <a id="login" href="../login.jsp">登录</a>&nbsp; | &nbsp; <a id="register" target="_blank" href="regcustomer.jsp">注册</a></p>
+    	<p>欢迎您，${customer}&nbsp;&nbsp;<a href="<%=basePath%>logout">注销</a> </p>
     </address>
-    </s:else>
+    </c:if>
+    <c:if test="${empty customer}">
+	    <address class="text blue">
+	   		<p> <a id="login" href="login.jsp">登录</a>&nbsp; | &nbsp; <a id="register" target="_blank" href="regcustomer.jsp">注册</a></p>
+	    </address>
+    </c:if>
     <div class="clear"></div>
   </hgroup>
 </header>
@@ -77,33 +79,29 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<div class="body">
 						<div class="b_content active" rel="tab1">
                        
-                            <form action="editUserAction" method="post">
+                            <form action="#" method="post" id="updateForm">
 							<div class="name">
-								<b class="blue bold">基本信息</b> <span class="gray block"><input style="width:40px; height: 25px;" type="submit" value="保存"></span>
+								<b class="blue bold">基本信息</b> <span class="gray block"><input id="commit" style="width:40px; height: 25px;" type="button" value="保存"></span>
 							</div>
 							<div class="row">
 								<div class="col1">用户名：</div>
-								<div class="col2 blue"><input type="text" name="user.username" value="${customer.customerName}"  disabled="disabled" >&nbsp;</div>
+								<div class="col2 blue"><input type="text" name="customerName" value="${loginInfo.customerName}"  disabled="disabled" >&nbsp;</div>
+								<input type="hidden" name="customerName" value="${loginInfo.customerName}">
 							</div>
 							<div class="row">
 								<div class="col1">性别：</div>
 								<div class="col2 blue">
-								<s:if test="#session.customer.sex==0">
-								<input checked="checked" type="radio" name="user.sex" value="男" disabled="disabled" >男
-								<input type="radio" name="user.sex" value="女" disabled="disabled" >女
-								</s:if><s:else>
-								<input  type="radio" name="user.sex" value="男" disabled="disabled" >男
-								<input checked="checked" type="radio" name="user.sex" value="女" disabled="disabled" >女
-								</s:else>
-								&nbsp;</div>
+									${loginInfo.sex}
+									&nbsp;
+								</div>
 							</div>
 							<div class="row">
 								<div class="col1">真实姓名：</div>
-								<div class="col2 blue"><input type="text" name="user.realName" value="${customer.realName}"  disabled="disabled">&nbsp;</div>
+								<div class="col2 blue"><input type="text" name="realName" value="${loginInfo.realName}"  disabled="disabled">&nbsp;</div>
 							</div>
                             <div class="row">
 								<div class="col1">身份证号：</div>
-								<div class="col2 blue"><input type="text" name="user.identificationCard" value="${customer.IDNumber}"  disabled="disabled">&nbsp;</div>
+								<div class="col2 blue"><input type="text" name="IDNumber" value="${loginInfo.IDNumber}"  disabled="disabled">&nbsp;</div>
 								<div class="col2 blue">&nbsp;</div>
 							</div>
 							<div class="clear"></div>
@@ -112,9 +110,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</div>
 							<div class="row">
 								<div class="col1">手机号码：</div>
-								<div class="col2 blue"><input type="text" name="user.phoneNumber" value="${customer.phone}">&nbsp;</div>
+								<div class="col2 blue"><input type="text" name="phone" value="${loginInfo.phone}">&nbsp;</div>
 								<div class="col1">邮件地址：</div>
-								<div class="col2 blue"><input type="text" name="user.email" value="${customer.email}">&nbsp;</div>
+								<div class="col2 blue"><input type="text" name="email" value="${loginInfo.email}">&nbsp;</div>
 							</div>
 							<div class="clear"></div>
                             <div class="line"></div>  
@@ -131,5 +129,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </hgroup>
 </section>
 <div class="bottom_banner"> <img src="http://pic.c-ctrip.com/vacation_v2/bottom_banner1.jpg" class="bottom_banner_l" alt="吉祥航空" width="353" height="111"><img src="http://pic.c-ctrip.com/vacation_v2/bottom_banner2.jpg" class="bottom_banner_m" alt="瑞士国际航空公司" width="280" height="111"><img src="http://pic.c-ctrip.com/vacation_v2/bottom_banner3.jpg" class="bottom_banner_r" alt="日本航空" width="356" height="111"> </div>
+<script type="text/javascript">
+		jQuery("#commit").click(function(){
+			jQuery.ajax({
+				url:'<%=basePath%>editInfo',
+				data:jQuery("#updateForm").serialize(),
+				type:"post",
+				dataType:'json',
+				success:function(data){
+					alert(data.res)
+					if(data.res=="修改成功"){
+						location.href="<%=basePath%>customerinfo?customerName=${customer}"
+					}else{
+						document.getElementById('#updateForm').reset();
+					}
+				},error:function(data){
+					alert("失败")
+				}
+			})
+		})
+	</script>
 </body>
 </html>

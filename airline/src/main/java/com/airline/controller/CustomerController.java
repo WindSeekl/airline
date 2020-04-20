@@ -58,7 +58,7 @@ public class CustomerController {
 	public JSONObject editInfo(Customer customer) {
 		String res = null;
 		Map<String,String> map=new HashMap<String, String>();
-		if(!customer.getPassword().isEmpty()) {
+		if(!customer.getEmail().isEmpty() && !customer.getPhone().isEmpty()) {
 			res = customerService.editInfo(customer);
 		} else
 			res = "信息不能为空";
@@ -81,13 +81,22 @@ public class CustomerController {
 		Map<String,String> map=new HashMap<String, String>();
 		if(!customer.getCustomerName().isEmpty() && !customer.getPassword().isEmpty()) {
 			res = customerService.login(customer);
-			if(res.equals("登录成功"))
+			if(res.equals("登录成功")) {
 				req.getSession().setAttribute("customer", customer.getCustomerName());
+			}
 		} else 
 			res = "账户名和密码不能为空";
 		map.put("res", res);
 		JSONObject json = JSONObject.fromObject(map);
 		return json;
+	}
+	
+	@RequestMapping("/customerinfo")
+	public ModelAndView customerinfo(String customerName, HttpServletRequest req) {
+		ModelAndView mv = new ModelAndView("customer/customerinfo");
+		Customer cust = customerService.loginInfo(customerName);
+		req.getSession().setAttribute("loginInfo", cust);
+		return mv;
 	}
 	
 	@RequestMapping("/logout")

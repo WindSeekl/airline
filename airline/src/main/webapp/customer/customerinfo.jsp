@@ -1,5 +1,5 @@
-<%@ page language="java"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -38,18 +38,16 @@
 	<h2>
 
 	</h2>
-	<s:if test="#session.currentUser">
-		<address class="text blue">
-			<p>欢迎您，${currentUser.username}&nbsp;&nbsp;<a href="login.jsp">注销</a></p>
-		</address>
-	</s:if> <s:else>
-		<address class="text blue">
-			<p>
-				<a id="login" href="login.jsp">登录</a>&nbsp; | &nbsp; <a
-					id="register" target="_blank" href="regcustomer.jsp">注册</a>
-			</p>
-		</address>
-	</s:else>
+	<c:if test="${not empty customer}">
+    <address class="text blue">
+    	<p>欢迎您，${customer}&nbsp;&nbsp;<a href="<%=basePath%>logout">注销</a> </p>
+    </address>
+    </c:if>
+    <c:if test="${empty customer}">
+	    <address class="text blue">
+	   		<p> <a id="login" href="login.jsp">登录</a>&nbsp; | &nbsp; <a id="register" target="_blank" href="regcustomer.jsp">注册</a></p>
+	    </address>
+    </c:if>
 	<div class="clear"></div>
 	</hgroup> </header>
 	<!--end header-->
@@ -103,41 +101,43 @@
 							</div>
 							<div class="row">
 								<div class="col1">用户名：</div>
-								<div class="col2 blue">${currentUser.username}&nbsp;</div>
+								<div class="col2 blue">${loginInfo.customerName}&nbsp;</div>
 								<div class="col1">积分：</div>
-								<div class="col2 blue">${currentUser.score }&nbsp;</div>
+								<div class="col2 blue">${loginInfo.integral}&nbsp;</div>
 							</div>
 							<div class="row">
 								<div class="col1">性别：</div>
 								<div class="col2 blue">
-									<s:if test="#session.currentUser.sex==0">男</s:if>
-									<s:else>女</s:else>
+									${loginInfo.sex}
 									&nbsp;
 								</div>
 								<div class="col1">注册时间：</div>
-								<div class="col2 blue"><s:date format="yyyy-MM-dd HH:mm:ss"  name="#session.currentUser.regTime"/>&nbsp;</div>
+								<div class="col2 blue">${loginInfo.registerTime} &nbsp;</div>
 							</div>
 							<div class="row">
 								<div class="col1">真实姓名：</div>
-								<div class="col2 blue">${currentUser.realName }&nbsp;</div>
+								<div class="col2 blue">${loginInfo.realName }&nbsp;</div>
 								<div class="col1">账户类型：</div>
 								<div class="col2 blue">
-									<s:if test="#session.currentUser.accountType==0">
-								普通用户
-								</s:if>
-									<s:if test="#session.currentUser.accountType==1">
-								银牌用户
-								</s:if>
-									<s:if test="#session.currentUser.accountType==2">
-								金牌用户
-								</s:if>
+								<c:if test="${loginInfo.integral < 5000}">
+									普通用户
+								</c:if>
+								<c:if test="${loginInfo.integral >= 5000 and loginInfo.integral < 10000}">
+									铜牌用户
+								</c:if>
+								<c:if test="${loginInfo.integral >= 10000 and loginInfo.integral < 80000}">
+									银牌用户
+								</c:if>
+								<c:if test="${loginInfo.integral >= 80000}">
+									金牌用户
+								</c:if>
 									&nbsp;
 
 								</div>
 							</div>
 							<div class="row">
 								<div class="col1">身份证号：</div>
-								<div class="col2 blue">${currentUser.identificationCard }&nbsp;</div>
+								<div class="col2 blue">${loginInfo.IDNumber }&nbsp;</div>
 							</div>
 							<div class="clear"></div>
 							<div class="name">
@@ -145,9 +145,9 @@
 							</div>
 							<div class="row">
 								<div class="col1">手机号码：</div>
-								<div class="col2 blue">${currentUser.phoneNumber }&nbsp;</div>
+								<div class="col2 blue">${loginInfo.phone }&nbsp;</div>
 								<div class="col1">邮件地址：</div>
-								<div class="col2 blue">${currentUser.email }&nbsp;</div>
+								<div class="col2 blue">${loginInfo.email }&nbsp;</div>
 							</div>
 							<div class="clear"></div>
 							<div class="line"></div>
