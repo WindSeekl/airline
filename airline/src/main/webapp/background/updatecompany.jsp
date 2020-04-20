@@ -152,34 +152,30 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									<h4 class="widgettitle">航空公司信息</h4>
 									<div class="widgetcontent">
 
-													<c:forEach items="${companyInfo}" var="company">
 										<p>
-											<label>公司名：</label>
-											<select name="companyName" style="width:284px">
-														<option value ="${company.companyName}" >${company.companyName}</option>
-											</select>
+											<label>公司名：</label> <input type="text" name="adminName"
+												class="input-xlarge" value="${companyName}"  disabled="disabled"/>
 										</p>
 										<p>
 											<label>公司代码:</label> <input type="text" name="companyCode"
-												class="input-xlarge" value="${company.companyCode}"/>
+												class="input-xlarge" value=""/>
 										</p>
 										<p>
 											<label>公司信息:</label> <input type="text" name="companyInfo"
-												class="input-xlarge" value="${company.companyInfo }" />
+												class="input-xlarge" value="" />
 										</p>
 										<p>
 											<label>公司网址:</label> <input type="text" name="companyUrl"
-												class="input-xlarge" value="${company.companyUrl }" />
+												class="input-xlarge" value="" />
 										</p>
 										<p>
 											<label>公司电话:</label> <input type="text" name="companyPhone"
-												class="input-xlarge" value="${company.companyPhone }" />
+												class="input-xlarge" value="" />
 										</p>
 										<p align="center">
 											<input type="button" onclick="commit();" class="btn btn-primary" value="保存" />
 										</p>
 										
-													</c:forEach>
 									</div>
 								</div>
 

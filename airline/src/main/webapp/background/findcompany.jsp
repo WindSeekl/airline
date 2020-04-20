@@ -187,7 +187,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<tbody>
 							<c:forEach var="company" items="${companys}">
 								<tr>
-									<form action="<%=basePath%>deleteCompany"><!-- 
+									<!-- 
 									<td class="centeralign"><input type="checkbox" /></td> -->
 									<input name = "companyName" value="${company.companyName}" type="hidden"/>
 									<td>${company.companyId}</td>
@@ -196,17 +196,43 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									<td>${company.companyInfo}</td>
 									<td>${company.companyPhone}</td>
 									<td>${company.companyUrl}</td>
-									<td><button>删除</button></td>
-									</form>
+									<td>
+									<a href="../findByIdCompany?companyName=${company.companyName}">
+												<span class="icon-edit"></span></a>&nbsp;
+												<form id="deleteCompanyf" style="display: inline">
+													<input type="hidden" name="companyName" value="${company.companyName}">
+													<input type="button" onclick="commit();" class="icon-trash" style="border: 0px">
+												</form>
+									</td>
+									
 								</tr>
 							</c:forEach>
 							</tbody>
 						</table>
+						<c:if test="${empty companys}">
+								<center><h3>未获取到航空公司信息</h3></center>
+							</c:if>
 					</div>
         </div><!--maincontent-->
         
     </div><!--rightpanel-->
     </div>
+    <script type="text/javascript">
+		function commit(){
+			jQuery.ajax({
+				url:'../deleteCompany',
+				data:jQuery("#deleteCompanyf").serialize(),
+				type:"post",
+				dataType:'json',
+				success:function(data){
+					alert(data.res)
+					location.href="<%=basePath %>queryCompanys"
+				},error:function(data){
+					alert("删除失败")
+				}
+			})
+		}
+	</script>
 </body>
 </html>
 

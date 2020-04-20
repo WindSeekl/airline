@@ -1,6 +1,5 @@
 package com.airline.controller;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -39,12 +38,29 @@ public class CompanyController {
 		mv.addObject("companys", list);
 		return mv;
 	}
+	
+	@RequestMapping(value="/findByIdCompany")
+	public ModelAndView findByIdCompany(String companyName) {
+		ModelAndView mv = new ModelAndView("background/updatecompany");
+		mv.addObject("companyName", companyName);
+		return mv;
+	}
 
-	@RequestMapping("/deleteCompany")
+	/*@RequestMapping("/deleteCompany")
 	public ModelAndView deleteCompany(Company company) {
 		ModelAndView mv = new ModelAndView("forward:queryCompanys");
 		companyService.deleteCompany(company.getCompanyName());
 		return mv;
+	}*/
+	
+	@RequestMapping(value="/deleteCompany", method = RequestMethod.POST)
+	public JSONObject deleteCompany(Company company) {
+		String res = null;
+		Map<String,String> map=new HashMap<String, String>();
+		res = companyService.deleteCompany(company.getCompanyName());
+		map.put("res", res);
+		JSONObject json = JSONObject.fromObject(map);
+		return json;
 	}
 	
 	@RequestMapping("/getCompanyInfo")
