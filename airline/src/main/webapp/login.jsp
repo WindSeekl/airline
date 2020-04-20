@@ -33,7 +33,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 	</aside> <aside class="form">
 	<form method="post" action="#" name="form_login1"
-		id="form_login1">
+		id="loginForm" onsubmit="return false;">
 		<h2>
 			<p class="delu">会员登录</p>
 		</h2>
@@ -55,7 +55,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</dd>
 		</dl>
 		<p class="btn">
-			<input type="button" value="登录" class="button-red" id="login">
+			<input type="button" value="登录" class="button-red" id="loginBtn">
 		</p>
 		</article>
 	</form>
@@ -73,10 +73,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		href="http://easternmiles.ceair.com/about/yqlj/index.html">友情链接</a> <br>
 	© Copyright 2010 中国东方航空 沪ICP备10009470号 </footer>
 	<script type="text/javascript">
-		$("#login").click(function(){
+		$("#loginBtn").click(function(){
 			$.ajax({
 				url:'login',
-				data:jQuery("#form_login1").serialize(),
+				data:jQuery("#loginForm").serialize(),
 				type:"post",
 				dataType:'json',
 				success:function(data){

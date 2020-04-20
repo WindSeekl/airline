@@ -82,11 +82,18 @@ public class CustomerController {
 		if(!customer.getCustomerName().isEmpty() && !customer.getPassword().isEmpty()) {
 			res = customerService.login(customer);
 			if(res.equals("登录成功"))
-				req.getSession().setAttribute("customer", customer);
+				req.getSession().setAttribute("customer", customer.getCustomerName());
 		} else 
 			res = "账户名和密码不能为空";
 		map.put("res", res);
 		JSONObject json = JSONObject.fromObject(map);
 		return json;
+	}
+	
+	@RequestMapping("/logout")
+	public ModelAndView logout(HttpServletRequest req) {
+		ModelAndView mv = new ModelAndView("login");
+		req.getSession().setAttribute("customer", null);
+		return mv;
 	}
 }
