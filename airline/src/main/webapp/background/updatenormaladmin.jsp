@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -37,13 +38,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<div class="userloggedinfo">
 												<div class="userinfo">
 								<h5>
-									<s:property value="#session.currentAdmin.username" /> <small>
-									<s:if test="#session.currentAdmin.jurisdiction==1">
-									普通管理员</s:if>
-									<s:else>高级管理员</s:else></small>
+								<c:if test="${admin.permission == 1}">
+									普通管理员
+								</c:if>
+								<c:if test="${admin.permission == 0}">
+									高级管理员
+								</c:if>	
 								</h5>
 								<ul>
-									<li><a href="login.jsp">注销</a></li>
+									<li><a href="<%=basePath %>logoutAdmin">注销</a></li>
 								</ul>
 							</div>
 						</div>
@@ -153,8 +156,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									<h4 class="widgettitle">修改管理员</h4>
 									<div class="widgetcontent">
 										<p>
-											<label>用户名:</label> <input type="text" name="adminName"
-												class="input-xlarge" value="${adminName}"  disabled="disabled"/>
+											<label>用户名:</label> <input type="text" 
+												class="input-xlarge" value="${adminInfo.adminName}"  disabled="disabled"/>
+												<input value="${adminInfo.adminName}" type="hidden" name="adminName">
 										</p>
 										<p>
 											<label>密码:</label> <input type="text" name="password"
@@ -165,10 +169,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 												class="input-xlarge" value="" />
 										</p>
 										<p>
-											<label>权限:</label> <input type="text" name="permission"
-												class="input-xlarge" value="" />
+											<label>权限:</label> <!-- <input type="text" name="permission"
+												class="input-xlarge" value="" /> -->
+												<select name="per" style="display: inline;width: 27.2%">
+													<option <c:if test="${adminInfo.permission == 1}">selected="selected"</c:if>>普通管理员</option>
+													<option <c:if test="${adminInfo.permission == 0}">selected="selected"</c:if>>高级管理员</option>
+												</select>
 										</p>
-										<p align="center"><input type="hidden" name="adminName" value="${adminName}"/>
+										<p align="center"><%-- <input type="hidden" name="adminName" value="${adminName}"/> --%>
 											<button type="button" onclick="commit();" class="btn btn-primary">提交</button>
 										</p>
 									</div>

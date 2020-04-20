@@ -16,24 +16,33 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</delete>
 	
 	<insert id="insertCompany" parameterType="company">
-		insert into company values(0,#{companyName},#{companyCode},#{companyInfo},#{companyUrl},#{companyPhone})
+		insert into company values(0,#{companyName},#{companyCode},#{companyInfo},#{companyUrl},#{companyPhone},#{copper},#{silver},#{gold})
 	</insert>
 	
 	<update id="updateCompany" parameterType="company">
 		update company 
 		<set>
-			<if test="companyCode!=''">
+			<if test="companyCode!=null and companyCode!=''">
 				companyCode=#{companyCode},
 			</if>
-			<if test="companyInfo!=null">
+			<if test="companyInfo!=null and companyInfo!=''">
 				companyInfo=#{companyInfo},
 			</if>
-			<if test="companyUrl!=null">
+			<if test="companyUrl!=null and companyUrl!=''">
 				companyUrl=#{companyUrl},
 			</if>
-			<if test="companyPhone!=null">
-				companyPhone=#{companyPhone}
+			<if test="companyPhone!=null and companyPhone!=''">
+				companyPhone=#{companyPhone},
 			</if>
-		</set>
+			<if test="copper!=null">
+				copper=#{copper},
+			</if>
+			<if test="silver!=null">
+				silver=#{silver},
+			</if>
+			<if test="gold!=null">
+				gold=#{gold},
+			</if>
+		</set> where companyName = #{companyName}
 	</update>
 </mapper>

@@ -16,7 +16,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</insert>
 	
 	<update id="updateAdmin" parameterType="admin">
-		update admin set password = #{password} where adminName = #{adminName}
+		update admin set password = #{password},permission = #{permission} where adminName = #{adminName}
 	</update>
 	
 	<delete id="deleteAdmin" parameterType="String">

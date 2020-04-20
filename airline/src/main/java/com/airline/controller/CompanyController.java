@@ -42,7 +42,7 @@ public class CompanyController {
 	@RequestMapping(value="/findByIdCompany")
 	public ModelAndView findByIdCompany(String companyName) {
 		ModelAndView mv = new ModelAndView("background/updatecompany");
-		mv.addObject("companyName", companyName);
+		mv.addObject("companyInfo", companyService.queryCompanyByName(companyName));
 		return mv;
 	}
 
@@ -74,7 +74,6 @@ public class CompanyController {
 	@RequestMapping(value = "/updateCompany", method = RequestMethod.POST)
 	public JSONObject updateCompany(Company company) {
 		String res = null;
-		System.out.println(company);
 		Map<String, String> map = new HashMap<String, String>();
 		res = companyService.updateCompany(company);
 		map.put("res", res);

@@ -7,7 +7,28 @@ public class Company {
 	private String companyInfo;
 	private String companyUrl;
 	private String companyPhone;
+	private Double copper;
+	private Double silver;
+	private Double gold;
 	
+	public Double getCopper() {
+		return copper;
+	}
+	public void setCopper(Double copper) {
+		this.copper = copper;
+	}
+	public Double getSilver() {
+		return silver;
+	}
+	public void setSilver(Double silver) {
+		this.silver = silver;
+	}
+	public Double getGold() {
+		return gold;
+	}
+	public void setGold(Double gold) {
+		this.gold = gold;
+	}
 	public int getCompanyId() {
 		return companyId;
 	}
@@ -49,6 +70,8 @@ public class Company {
 	public String toString() {
 		return "Company [companyId=" + companyId + ", companyName=" + companyName + ", companyCode=" + companyCode
 				+ ", companyInfo=" + companyInfo + ", companyUrl=" + companyUrl + ", companyPhone=" + companyPhone
-				+ "]";
-	}	
+				+ ", copper=" + copper + ", silver=" + silver + ", gold=" + gold + "]";
+	}
+	
+	
 }

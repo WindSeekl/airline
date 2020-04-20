@@ -46,4 +46,10 @@ public class CompanyServiceImpl implements CompanyService{
 		return "修改成功";
 	}
 
+	@Override
+	public Company queryCompanyByName(String companyName) {
+		// TODO Auto-generated method stub
+		return companyRepository.queryCompany(companyName);
+	}
+
 }

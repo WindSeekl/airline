@@ -50,13 +50,17 @@ public class AdminController {
 	@RequestMapping(value="/findByIdAdmin")
 	public ModelAndView findByIdAdmin(String adminName) {
 		ModelAndView mv = new ModelAndView("background/updatenormaladmin");
-		mv.addObject("adminName", adminName);
+		mv.addObject("adminInfo", adminService.queryadmin(adminName));
 		return mv;
 	}
 
 	@RequestMapping(value="/updateAdmin", method = RequestMethod.POST)
-	public JSONObject updateAdmin(Admin admin, String retypepassword) {
+	public JSONObject updateAdmin(Admin admin, String retypepassword, String per) {
 		String res = null;
+		if(per.equals("普通管理员"))
+			admin.setPermission(1);
+		else
+			admin.setPermission(0);
 		Map<String,String> map=new HashMap<String, String>();
 		if(admin.getPassword().equals(retypepassword)){
 			res = adminService.updateAdmin(admin);

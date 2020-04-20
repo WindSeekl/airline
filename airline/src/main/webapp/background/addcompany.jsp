@@ -182,7 +182,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</div>
 							<div class="span4 profile-left" style="float: left">
 
-						</form>
 
 
 								<div class="widgetbox personal-information">
@@ -190,19 +189,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									<div class="widgetcontent">
 										<p>
 											<label>金牌用户:</label> <input type="text"
-												name="discount.goldUser" class="input-xlarge" value="" />
+												name="gold" class="input-xlarge" value="" />
 										</p>
 										<p>
 											<label>银牌用户:</label> <input type="text"
-												name="discount.silverUser" class="input-xlarge" value="" />
+												name="silver" class="input-xlarge" value="" />
 										</p>
 										<p>
-											<label>儿童:</label> <input type="text"
-												name="discount.children" class="input-xlarge" value="0.5" />
+											<label>铜牌用户:</label> <input type="text"
+												name="copper" class="input-xlarge" value="" />
 										</p>
 									</div>
 								</div>
 
+						</form>
 							</div>
 							<!--span8-->
 					</div>

@@ -153,24 +153,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									<div class="widgetcontent">
 
 										<p>
-											<label>公司名：</label> <input type="text" name="adminName"
-												class="input-xlarge" value="${companyName}"  disabled="disabled"/>
+											<label>公司名：</label> <input type="text" name="companyName"
+												class="input-xlarge" value="${companyInfo.companyName}"  disabled="disabled"/>
+												<input type="hidden" name="companyName" value="${companyInfo.companyName}">
 										</p>
 										<p>
 											<label>公司代码:</label> <input type="text" name="companyCode"
-												class="input-xlarge" value=""/>
+												class="input-xlarge" value="${companyInfo.companyCode}"/>
 										</p>
 										<p>
 											<label>公司信息:</label> <input type="text" name="companyInfo"
-												class="input-xlarge" value="" />
+												class="input-xlarge" value="${companyInfo.companyInfo}" />
 										</p>
 										<p>
 											<label>公司网址:</label> <input type="text" name="companyUrl"
-												class="input-xlarge" value="" />
+												class="input-xlarge" value="${companyInfo.companyUrl}" />
 										</p>
 										<p>
 											<label>公司电话:</label> <input type="text" name="companyPhone"
-												class="input-xlarge" value="" />
+												class="input-xlarge" value="${companyInfo.companyPhone}" />
 										</p>
 										<p align="center">
 											<input type="button" onclick="commit();" class="btn btn-primary" value="保存" />
@@ -182,7 +183,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</div>
 								<div class="span4 profile-left" style="float: left">
 
-						</form>
 
 
 								<div class="widgetbox personal-information">
@@ -190,19 +190,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									<div class="widgetcontent">
 										<p>
 											<label>金牌用户:</label> <input type="text"
-												name="discount.goldUser" class="input-xlarge" value="${company.discount.goldUser}" />
+												name="gold" class="input-xlarge" value="${companyInfo.gold}" />
 										</p>
 										<p>
 											<label>银牌用户:</label> <input type="text"
-												name="discount.silverUser" class="input-xlarge" value="${company.discount.silverUser}" />
+												name="silver" class="input-xlarge" value="${companyInfo.silver}" />
 										</p>
 										<p>
-											<label>儿童:</label> <input type="text"
-												name="discount.children" class="input-xlarge" value="${company.discount.children}" />
+											<label>铜牌用户:</label> <input type="text"
+												name="copper" class="input-xlarge" value="${companyInfo.copper}" />
 										</p>
 									</div>
 								</div>
 
+						</form>
 							</div>
 							<!--span8-->
 					</div>
@@ -238,7 +239,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				success:function(data){
 					alert(data.res)
 					if(data.res=="修改成功"){
-						location.href="<%=basePath%>getCompanyInfo"
+						location.href="<%=basePath%>queryCompanys"
 					}
 				},error:function(data){
 					alert("失败")
