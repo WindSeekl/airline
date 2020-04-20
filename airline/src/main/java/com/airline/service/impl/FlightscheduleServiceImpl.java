@@ -13,7 +13,28 @@ public class FlightscheduleServiceImpl implements FlightscheduleService{
 	@Override
 	public String insertFlightschedule(Flightschedule flightschedule) {
 		// TODO Auto-generated method stub
-		int  i = flightscheduleRepository.insertFlightschedule(flightschedule);
-		return i==1?"添加成功":"添加失败";
+		String res=null;
+		if(flightschedule.getBeginSite().isEmpty()||flightschedule.getEndSite().isEmpty()||flightschedule.getFsDate().isEmpty()) {
+			res="信息不完整";
+		}else {
+			Flightschedule f = flightscheduleRepository.queryOneFlightschedule(flightschedule);
+			if(f==null) {
+				int  i = flightscheduleRepository.insertFlightschedule(flightschedule);
+				res = i==1?"添加成功":"添加失败";
+			}else {
+				res="该航班计划已存在，请勿重复添加";
+			}
+		}
+		return res;
+	}
+	@Override
+	public int queryOneFlightschedule(Flightschedule flightschedule) {
+		// TODO Auto-generated method stub
+		Flightschedule f = flightscheduleRepository.queryOneFlightschedule(flightschedule);
+		int i = 0;
+		if(f!=null) {
+			i = f.getFlightscheduleId();
+		}
+		return i;
 	}
 }

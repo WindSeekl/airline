@@ -6,5 +6,5 @@ import com.airline.domain.Flightschedule;
 @Mapper
 public interface FlightscheduleRepository {
 	int insertFlightschedule(Flightschedule flightschedule);
-	
+	Flightschedule queryOneFlightschedule(Flightschedule flightschedule);
 }

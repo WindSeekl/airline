@@ -29,15 +29,15 @@ public class FlightServiceImpl implements FlightService{
 		// TODO Auto-generated method stub
 		Flight f = flightRepository.queryFlightOne(flight.getFlightNo());
 		String res = null;
-		if(f==null) {
-			if(flight.getFlightNo().isEmpty()&&flight.getBeginSite().isEmpty()&&flight.getBeginTime().isEmpty()&&flight.getBeginAir().isEmpty()&&flight.getEndAir().isEmpty()&&flight.getEndSite().isEmpty()&&flight.getEndTime().isEmpty()) {
-				res = "添加失败,信息不完整";
+		if(flight.getFlightNo().isEmpty()||flight.getBeginSite().isEmpty()||flight.getBeginTime().isEmpty()||flight.getBeginAir().isEmpty()||flight.getEndAir().isEmpty()||flight.getEndSite().isEmpty()||flight.getEndTime().isEmpty()) {
+			res = "添加失败,信息不完整";
+		}else{
+			if(f!=null) {
+				res = "该航班已添加";
 			}else {
 				int i = flightRepository.insertFlight(flight);
 				res = i==1?"添加成功":"添加失败";
 			}
-		}else{
-			res = "该航班已添加";
 		}
 		return res;
 	}

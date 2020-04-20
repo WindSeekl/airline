@@ -6,4 +6,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<insert id="insertFlightschedule" parameterType="Flightschedule">
 		insert into flightschedule values(0,#{beginSite},#{endSite},#{fsDate})
 	</insert>
+	<select id="queryOneFlightschedule" parameterType="Flightschedule" resultType="Flightschedule">
+		select * from flightschedule where beginSite=#{beginSite} and endSite=#{endSite} and fsDate=#{fsDate}
+	</select>
 </mapper>

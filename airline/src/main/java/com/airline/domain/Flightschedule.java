@@ -1,18 +1,10 @@
 package com.airline.domain;
 
 public class Flightschedule {
-	private int flightschedule;
+	private int flightscheduleId;
 	private String beginSite;
 	private String endSite;
 	private String fsDate;
-	
-	public int getFlightschedule() {
-		return flightschedule;
-	}
-
-	public void setFlightschedule(int flightschedule) {
-		this.flightschedule = flightschedule;
-	}
 
 	public String getEndSite() {
 		return endSite;
@@ -38,9 +30,18 @@ public class Flightschedule {
 		this.beginSite = beginSite;
 	}
 
+	public int getFlightscheduleId() {
+		return flightscheduleId;
+	}
+
+	public void setFlightscheduleId(int flightscheduleId) {
+		this.flightscheduleId = flightscheduleId;
+	}
+
 	@Override
 	public String toString() {
-		return "Flightschedule [flightschedule=" + flightschedule + ", beginSite=" + beginSite + ", endSite=" + endSite
-				+ ", fsDate=" + fsDate + "]";
+		return "Flightschedule [flightscheduleId=" + flightscheduleId + ", beginSite=" + beginSite + ", endSite="
+				+ endSite + ", fsDate=" + fsDate + "]";
 	}
+	
 }

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.airline.repository.ScheduleInfoRepository">
+	<select id="queryScheduleInfo" parameterType="int" resultType="scheduleInfo">
+		select * from scheduleInfo where flightscheduleId = #{flightscheduleId}
+	</select>
+	
+	<select id="queryScheduleAllFlight" parameterType="java.util.List"  resultType="flight">
+		select * from flight where 
+		<foreach collection="list" item="flightNo" open="flightNo in (" close=")" separator=",">
+			#{flightNo}
+		</foreach>
+	</select>
+	<select id="queryScheduleNotAllFlight" parameterType="java.util.List"  resultType="flight">
+		select * from flight where 
+		<foreach collection="list" item="flightNo" open="flightNo not in (" close=")" separator=",">
+			#{flightNo}
+		</foreach>
+	</select>
+	<delete id="deleteScheduleInfo" parameterType="String">
+		delete from scheduleInfo where flightNo=#{flightNo}
+	</delete>
+	<insert id="insertScheduleInfo" parameterType="ScheduleInfo">
+		insert into scheduleInfo values(#{flightscheduleId},#{flightNo})
+	</insert>
+</mapper>
