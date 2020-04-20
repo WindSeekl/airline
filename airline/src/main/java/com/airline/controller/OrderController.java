@@ -32,12 +32,23 @@ public class OrderController {
 	}*/
 	@RequestMapping("queryOrder")
 	public ModelAndView queryOrder(HttpSession session,Reserve reserve) {
-		/*String customerName = (String) session.getAttribute("uname");*/   //从session中获取登录用户的用户名
-		String customerName = "a001";
+		//String customerName = (String) session.getAttribute("uname");   //从session中获取登录用户的用户名
+		String customerName = "张三";
 		ModelAndView mv = new ModelAndView("order/ordershow");
 		reserve.setCustomerName(customerName);
 		List<Reserve> list = reserveService.queryReserve(reserve);
 		mv.addObject("reserveList", list);
+		return mv;
+	}
+	@RequestMapping("queryReserveDetail")
+	public ModelAndView queryReserveDetail(HttpSession session,Reserve reserve) {
+		//String customerName = (String) session.getAttribute("uname");   //从session中获取登录用户的用户名
+		ModelAndView mv = new ModelAndView("order/ordershowdetail");
+		String str = reserve.getReserveId();
+		List<Reserve> list = reserveService.queryReserveDetail(reserve);
+		System.out.println("Controller 的 ReserveId："+str);
+		System.out.println(list);
+		mv.addObject("reserveDetailList", list);
 		return mv;
 	}
 }

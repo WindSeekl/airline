@@ -28,6 +28,13 @@ public class ReserveServiceImpl implements ReserveService{
 	@Override
 	public int updateState(Reserve reserve) {
 		// TODO Auto-generated method stub
-		return updateState(reserve);
+		return reserveRepository.updateState(reserve);
+	}
+
+	@Override
+	public List<Reserve> queryReserveDetail(Reserve reserve) {
+		// TODO Auto-generated method stub
+		System.out.println("Service 的 ReserveId： "+reserve.getReserveId());
+		return reserveRepository.queryReserveDetail();
 	}
 }

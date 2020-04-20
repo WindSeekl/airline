@@ -33,6 +33,9 @@
 <script type="text/javascript"
 	src="Script/My97DatePicker/WdatePicker.js"></script>
 <script src="Script/jquery-1.8.3.min.js"></script>
+<style>
+	#but:hover{background-color: #CBDDEC;}
+</style>
 </head>
 
 <body>
@@ -95,7 +98,7 @@
 							<fieldset class="searchForm">
 								<form  action="<%=basePath%>queryOrder"  method="get">
 									<p>
-										<span>* 初始查询结果仅向您显示7天内的信息</span>
+										<span style="color :red">* 订单号不输入默认查询所有订单</span>
 									</p>
 									<dl>
 											<dt class="normal">
@@ -144,21 +147,61 @@
 							</c:if>
 							<c:if test="${not empty reserveList}">
 								<c:forEach items="${reserveList}" var="reserve">
-									<ul>
-										<li class="c1" style="width: 140px; margin-top: 8px;">
-											订单Id:${reserve.reserveId}<br>
-											下单时间:${reserve.orderDate}<br>
-											<a class='blue' name='orderNo' target='_blank' href='/order/ordershowdetail.jsp'>查看订单详情</a>
+									<ul name='orderInfo'>
+										<li class="c1" style="width: 140px; margin-top: 35px;">
+											订单&nbsp;&nbsp;&nbsp;Id:&nbsp;&nbsp;${reserve.reserveId}<br/>
+								 			下单时间:&nbsp;&nbsp;${reserve.orderDate}<br/>
+											<a class="blue" name="orderNo" target="_blank" href="<%=basePath%>queryReserveDetail?reserveId=${reserve.reserveId}" style="color: #0095FF" id="but">查看订单详情</a>
 										</li>
 										<li class="c2" style="width: 220px; margin-top: 8px;">
-											
+											<br/>
 											<span class='airport'>&nbsp</span>
-											${reserve.benginSite} —— ${reserve.endSite}<br/>
+											${reserve.benginSite} — ${reserve.endSite}<br/>
 											<span class='airport'>&nbsp</span></b>
 											${reserve.benginDate}(出发)<br/>
-											————<br/>
+											——>——<br/>
 											${reserve.endDate}(抵达)
 										</li>
+										<li class="c3" style="width:80px; padding-top:35px; padding-bottom: 44px; border-right: 1px #ccc solid;">
+											<span>${reserve.userName}</span>
+										</li>
+										<li class="c4" style="width:80px; padding-top:35px; padding-bottom: 44px; text-align: center; border-right: 1px #ccc solid;">
+											<span class="red">${reserve.money} ￥ </span>
+											<aside class="tips long" name="INSTips" style="top: -64px; opacity: 0; display: none;">
+												<p></p> 
+												<mark class="icon boxTri"></mark> 
+											</aside>
+										</li>
+										<li class="c5" style="border-right: 1px #ccc solid; padding-top:35px; padding-bottom: 44px;"><br/>
+											${reserve.state}
+										</li>
+										<li class="c6 tall" style="width:90px;  padding-bottom: 44px; padding-top: 35px;">
+											<c:if test="${reserve.state=='待付款'}" >
+												<a href='#' style="color:#CC3333" id="but">付款</a>
+												<br/>
+												<a href="<%=basePath%>cancelOrder?reserveId=${reserve.reserveId}" style="color:#CC3333" id="but" onclick="cancelOrder()">取消订单</a>
+											</c:if>
+											<c:if test="${reserve.state=='出票成功'}" >
+												<br/>
+												<a href='<%=basePath%>applyForRefund?reserveId=${reserve.reserveId}' style="color:#CC3333" id="but" onclick="applyForRefund()">申请退票</a>
+											</c:if>
+											<c:if test="${reserve.state=='出票失败'}" >
+												<p style="color: red">订单已失效</p>
+											</c:if>
+											<c:if test="${reserve.state=='购票审核中'}" >
+												<p style="color:green">请等待<br/>系统审核</p>
+											</c:if>
+											<c:if test="${reserve.state=='退票审核中'}" >
+												<p style="color:green">请等待<br/>系统审核</p>
+											</c:if>
+											<c:if test="${reserve.state=='订单已取消'}" >
+												<p style="color:red">订单已失效</p>
+											</c:if>
+											<c:if test="${reserve.state=='退票成功'}" >
+												<p style="color:red">订单已失效</p>
+											</c:if>
+										</li>
+										<div class="clear"></div>
 									</ul>
 								</c:forEach>
 							</c:if>
@@ -166,8 +209,8 @@
 							</article>
 						</div>
 					<div style="margin-top:20px; float: right;">
-                           <a href="#1" /> 上一页</a>
-                           <a href="#1" />下一页</a>
+                           <!-- <a href="#1" /> 上一页</a>
+                           <a href="#1" />下一页</a> -->
                      </div>
 				</div>
 			</div>
@@ -187,30 +230,23 @@
 <script type="text/javascript">
 $("#button-search").click(function(){
 	var id = $("#orderid").val();
-		querybyID()
+	alert(id)
+		//querybyID()
 });
 $("#orderdate").click(function(){
 	var date = $("#date").val();
 		querybyDate();
 });
-function pay(id) {
-	var conf = confirm('确认付款！');
-	if(conf) {
-		window.location='paymentOrderAction.action?orderId='+id;
-	}
-}bounce
-function cancel(id) {
-	var conf = confirm('取消订单');
-	if(conf) {
-		window.location='cancelOrderAction.action?orderId='+id;
-	}
+function pay(){
+	
 }
-function bounce(id) {
-	var conf = confirm('确定退票');
-	if(conf) {
-		window.location='bounceOrderAction.action?orderId='+id;
-	}
+function cancelOrder(){
+	alert("订单已取消！");
 }
+function applyForRefund(){
+	alert("已申请退票，请等待客服审核。");
+}
+
 </script>
 </body>
 </html>

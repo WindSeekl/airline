@@ -1,6 +1,7 @@
 <%@ page language="java"
 	import="java.util.*,com.*"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>	
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -106,16 +107,16 @@
 						<div class="detail">
 							<div class="basic" style="">
 								<div class="text" id="data">
-									<dl>
-										<dt>证件类型</dt>
-										<dd>身份证</dd>
-										<dt>手机号码</dt>
-										<dd>${Reserve.phoneNum}</dd>
-									</dl>
-									<dl>
-										<dt>证件号码</dt>
-										<dd>${Reserve.cardId}</dd>
-									</dl>
+										<dl>
+											<dt>证件类型</dt>
+											<dd>身份证</dd>
+											<dt>手机号码</dt>
+											<dd>${queryReserveDetail.phoneNum}</dd>
+										</dl>
+										<dl>
+											<dt>证件号码</dt>
+											<dd>${queryReserveDetail.cardId}</dd>
+										</dl>
 								</div>
 								<div class="jiage" style="margin-top:-25px">
 									<p>
@@ -123,7 +124,7 @@
 										<span class="price normal red">￥<s:property value="#session.order.price+20+120"/></span>
 									</p>
 									<p>
-										<u>机票<br>￥${Reserve.money}
+										<u>机票<br>￥${queryReserveDetail.money}
 										</u><u insureprice="20">保险<br>￥ 20
 										</u><u>税费<br>￥ 120
 										</u>
@@ -131,6 +132,7 @@
 								</div>
 								<div class="clear"></div>
 							</div>
+							
 							<section class="travelSection" style="">
 							<div class="box" name="AIR" style="margin-rigth:25px;">
 								<div class="body" style="margin-top:1px;">
@@ -167,12 +169,14 @@
 								</div>
 							</div>
 							</section>
+						
 						</div>
 						<div class="clear"></div>
 						</article>
 					</div>
 				</div>
 			</div>
+			
 		</div>
 	</div>
 	</article> </hgroup></section>

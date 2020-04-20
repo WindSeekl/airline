@@ -17,6 +17,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			</if>
 		</where>
 	</select>
+	<select id="queryReserveDetail" parameterType="reserve" resultType="reserve">
+		select * from reserve where reserveId=#{reserveId}
+	</select>
 	<insert id="insertReserve" parameterType="reserve">
 		insert into reserve values(#{reserveId},#{cardId},#{userName},#{flightId},#{benginDate},#{endDate},#{benginSite},#{endSite},#{seatId},#{money},#{travelDate},#{state},#{customerName})
 	</insert>
