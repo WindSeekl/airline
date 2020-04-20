@@ -12,4 +12,5 @@ public interface FlightRepository {
 	int insertFlight(Flight flight);
 	int updateFlight(Flight flight);
 	void deleteFlight(String flightNo);
+	List<Flight> queryFlightBySite(Flight flight);
 }

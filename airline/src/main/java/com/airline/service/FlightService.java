@@ -10,4 +10,5 @@ public interface FlightService {
 	String insertFlight(Flight flight);
 	String updateFlight(Flight flight);
 	void deleteFlight(String flightNo);
+	List<Flight> queryFlightBySite(Flight flight);
 }

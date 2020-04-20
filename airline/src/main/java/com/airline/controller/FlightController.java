@@ -1,5 +1,7 @@
 package com.airline.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -82,6 +84,15 @@ public class FlightController {
 	public ModelAndView deleteFlight(String flightNo) {
 		ModelAndView mv = new ModelAndView("forward:queryFlight");
 		flightService.deleteFlight(flightNo);
+		return mv;
+	}
+	@RequestMapping("queryBeforeFlight")
+	public ModelAndView queryBeforeFlight(Flight flight) {
+		ModelAndView mv = new ModelAndView("background/findschedule");
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		flight.setBeginTime(df.format(new Date()));
+		List<Flight> beforeFlightList=flightService.queryFlightBySite(flight);
+		mv.addObject("beforeFlightList",beforeFlightList);
 		return mv;
 	}
 }

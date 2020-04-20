@@ -53,4 +53,9 @@ public class FlightServiceImpl implements FlightService{
 	public void deleteFlight(String flightNo) {
 		flightRepository.deleteFlight(flightNo);
 	}
+	@Override
+	public List<Flight> queryFlightBySite(Flight flight) {
+		// TODO Auto-generated method stub
+		return flightRepository.queryFlightBySite(flight);
+	}
 }

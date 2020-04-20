@@ -1,5 +1,8 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%> 
-
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -80,13 +83,13 @@
 			<div class="leftmenu">
 				<ul class="nav nav-tabs nav-stacked">
 					<li class="nav-header">Navigation</li>
-					<li class="active"><a href="../countOrderAction.action"><span
+					<li class="active"><a href=""><span
 							class="iconfa-laptop"></span> 首页</a></li>
 					<li class="dropdown"><a href=""><span class="iconfa-group"></span>
 							订票客户管理</a>
 						<ul>
-							<li><a href="addcustomer.jsp">增加客户信息</a></li>
-							<li><a href="../BgfindAllUser.action">查询客户信息</a></li>
+							<li><a href="<%=basePath%>background/addcustomer.jsp">增加客户信息</a></li>
+							<li><a href="<%=basePath%>queryCustomers">查询客户信息</a></li>
 						</ul></li>
 					<li class="dropdown"><a href=""><span
 							class="iconfa-pencil"></span> 航班机票管理</a>
@@ -98,18 +101,19 @@
 					<li class="dropdown"><a href=""><span class="iconfa-plane"></span>
 							航班信息管理</a>
 						<ul>
-							<li><a href="../findCompanyFlightAction.action">增加航班信息</a></li>
-							<li><a href="addflightschedule.jsp">增加航班计划</a></li>
+							<li><a href="<%=basePath%>queryCompanyPlanemodel">增加航班信息</a></li>
+							<li><a href="<%=basePath%>background/addflightschedule.jsp">增加航班计划</a></li>
 							<li><a href="../addscheduleFlightAction.action">安排航班计划</a></li>
-							<li><a href="../findpastscheduleFlightAction.action">以往航班计划</a></li>
-							<li><a href="../bgfindAllFlightAction.action">查询航班信息</a></li>
+							<li><a href="<%=basePath%>background/findschedule.jsp">以往航班计划</a></li>
+							<li><a href="<%=basePath%>queryFlight">查询航班信息</a></li>
 						</ul></li>
 					<li class="dropdown"><a href=""><span
 							class=" iconfa-group"></span> 航空公司管理</a>
 						<ul>
-							<li><a href="addcompany.jsp">增加航空公司</a></li>
-							<li><a href="../showplanemodelCompanyAction.action">添加公司机型</a>
-							<li><a href="../findCompanyAction.action">查询航空公司</a></li>
+							<li><a href="<%=basePath %>background/addcompany.jsp">增加航空公司</a></li>
+							<li><a href="<%=basePath %>queryCnamePname">添加公司机型</a>
+							<li><a href="<%=basePath %>queryCompanys">查询航空公司</a></li>
+							<li><a href="<%=basePath %>getCompanyInfo">修改航空公司信息</a></li>
 						</ul></li>
 							<li class="dropdown"><a href=""><span
 							class="iconfa-plane"></span> 机型管理</a>
@@ -164,27 +168,27 @@
 				<div class="maincontentinner">
 					<div class="row-fluid">
 						<div class="span8" style="margin-left:20%;">
-							<form action="../addscheduleFlightAction.action" class="editprofileform"
-								method="post">
+							<form action="#" class="editprofileform"
+								method="post" id="eform">
 								<div class="widgetbox personal-information">
 									<h4 class="widgettitle">添加航班计划</h4>
 									<div class="widgetcontent">
 
 										<p>
 											<label>出发地：</label> 
-											<input id="deptCd" style="width:270px" name="startPoint" type="text"  onKeyUp="input_keyup();" onClick="append_city(this.id);" onBlur="input_blur()" >
+											<input id="beginSite" style="width:270px" name="beginSite" type="text"  onKeyUp="input_keyup();" onClick="append_city(this.id);" onBlur="input_blur()" >
 										</p>
 										<p>
 											<label>目的地：</label> 
-											<input id="arrDd" style="width:270px" name="endPoint" type="text"  onKeyUp="input_keyup();" onClick="append_city(this.id);" onBlur="input_blur()" >
+											<input id="endSite" style="width:270px" name="endSite" type="text"  onKeyUp="input_keyup();" onClick="append_city(this.id);" onBlur="input_blur()" >
 										</p>
 										<p>
-											<label>时间:</label> <input type="text" id="d241" name="day"
+											<label>时间:</label> <input type="text" id="d241" name="fsDate"
 												onfocus="WdatePicker({minDate:'%y-%M-{%d}',dateFmt:'yyyy-MM-dd'})"
 												class="Wdate" style="width:270px" />
 										</p>
 										<p align="center">
-											<input type="submit" class="btn btn-primary" value="提交">
+											<input type="button" class="btn btn-primary" value="提交" id="fsBtn" onclick="commit()">
 										</p>
 									</div>
 								</div>
@@ -213,14 +217,31 @@
 
 	</div>
 	<!--rightpanel-->
-
-	</div>
-	<!--mainwrapper-->
 	
 <div class="pop search-citys-pop click"  style="display: none; z-index: 9999" id="cityarea"> <a href="javascript:void(0)" class="pop-close"></a>
   <div class="search-citys-tt click"> <a class="current click" onClick="tabCutover(this,'s-citys1')" href="javascript:void(0)">热门城市<span></span></a> <a class="click" onClick="tabCutover(this,'s-citys2')" href="javascript:void(0)">ABCDEFG<span></span></a> <a class="click" onClick="tabCutover(this,'s-citys3')" href="javascript:void(0)">HIJKL<span></span></a> <a class="click" onClick="tabCutover(this,'s-citys4')" href="javascript:void(0)">MNOPQRST<span></span></a> <a class="click" onClick="tabCutover(this,'s-citys5')" href="javascript:void(0)">UVWXYZ<span></span></a> </div>
   <div class="search-citys-list click" id="citylist"></div>
 </div>
+<script type="text/javascript">
+		function commit(){
+			jQuery.ajax({
+				url:'<%=basePath%>insertFlightschedule',
+				data:jQuery("#eform").serialize(),
+				type:"post",
+				dataType:'json',
+				success:function(data){
+					alert(data.res)
+					if(data.res=="添加成功"){
+						document.getElementById('eform').reset();
+					}
+				},error:function(data){
+					alert("失败")
+				}
+			})
+		}
+	</script>
+
+
 </body>
 </html>
 
