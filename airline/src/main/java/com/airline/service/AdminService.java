@@ -12,4 +12,8 @@ public interface AdminService {
 	String updateAdmin(Admin admin);
 	
 	String deleteAdmin(String adminName);
+	
+	String loginAdmin(Admin admin);
+	
+	Admin queryadmin(String adminName);
 }

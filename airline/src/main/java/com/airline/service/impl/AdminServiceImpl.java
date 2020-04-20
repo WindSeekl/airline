@@ -50,5 +50,21 @@ public class AdminServiceImpl implements AdminService{
 		return "删除成功";
 	}
 
+	@Override
+	public String loginAdmin(Admin admin) {
+		// TODO Auto-generated method stub
+		Admin ad = adminRepository.queryAdmin(admin.getAdminName());
+		if(admin.getPassword().equals(ad.getPassword())) {
+			return "登录成功";
+		} else
+			return "用户名或密码错误";
+	}
+
+	@Override
+	public Admin queryadmin(String adminName) {
+		// TODO Auto-generated method stub
+		return adminRepository.queryAdmin(adminName);
+	}
+
 	
 }

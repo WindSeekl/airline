@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -73,5 +75,29 @@ public class AdminController {
 		map.put("res", res);
 		JSONObject json = JSONObject.fromObject(map);
 		return json;
+	}
+	
+	@RequestMapping(value="/loginAdmin", method = RequestMethod.POST)
+	public JSONObject loginAdmin(Admin admin, HttpServletRequest req) {
+		String res = null;
+		Map<String,String> map=new HashMap<String, String>();
+		if(!admin.getAdminName().isEmpty() && !admin.getPassword().isEmpty()) {
+			res = adminService.loginAdmin(admin);
+			if(res.equals("登录成功")) {
+				admin = adminService.queryadmin(admin.getAdminName());
+				req.getSession().setAttribute("admin", admin);
+			}
+		} else
+			res = "用户名或密码不能为空";
+		map.put("res", res);
+		JSONObject json = JSONObject.fromObject(map);
+		return json;
+	}
+	
+	@RequestMapping("/logoutAdmin")
+	public ModelAndView logoutAdmin(HttpServletRequest req) {
+		ModelAndView mv = new ModelAndView("background/login");
+		req.getSession().setAttribute("admin", null);
+		return mv;
 	}
 }

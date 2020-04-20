@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -38,13 +39,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<div class="userloggedinfo">
 							<div class="userinfo">
 								<h5>
-									<s:property value="#session.currentAdmin.username" /> <small>
-									<s:if test="#session.currentAdmin.jurisdiction==1">
-									普通管理员</s:if>
-									<s:else>高级管理员</s:else></small>
+								<c:if test="${admin.permission == 1}">
+									普通管理员
+								</c:if>
+								<c:if test="${admin.permission == 0}">
+									高级管理员
+								</c:if>	
 								</h5>
 								<ul>
-									<li><a href="login.jsp">注销</a></li>
+									<li><a href="<%=basePath %>logoutAdmin">注销</a></li>
 								</ul>
 							</div>
 						</div>
@@ -100,13 +103,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</ul></li>
 					<li><a href="printtable.jsp"><span class="iconfa-th-list"></span>
 							报表打印管理</a></li>
-
-					<li class="dropdown"><a href=""><span class="iconfa-user"></span>
-							人员用户管理</a>
-						<ul>
-							<li><a href="addnormaladmin.jsp">增加普通管理员</a></li>
-							<li><a href="<%=basePath %>findAllAdmin">查询普通管理员</a></li>
-						</ul></li>
+					<c:if test="${admin.permission == 0}">
+						<li class="dropdown"><a href=""><span class="iconfa-user"></span>
+								人员用户管理</a>
+							<ul>
+								<li><a href="addnormaladmin.jsp">增加普通管理员</a></li>
+								<li><a href="<%=basePath %>findAllAdmin">查询普通管理员</a></li>
+							</ul>
+						</li>
+					</c:if>
 				</ul>
 			</div>
 			<!--leftmenu-->
@@ -145,7 +150,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			
 			<div class="maincontent">
 				<div class="maincontentinner">
-			<img src="images/count.jpeg">
+			<img src="../images/plane.png">
 		</div>
 		<!--span8-->
 		<!--row-fluid-->

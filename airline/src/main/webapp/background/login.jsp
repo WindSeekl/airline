@@ -1,5 +1,8 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,8 +10,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Shamcey - Metro Style Admin Template - shared on
 	themelock.com</title>
-<link rel="stylesheet" href="css/style.default.css" type="text/css" />
-<link rel="stylesheet" href="css/style.shinyblue.css" type="text/css" />
+<link rel="stylesheet" href="<%=basePath%>/background/css/style.default.css" type="text/css" />
+<%-- <link rel="stylesheet" href="<%=basePath%>/background/css/style.shinyblue.css" type="text/css" /> --%>
 
 <script type="text/javascript" src="../Script/jquery-1.8.3.min.js"></script>
 
@@ -19,16 +22,16 @@
 	<div class="loginpanel">
 		<div class="loginpanelinner">
 
-			<form id="login1" action="../loginAdmin.action" method="post">
+			<form id="login1" action="#" method="post">
 				<div class="inputwrapper login-alert">
 					<div class="alert alert-error">用户名或密码不正确</div>
 				</div>
 				<div class="inputwrapper animate1 bounceIn">
-					<input type="text" name="admin.username" id="username"
+					<input type="text" name="adminName" id="adminName"
 						placeholder="请输入用户名" />
 				</div>
 				<div class="inputwrapper animate2 bounceIn">
-					<input type="password" name="admin.password" id="password"
+					<input type="password" name="password" id="password"
 						placeholder="请输入密码" />
 				</div>
 				<div class="inputwrapper animate3 bounceIn">
@@ -47,18 +50,13 @@
 		$("#adminlogin").click(function() {
 			$.ajax({
 				type : "post",
-				url : "../validateadmin.action",
-				data : {
-					adminUsername : $("#username").val(),
-					password : $("#password").val()
-				},
+				url : "<%=basePath%>loginAdmin",
+				data : $("#login1").serialize(),
 				dataType : "json",
 				success : function(data) {
-					if (data) {
-						$("#login1").submit();
-						postForm();
-					} else {
-						alert("用户名或密码错误");
+					alert(data.res)
+					if(data.res == "登录成功"){
+						location.href="background/index.jsp";
 					}
 				}
 			});
