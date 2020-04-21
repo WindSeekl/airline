@@ -19,6 +19,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link rel="stylesheet" type="text/css" href="Stylesheets/regcustomer.css">
 <script src="../Script/jquery-1.8.3.min.js" type="text/javascript"></script>
 <script src="../Script/jquery.validate.js" type="text/javascript"></script>
+<script src="../background/js/jquery.min.js"></script>
+<script src="../background/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="../background/js/bootstrap-show-password.min.js"></script>
 <style type="text/css">
 	.tip{
 		color:red;
@@ -65,7 +68,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 												密码：
 											</td>
 											<td>
-												<input type="password" name="password" id="password" onblur="check(this,2)" regex="^\S{6,}$"/><span class="tip">密码不符合要求</span></td>
+												<input type="password" name="password" id="password" onblur="check(this,2)" regex="^\S{6,}$" data-toggle="password" class="form-control" type="password" data-eye-open-class="显示密码" data-eye-close-class="隐藏密码" data-eye-class-position-inside="true" data-message="点击隐藏或显示密码"><span class="tip">密码不符合要求</span></td>
 											<td align="left">
 												<span  class="error"></span>
 											</td>
@@ -272,6 +275,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </div>
 </div>
 <script type="text/javascript">
+
 $("#login1").click(function (){
 	if(formCheck()==true){
 		$.ajax({
@@ -376,6 +380,81 @@ $("#login1").click(function (){
 			error.appendTo(element.parent().next());
 		}
 	}); */
+	
+</script>
+
+<script>
+	var trueValue = [];
+	//正则验证
+	function check(ele,index){
+		//获取当前元素对应的正则
+		var regex = new RegExp(ele.getAttribute("regex"),"g");
+		//获取当前输入的值
+		var value = ele.value;
+		//与正则进行比较
+		if(!regex.test(value)){
+			ele.parentNode.lastElementChild.style.display = "inline-block";
+			trueValue[index] = false;
+		}else{
+			ele.parentNode.lastElementChild.style.display = "none";
+			trueValue[index] = true;
+		}
+	}
+	//验证两次密码是否相同
+	function rePass(ele,index){
+		//获取第一次输入密码的值
+		var pass = document.getElementById("password").value;
+		//alert(document.getElementById("password").value+"=="+ele.value);
+		//和自己的值比较
+		if(!(ele.value==pass)){
+			ele.nextElementSibling.style.display = "inline-block";
+			trueValue[index] = false;
+		}else{
+			ele.nextElementSibling.style.display = "none";
+			trueValue[index] = true;
+		}
+	}
+	//验证不需要正则验证的元素是否为空
+	function otherNotNull(){
+		//验证性别是否已选择
+		if(!checkChecked("sex")){
+			return false;
+		}
+		return true;
+	}
+	//验证输入框是否为空
+	function checkInput(id){
+		if(document.getElementById(id).value==""){
+			return false;
+		}
+		return true;
+	}
+	//验证选择框是否为空
+	function checkChecked(name){
+		var sexEle = document.getElementsByName(name);
+		for(i in sexEle){
+			if(sexEle[i].checked){
+				break;
+			}
+			return false;
+		}
+		return true;
+	}
+	//表单提交前的最后验证
+	function formCheck(){
+		var res = true;
+		res =  otherNotNull();
+		for(i in trueValue){
+			if(!trueValue[i]){
+				res =  false;
+				break;
+			}
+		}
+		if(res==false){
+			alert("请完善信息");
+		}
+		return res;
+	}
 </script>
 </body>
 </html>
