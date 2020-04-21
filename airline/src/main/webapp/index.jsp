@@ -62,7 +62,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!-- 第一个下拉菜单 -->
 <section class="menu-dropdown" id="dropdown-booking" style=" display: block;">
   <hgroup id="booking">
-  <form action="findFlightAction.action" namesapce="/" method="post">
+  
+  <form action="<%=basePath %>queryFlightschedule"  method="post">
     <article id="tabTicket" class="b_content block">
       <ul class="category">
         <li rel="tabTicket">机票预定</li>
@@ -71,26 +72,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       <dl class="form-field">
         <dt>出发地<br>
           <span class="city_box">
-          <input type="text" name="startPoint" id="deptCd" class="input city" value="上海" onKeyUp="input_keyup();" onClick="append_city(this.id);" onBlur="input_blur()" onFocus="if(value=='上海'){value='';style.color='#606060';}" >
+          <input type="text" name="beginSite" id="deptCd" class="input city" value="上海" onKeyUp="input_keyup();" onClick="append_city(this.id);" onBlur="input_blur()" onFocus="if(value=='上海'){value='';style.color='#606060';}" >
           <input class="text" id="hid_city_name" name="index_city" style="display: none">
           <input class="text" id="hid_real_city_name" name="real_index_city" style="display: none">
           </span></dt>
         <dd>目的地<br>
           <span class="city_box">
-          <input type="text" name="endPoint" id="arrDd" class="input city" value="广州" onKeyUp="input_keyup();" onClick="append_city(this.id);" onBlur="input_blur()" onFocus="if(value=='广州'){value='';style.color='#606060';}" >
+          <input type="text" name="endSite" id="arrDd" class="input city" value="广州" onKeyUp="input_keyup();" onClick="append_city(this.id);" onBlur="input_blur()" onFocus="if(value=='广州'){value='';style.color='#606060';}" >
            </span>
         </dd>
       </dl>
       <dl class="form-field">
         <dt>
-          <input type="text" name="day"  id="d422" class="input date Wdate" name="deptDt"  onfocus="WdatePicker()">
+          <input type="text" name="fsDate"  id="d422" class="input date Wdate" name="deptDt"  onfocus="WdatePicker()">
         </dt>
       </dl>
       <p class="btn">
-        <input type="submit" class="button-blue" name="search" id="btn_member_search" value="立刻查询">
+        <input type="submit" class="button-blue"  id="btn_member_search" value="立刻查询">
       </p>
     </article>
     </form>
+    
   </hgroup>
 </section>
 <div class="bottom_banner"> <img src="http://pic.c-ctrip.com/vacation_v2/bottom_banner1.jpg" class="bottom_banner_l" alt="吉祥航空" width="353" height="111"><img src="http://pic.c-ctrip.com/vacation_v2/bottom_banner2.jpg" class="bottom_banner_m" alt="瑞士国际航空公司" width="280" height="111"><img src="http://pic.c-ctrip.com/vacation_v2/bottom_banner3.jpg" class="bottom_banner_r" alt="日本航空" width="356" height="111"> </div>
@@ -185,26 +187,5 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <div class="search-citys-tt click"> <a class="current click" onClick="tabCutover(this,'s-citys1')" href="javascript:void(0)">热门城市<span></span></a> <a class="click" onClick="tabCutover(this,'s-citys2')" href="javascript:void(0)">ABCDEFG<span></span></a> <a class="click" onClick="tabCutover(this,'s-citys3')" href="javascript:void(0)">HIJKL<span></span></a> <a class="click" onClick="tabCutover(this,'s-citys4')" href="javascript:void(0)">MNOPQRST<span></span></a> <a class="click" onClick="tabCutover(this,'s-citys5')" href="javascript:void(0)">UVWXYZ<span></span></a> </div>
   <div class="search-citys-list click" id="citylist"></div>
 </div>
-<script type="text/javascript">
-$("#btn_flight_search").click(function (){
-	alert("111")
-	if($("#flight_form").valid()){
-		$.ajax({
-            type: "post",
-            url: "validateflight.action",
-            data: {startPoint:$("#deptCd").val(), endPoint:$("#arrDd").val(),day:$("#day").val(),companyName:$("#companyName").val()
-            	,flightNumber:$("#flightNumber").val()},
-            dataType: "json",
-            success: function(data){
-            	if(data){
-    	        	$("#flight_form").submit();
-    	        	postForm();}
-            	else{
-            	  alert("无该航线的航班"); }
-            }
-        });
-	}
-});
-</script>
 </body>
 </html>

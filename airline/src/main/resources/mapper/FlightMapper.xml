@@ -10,7 +10,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from flight
 	</select>
 	<select id="queryFlightBySite" resultType="Flight">
-		select * from flight where beginSite=#{beginSite} and endSite=#{endSite} and beginTime &lt;#{beginTime}
+		select * from flight where beginSite=#{beginSite} and endSite=#{endSite}
 	</select>
 	<select id="queryFlightOne" resultType="Flight" parameterType="String">
 		select * from flight where flightNo=#{flightNo}

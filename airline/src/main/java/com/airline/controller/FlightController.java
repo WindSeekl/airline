@@ -95,4 +95,5 @@ public class FlightController {
 		mv.addObject("beforeFlightList",beforeFlightList);
 		return mv;
 	}
+	
 }

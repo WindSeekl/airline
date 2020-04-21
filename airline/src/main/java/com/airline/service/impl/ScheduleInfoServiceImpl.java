@@ -3,6 +3,7 @@ package com.airline.service.impl;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,16 +53,23 @@ public class ScheduleInfoServiceImpl implements ScheduleInfoService{
 		// TODO Auto-generated method stub
 		List<Flight> accordFlightList = new ArrayList<Flight>();
 		for (Flight flight : list) {
-			SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd");
-			
-			String fsDate=null;
+			SimpleDateFormat sdf = new SimpleDateFormat( "HH:mm:ss" );
+			String travelDate = null;
 			try {
-				fsDate = sd.format(sd.parse(flight.getBeginTime()));
+				Date bTime = (Date) sdf.parse(flight.getBeginTime());
+				Date eTime = (Date) sdf.parse(flight.getEndTime());
+				long tTime=eTime.getTime()-bTime.getTime();
+				int i = (int) (tTime/1000/60);
+				int hTime = i/60;
+				int mTime = i%60;
+				travelDate = hTime+"时"+mTime+"分";
 			} catch (ParseException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			if(flightschedule.getBeginSite().equals(flight.getBeginSite())&&flightschedule.getEndSite().equals(flight.getEndSite())&&fsDate.equals(flightschedule.getFsDate())){
+			flight.setTravelDate(travelDate);
+			
+			if(flightschedule.getBeginSite().equals(flight.getBeginSite())&&flightschedule.getEndSite().equals(flight.getEndSite())){
 				accordFlightList.add(flight);
 			}
 		}

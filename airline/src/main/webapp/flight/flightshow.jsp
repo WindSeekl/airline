@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -45,28 +46,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <body>
   	<header id="header">
 		<hgroup>
-
-			<s:if test="#session.currentUser">
-				<address class="text blue">
-					<p style="padding-top: 15px;">
-						欢迎您，	
-						${currentUser.username}
-						&nbsp;&nbsp;<a href="login.jsp">注销</a>
-					</p>
-				</address>
-			</s:if>
-			<s:else>
-				<address class="text blue">
-					<p>
-						<a id="login" href="login.jsp">登录</a>
-						&nbsp; | &nbsp;
-						<a id="register" target="_blank" href="regcustomer.jsp">注册</a>
-					</p>
-				</address>
-			</s:else>
-			<div class="clear"></div>
-		</hgroup>
-	</header>
+		<c:if test="${not empty customer}">
+		    <address class="text blue">
+		    	<p>欢迎您，${customer}&nbsp;&nbsp;<a href="<%=basePath%>logout">注销</a> </p>
+		    </address>
+		    </c:if>
+		    <c:if test="${empty customer}">
+			    <address class="text blue">
+			   		<p> <a id="login" href="login.jsp">登录</a>&nbsp; | &nbsp; <a id="register" target="_blank" href="regcustomer.jsp">注册</a></p>
+			    </address>
+		    </c:if>
+					<div class="clear"></div>
+				</hgroup>
+		</header>
 	<menu id="menu">
 		<nav>
 			<ul class="menu_index">
@@ -98,32 +90,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</article>
 		<section id="content" class="auto">
 			<section class="booking-search">
-			<form action="findFlightAction.action" method="post" id="flight_form">
+			<form action="<%=basePath%>queryFlightschedule" method="post" id="flight_form">
 				<dl>
 					<dd>
 						<span class="city_box">
-							<input id="deptCd" name="startPoint" type="text" class="input city" onKeyUp="input_keyup();" onClick="append_city(this.id);" onBlur="input_blur()" value="${flightSchedule.startPoint}">
+							<input id="deptCd" name="beginSite" type="text" class="input city" onKeyUp="input_keyup();" onClick="append_city(this.id);" onBlur="input_blur()" value="${flightschedule.beginSite}">
 						</span>
 					</dd>
 					<dd>
 						<span class="city_box">
-							<input id="arrDd" name="endPoint" type="text" class="input city" onKeyUp="input_keyup();" onClick="append_city(this.id);" onBlur="input_blur()" value="${flightSchedule.endPoint}">
+							<input id="arrDd" name="endSite" type="text" class="input city" onKeyUp="input_keyup();" onClick="append_city(this.id);" onBlur="input_blur()" value="${flightschedule.endSite}">
 						</span>
 					</dd>
 					<dd>
-						<input type="text" value="${flightSchedule.day}" name="day" id="day" class="input date" onfocus="WdatePicker({minDate:'%y-%M-{%d}'})">
+						<input type="text" value="${flightschedule.fsDate}" name="fsDate" id="day" class="input date" onfocus="WdatePicker({minDate:'%y-%M-{%d}'})">
 					</dd>
-			    <dd>
-			        <span style="margin-left:10px;">航空公司</span>
-					<input type="text" class="input flightNumber" name="companyName" id="companyName" >
-				</dd>
-				<dd>
-			        <span style="margin-left:10px;">航空号</span>
-					<input type="text" class="input flightNumber" name="flightNumber" id="flightNumber" >
-				</dd>
 				<dt>
-				    <input type="text" value="${flightSchedule.flightScheduleId}" id="flightScheduleId" style="display: none;">
-					<input type="button" name="search" class="button-search" value="搜 索" id="btn_flight_search"></dt>
+					<input  type="submit" name="search" class="button-search" value="搜 索" id="btn_flight_search"></dt>
 			</dl>
 			</form>
 		</section>
@@ -136,57 +119,60 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 
 				<article class="flight-title"> <strong><b>选择去程</b>
-						&nbsp; <s:property value="#request.flightSchedule.startPoint"/> - <s:property value="#request.flightSchedule.endPoint"/>&nbsp;&nbsp;<s:date format="MM月dd日" name="#request.flightSchedule.day"/></strong> 
+						&nbsp; </strong> 
 					<em>当前
-						<b class="blue" num="25"><s:property value="#request.flightNumber"/></b>
-						条符合条件</em> 
-
+						<b class="blue" num="25">${size }</b>
+						条符合条件</em>
 				</article>
 
 
 
 				<section id="flight-info">
-				<s:iterator value="#request.flightlist">
 					<div class="flight-section" style="z-index: 4;">
+					<c:if test="${not empty accordFlightList}">
+							<c:forEach items="${accordFlightList}" var="flight">
 						<div class="head">
+						
 							<dl>
-								<dt class="icon">
-									<br>
-									</dt>
-								<dt>
-								<s:property value="flight.companyName"/>
-								
-									<br>
-									<span style="z-index: 9;" id="flightNumber"><s:property value="flight.flightNumber"/></span>
-								</dt>
 								<dt class="right">
-									<b><s:date format="HH:mm" name="flight.startTime"/></b>
-									<br><s:property value="flight.startPointAirport"/></dt>
-								<dt class="center">
-                                      ----->
+									<b>${flight.beginSite}</b><br>
+									<p style="font-size: 15px">${flight.beginTime}</p>
 								</dt>
+								
+								<dt class="center" style="width: 100px">
+									${flightschedule.fsDate}<br>
+                                     -----------><br>
+                                    ${flight.travelDate}<br>
+								</dt>
+								
 								<dt class="left">
-									<b><s:date format="HH:mm" name="flight.arrivalTime"/></b>
-									<br><s:property value="flight.endPointAirport"/></dt>
+									<b>${flight.endSite}</b><br>
+									<p style="font-size: 15px">${flight.endTime}</p>
+								</dt>
 								<dd class="btn">
-									<span class="price"> <dfn>¥</dfn>
-										<s:property value="flight.cabinPrice.touristClass"/>
+									<span class="price"><dfn>${flight.eprice}¥</dfn>
 										<i>起</i>
-									</span>
+									</span><br>
+									
+									<button>查询余票</button>
 								</dd>
 							</dl>
-						</div>
+							</div>
+							</c:forEach>
+						</c:if>
+						
+						
 						<div class="body">
 							<ul>
 								<li class="c-4">
 									经济舱(剩余：
-									<span class="seatAlarm" style="color: #D42826;"><s:property value="touristClassAmount"/>
+									<span class="seatAlarm" style="color: #D42826;">
 									</span>
 									张)
 								</li>
 								<li class="c-5">
 									<span class="price normal red"> <dfn>¥</dfn>
-										<s:property value="flight.cabinPrice.touristClass"/>
+								
 									</span>
 								</li>
 								<li class="c-6"></li>
@@ -196,14 +182,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<ul>
 								<li class="c-4">
 									公务舱(剩余：
-									<span class="seatAlarm" style="color: #D42826;"><s:property value="businessClassAmount" />
+									<span class="seatAlarm" style="color: #D42826;">
 									</span>
 									张)
 								</li>
 								<li class="c-5">
 									<span class="price normal red">
 										<dfn>¥</dfn>
-										<s:property value="flight.cabinPrice.businessClass"/>
 									</span>
 								</li>
 								<li class="c-6"></li>
@@ -213,26 +198,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<ul>
 								<li class="c-4">
 									头等舱(剩余：
-									<span class="seatAlarm" style="color: #D42826;"><s:property value="firstClassAmount"/>
+									<span class="seatAlarm" style="color: #D42826;">
 									</span>
 									张)
 								</li>
 								<li class="c-5">
 									<span class="price normal red">
 										<dfn>¥</dfn>
-										<s:property value="flight.cabinPrice.firstClass"/>
 									</span>
 								</li>
 								<li class="c-6"></li>
 								<li class="c-7">
 									<input type="button" value="预 订" id="first_class"  class="button gray"  name="select"  onclick="firstClass(<s:property  value="flight.flightId"/>)">
-									<input id="flightId" type="text"  style="visibility: hidden; display: none;" >
+								<input id="flightId" type="text"  style="visibility: hidden; display: none;" >
 								</li>
 							</ul>
 						</div>
 					</div>
 					<div class="line"></div>
-					</s:iterator>
 				</section>
 			</hgroup>
 
@@ -242,9 +225,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </section>
 </section>
 <!--footer-->
-<section id="blank"></section>
-<footer id="footer">
-<hgroup class="links white">
 
 
 </hgroup>
@@ -256,76 +236,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <div class="search-citys-list click" id="citylist"></div>
 </div>
 <script type="text/javascript">
-$("#btn_flight_search").click(function (){
-	if($("#flight_form").valid()){
-		$.ajax({
-            type: "post",
-            url: "validateflight.action",
-            data: {startPoint:$("#deptCd").val(), endPoint:$("#arrDd").val(),day:$("#day").val(),companyName:$("#companyName").val()
-            	,flightNumber:$("#flightNumber").val()},
-            dataType: "json",
-            success: function(data){
-            	if(data){
-    	        	$("#flight_form").submit();
-    	        	postForm();}
-            	else{
-            	  alert("无该航线的航班"); }
-            }
-        });
-	}
-});
-function tourist(id){
-	var flightScheduleId = $("#flightScheduleId").val();
-	window.location = 'bookingFlightAction.action?id='+id+'&cabinClass='+2+'&flightScheduleId='+flightScheduleId;
-}
-function business(id){
-	var flightScheduleId = $("#flightScheduleId").val();
-	window.location = 'bookingFlightAction.action?id='+id+'&cabinClass='+1+'&flightScheduleId='+flightScheduleId;
-}
-function firstClass(id){
-	var flightScheduleId = $("#flightScheduleId").val();
-	window.location = 'bookingFlightAction.action?id='+id+'&cabinClass='+0+'&flightScheduleId='+flightScheduleId;
-}
-	$("#flight_form").validate({
-		rules: {
-			"companyName": {
-				remote: {
-					    type: "post",
-					    url: "validatecompanyname.action",
-					    dataType: "json",
-						data: {
-						  companyName: function() {
-						  return $("#companyName").val();
-						         }
-						  }
-					}
-			},
-			"flightNumber": {
-				remote: {
-				    type: "post",
-				    url: "validateflightnumber.action",
-				    dataType: "json",
-					data: {
-						flightNumber: function() {
-					  return $("#flightNumber").val();
-					         }
-					  }
-				}
-			}
-		},
-		messages: {
-			"companyName": {
-				remote: '该公司不存在'
-			},
-			"flightNumber":{
-				remote:'该航班号不存在'
-			}
-		},
-		errorPlacement: function(error, element) {
-			 error.appendTo(element.parent());  
-		}
-	});
+	var da = new Date();
+	var year = da.getFullYear()+'年';
+	var month = da.getMonth()+1+'月';
+	var date = da.getDate()+'日';
+	$('#now_time').text([year,month,date].join(' '));
 </script>
-
   </body>
 </html>

@@ -14,6 +14,15 @@ public class Flight {
 	private String eprice;//经济舱价格
 	private String companyName;//航空公司
 	private String planemodelName;//机型
+	private String travelDate;//里程时间
+	
+	
+	public String getTravelDate() {
+		return travelDate;
+	}
+	public void setTravelDate(String travelDate) {
+		this.travelDate = travelDate;
+	}
 	public String getBeginSite() {
 		return beginSite;
 	}
@@ -97,6 +106,6 @@ public class Flight {
 		return "Flight [flightId=" + flightId + ", flightNo=" + flightNo + ", beginSite=" + beginSite + ", endSite="
 				+ endSite + ", beginTime=" + beginTime + ", beginAir=" + beginAir + ", endAir=" + endAir + ", endTime="
 				+ endTime + ", fprice=" + fprice + ", bprice=" + bprice + ", eprice=" + eprice + ", companyName="
-				+ companyName + ", planemodelName=" + planemodelName + "]";
+				+ companyName + ", planemodelName=" + planemodelName + ", travelDate=" + travelDate + "]";
 	}
 }

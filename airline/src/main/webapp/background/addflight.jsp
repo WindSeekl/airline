@@ -201,12 +201,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 										</p>
 										<p>
 											<label>出发时间:</label> <input type="text" id="d241" name="beginTime"
-												onfocus="WdatePicker({skin:'whyGreen',dateFmt:'yyyy-MM-dd HH:mm:ss'})"
+												onfocus="WdatePicker({skin:'whyGreen',dateFmt:'HH:mm:ss'})"
 												class="Wdate" style="width:270px" />
 										</p>
 										<p>
 											<label>到达时间:</label> <input type="text" id="d241" name="endTime"
-												onfocus="WdatePicker({skin:'whyGreen',dateFmt:'yyyy-MM-dd HH:mm:ss'})"
+												onfocus="WdatePicker({skin:'whyGreen',dateFmt:'HH:mm:ss'})"
 												class="Wdate" style="width:270px" />
 										</p>
 										<p>
