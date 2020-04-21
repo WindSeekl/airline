@@ -16,4 +16,6 @@ public interface CustomerService {
 	Customer loginInfo(String customerName);
 	
 	List<Customer> queryCustomers();
+	
+	void addIntegral(Customer customer);
 }

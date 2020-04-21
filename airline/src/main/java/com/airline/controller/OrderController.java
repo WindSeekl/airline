@@ -10,7 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.airline.domain.Customer;
 import com.airline.domain.Reserve;
+import com.airline.service.CustomerService;
 import com.airline.service.FlightService;
 import com.airline.service.ReserveService;
 
@@ -22,6 +25,8 @@ public class OrderController {
 	private ReserveService reserveService;
 	@Autowired
 	private FlightService flightService;
+	@Autowired
+	private CustomerService customerService;
 	@RequestMapping("queryOrder")
 	public ModelAndView queryOrder(HttpSession session,Reserve reserve) {
 		String customerName = (String) session.getAttribute("uname");   //从session中获取登录用户的用户名
@@ -42,9 +47,15 @@ public class OrderController {
 		return mv;
 	}
 	@RequestMapping("insertReserve")
-	public JSONObject insertReserve(Reserve reserve) {
+	public JSONObject insertReserve(HttpSession session,Reserve reserve) {
 		Map<String, String> map = new HashMap<String, String>();
 		String res = reserveService.insertReserve(reserve);
+		String customerName = (String) session.getAttribute("customer");
+		int discountPrice = (int) session.getAttribute("discountPrice");
+		System.out.println(discountPrice);
+		Customer customer = customerService.loginInfo(customerName);
+		customer.setIntegral(discountPrice);
+		customerService.addIntegral(customer);
 		map.put("res", res);
 		JSONObject json = JSONObject.fromObject(map);
 		return json;

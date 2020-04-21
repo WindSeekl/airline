@@ -27,11 +27,17 @@ public class ReserveServiceImpl implements ReserveService{
 		reserve.setReserveId(reserveId());
 		reserve.setOrderDate(newDate());
 		String res ;
-		if(reserve.getUserName().isEmpty()&&reserve.getCardId().isEmpty()&&reserve.getPhoneNum().isEmpty()) {
-			res="订单信息不完成";
+		Reserve r = queryOneReserve(reserve);
+		if(r==null) {
+			if(reserve.getUserName().isEmpty()&&reserve.getCardId().isEmpty()&&reserve.getPhoneNum().isEmpty()) {
+				res="订单信息不完成";
+			}else {
+				int i = reserveRepository.insertReserve(reserve);
+				res = i==1?"下单成功":"下单失败";
+			}
+			
 		}else {
-			int i = reserveRepository.insertReserve(reserve);
-			res = i==1?"下单成功":"下单失败";
+			res="同一趟航班限订一张";
 		}
 		return res;
 	}
@@ -59,5 +65,11 @@ public class ReserveServiceImpl implements ReserveService{
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String date = sdf.format(new Date());
 		return date;
+	}
+
+	@Override
+	public Reserve queryOneReserve(Reserve reserve) {
+		// TODO Auto-generated method stub
+		return reserveRepository.queryOneReserve(reserve);
 	}
 }

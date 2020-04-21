@@ -64,6 +64,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		update customer set password = #{password} where customerName = #{customerName}
 	</update>
 	
+	<update id="addIntegral" parameterType="customer">
+		update customer set integral = integral+#{integral} where customerName = #{customerName}
+	</update>
+	
 	<update id="editInfo" parameterType="customer">
 		update customer set phone = #{phone},email = #{email} where customerName = #{customerName}
 	</update>

@@ -10,4 +10,5 @@ public interface ReserveService {
 	String insertReserve(Reserve reserve);//下单
 	int updateState(Reserve reserve);//订单状态 
 	int querySeatNum(String seatId);//查询舱位数量
+	Reserve queryOneReserve(Reserve reserve);
 }

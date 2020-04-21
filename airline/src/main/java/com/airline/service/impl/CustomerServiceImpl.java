@@ -79,4 +79,10 @@ public class CustomerServiceImpl implements CustomerService {
 		// TODO Auto-generated method stub
 		return customerRepository.queryCustomer(customerName);
 	}
+
+	@Override
+	public void addIntegral(Customer customer) {
+		// TODO Auto-generated method stub
+		customerRepository.addIntegral(customer);
+	}
 }
