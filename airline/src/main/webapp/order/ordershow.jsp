@@ -179,7 +179,7 @@
 										</li>
 										<li class="c6 tall" style="width:90px;  padding-bottom: 44px; padding-top: 35px;">
 											<c:if test="${reserve.state=='待付款'}" >
-												<a href='#' style="color:#CC3333" id="but">付款</a>
+												<a href='<%=basePath%>pay?reserveId=${reserve.reserveId}' style="color:#CC3333" id="but">付款</a>
 												<br/>
 												<a href="<%=basePath%>cancelOrder?reserveId=${reserve.reserveId}" style="color:#CC3333" id="but" onclick="cancelOrder()">取消订单</a>
 											</c:if>
@@ -240,7 +240,7 @@ $("#orderdate").click(function(){
 		querybyDate();
 });
 function pay(){
-	
+	alert("付款成功！请等待客服审核。");
 }
 function cancelOrder(){
 	alert("订单已取消！");
