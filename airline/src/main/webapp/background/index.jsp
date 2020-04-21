@@ -27,7 +27,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/excanvas.min.js"></script><![endif]-->
 </head>
 
-<body>
+<body onload="iflogin();">
+<script type="text/javascript">
+	function iflogin(){
+		if(${admin.adminName == null}){
+			location.href="login.jsp"
+		}
+	}
+</script>
 
 	<div class="mainwrapper">
 
