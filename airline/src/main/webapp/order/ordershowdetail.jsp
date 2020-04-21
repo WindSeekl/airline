@@ -141,9 +141,9 @@
 											航空公司：<s:property value="#session.order.companyName"/>${companyName}
 											<br>航&nbsp;班&nbsp;号&nbsp;：${reserveDetail.flightId}
 											<br>舱&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;位：
-											<s:if test="#session.order.cabinClass==0">头等舱</s:if>
-											<s:if test="#session.order.cabinClass==1">公务舱</s:if>
-											<s:if test="#session.order.cabinClass==2">经济舱</s:if>
+											<c:if test="${seatId=='Y'}">头等舱</c:if>
+											<c:if test="${seatId=='B'}">商务舱</c:if>
+											<c:if test="${seatId=='E'}">经济舱</c:if>
 										</dl>
 										<dl class="f2" style="margin-top: -10px">
 											<dt>
