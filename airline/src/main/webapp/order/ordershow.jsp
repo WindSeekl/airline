@@ -46,8 +46,10 @@
 		</address>
 		<address class="text blue">
 			<p>
-				<a id="login" href="login.jsp">登录</a>&nbsp; | &nbsp; <a
-					id="register" target="_blank" href="regcustomer.jsp">注册</a>
+				<a id="login" href="login.jsp">登录</a>&nbsp; | &nbsp; 
+				<a id="register" target="_blank" href="regcustomer.jsp">
+					注册
+				</a>
 			</p>
 	<div class="clear"></div>
 	</hgroup> </header>

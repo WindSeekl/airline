@@ -81,7 +81,6 @@
 		<div class="myceair">
 			<div class="left">
 				<div class="home"></div>
-
 				<div class="menu font14 bold m1">
 					<a href="customer/customerinfo.jsp">个人信息</a>
 				</div>
