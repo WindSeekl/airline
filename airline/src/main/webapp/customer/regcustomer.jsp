@@ -292,8 +292,8 @@ $("#login1").click(function (){
 				alert("失败")
 			}
 		})
-	}
-	document.getElementById('easten_form').reset();
+	}/* 
+	document.getElementById('easten_form').reset(); */
 });/* 
 	$("#easten_form").validate({
 		rules: {

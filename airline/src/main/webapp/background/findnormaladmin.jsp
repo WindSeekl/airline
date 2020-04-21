@@ -163,6 +163,7 @@ input{border:0;}
 
 					<div class="maincontentinner">
 						<h4 class="widgettitle">管理员信息</h4>
+						<c:if test="${not empty admins}">
 						<table class="table table-bordered responsive">
 							<thead>
 								<tr>
@@ -175,7 +176,6 @@ input{border:0;}
 									<th>操作</th>
 								</tr>
 							</thead>
-							<c:if test="${not empty admins}">
 								<tbody>
 								<c:forEach var="admin" items="${admins}">
 									<tr>
@@ -205,11 +205,11 @@ input{border:0;}
 									</tr>
 									</c:forEach>
 								</tbody>
-							</c:if>
 						</table>
+							</c:if>
 						
 							<c:if test="${empty admins}">
-								<center><h3>未获取到普通管理员信息</h3></center>
+								<center><h4>未获取到普通管理员信息</h4></center>
 							</c:if>
 					</div>
 					<!--maincontentinner-->

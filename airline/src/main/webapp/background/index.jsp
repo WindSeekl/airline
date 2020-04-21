@@ -10,20 +10,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>航空订票系统</title>
-<link rel="stylesheet" href="css/style.default.css" type="text/css" />
+<link rel="stylesheet" href="<%=basePath%>background/css/style.default.css" type="text/css" />
 
-<link rel="stylesheet" href="css/responsive-tables.css">
-<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
-<script type="text/javascript" src="js/jquery-migrate-1.1.1.min.js"></script>
-<script type="text/javascript" src="js/jquery-ui-1.9.2.min.js"></script>
-<script type="text/javascript" src="js/modernizr.min.js"></script>
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/jquery.cookie.js"></script>
-<script type="text/javascript" src="js/jquery.uniform.min.js"></script>
-<script type="text/javascript" src="js/flot/jquery.flot.min.js"></script>
-<script type="text/javascript" src="js/flot/jquery.flot.resize.min.js"></script>
-<script type="text/javascript" src="js/responsive-tables.js"></script>
-<script type="text/javascript" src="js/custom.js"></script>
+<link rel="stylesheet" href="<%=basePath%>background/css/responsive-tables.css">
+<script type="text/javascript" src="<%=basePath%>background/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="<%=basePath%>background/js/jquery-migrate-1.1.1.min.js"></script>
+<script type="text/javascript" src="<%=basePath%>background/js/jquery-ui-1.9.2.min.js"></script>
+<script type="text/javascript" src="<%=basePath%>background/js/modernizr.min.js"></script>
+<script type="text/javascript" src="<%=basePath%>background/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="<%=basePath%>background/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="<%=basePath%>background/js/jquery.uniform.min.js"></script>
+<script type="text/javascript" src="<%=basePath%>background/js/flot/jquery.flot.min.js"></script>
+<script type="text/javascript" src="<%=basePath%>background/js/flot/jquery.flot.resize.min.js"></script>
+<script type="text/javascript" src="<%=basePath%>background/js/responsive-tables.js"></script>
+<script type="text/javascript" src="<%=basePath%>background/js/custom.js"></script>
 <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/excanvas.min.js"></script><![endif]-->
 </head>
 
@@ -86,7 +86,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<li class="dropdown"><a href=""><span
 							class="iconfa-pencil"></span> 航班机票管理</a>
 						<ul>
-							<li><a href="../findwaiteOrderAction.action">订票审核</a></li>
+							<li><a href="<%=basePath%>queryAllReserve">订票审核</a></li>
 							<li><a href="../findbounceOrderAction.action">退票管理</a></li>
 							<li><a href="../findAllUserAllOrderAction.action">其他订单信息管理</a></li>
 						</ul></li>

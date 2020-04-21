@@ -10,20 +10,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>订单审核</title>
-<link rel="stylesheet" href="css/style.default.css" type="text/css" />
+<link rel="stylesheet" href="<%=basePath%>background/css/style.default.css" type="text/css" />
 
-<link rel="stylesheet" href="css/responsive-tables.css">
-<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
-<script type="text/javascript" src="js/jquery-migrate-1.1.1.min.js"></script>
-<script type="text/javascript" src="js/jquery-ui-1.9.2.min.js"></script>
-<script type="text/javascript" src="js/modernizr.min.js"></script>
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/jquery.cookie.js"></script>
-<script type="text/javascript" src="js/jquery.uniform.min.js"></script>
-<script type="text/javascript" src="js/flot/jquery.flot.min.js"></script>
-<script type="text/javascript" src="js/flot/jquery.flot.resize.min.js"></script>
-<script type="text/javascript" src="js/responsive-tables.js"></script>
-<script type="text/javascript" src="js/custom.js"></script>
+<link rel="stylesheet" href="<%=basePath%>background/css/responsive-tables.css">
+<script type="text/javascript" src="<%=basePath%>background/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="<%=basePath%>background/js/jquery-migrate-1.1.1.min.js"></script>
+<script type="text/javascript" src="<%=basePath%>background/js/jquery-ui-1.9.2.min.js"></script>
+<script type="text/javascript" src="<%=basePath%>background/js/modernizr.min.js"></script>
+<script type="text/javascript" src="<%=basePath%>background/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="<%=basePath%>background/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="<%=basePath%>background/js/jquery.uniform.min.js"></script>
+<script type="text/javascript" src="<%=basePath%>background/js/flot/jquery.flot.min.js"></script>
+<script type="text/javascript" src="<%=basePath%>background/js/flot/jquery.flot.resize.min.js"></script>
+<script type="text/javascript" src="<%=basePath%>background/js/responsive-tables.js"></script>
+<script type="text/javascript" src="<%=basePath%>background/js/custom.js"></script>
 <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/excanvas.min.js"></script><![endif]-->
 </head>
 
@@ -78,7 +78,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<li class="dropdown active"><a href=""><span
 							class="iconfa-pencil"></span> 航班机票管理</a>
 						<ul  style="display:block;">
-							<li class="active"><a href="../findwaiteOrderAction.action">订票审核</a></li>
+							<li class="active"><a href="<%=basePath%>queryAllReserve">订票审核</a></li>
 							<li><a href="../findbounceOrderAction.action">退票管理</a></li>
 							<li><a href="../findAllUserAllOrderAction.action">其他订单信息管理</a></li>
 						</ul></li>
@@ -156,6 +156,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<div class="maincontentinner">
 
 						<h4 class="widgettitle">待处理订单</h4>
+						<c:if test="${not empty reserves}">
 						<table id="dyntable" class="table table-bordered responsive">
 							<colgroup>
 								<col class="con0" style="align: center; width: 4%" />
@@ -185,37 +186,49 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									<th class="head0 center">身份证</th>
 									<th class="head1 center">价格</th>
 									<th class="head0 center">状态</th>
+									<th class="head1 center">操作</th>
 								</tr>
 							</thead>
 							<tbody>
-							<s:iterator value="#session.orderList">
+							<c:forEach items="${reserves}" var="reserve">
 								<tr class="gradeX">
 									<td class="aligncenter"><span class="center"> <input
 											type="checkbox" />
 									</span></td>
-									<td class="center"><s:property value="orderId"/> </td>
-									<td class="center"><s:property value="customer.username"/></td>
-									<td class="center"><s:property value="flightNumber"/></td>
-									<td class="center"><s:property value="startPoint"/></td>
-									<td class="center"><s:property value="endPoint"/></td>
-									<td class="center"><s:date format="yyyy-MM-dd HH:mm:ss" name="startTime"/></td>
-									<td class="center"><s:date format="yyyy-MM-dd HH:mm:ss" name="startTime"/></td>
-									<td class="center"><s:property value="name"/></td>
-									<td class="center"><s:property value="phoneNumber"/></td>
-									<td class="center"><s:property value="identificationCard"/></td>
-									<td class="center">￥<s:property value="price"/></td>
-									<td class="centeralign"><a href="../dealWaiteOrderAction?orderId=<s:property value="orderId"/>&property=1">
-									<span class="iconfa-check"></span></a>
+									<td class="center">${reserve.reserveId}</td>
+									<td class="center">${reserve.customerName}</td>
+									<td class="center">${reserve.flightId}</td>
+									<td class="center">${reserve.benginSite}</td>
+									<td class="center">${reserve.endSite}</td>
+									<td class="center">${reserve.benginDate}</td>
+									<td class="center">${reserve.endDate}</td>
+									<td class="center">${reserve.userName}</td>
+									<td class="center">${reserve.phoneNum}</td>
+									<td class="center">${reserve.cardId}</td>
+									<td class="center">￥${reserve.money}</td>
+									<td class="center">购票中 待审核</td>
+									<td class="centeralign"><%-- <a href="<%=basePath%>dealWaiteOrder?reserveId=${reserve.reserveId}&state=${reserve.state}">
+									<span class="iconfa-check"></span></a> --%>
+									<form action="#" style="display: inline" id="passForm">
+										<input type="hidden" name="reserveId" value="${reserve.reserveId}">
+										<input type="hidden" name="state" value="${reserve.state}">
+										<input type="button" id="pass" class="icon-ok" style="border: 0px">
+									</form>
 									&nbsp;
-									<a href="../dealWaiteOrderAction?orderId=<s:property value="orderId"/>&property=0">
-									<span class="iconfa-remove-sign"></span></a>
-									
+									<%-- <a href="<%=basePath%>OrderNotPass?reserveId=${reserve.reserveId}&state=${reserve.state}">
+									<span class="iconfa-remove-sign"></span></a> --%>
+									<form action="#" style="display: inline" id="notPassForm">
+										<input type="hidden" name="reserveId" value="${reserve.reserveId}">
+										<input type="hidden" name="state" value="${reserve.state}">
+										<input type="button" id="notPass" class="icon-remove" onclick="commit();" style="border: 0px">
+									</form>
 									</td>				
 								</tr>
-							</s:iterator>
+							</c:forEach>
 							</tbody>
 						</table>
-
+					</c:if>
+					<c:if test="${empty reserves}"><center><h4>没有需要处理的订单</h4></center></c:if>
 				</div>
 				<!--maincontentinner-->
 			</div>
@@ -226,7 +239,33 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 	</div>
 	<!--mainwrapper-->
-
+ <script type="text/javascript">
+		jQuery("#pass").click(function(){
+			jQuery.ajax({
+				url:'<%=basePath%>dealWaiteOrder',
+				data:jQuery("#passForm").serialize(),
+				type:"post",
+				dataType:'json',
+				success:function(data){
+					alert(data.res)
+					window.location.reload(); 
+				}
+			})
+		})
+		
+		function commit(){
+			jQuery.ajax({
+				url:'<%=basePath%>OrderNotPass',
+				data:jQuery("#notPassForm").serialize(),
+				type:"post",
+				dataType:'json',
+				success:function(data){
+					alert(data.res)
+					window.location.reload(); 
+				}
+			})
+		}
+	</script>
 </body>
 </html>
 

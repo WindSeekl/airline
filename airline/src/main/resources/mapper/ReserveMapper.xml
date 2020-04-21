@@ -33,4 +33,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="querySeatNum" parameterType="String" resultType="int">
 		select count(*) from reserve where seatId=#{seatId}
 	</select>
+	<select id="queryAllReserve" resultType="reserve">
+		select * from reserve where state in ('购票审核中')
+	</select>
+	<update id="dealWaiteOrder" parameterType="reserve">
+		update reserve set state = #{state} where reserveId = #{reserveId}
+	</update>
 </mapper>

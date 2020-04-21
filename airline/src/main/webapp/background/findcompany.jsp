@@ -168,7 +168,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </div><!--pageheader-->
         <div class="maincontent">
  					<div class="maincontentinner">
-						<h4 class="widgettitle">Deletable Row</h4>
+						<h4 class="widgettitle">Deletable Row</h4><c:if test="${not empty companys}">
 						<table class="table table-bordered responsive"><!--  id="dyntable" -->
 							<colgroup>
 								<col class="con0" style="align: center; width: 4%" />
@@ -218,9 +218,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</c:forEach>
 							</tbody>
 						</table>
+						</c:if>
 						<c:if test="${empty companys}">
-								<center><h3>未获取到航空公司信息</h3></center>
-							</c:if>
+								<center><h4>未获取到航空公司信息</h4></center>
+						</c:if>
 					</div>
         </div><!--maincontent-->
         
