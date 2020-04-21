@@ -66,7 +66,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div class="leftmenu">
 				<ul class="nav nav-tabs nav-stacked">
 					<li class="nav-header">Navigation</li>
-					<li><a href="index.jsp"><span
+					<li><a href="<%=basePath%>background/index.jsp"><span
 							class="iconfa-laptop"></span> 首页</a></li>
 					<li class="dropdown"><a href=""><span class="iconfa-group"></span>
 							订票客户管理</a>

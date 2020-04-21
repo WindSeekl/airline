@@ -1,5 +1,9 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,13 +41,20 @@
 						<div class="userloggedinfo">
 												<div class="userinfo">
 								<h5>
-									<s:property value="#session.currentAdmin.username" /> <small>
-									<s:if test="#session.currentAdmin.jurisdiction==1">
-									普通管理员</s:if>
-									<s:else>高级管理员</s:else></small>
+								<c:if test="${admin.permission == 1}">
+									普通管理员
+								</c:if>
+								<c:if test="${admin.permission == 0}">
+									高级管理员
+								</c:if>	
 								</h5>
 								<ul>
-									<li><a href="login.jsp">注销</a></li>
+									<c:if test="${not empty admin}">
+										<li><a href="<%=basePath %>logoutAdmin">注销</a></li>
+									</c:if>
+									<c:if test="${empty admin}">
+										<li><a href="login.jsp">登录</a></li>
+									</c:if>
 								</ul>
 							</div>
 						</div>
@@ -58,7 +69,7 @@
 			<div class="leftmenu">
 				<ul class="nav nav-tabs nav-stacked">
 					<li class="nav-header">Navigation</li>
-					<li class="active"><a href="../countOrderAction.action"><span
+					<li><a href="<%=basePath%>background/index.jsp"><span
 							class="iconfa-laptop"></span> 首页</a></li>
 					<li class="dropdown"><a href=""><span class="iconfa-group"></span>
 							订票客户管理</a>
