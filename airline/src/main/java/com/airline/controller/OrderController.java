@@ -1,6 +1,8 @@
 package com.airline.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -8,11 +10,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
-
-import com.airline.domain.Flight;
 import com.airline.domain.Reserve;
 import com.airline.service.FlightService;
 import com.airline.service.ReserveService;
+
+import net.sf.json.JSONObject;
 
 @RestController
 public class OrderController {
@@ -39,5 +41,12 @@ public class OrderController {
 		mv.addObject("reserveDetail", r);
 		return mv;
 	}
-	
+	@RequestMapping("insertReserve")
+	public JSONObject insertReserve(Reserve reserve) {
+		Map<String, String> map = new HashMap<String, String>();
+		String res = reserveService.insertReserve(reserve);
+		map.put("res", res);
+		JSONObject json = JSONObject.fromObject(map);
+		return json;
+	}
 }

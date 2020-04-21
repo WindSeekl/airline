@@ -1,5 +1,7 @@
 package com.airline.service.impl;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,9 +22,18 @@ public class ReserveServiceImpl implements ReserveService{
 	}
 
 	@Override
-	public int insertReserve(Reserve reserve) {
+	public String insertReserve(Reserve reserve) {
 		// TODO Auto-generated method stub
-		return reserveRepository.insertReserve(reserve);
+		reserve.setReserveId(reserveId());
+		reserve.setOrderDate(newDate());
+		String res ;
+		if(reserve.getUserName().isEmpty()&&reserve.getCardId().isEmpty()&&reserve.getPhoneNum().isEmpty()) {
+			res="订单信息不完成";
+		}else {
+			int i = reserveRepository.insertReserve(reserve);
+			res = i==1?"下单成功":"下单失败";
+		}
+		return res;
 	}
 
 	@Override
@@ -40,5 +51,13 @@ public class ReserveServiceImpl implements ReserveService{
 	public int querySeatNum(String seatId) {
 		// TODO Auto-generated method stub
 		return reserveRepository.querySeatNum(seatId);
+	}
+	public String reserveId(){
+		return String.valueOf((int)(Math.random()*(999999-100000+1)+100000));
+	}
+	public String newDate(){
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String date = sdf.format(new Date());
+		return date;
 	}
 }

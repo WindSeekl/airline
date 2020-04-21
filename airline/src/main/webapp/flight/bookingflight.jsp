@@ -55,8 +55,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<ul class="menu_index">
 			<li id="menu-home"><a href="index.jsp">首页</a> <i></i>
 			</li>
-			<li id="menu-myceair"><a
-				href="customer/customerinfo.jsp">我的信息</a>
+			<li id="menu-myceair"><a href="<%=basePath%>customerinfo?customerName=${customer}"><li id="menu-myceair">我的信息<i></i></li></a>
 				<i></i></li>
 			<li id="menu-booking" class="current">
 					<a href="index.jsp">预订行程</a>
@@ -177,8 +176,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</div>
 				</div>
 				<div class="btn_confirm">
-					<input type="button" name="next" class="button navblue" value="提交订单" id="btn_passenger">
-					<input type="button" name="next" class="button navblue" value="直接付款" id="btn_passenger">
+					<input type="button"  class="button navblue" value="提交订单" id="submitOrder">
+					<input type="button"  class="button navblue" value="直接付款" id="payment">
 				</div>
 				<div class="infoFloat ready" id="infoFloat" style="position: absolute; left: 740px;">
 					<h2>折扣信息</h2>
@@ -210,7 +209,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<input value="${flight.beginSite}" type="hidden" name="benginSite">
 				<input value="${flight.endSite}" type="hidden" name="endSite">
 				<input value="${flight.travelDate}" type="hidden" name="travelDate">
+				<input value="${discountPrice}" type="hidden" name="money">
 				<input value="${customer}" type="hidden" name="customerName">
+				<input  type="hidden" name="state" id="sta">
 			</div>
 			<!--footer-->
 	</form>
@@ -219,9 +220,40 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</section> </section> </section>
 	<!--footer-->
 	<script type="text/javascript">
-		
-	
-	
+	jQuery("#submitOrder").click(function(){
+		jQuery("#sta").attr("value","待付款");
+		jQuery.ajax({
+			url:'../insertReserve',
+			data:jQuery("#orderform").serialize(),
+			type:"post",
+			dataType:'json',
+			success:function(data){
+				alert(data.res)
+				if(data.res=="下单成功"){
+					document.getElementById('orderform').reset();
+				}
+			},error:function(data){
+				alert("失败")
+			}
+		})
+	})
+	jQuery("#payment").click(function(){
+		jQuery("#sta").attr("value","付款审核中");
+		jQuery.ajax({
+			url:'../insertReserve',
+			data:jQuery("#orderform").serialize(),
+			type:"post",
+			dataType:'json',
+			success:function(data){
+				alert(data.res)
+				if(data.res=="下单成功"){
+					document.getElementById('orderform').reset();
+				}
+			},error:function(data){
+				alert("失败")
+			}
+		})
+	})
 	</script>
 </body>
 </html>

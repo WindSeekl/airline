@@ -66,7 +66,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<a href="http://www.ceair.com">首页</a> <i></i>
 				</li>
 				<li id="menu-myceair">
-					<a href="customer/customerinfo.jsp">我的东航</a> <i></i>
+					<a href="<%=basePath%>customerinfo?customerName=${customer}"><li id="menu-myceair">我的信息<i></i></li></a>
 				</li>
 				<li id="menu-booking" class="current">
 					<a href="#">预订行程</a>

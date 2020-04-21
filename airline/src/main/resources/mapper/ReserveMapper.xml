@@ -21,7 +21,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from reserve where reserveId=#{reserveId} 
 	</select>
 	<insert id="insertReserve" parameterType="reserve">
-		insert into reserve values(#{reserveId},#{cardId},#{userName},#{flightId},#{benginDate},#{endDate},#{benginSite},#{endSite},#{seatId},#{money},#{travelDate},#{state},#{customerName})
+		insert into reserve values(#{reserveId},#{cardId},#{userName},#{flightId},#{benginDate},#{endDate},#{benginSite},#{endSite},#{seatId},#{money},#{travelDate},#{state},#{customerName},#{orderDate},#{phoneNum})
 	</insert>
 	<update id="updateState" parameterType="reserve">
 		update reserve set state=#{state} where reserveId=#{reserveId}
