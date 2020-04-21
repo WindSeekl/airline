@@ -36,4 +36,9 @@ public class ReserveServiceImpl implements ReserveService{
 		// TODO Auto-generated method stub
 		return reserveRepository.queryReserveDetail(reserve); 
 	}
+	@Override
+	public int querySeatNum(String seatId) {
+		// TODO Auto-generated method stub
+		return reserveRepository.querySeatNum(seatId);
+	}
 }

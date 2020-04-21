@@ -125,18 +125,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						条符合条件</em>
 				</article>
 
-
-
 				<section id="flight-info">
 					<div class="flight-section" style="z-index: 4;">
-					<c:if test="${not empty accordFlightList}">
-							<c:forEach items="${accordFlightList}" var="flight">
 						<div class="head">
-						
-							<dl>
+						<c:if test="${not empty accordFlightList}">
+							<c:forEach items="${accordFlightList}" var="flight">
+							<dl style="height: 100px;border:1px solid #000;">
 								<dt class="right">
 									<b>${flight.beginSite}</b><br>
-									<p style="font-size: 15px">${flight.beginTime}</p>
+									<b>${flight.beginTime}</b>
 								</dt>
 								
 								<dt class="center" style="width: 100px">
@@ -144,78 +141,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                      -----------><br>
                                     ${flight.travelDate}<br>
 								</dt>
-								
 								<dt class="left">
 									<b>${flight.endSite}</b><br>
-									<p style="font-size: 15px">${flight.endTime}</p>
+									<b>${flight.endTime}</b>
 								</dt>
 								<dd class="btn">
 									<span class="price"><dfn>${flight.eprice}¥</dfn>
 										<i>起</i>
 									</span><br>
-									
-									<button>查询余票</button>
+									<a href="querySurplus?flightNo=${flight.flightNo}&travelDate=${flight.travelDate}&fsDate=${flightschedule.fsDate}"><button>查询余票</button></a>
 								</dd>
 							</dl>
-							</div>
 							</c:forEach>
 						</c:if>
-						
-						
-						<div class="body">
-							<ul>
-								<li class="c-4">
-									经济舱(剩余：
-									<span class="seatAlarm" style="color: #D42826;">
-									</span>
-									张)
-								</li>
-								<li class="c-5">
-									<span class="price normal red"> <dfn>¥</dfn>
-								
-									</span>
-								</li>
-								<li class="c-6"></li>
-								<li class="c-7">
-									<input type="button" value="预 订" cabinidx="0"  class="button lightred"  name="select" id="tourist_class" onclick="tourist(<s:property  value="flight.flightId"/>)"></li>
-							</ul>
-							<ul>
-								<li class="c-4">
-									公务舱(剩余：
-									<span class="seatAlarm" style="color: #D42826;">
-									</span>
-									张)
-								</li>
-								<li class="c-5">
-									<span class="price normal red">
-										<dfn>¥</dfn>
-									</span>
-								</li>
-								<li class="c-6"></li>
-								<li class="c-7">
-									<input type="button" value="预 订" cabinidx="1"  class="button gray"  name="select" id="business_class" onclick="business(<s:property  value="flight.flightId"/>)"></li>
-							</ul>
-								<ul>
-								<li class="c-4">
-									头等舱(剩余：
-									<span class="seatAlarm" style="color: #D42826;">
-									</span>
-									张)
-								</li>
-								<li class="c-5">
-									<span class="price normal red">
-										<dfn>¥</dfn>
-									</span>
-								</li>
-								<li class="c-6"></li>
-								<li class="c-7">
-									<input type="button" value="预 订" id="first_class"  class="button gray"  name="select"  onclick="firstClass(<s:property  value="flight.flightId"/>)">
-								<input id="flightId" type="text"  style="visibility: hidden; display: none;" >
-								</li>
-							</ul>
-						</div>
-					</div>
-					<div class="line"></div>
+					</div>	
+				</div>
 				</section>
 			</hgroup>
 

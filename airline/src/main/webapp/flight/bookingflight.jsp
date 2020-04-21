@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+ <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -37,24 +38,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
 <body>
 	<header id="header"> <hgroup>
-	<s:if test="#session.currentUser">
-		<address class="text blue">
-			<p >
-				欢迎您，
-				${ currentUser.username}
-				&nbsp;&nbsp;<a href="login.jsp">注销</a>
-			</p>
-		</address>
-	</s:if> <s:else>
-		<address class="text blue">
-			<p>
-				<a id="login"
-					href="login.jsp">登录</a>
-				&nbsp; | &nbsp; <a id="register" target="_blank"
-					href="regcustomer.jsp">注册</a>
-			</p>
-		</address>
-	</s:else>
+	<c:if test="${not empty customer}">
+		    <address class="text blue">
+		    	<p>欢迎您，${customer}&nbsp;&nbsp;<a href="<%=basePath%>logout">注销</a> </p>
+		    </address>
+		    </c:if>
+		    <c:if test="${empty customer}">
+			    <address class="text blue">
+			   		<p> <a id="login" href="login.jsp">登录</a>&nbsp; | &nbsp; <a id="register" target="_blank" href="regcustomer.jsp">注册</a></p>
+			    </address>
+		    </c:if>
 	<div class="clear"></div>
 	</hgroup> </header>
 	<menu id="menu">
@@ -87,47 +80,42 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		
 		<hgroup
 		id="flight-departure"> 
-	<form  action="saveOrderAction.action" method="post">
+		
+	<form action="#" method="post" id="orderform">
 	<div id="main-area">
 
 		<div id="content">
 			<div class="clear"></div>
 			<div class="order_info" style="padding-top: 30px;">
-				<h2>订单信息</h2>
+				<h2 style="color: black;">${flight.companyName}|航班${flight.flightNo}</h2>
 				<div class="body">
 
 					<div class="clear"></div>
 
 					<div class="row1">
 						<div class="col1" style="padding-top:0px"><br>去程</div>
-						<div class="col2"> <b>${flight.startPoint }</b> <b><s:date format="HH:mm" name="#request.flight.startTime"/></b>
-							<span class="pk" style="display: none;">2014-11-27</span>
+						<div class="col2">
+							<b style="font-size: 25px">${flight.beginSite}</b>
+							<span class="pk" >${flight.beginAir}</span>
 							<span class="ex" style="display: inline;">
-								<br>
-								<s:date name="#request.flightSchedule.day" format="yyyy-MM-dd"/>
-								<br>${flight.startPointAirport}</span>
+								<br><br><b>${flight.beginTime}</b></span>
 						</div>
 						<div class="col4">
-							<span class="pk" style="display: none;">————</span>
 							<span class="ex" style="display: inline;">
-							${flight.companyName }
-							<br>
-							${flight.flightNumber }<br>
-							${cabinClass }
+							${fsDate}<br>
+							——————<br>
+							${flight.travelDate}<br>
 							</span>
 						</div>
 						<div class="col2">
-							<b>${flight.endPoint }</b>
-							<b><s:date format="HH:mm" name="#request.flight.arrivalTime"/></b>
-							<span class="pk" style="display: none;">2014-11-27</span>
+						<span class="pk" >${flight.endAir}</span>
+							<b style="font-size: 25px">${flight.endSite}</b>
 							<span class="ex" style="display: inline;">
-								<br>
-								<s:date name="#request.flightSchedule.day" format="yyyy-MM-dd"/>
-								<br>${flight.endPointAirport}</span>
+								<br><br><b>${flight.endTime}</b></span>
 						</div>
 						<div class="col4">
 						<br>
-							<a href="/index.jsp">修改航班</a>
+							<a href="<%=basePath%>flight/flightshow.jsp">修改航班</a>
 						</div>
 						<div class="clear"></div>
 					</div>
@@ -139,29 +127,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<h2>填写乘机人资料</h2>
 					<div class="body">
 						<div class="box init">
-							<div class="row">
-								<div class="col1">&nbsp;</div>
-								<div class="col2">
-									<input name="person" id="radio_ADT" class="input_rc paxTypeRadio" type="radio" value="ADT" checked="checked"  >
-									<span class="radioSpan initno" >成人</span>
-									<input name="person" id="radio_CHD" class="input_rc paxTypeRadio initno" type="radio" value="CHD" >
-									<span class="radioSpan initno" >儿童</span>
-								</div>
-							</div>
 							<div class="input_ADT" name="paxInput">
 								<div class="row">
 									<div class="col1"> <i>*</i>
 										&nbsp;旅客姓名：
 									</div>
 									<div class="col2">
-										<input type="text" class="input selectInfo" name="realName" autocomplete="off" style="height:20px;" maxlength="28" value="${currentUser.realName }"></div>
+										<input type="text" class="input selectInfo" name="userName" autocomplete="off" style="height:20px;" maxlength="28" value=""></div>
 								</div>
 								<div class="row">
 									<div class="col1"> <i>*</i>
 										&nbsp;证件号码：
 									</div>
 									<div class="col2">
-										<input type="text" class="input note_tips" name="identificationCard"  style="height:20px;" tips="" value="${currentUser.identificationCard }"></div>
+										<input type="text" class="input note_tips" name="cardId"  style="height:20px;" tips="" value=""></div>
 								</div>
 								<div class="clear"></div>
 							</div>
@@ -188,10 +167,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									移动电话
 								</div>
 								<div class="col2">
-									<input type="text" name="phoneNumber"  style="height:20px;" class="input" value="${currentUser.phoneNumber }">
-									<input id="finalprice" type="text" name="finalprice" value=" " style="display: none">
-									</div>
-							
+									<input type="text" name="phoneNum"  style="height:20px;" class="input">
+								</div>
 							</div>
 						</div>
 						<div class="none" id="inputInfo">
@@ -200,70 +177,51 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</div>
 				</div>
 				<div class="btn_confirm">
-					<input type="submit" name="next" class="button navblue" value="确认并提交订单" id="btn_passenger"></div>
-
+					<input type="button" name="next" class="button navblue" value="提交订单" id="btn_passenger">
+					<input type="button" name="next" class="button navblue" value="直接付款" id="btn_passenger">
+				</div>
 				<div class="infoFloat ready" id="infoFloat" style="position: absolute; left: 740px;">
-					<h2>乘机人名单</h2>
+					<h2>折扣信息</h2>
 					<div class="body">
 						<ul></ul>
 						<div class="clear"></div>
 						<div class="itext">
-							<span class="tktPrice">
-							<div style="display:block" id="adult">
-								<i>基本票价：￥${cabinclassprice}</i>
-								<br></span>
-							</div>
-								<div style="display:none" id="children">
-								<span class="tktPrice">
-								<i>儿童票价：￥${cabinclassprice*children/100}</i>
-								<br></span>
-								<i name="tax" >儿童折扣:
-								<b>${children}%</b></i> <br></div>
-					
-							<i name="tax">帐号类型:
-								<b>${accountType }</b></i> 
-							<br>
-							<i name="fee">享有折扣:
-								<b><s:if test="#request.discountrate==1">无折扣</s:if><s:else> ${discountrate}%</s:else></b></i> 
+							<i>舱位：<b>
+								<c:if test="${seatId=='Y'}">头等舱</c:if>
+								<c:if test="${seatId=='B'}">商务舱</c:if>
+								<c:if test="${seatId=='E'}">经济舱</c:if>
+							</b></i><br>
+							<i>基本票价：<b>${price}￥</b></i><br>
+							<i>帐号类型：<b>${VIPgrade}</b></i><br>
+							<i>享有折扣：<b>${discountInfo}</b></i>
 						</div>
 						<div class="itotal" >
-							<div class="iname">订单总价：</div>
-							<div id="totalPrice" class="iprice" >￥${cabinclassprice}</div>
-							<div class="clear"></div>
+							<div class="iname">订单价格：</div>
+							<div id="totalPrice" class="iprice" >￥${discountPrice}</div>
 						</div>
 					</div>
 				</div>
-
+			</div>
+			<div>
+				<input value="${seatId}" type="hidden" name="seatId">
+				<input value="${flight.flightNo}" type="hidden" name="flightId">
+				<input value="${fsDate} ${flight.beginTime}" type="hidden" name="benginDate">
+				<input value="${fsDate} ${flight.endTime}" type="hidden" name="endDate">
+				<input value="${flight.beginSite}" type="hidden" name="benginSite">
+				<input value="${flight.endSite}" type="hidden" name="endSite">
+				<input value="${flight.travelDate}" type="hidden" name="travelDate">
+				<input value="${customer}" type="hidden" name="customerName">
 			</div>
 			<!--footer-->
-
-
-	</div></div>
 	</form>
 	</hgroup> </aside>
 	<div class="clear"></div>
 	</section> </section> </section>
 	<!--footer-->
-	<section id="blank"></section>
 	<script type="text/javascript">
-	$(document).ready(function(){
-		$("#finalprice").attr("value" ,${cabinclassprice});
-	});
-	$("#radio_ADT").change(function(){  
-		var price=${discountrate*cabinclassprice};
-		$("#adult").css("display","block") ; 
-		$("#children").css("display","none") ;
-		$("#totalPrice").html("￥"+price);
-		$("#finalprice").attr("value" , price);
-		}); 
-	$("#radio_CHD").change(function(){ 
-		var price=${cabinclassprice*children*discountrate/100};
-		$("#children").css("display","block") ; 
-		$("#adult").css("display","none") ;
-		$("#totalPrice").html("￥"+price);
-		$("#finalprice").val(price);
-		$("#finalprice").attr("value" , price);
-		});
+		
+	
+	
 	</script>
 </body>
 </html>
