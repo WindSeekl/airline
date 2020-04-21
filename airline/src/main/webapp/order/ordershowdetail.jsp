@@ -101,8 +101,10 @@
 							class="icon shadowLeft"></mark> <mark class="icon shadowRight"></mark>
 						<ul class="passengerHead">
 							<li class="name">乘机人</li>
-							<li index="0" title="陈香林" class="active"><mark
-									class="icon male"></mark><br><s:property value="#session.order.name"/> </li>
+							<li index="0" title="${reserveDetail.userName}" class="active">
+							<mark class="icon male">
+							</mark><br></li>
+							
 						</ul>
 						<div class="detail">
 							<div class="basic" style="">
@@ -111,20 +113,20 @@
 											<dt>证件类型</dt>
 											<dd>身份证</dd>
 											<dt>手机号码</dt>
-											<dd>${queryReserveDetail.phoneNum}</dd>
+											<dd>${reserveDetail.phoneNum }</dd>
 										</dl>
 										<dl>
 											<dt>证件号码</dt>
-											<dd>${queryReserveDetail.cardId}</dd>
+											<dd>${reserveDetail.cardId}</dd>
 										</dl>
 								</div>
 								<div class="jiage" style="margin-top:-25px">
 									<p>
 										<mark class="icon personalPrice"></mark>
-										<span class="price normal red">￥<s:property value="#session.order.price+20+120"/></span>
+										<span class="price normal red">￥${reserveDetail.money+20+120}<s:property value="#session.order.price+20+120"/></span>
 									</p>
 									<p>
-										<u>机票<br>￥${queryReserveDetail.money}
+										<u>机票<br>￥${reserveDetail.money}
 										</u><u insureprice="20">保险<br>￥ 20
 										</u><u>税费<br>￥ 120
 										</u>
@@ -137,29 +139,25 @@
 								<div class="body" style="margin-top:1px;">
 									<div class="flight">
 										<dl class="f1">
-											航空公司：<s:property value="#session.order.companyName"/>
-											<br>航&nbsp;班&nbsp;号&nbsp;：<s:property value="#session.order.flightNumber"/>
+											航空公司：<s:property value="#session.order.companyName"/>${companyName}
+											<br>航&nbsp;班&nbsp;号&nbsp;：${reserveDetail.flightId}
 											<br>舱&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;位：
 											<s:if test="#session.order.cabinClass==0">头等舱</s:if>
 											<s:if test="#session.order.cabinClass==1">公务舱</s:if>
 											<s:if test="#session.order.cabinClass==2">经济舱</s:if>
 										</dl>
-										<dl class="f2">
+										<dl class="f2" style="margin-top: -10px">
 											<dt>
-												<b><s:property value="#session.order.startPoint"/></b>
-												<time><s:date format="HH:mm" name="#session.order.startTime"/></time>
-												<s:date format="yyyy-MM-dd" name="#session.order.startTime"/><br><s:property value="#session.order.startPointAirport"/>
+												<div style="margin-top: 50px;font-size: 25px;color: black;">${reserveDetail.benginSite}</div>
 											</dt>
-											
 											<dt class="time">
+											<a style="color: #5AA5F0">${reserveDetail.benginDate}(出发)</a>
 												<mark class="icon owBig"></mark>
-												
+											<a style="color: #5AA5F0">${reserveDetail.endDate}(抵达)</a>
 											</dt>
 											
 											<dt class="l">
-												<b><s:property value="#session.order.endPoint"/></b>
-												<time><s:date format="HH:mm" name="#session.order.arrivalTime"/></time>
-												<s:date format="yyyy-MM-dd" name="#session.order.startTime"/><br><s:property value="#session.order.endPointAirport"/>
+												<div style="margin-top: 50px;font-size: 25px;color: black;">${reserveDetail.endSite}</div>
 											</dt>
 										</dl>
 										<div class="clear"></div>
