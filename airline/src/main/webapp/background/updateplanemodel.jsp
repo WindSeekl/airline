@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Shamcey - Metro Style Admin Template</title>
+<title>修改机型</title>
 <link rel="stylesheet" href="<%=basePath %>background/css/style.default.css" type="text/css" />
 <link rel="stylesheet" href="<%=basePath %>background/css/responsive-tables.css">
 <script type="text/javascript" src="<%=basePath %>background/js/jquery-1.9.1.min.js"></script>
@@ -37,13 +37,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<div class="userloggedinfo">
 												<div class="userinfo">
 								<h5>
-									<s:property value="#session.currentAdmin.username" /> <small>
-									<s:if test="#session.currentAdmin.jurisdiction==1">
-									普通管理员</s:if>
-									<s:else>高级管理员</s:else></small>
+								<c:if test="${admin.permission == 1}">
+									普通管理员
+								</c:if>
+								<c:if test="${admin.permission == 0}">
+									高级管理员
+								</c:if>	
 								</h5>
 								<ul>
-									<li><a href="login.jsp">注销</a></li>
+									<li><a href="<%=basePath %>logoutAdmin">注销</a></li>
 								</ul>
 							</div>
 						</div>
@@ -58,14 +60,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div class="leftmenu">
 				<ul class="nav nav-tabs nav-stacked">
 					<li class="nav-header">Navigation</li>
-					<li><a href="background/index.jsp"><span
+					<li><a href="index.jsp"><span
 							class="iconfa-laptop"></span> 首页</a></li>
 					<li class="dropdown"><a href=""><span class="iconfa-group"></span>
 							订票客户管理</a>
 						<ul>
 							<li><a href="<%=basePath%>background/addcustomer.jsp">增加客户信息</a></li>
 							<li><a href="<%=basePath%>queryCustomers">查询客户信息</a></li>
-						</ul></li>
+						</ul>
+					</li>
 					<li class="dropdown"><a href=""><span
 							class="iconfa-pencil"></span> 航班机票管理</a>
 						<ul>
@@ -77,9 +80,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							航班信息管理</a>
 						<ul>
 							<li><a href="<%=basePath%>queryCompanyPlanemodel">增加航班信息</a></li>
-							<li><a href="addflightschedule.jsp">增加航班计划</a></li>
-							<li><a href="../addscheduleFlightAction.action">安排航班计划</a></li>
-							<li><a href="../findpastscheduleFlightAction.action">以往航班计划</a></li>
+							<li><a href="<%=basePath%>background/addflightschedule.jsp">增加航班计划</a></li>
+							<li><a href="<%=basePath%>background/addschedule.jsp">安排航班计划</a></li>
+							<li><a href="<%=basePath%>background/findschedule.jsp">以往航班计划</a></li>
 							<li><a href="<%=basePath%>queryFlight">查询航班信息</a></li>
 						</ul></li>
 					<li class="dropdown"><a href=""><span
@@ -88,25 +91,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<li><a href="<%=basePath %>background/addcompany.jsp">增加航空公司</a></li>
 							<li><a href="<%=basePath %>queryCnamePname">添加公司机型</a>
 							<li><a href="<%=basePath %>queryCompanys">查询航空公司</a></li>
-							<li><a href="<%=basePath %>getCompanyInfo">修改航空公司信息</a></li>
 						</ul></li>
-							<li class="dropdown"><a href=""><span
-							class="iconfa-plane"></span> 机型管理</a>
-						<ul>
-							<li><a href="<%=basePath%>/background/addplanemodel.jsp">增加机型</a></li>
+					<li class="dropdown active""><a href=""><span class="iconfa-plane"></span>
+							机型管理</a>
+						<ul style="display:block;">
+							<li><a href="<%=basePath %>background/addplanemodel.jsp">增加机型</a></li>
 							<li><a href="<%=basePath %>queryList">查询机型</a></li>
-							<li><a href="<%=basePath %>queryPlanemodel">修改机型信息</a></li>
-						</ul></li>	
+							<li class="active"><a href="<%=basePath %>queryPlanemodel">修改机型信息</a></li>
+						</ul></li>
 					<li><a href="printtable.jsp"><span class="iconfa-th-list"></span>
 							报表打印管理</a></li>
-					
-					<s:if test="#session.currentAdmin.jurisdiction==0">
-					<li class="dropdown"><a href=""><span class="iconfa-user"></span>
-							人员用户管理</a>
-						<ul>
-							<li><a href="addnormaladmin.jsp">增加普通管理员</a></li>
-							<li><a href="../findAllAdmin.action">查询普通管理员</a></li>
-						</ul></li></s:if>
+					<c:if test="${admin.permission == 0}">
+						<li class="dropdown"><a href=""><span class="iconfa-user"></span>
+								人员用户管理</a>
+							<ul>
+								<li><a href="<%=basePath %>background/addnormaladmin.jsp">增加普通管理员</a></li>
+								<li><a href="<%=basePath %>findAllAdmin">查询普通管理员</a></li>
+							</ul>
+						</li>
+					</c:if>
 				</ul>
 			</div>
 			<!--leftmenu-->
