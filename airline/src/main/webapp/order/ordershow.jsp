@@ -34,7 +34,7 @@
 	src="Script/My97DatePicker/WdatePicker.js"></script>
 <script src="Script/jquery-1.8.3.min.js"></script>
 <style>
-	#but:hover{background-color: #CBDDEC;}
+	#but:hover{background-color: #DAF194;}
 </style>
 </head>
 
@@ -46,8 +46,10 @@
 		</address>
 		<address class="text blue">
 			<p>
-				<a id="login" href="login.jsp">登录</a>&nbsp; | &nbsp; <a
-					id="register" target="_blank" href="regcustomer.jsp">注册</a>
+				<a id="login" href="login.jsp">登录</a>&nbsp; | &nbsp; 
+				<a id="register" target="_blank" href="regcustomer.jsp">
+					注册
+				</a>
 			</p>
 	<div class="clear"></div>
 	</hgroup> </header>
