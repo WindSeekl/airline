@@ -238,7 +238,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		})
 	})
 	jQuery("#payment").click(function(){
-		jQuery("#sta").attr("value","付款审核中");
+		jQuery("#sta").attr("value","购票审核中");
 		jQuery.ajax({
 			url:'../insertReserve',
 			data:jQuery("#orderform").serialize(),
