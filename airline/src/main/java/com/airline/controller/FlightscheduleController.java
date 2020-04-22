@@ -80,37 +80,42 @@ public class FlightscheduleController {
 	
 	@RequestMapping("fillOrder")
 	public ModelAndView fillOrder(HttpSession session,int price,String seatId) {
-		ModelAndView mv = new ModelAndView("flight/bookingflight");
-		mv.addObject("price", price);
+		ModelAndView mv = new ModelAndView();
 		Flight flight=(Flight) session.getAttribute("flight");
 		Company company = companyService.queryCompanyByName(flight.getCompanyName());
 		String customerName = (String) session.getAttribute("customer");
-		Customer customer = customerService.loginInfo(customerName);
-		int integral = customer.getIntegral();
-		String discountInfo;
-		double discount = 1;
-		String VIPgrade = null;
-		if(integral<5000) {
-			VIPgrade="普通用户";
-			discountInfo = "无折扣";
+		if(customerName==null) {
+			mv.setViewName("login");
 		}else {
-			if(integral>=5000&&integral<10000){
-				VIPgrade="铜牌用户";
-				discount = company.getCopper();
-			}else if(integral>=10000&&integral<80000){
-				VIPgrade="银牌用户";
-				discount = company.getSilver();
-			}else if(integral>=80000){
-				VIPgrade="金牌用户";
-				discount = company.getGold();
+			Customer customer = customerService.loginInfo(customerName);
+			mv.addObject("price", price);
+			int integral = customer.getIntegral();
+			String discountInfo;
+			double discount = 1;
+			String VIPgrade = null;
+			if(integral<5000) {
+				VIPgrade="普通用户";
+				discountInfo = "无折扣";
+			}else {
+				if(integral>=5000&&integral<10000){
+					VIPgrade="铜牌用户";
+					discount = company.getCopper();
+				}else if(integral>=10000&&integral<80000){
+					VIPgrade="银牌用户";
+					discount = company.getSilver();
+				}else if(integral>=80000){
+					VIPgrade="金牌用户";
+					discount = company.getGold();
+				}
+				discountInfo = discount*10+"折";
 			}
-			discountInfo = discount*10+"折";
+			price *= discount;
+			mv.addObject("VIPgrade", VIPgrade);
+			mv.addObject("discountInfo", discountInfo);
+			session.setAttribute("discountPrice",price);
+			session.setAttribute("seatId",seatId);
+			mv.setViewName("flight/bookingflight");
 		}
-		price *= discount;
-		mv.addObject("VIPgrade", VIPgrade);
-		mv.addObject("discountInfo", discountInfo);
-		session.setAttribute("discountPrice",price);
-		session.setAttribute("seatId",seatId);
 		return mv; 
 	}
 }
