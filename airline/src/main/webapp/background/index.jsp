@@ -87,7 +87,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							class="iconfa-pencil"></span> 航班机票管理</a>
 						<ul>
 							<li><a href="<%=basePath%>queryAllReserve">订票审核</a></li>
-							<li><a href="../findbounceOrderAction.action">退票管理</a></li>
+							<li><a href="<%=basePath%>RefundAudit">退票管理</a></li>
 							<li><a href="../findAllUserAllOrderAction.action">其他订单信息管理</a></li>
 						</ul></li>
 					<li class="dropdown"><a href=""><span class="iconfa-plane"></span>

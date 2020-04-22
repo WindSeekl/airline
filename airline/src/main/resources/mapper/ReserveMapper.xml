@@ -39,4 +39,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<update id="dealWaiteOrder" parameterType="reserve">
 		update reserve set state = #{state} where reserveId = #{reserveId}
 	</update>
+	<update id="RefundWaiteOrder" parameterType="reserve">
+		update reserve set state = #{state} where reserveId = #{reserveId}
+	</update>
+	<select id="queryRefund" resultType="reserve">
+		select * from reserve where state in ('退票审核中')
+	</select>
 </mapper>

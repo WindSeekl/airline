@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -94,6 +95,40 @@ public class OrderController {
 			reserveService.dealWaiteOrder(reserve);
 			res = "审核不通过，出票失败";
 		}
+		map.put("res", res);
+		JSONObject json = JSONObject.fromObject(map);
+		return json;
+	}
+	
+	@RequestMapping(value="/RefundAudit")
+	public ModelAndView  Standby() {
+		ModelAndView mv = new ModelAndView("background/bounce");
+		List<Reserve> Refund = reserveService.queryRefund();
+		mv.addObject("Refund", Refund);
+		return mv;
+	}
+	@RequestMapping(value="/Confirm",method=RequestMethod.POST)
+	public JSONObject Confirm(Reserve reserve) {
+		String res = null;
+		Map<String, String> map = new HashMap<String, String>();
+		if(reserve.getState().equals("退票审核中")) {
+			reserve.setState("退票成功");
+			reserveService.RefundWaiteOrder(reserve);
+			res = "审核通过，退票成功";
+		} 
+		map.put("res", res);
+		JSONObject json = JSONObject.fromObject(map);
+		return json;
+	}
+	@RequestMapping(value="/Cancel",method=RequestMethod.POST)
+	public JSONObject cancel(Reserve reserve) {
+		String res = null;
+		Map<String, String> map = new HashMap<String, String>();
+		if(reserve.getState().equals("退票审核中")) {
+			reserve.setState("退票失败");
+			reserveService.RefundWaiteOrder(reserve);
+			res = "审核不通过，退票失败";
+		} 
 		map.put("res", res);
 		JSONObject json = JSONObject.fromObject(map);
 		return json;

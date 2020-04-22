@@ -13,4 +13,6 @@ public interface ReserveService {
 	int querySeatNum(String seatId);//查询舱位数量
 	Reserve queryOneReserve(Reserve reserve);
 	void dealWaiteOrder(Reserve reserve);
+	List<Reserve> queryRefund();//查询订单
+	void  RefundWaiteOrder(Reserve reserve);//退票审核状态修改
 }
