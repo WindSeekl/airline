@@ -93,9 +93,16 @@ public class CustomerController {
 	
 	@RequestMapping("/customerinfo")
 	public ModelAndView customerinfo(String customerName, HttpServletRequest req) {
-		ModelAndView mv = new ModelAndView("customer/customerinfo");
+		ModelAndView mv = new ModelAndView();
+		String path;
+		if(customerName=="") {
+			path = "login";
+		}else {
+			path = "customer/customerinfo";
+		}
 		Customer cust = customerService.loginInfo(customerName);
 		req.getSession().setAttribute("loginInfo", cust);
+		mv.setViewName(path);
 		return mv;
 	}
 	

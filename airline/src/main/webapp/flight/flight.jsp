@@ -121,7 +121,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<li class="c-6"></li>
 								<c:if test="${Eseat>0}">
 								<li class="c-7">
-									<a href="fillOrder?price=${flight.eprice}&seatId=E"><input type="button" value="预 订" cabinidx="0"  class="button lightred"  name="select" id="tourist_class"></a>
+									<a href="fillOrder?price=${flight.eprice}&seatId=E" onclick="ifLogin()"><input type="button" value="预 订" cabinidx="0"  class="button lightred"  name="select" id="tourist_class"></a>
 								</li>
 								</c:if>
 							</ul>
@@ -205,4 +205,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </div>
 
   </body>
+  <script type="text/javascript">
+  	function ifLogin() {
+		if(${sessionScope.customer==null}){
+			alert("请先登录");
+		}
+	}
+  </script>
 </html>

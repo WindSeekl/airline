@@ -52,7 +52,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <menu id="menu">
   <nav>
     <ul class="menu_index">
-      <a href="<%=basePath%>customerinfo?customerName=${customer}"><li id="menu-myceair">我的信息<i></i></li></a>
+      <a href="<%=basePath%>customerinfo?customerName=${customer}" onclick="ifNotLogin()"><li id="menu-myceair">我的信息</li></a>
        <a href="flight/flightshow.jsp"><li id="menu-booking" class="current">预订行程<i></i></li></a>
     </ul>
   </nav>
@@ -188,4 +188,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <div class="search-citys-list click" id="citylist"></div>
 </div>
 </body>
+<script type="text/javascript">
+  	function ifNotLogin() {
+		if(${sessionScope.customer==null}){
+			alert("请先登录");
+		}
+	}
+  </script>
 </html>
