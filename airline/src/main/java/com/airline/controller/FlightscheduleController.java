@@ -70,7 +70,7 @@ public class FlightscheduleController {
 		Planemodel planemodel = planemodelService.queryPlanemodelOne(flight.getPlanemodelName());
 		int Yseat = Integer.parseInt(planemodel.getFnumber())-reserveService.querySeatNum("Y");
 		int Bseat = Integer.parseInt(planemodel.getBnumber())-reserveService.querySeatNum("B");
-		int Eseat = Integer.parseInt(planemodel.getEnumber())-reserveService.querySeatNum("e");
+		int Eseat = Integer.parseInt(planemodel.getEnumber())-reserveService.querySeatNum("E");
 		mv.addObject("Yseat", Yseat);
 		mv.addObject("Bseat", Bseat);
 		mv.addObject("Eseat", Eseat);

@@ -76,9 +76,9 @@ public class OrderController {
 		String res = null;
 		Map<String, String> map = new HashMap<String, String>();
 		if(reserve.getState().equals("购票审核中")) {
-			reserve.setState("出票成功");
+			reserve.setState("购票成功");
 			reserveService.dealWaiteOrder(reserve);
-			res = "审核通过，出票成功";
+			res = "审核通过，购票成功";
 		} 
 		map.put("res", res);
 		JSONObject json = JSONObject.fromObject(map);
@@ -91,9 +91,9 @@ public class OrderController {
 		Map<String, String> map = new HashMap<String, String>();
 		ModelAndView mv = new ModelAndView("forward:queryAllReserve");
 		if(reserve.getState().equals("购票审核中")) {
-			reserve.setState("出票失败");
+			reserve.setState("购票失败");
 			reserveService.dealWaiteOrder(reserve);
-			res = "审核不通过，出票失败";
+			res = "审核不通过，购票失败";
 		}
 		map.put("res", res);
 		JSONObject json = JSONObject.fromObject(map);
