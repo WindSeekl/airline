@@ -41,16 +41,16 @@
 <body>
 	<!--header-->
 	<header id="header"> <hgroup>
-		<address class="text blue">
-			<p>欢迎您，${currentUser.username}&nbsp;&nbsp;<a href="login.jsp">注销</a></p>
-		</address>
-		<address class="text blue">
-			<p>
-				<a id="login" href="login.jsp">登录</a>&nbsp; | &nbsp; 
-				<a id="register" target="_blank" href="regcustomer.jsp">
-					注册
-				</a>
-			</p>
+		<c:if test="${not empty customer}">
+		    <address class="text blue">
+		    	<p>欢迎您，${customer}&nbsp;&nbsp;<a href="<%=basePath%>logout">注销</a> </p>
+		    </address>
+		    </c:if>
+		    <c:if test="${empty customer}">
+			    <address class="text blue">
+			   		<p> <a id="login" href="login.jsp">登录</a>&nbsp; | &nbsp; <a id="register" target="_blank" href="regcustomer.jsp">注册</a></p>
+			    </address>
+		    </c:if>
 	<div class="clear"></div>
 	</hgroup> </header>
 	<!--end header-->

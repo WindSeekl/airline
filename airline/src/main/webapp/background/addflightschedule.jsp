@@ -103,15 +103,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<li class="dropdown"><a href=""><span
 							class="iconfa-pencil"></span> 航班机票管理</a>
 						<ul>
-							<li><a href="../findwaiteOrderAction.action">订票审核</a></li>
-							<li><a href="../findbounceOrderAction.action">退票管理</a></li>
-							<li><a href="../findAllUserAllOrderAction.action">其他订单信息管理</a></li>
+							<li><a href="<%=basePath%>queryAllReserve">订票审核</a></li>
+							<li><a href="<%=basePath%>RefundAudit">退票管理</a></li>
 						</ul></li>
 					<li class="dropdown active"><a href=""><span class="iconfa-plane"></span>
 							航班信息管理</a>
 						<ul style="display:block;">
 							<li><a href="<%=basePath%>queryCompanyPlanemodel">增加航班信息</a></li>
-							<li class="active"><a href="<%=basePath%>background/addflightschedule.jsp">增加航班计划</a></li>
+							<li><a href="<%=basePath%>background/addflightschedule.jsp">增加航班计划</a></li>
 							<li><a href="<%=basePath%>background/addschedule.jsp">安排航班计划</a></li>
 							<li><a href="<%=basePath%>background/findschedule.jsp">以往航班计划</a></li>
 							<li><a href="<%=basePath%>queryFlight">查询航班信息</a></li>
@@ -130,7 +129,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<li><a href="<%=basePath %>queryList">查询机型</a></li>
 							<li><a href="<%=basePath %>queryPlanemodel">修改机型信息</a></li>
 						</ul></li>
-					<li><a href="printtable.jsp"><span class="iconfa-th-list"></span>
+					<li><a href="<%=basePath%>background/printtable.jsp"><span class="iconfa-th-list"></span>
 							报表打印管理</a></li>
 					<c:if test="${admin.permission == 0}">
 						<li class="dropdown"><a href=""><span class="iconfa-user"></span>

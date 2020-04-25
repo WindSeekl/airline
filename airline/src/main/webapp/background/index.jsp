@@ -88,7 +88,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<ul>
 							<li><a href="<%=basePath%>queryAllReserve">订票审核</a></li>
 							<li><a href="<%=basePath%>RefundAudit">退票管理</a></li>
-							<li><a href="../findAllUserAllOrderAction.action">其他订单信息管理</a></li>
 						</ul></li>
 					<li class="dropdown"><a href=""><span class="iconfa-plane"></span>
 							航班信息管理</a>
@@ -105,7 +104,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<li><a href="<%=basePath %>background/addcompany.jsp">增加航空公司</a></li>
 							<li><a href="<%=basePath %>queryCnamePname">添加公司机型</a>
 							<li><a href="<%=basePath %>queryCompanys">查询航空公司</a></li>
-							<li><a href="<%=basePath %>getCompanyInfo">修改航空公司信息</a></li>
 						</ul></li>
 					<li class="dropdown"><a href=""><span class="iconfa-plane"></span>
 							机型管理</a>
@@ -114,7 +112,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<li><a href="<%=basePath %>queryList">查询机型</a></li>
 							<li><a href="<%=basePath %>queryPlanemodel">修改机型信息</a></li>
 						</ul></li>
-					<li><a href="printtable.jsp"><span class="iconfa-th-list"></span>
+					<li><a href="<%=basePath%>background/printtable.jsp"><span class="iconfa-th-list"></span>
 							报表打印管理</a></li>
 					<c:if test="${admin.permission == 0}">
 						<li class="dropdown"><a href=""><span class="iconfa-user"></span>
