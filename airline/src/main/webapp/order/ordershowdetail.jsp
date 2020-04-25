@@ -138,12 +138,9 @@
 								<div class="body" style="margin-top:1px;">
 									<div class="flight">
 										<dl class="f1">
-											航空公司：<s:property value="#session.order.companyName"/>${companyName}
+											航空公司：${companyName}
 											<br>航&nbsp;班&nbsp;号&nbsp;：${reserveDetail.flightId}
-											<br>舱&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;位：
-											<c:if test="${seatId=='Y'}">头等舱</c:if>
-											<c:if test="${seatId=='B'}">商务舱</c:if>
-											<c:if test="${seatId=='E'}">经济舱</c:if>
+											<br>舱&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;位：${reserveDetail.seatId}
 										</dl>
 										<dl class="f2" style="margin-top: -10px">
 											<dt>

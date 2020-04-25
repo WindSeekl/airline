@@ -68,9 +68,9 @@ public class FlightscheduleController {
 		session.setAttribute("fsDate",fsDate);
 		session.setAttribute("flight",flight);
 		Planemodel planemodel = planemodelService.queryPlanemodelOne(flight.getPlanemodelName());
-		int Yseat = Integer.parseInt(planemodel.getFnumber())-reserveService.querySeatNum("Y");
-		int Bseat = Integer.parseInt(planemodel.getBnumber())-reserveService.querySeatNum("B");
-		int Eseat = Integer.parseInt(planemodel.getEnumber())-reserveService.querySeatNum("E");
+		int Yseat = Integer.parseInt(planemodel.getFnumber())-reserveService.querySeatNum("头等舱");
+		int Bseat = Integer.parseInt(planemodel.getBnumber())-reserveService.querySeatNum("商务舱");
+		int Eseat = Integer.parseInt(planemodel.getEnumber())-reserveService.querySeatNum("经济舱");
 		mv.addObject("Yseat", Yseat);
 		mv.addObject("Bseat", Bseat);
 		mv.addObject("Eseat", Eseat);

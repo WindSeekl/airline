@@ -15,4 +15,6 @@ public interface ReserveService {
 	void dealWaiteOrder(Reserve reserve);
 	List<Reserve> queryRefund();//查询订单
 	void  RefundWaiteOrder(Reserve reserve);//退票审核状态修改
+	List<Reserve> queryByCardId(String cardId);
+	void updateStateByReserveId(String reserveId);
 }

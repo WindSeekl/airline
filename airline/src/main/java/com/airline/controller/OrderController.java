@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +30,7 @@ public class OrderController {
 	private CustomerService customerService;
 	@RequestMapping("queryOrder")
 	public ModelAndView queryOrder(HttpSession session,Reserve reserve) {
-		String customerName = (String) session.getAttribute("uname");   //从session中获取登录用户的用户名
+		String customerName = (String) session.getAttribute("customer");   //从session中获取登录用户的用户名
 		ModelAndView mv = new ModelAndView("order/ordershow");
 		reserve.setCustomerName(customerName);
 		List<Reserve> list = reserveService.queryReserve(reserve);
@@ -89,7 +88,6 @@ public class OrderController {
 	public JSONObject OrderNotPass(Reserve reserve) {
 		String res = null;
 		Map<String, String> map = new HashMap<String, String>();
-		ModelAndView mv = new ModelAndView("forward:queryAllReserve");
 		if(reserve.getState().equals("购票审核中")) {
 			reserve.setState("购票失败");
 			reserveService.dealWaiteOrder(reserve);
@@ -132,5 +130,20 @@ public class OrderController {
 		map.put("res", res);
 		JSONObject json = JSONObject.fromObject(map);
 		return json;
+	}
+	@RequestMapping("queryByCardId")
+	public ModelAndView queryByCardId(String cardId) {
+		ModelAndView mv = new ModelAndView("background/printtable");
+		List<Reserve> list = reserveService.queryByCardId(cardId);
+		mv.addObject("cardId", cardId);
+		mv.addObject("cardIdList", list);
+		return mv;
+	}
+	@RequestMapping("updateStateByReserveId")
+	public ModelAndView updateStateByReserveId(String reserveId,String cardId) {
+		ModelAndView mv = new ModelAndView("forward:queryByCardId");
+		reserveService.updateStateByReserveId(reserveId);
+		mv.addObject("cardId", cardId);
+		return mv;
 	}
 }

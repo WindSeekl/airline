@@ -121,7 +121,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<li class="c-6"></li>
 								<c:if test="${Eseat>0}">
 								<li class="c-7">
-									<a href="fillOrder?price=${flight.eprice}&seatId=E" onclick="ifLogin()"><input type="button" value="预 订" cabinidx="0"  class="button lightred"  name="select" id="tourist_class"></a>
+									<a href="fillOrder?price=${flight.eprice}&seatId=经济舱" onclick="ifLogin()"><input type="button" value="预 订" cabinidx="0"  class="button lightred"  name="select" id="tourist_class"></a>
 								</li>
 								</c:if>
 							</ul>
@@ -136,7 +136,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<li class="c-6"></li>
 								<c:if test="${Bseat>0}">
 								<li class="c-7">
-									<a href="fillOrder?price=${flight.bprice}&seatId=B">
+									<a href="fillOrder?price=${flight.bprice}&seatId=商务舱">
 										<input type="button" value="预 订" cabinidx="1"  class="button lightred"  name="select" id="business_class">
 									</a>
 								</li>
@@ -152,7 +152,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<li class="c-6"></li>
 								<c:if test="${Yseat>0}">
 									<li class="c-7">
-										<a href="fillOrder?price=${flight.fprice}&seatId=Y">
+										<a href="fillOrder?price=${flight.fprice}&seatId=头等舱">
 											<input type="button" value="预 订" id="first_class"  class="button lightred"  name="select">
 										</a>
 									</li>

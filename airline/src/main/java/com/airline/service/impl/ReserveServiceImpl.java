@@ -96,4 +96,16 @@ public class ReserveServiceImpl implements ReserveService{
 		// TODO Auto-generated method stub
 		reserveRepository.RefundWaiteOrder(reserve);
 	}
+
+	@Override
+	public List<Reserve> queryByCardId(String cardId) {
+		// TODO Auto-generated method stub
+		return reserveRepository.queryByCardId(cardId);
+	}
+
+	@Override
+	public void updateStateByReserveId(String reserveId) {
+		// TODO Auto-generated method stub
+		reserveRepository.updateStateByReserveId(reserveId);
+	}
 }

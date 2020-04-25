@@ -10,22 +10,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Shamcey - Metro Style Admin Template</title>
-<link rel="stylesheet" href="css/style.default.css" type="text/css" />
+<link rel="stylesheet" href="<%=basePath %>background/css/style.default.css" type="text/css" />
 
-<link rel="stylesheet" href="css/responsive-tables.css">
-<link rel="stylesheet" href="../Stylesheets/printtable.css">
-<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
-<script type="text/javascript" src="js/jquery-migrate-1.1.1.min.js"></script>
-<script type="text/javascript" src="js/jquery-ui-1.9.2.min.js"></script>
-<script type="text/javascript" src="js/modernizr.min.js"></script>
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/jquery.cookie.js"></script>
-<script type="text/javascript" src="js/jquery.uniform.min.js"></script>
-<script type="text/javascript" src="js/flot/jquery.flot.min.js"></script>
-<script type="text/javascript" src="js/flot/jquery.flot.resize.min.js"></script>
-<script type="text/javascript" src="js/responsive-tables.js"></script>
-<script type="text/javascript" src="js/custom.js"></script>
-<script type="text/javascript" src="../Script/jquery-1.8.3.min.js"></script>
+<link rel="stylesheet" href="<%=basePath %>background/css/responsive-tables.css">
+<link rel="stylesheet" href="<%=basePath %>Stylesheets/printtable.css">
+<script type="text/javascript" src="<%=basePath %>background/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/jquery-migrate-1.1.1.min.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/jquery-ui-1.9.2.min.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/modernizr.min.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/jquery.uniform.min.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/flot/jquery.flot.min.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/flot/jquery.flot.resize.min.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/responsive-tables.js"></script>
+<script type="text/javascript" src="<%=basePath %>background/js/custom.js"></script>
+<script type="text/javascript" src="<%=basePath %>Script/jquery-1.8.3.min.js"></script>
 <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/excanvas.min.js"></script><![endif]-->
 </head>
 
@@ -164,13 +164,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<div style="margin-left: 100px;">
 				 
 				 <div style="width: 500px;">
-				<form action="../findByIdentificationCardOrderAction.action" method="post" id="identificationCardform">
-				<h5> 输入身份证号: &nbsp;</h5> 
-				<input type="text" name="identificationCard" id="identificationCard">&nbsp;
-				 <button id="searchidentificationCard" type="button" class="btn btn-primary">提交</button>
+				<form action="<%=basePath%>queryByCardId" method="post">
+					<h5> 输入身份证号: &nbsp;</h5>
+					<input type="text" name="cardId" id="cardId">&nbsp;
+					 <button id="searchidentificationCard" class="btn btn-primary">提交</button>
 				 </form>
 				 </div>
                  <br>
+                 <c:if test="${empty cardIdList}">
+                 	<h4 style="text-align: center; width: 770px;">没有查询到可打印登机牌</h4>
+                 </c:if>
+                 <c:if test="${not empty cardIdList}">
+                 <c:forEach var="reserve" items="${cardIdList}">
                 <table class="table responsive">
                <thead>
                <tr><h4 class="widgettitle" style="text-align: center; width: 770px;">登机牌BORDING PASS</h4></tr>
@@ -187,36 +192,40 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         </tr>
                         <tr>
                             <td>Trident</td>
-                            <td>${writeorder.flightNumber}</td>
-                            <td>${writeorder.startTime }</td>
-                            <td>${writeorder.cabinClass}</td>
-                            <td>${writeorder.orderId }</td>
-                            <td>${writeorder.price }</td>
+                            <td>${reserve.flightId}</td>
+                            <td>${reserve.benginDate}</td>
+                            <td>${reserve.seatId}</td>
+                            <td>${reserve.reserveId}</td>
+                            <td>${reserve.money}</td>
                         </tr>
                         <tr>
                         <th>目的地 TO</th>
                         <th>目的地 TO</th>
-                        <th>始发地FROM</th>
+                        <th>始发地 FROM</th>
                         <th>姓名 NAME</th>
                         <th>身份证号 ID .NO</th>
                         <th></th>
                         </tr>
                         <tr>
                             <td>Trident</td>
-                            <td>${writeorder.endPoint }</td>
-                            <td>${writeorder.startPoint}</td>
-                            <td>${writeorder.name}</td>
-                            <td>${writeorder.identificationCard }</td>
-                            <td></td>
+                            <td>${reserve.endSite}</td>
+                            <td>${reserve.benginSite}</td>
+                            <td>${reserve.userName}</td>
+                            <td>${reserve.cardId}</td>
+                            <td>
+	                            <form action="<%=basePath %>updateStateByReserveId">
+	                            	<input name="cardId" value="${cardId}" style="display: none;">
+	                            	<input name="reserveId" value="${reserve.reserveId}" style="display: none;">
+	                            	<button onclick="printtable()">打印</button>
+	                            </form>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
-                
+                </c:forEach>
+                </c:if>
                
                 </div>
-                 <div style="width:800px; border-bottom: 1px solid #ddd; margin-left: 450px;"><button id="writeOrder" style="width:80px;hieght:50px;">
-                 <input id="orderId" value="${writeorder.orderId}" style="display: none;">打印
-                 </button></div>
 					<!--row-fluid-->
 
 					<div class="footer">
@@ -240,36 +249,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 	</div>
 	<!--mainwrapper-->
-<script type="text/javascript">
-
-$("#searchidentificationCard").click(function() {
-	$.ajax({
-        type: "post",
-        url: "../validateidentificationCard.action",
-        data: {identificationCard:$("#identificationCard").val()},
-        dataType: "json",
-        success: function(data){
-        	if(data){
-	        	$("#identificationCardform").submit();
-	        	postForm();}
-        	else{
-        	  alert("无该身份证的机票"); }
-        }
-	 });
-});
-$("#writeOrder").click(function() {
-	$.ajax({
-        type: "post",
-        url: "../writeIdentificationCardOrderAction",
-        data: {orderId:$("#orderId").val()},
-        dataType: "json",
-        success: function(data){
-        	alert("打印成功");
-        }
-	 });
-});
-</script>
-
+	<script type="text/javascript">
+		function printtable() {
+			alert("打印成功");
+		}
+	</script>
 </body>
 </html>
 

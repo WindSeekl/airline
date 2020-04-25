@@ -185,11 +185,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<ul></ul>
 						<div class="clear"></div>
 						<div class="itext">
-							<i>舱位：<b>
-								<c:if test="${seatId=='Y'}">头等舱</c:if>
-								<c:if test="${seatId=='B'}">商务舱</c:if>
-								<c:if test="${seatId=='E'}">经济舱</c:if>
-							</b></i><br>
+							<i>舱位：<b>${seatId}</b></i><br>
 							<i>基本票价：<b>${price}￥</b></i><br>
 							<i>帐号类型：<b>${VIPgrade}</b></i><br>
 							<i>享有折扣：<b>${discountInfo}</b></i>
