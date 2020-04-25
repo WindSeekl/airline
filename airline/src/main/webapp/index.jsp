@@ -97,11 +97,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </section>
 <div class="bottom_banner"> <img src="http://pic.c-ctrip.com/vacation_v2/bottom_banner1.jpg" class="bottom_banner_l" alt="吉祥航空" width="353" height="111"><img src="http://pic.c-ctrip.com/vacation_v2/bottom_banner2.jpg" class="bottom_banner_m" alt="瑞士国际航空公司" width="280" height="111"><img src="http://pic.c-ctrip.com/vacation_v2/bottom_banner3.jpg" class="bottom_banner_r" alt="日本航空" width="356" height="111"> </div>
 <section class="primary-promotion">
-  <div class="cover"> <img src="images/paris_eiffel-tower-seen-from-street_600x272.jpg" alt=""> </div>
+  <div class="cover"> <img src="images/上海.png" alt=""> </div><!-- images/paris_eiffel-tower-seen-from-street_600x272.jpg -->
   <div class="description">
-    <div class="destination-medium-up"> <span class="country">巴黎,</span> <span class="region">法国</span> </div>
+    <div class="destination-medium-up"> <span class="country">上海,</span> <span class="region">中国</span> </div>
     <div class="item">
-      <div class="group"><a href="/cx/sc_CN/flightoffer.mini-offer-to-cdg-pey-j.china-to-cdg-pey.html"  rel="nofollow">
+      <div class="group"><a href="https://baike.baidu.com/item/%E4%B8%8A%E6%B5%B7/114606?fr=aladdin"  rel="nofollow">
         <div class="type">机票CNY6,430起</div>
         </a>
         <div class="miscellenous">特选经济舱</div>
@@ -111,10 +111,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <div class="secondary-promotions">
     <ul>
       <li class="item1">
-        <div class="cover-img"> <i class="icon icon-flight-contrary" aria-hidden="true" lang="en"></i> <img src="images/桂林.jpg" alt="票价由3,500元*起" width="134" height="140"> </div>
+        <div class="cover-img"> <i class="icon icon-flight-contrary" aria-hidden="true" lang="en"></i> <img src="images/Melbourne.png" alt="票价由3,500元*起" width="134" height="140"> </div>
         <div class="information">
-          <div class="title">墨尔本</div>
-          <a class="link" href="/cx/sc_CN/flightoffer.bjs-to-mel-from-cny3500.html" manual_cm_sp="CN-_-SALES-_-bjs-to-mel-from-cny3500-MultiMulti-2014" rel="nofollow">
+          <div class="title">三亚</div>
+          <a class="link" href="https://baike.baidu.com/item/%E4%B8%89%E4%BA%9A/181843?fr=aladdin" manual_cm_sp="CN-_-SALES-_-bjs-to-mel-from-cny3500-MultiMulti-2014" rel="nofollow">
           <div class="category">机票</div>
           <div class="price"><b>CNY3,500</b>起</div>
           </a>
@@ -122,10 +122,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </div>
       </li>
             <li class="item1">
-        <div class="cover-img"> <i class="icon icon-flight-contrary" aria-hidden="true" lang="en"></i> <img src="images/桂林.jpg" alt="票价由3,500元*起" width="134" height="140"> </div>
+        <div class="cover-img"> <i class="icon icon-flight-contrary" aria-hidden="true" lang="en"></i> <img src="images/北京长城.png" alt="票价由3,500元*起" width="134" height="140"> </div>
         <div class="information">
-          <div class="title">墨尔本</div>
-          <a class="link" href="/cx/sc_CN/flightoffer.bjs-to-mel-from-cny3500.html" manual_cm_sp="CN-_-SALES-_-bjs-to-mel-from-cny3500-MultiMulti-2014" rel="nofollow">
+          <div class="title">北京</div>
+          <a class="link" href="https://baike.baidu.com/item/%E5%8C%97%E4%BA%AC/128981?fr=aladdin" manual_cm_sp="CN-_-SALES-_-bjs-to-mel-from-cny3500-MultiMulti-2014" rel="nofollow">
           <div class="category">机票</div>
           <div class="price"><b>CNY3,500</b>起</div>
           </a>
@@ -136,8 +136,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <li class="item1">
         <div class="cover-img"> <i class="icon icon-flight-contrary" aria-hidden="true" lang="en"></i> <img src="images/桂林.jpg" alt="票价由3,500元*起" width="134" height="140"> </div>
         <div class="information">
-          <div class="title">墨尔本</div>
-          <a class="link" href="/cx/sc_CN/flightoffer.bjs-to-mel-from-cny3500.html" manual_cm_sp="CN-_-SALES-_-bjs-to-mel-from-cny3500-MultiMulti-2014" rel="nofollow">
+          <div class="title">桂林</div>
+          <a class="link" href="https://baike.baidu.com/item/%E6%A1%82%E6%9E%97/7495?fr=aladdin" manual_cm_sp="CN-_-SALES-_-bjs-to-mel-from-cny3500-MultiMulti-2014" rel="nofollow">
           <div class="category">机票</div>
           <div class="price"><b>CNY3,500</b>起</div>
           </a>
@@ -147,10 +147,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </ul>
         <ul style=" padding-top:50px;">
       <li class="item1">
-        <div class="cover-img"> <i class="icon icon-flight-contrary" aria-hidden="true" lang="en"></i> <img src="images/桂林.jpg" alt="票价由3,500元*起" width="134" height="140"> </div>
+        <div class="cover-img"> <i class="icon icon-flight-contrary" aria-hidden="true" lang="en"></i> <img src="images/大理.png" alt="票价由3,500元*起" width="134" height="140"> </div>
         <div class="information">
-          <div class="title">墨尔本</div>
-          <a class="link" href="/cx/sc_CN/flightoffer.bjs-to-mel-from-cny3500.html" manual_cm_sp="CN-_-SALES-_-bjs-to-mel-from-cny3500-MultiMulti-2014" rel="nofollow">
+          <div class="title">大理</div>
+          <a class="link" href="https://baike.baidu.com/item/%E5%A4%A7%E7%90%86%E7%99%BD%E6%97%8F%E8%87%AA%E6%B2%BB%E5%B7%9E/2916136?fromtitle=%E5%A4%A7%E7%90%86&fromid=32237&fr=aladdin" manual_cm_sp="CN-_-SALES-_-bjs-to-mel-from-cny3500-MultiMulti-2014" rel="nofollow">
           <div class="category">机票</div>
           <div class="price"><b>CNY3,500</b>起</div>
           </a>
@@ -158,10 +158,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </div>
       </li>
             <li class="item1">
-        <div class="cover-img"> <i class="icon icon-flight-contrary" aria-hidden="true" lang="en"></i> <img src="images/桂林.jpg" alt="票价由3,500元*起" width="134" height="140"> </div>
+        <div class="cover-img"> <i class="icon icon-flight-contrary" aria-hidden="true" lang="en"></i> <img src="images/杭州.png" alt="票价由3,500元*起" width="134" height="140"> </div>
         <div class="information">
-          <div class="title">墨尔本</div>
-          <a class="link" href="/cx/sc_CN/flightoffer.bjs-to-mel-from-cny3500.html" manual_cm_sp="CN-_-SALES-_-bjs-to-mel-from-cny3500-MultiMulti-2014" rel="nofollow">
+          <div class="title">杭州</div>
+          <a class="link" href="https://baike.baidu.com/item/%E6%9D%AD%E5%B7%9E/147639?fr=aladdin" manual_cm_sp="CN-_-SALES-_-bjs-to-mel-from-cny3500-MultiMulti-2014" rel="nofollow">
           <div class="category">机票</div>
           <div class="price"><b>CNY3,500</b>起</div>
           </a>
@@ -170,10 +170,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       </li>
       
        <li class="item1">
-        <div class="cover-img"> <i class="icon icon-flight-contrary" aria-hidden="true" lang="en"></i> <img src="images/桂林.jpg" alt="票价由3,500元*起" width="134" height="140"> </div>
+        <div class="cover-img"> <i class="icon icon-flight-contrary" aria-hidden="true" lang="en"></i> <img src="images/成都.png" alt="票价由3,500元*起" width="134" height="140"> </div>
         <div class="information">
-          <div class="title">墨尔本</div>
-          <a class="link" href="/cx/sc_CN/flightoffer.bjs-to-mel-from-cny3500.html" manual_cm_sp="CN-_-SALES-_-bjs-to-mel-from-cny3500-MultiMulti-2014" rel="nofollow">
+          <div class="title">成都</div>
+          <a class="link" href="https://baike.baidu.com/item/%E6%88%90%E9%83%BD/128473?fr=aladdin" manual_cm_sp="CN-_-SALES-_-bjs-to-mel-from-cny3500-MultiMulti-2014" rel="nofollow">
           <div class="category">机票</div>
           <div class="price"><b>CNY3,500</b>起</div>
           </a>
