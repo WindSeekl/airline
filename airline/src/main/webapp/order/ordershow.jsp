@@ -183,7 +183,7 @@
 												<br/>
 												<a href="<%=basePath%>cancelOrder?reserveId=${reserve.reserveId}" style="color:#CC3333" id="but" onclick="cancelOrder()">取消订单</a>
 											</c:if>
-											<c:if test="${reserve.state=='出票成功'}" >
+											<c:if test="${reserve.state=='购票成功'}" >
 												<br/>
 												<a href='<%=basePath%>applyForRefund?reserveId=${reserve.reserveId}' style="color:#CC3333" id="but" onclick="applyForRefund()">申请退票</a>
 											</c:if>
@@ -201,6 +201,9 @@
 											</c:if>
 											<c:if test="${reserve.state=='退票成功'}" >
 												<p style="color:red">订单已失效</p>
+											</c:if>
+											<c:if test="${reserve.state=='出票成功'}" >
+												<p style="color: green">订单已完成</p>
 											</c:if>
 										</li>
 										<div class="clear"></div>
