@@ -45,4 +45,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="queryRefund" resultType="reserve">
 		select * from reserve where state in ('退票审核中')
 	</select>
+	<select id="queryByCardId" resultType="reserve" parameterType="String">
+		select * from reserve where cardId=#{cardId} and state='购票成功'
+	</select>
+	<update id="updateStateByReserveId" parameterType="String">
+		update reserve set state='出票成功' where reserveId = #{reserveId}
+	</update>
 </mapper>
