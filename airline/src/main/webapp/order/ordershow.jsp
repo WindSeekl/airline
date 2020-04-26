@@ -122,7 +122,7 @@
 									<br>
 									<dl class="advance" style="display: block;">
 										<dt>								
-											预订日期 <input type="text" class="input date Wdate"  name="orderDate">
+											预订日期 <input type="text" class="input date Wdate"  name="orderDate" onfocus="WdatePicker()">
 												<input type="submit" value="查询">
 										</dt>
 									</dl>

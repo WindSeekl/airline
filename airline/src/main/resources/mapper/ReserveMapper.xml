@@ -12,9 +12,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<if test="reserveId!=''">
 				and reserveId=#{reserveId}
 			</if>
-			<if test="orderDate!=''">
-				and orderDate=#{orderDate}
-			</if>
 		</where>
 	</select>
 	

@@ -1,6 +1,8 @@
 package com.airline.service.impl;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -18,7 +20,18 @@ public class ReserveServiceImpl implements ReserveService{
 	@Override
 	public List<Reserve> queryReserve(Reserve reserve) {
 		// TODO Auto-generated method stub
-		return reserveRepository.queryReserve(reserve);
+		List<Reserve> list = reserveRepository.queryReserve(reserve);
+		List<Reserve> list2 = new ArrayList<Reserve>();
+		if(!reserve.getOrderDate().isEmpty()) {
+			for (Reserve e : list) {
+				String orderDate=orderDate(e.getOrderDate());
+				if(orderDate.equals(reserve.getOrderDate())) {
+					list2.add(e);
+				}
+			}
+			return list2;
+		}
+		return list;
 	}
 
 	@Override
@@ -64,6 +77,17 @@ public class ReserveServiceImpl implements ReserveService{
 	public String newDate(){
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String date = sdf.format(new Date());
+		return date;
+	}
+	public String orderDate(String orderDate){
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		String date = null;
+		try {
+			date = sdf.format(sdf.parse(orderDate));
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return date;
 	}
 

@@ -66,7 +66,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div class="leftmenu">
 				<ul class="nav nav-tabs nav-stacked">
 					<li class="nav-header">Navigation</li>
-					<li class="active"><a href="../countOrderAction.action"><span
+					<li class="active"><a href="<%=basePath%>background/index.jsp"><span
 							class="iconfa-laptop"></span> 首页</a></li>
 					<li class="dropdown"><a href=""><span class="iconfa-group"></span>
 							订票客户管理</a>
@@ -96,21 +96,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<li><a href="<%=basePath %>queryCnamePname">添加公司机型</a>
 							<li><a href="<%=basePath %>queryCompanys">查询航空公司</a></li>
 						</ul></li>
-							<li class="dropdown"><a href=""><span
-							class="iconfa-plane"></span> 机型管理</a>
+					<li class="dropdown"><a href=""><span class="iconfa-plane"></span>
+							机型管理</a>
 						<ul>
 							<li><a href="<%=basePath %>background/addplanemodel.jsp">增加机型</a></li>
 							<li><a href="<%=basePath %>queryList">查询机型</a></li>
 							<li><a href="<%=basePath %>queryPlanemodel">修改机型信息</a></li>
+						</ul></li>
 					<li><a href="<%=basePath%>background/printtable.jsp"><span class="iconfa-th-list"></span>
 							报表打印管理</a></li>
-					<c:if test="#session.currentAdmin.jurisdiction==0">
-					<li class="dropdown"><a href=""><span class="iconfa-user"></span>
-							人员用户管理</a>
-						<ul>
-							<li><a href="<%=basePath %>background/addnormaladmin.jsp">增加普通管理员</a></li>
-							<li><a href="<%=basePath %>findAllAdmin">查询普通管理员</a></li>
-						</ul></li></c:if>
+					<c:if test="${admin.permission == 0}">
+						<li class="dropdown"><a href=""><span class="iconfa-user"></span>
+								人员用户管理</a>
+							<ul>
+								<li><a href="addnormaladmin.jsp">增加普通管理员</a></li>
+								<li><a href="<%=basePath %>findAllAdmin">查询普通管理员</a></li>
+							</ul>
+						</li>
+					</c:if>
 				</ul>
 			</div>
 			<!--leftmenu-->
