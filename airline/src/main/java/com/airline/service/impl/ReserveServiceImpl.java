@@ -66,11 +66,6 @@ public class ReserveServiceImpl implements ReserveService{
 		// TODO Auto-generated method stub
 		return reserveRepository.queryReserveDetail(reserve); 
 	}
-	@Override
-	public int querySeatNum(String seatId) {
-		// TODO Auto-generated method stub
-		return reserveRepository.querySeatNum(seatId);
-	}
 	public String reserveId(){
 		return String.valueOf((int)(Math.random()*(999999-100000+1)+100000));
 	}
@@ -131,5 +126,14 @@ public class ReserveServiceImpl implements ReserveService{
 	public void updateStateByReserveId(String reserveId) {
 		// TODO Auto-generated method stub
 		reserveRepository.updateStateByReserveId(reserveId);
+	}
+
+	@Override
+	public int querySeatNum(String flightId, String seatId) {
+		// TODO Auto-generated method stub
+		Reserve reserve = new Reserve();
+		reserve.setFlightId(flightId);
+		reserve.setSeatId(seatId);
+		return reserveRepository.querySeatNum(reserve);
 	}
 }

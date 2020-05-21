@@ -10,7 +10,7 @@ public interface ReserveService {
 	Reserve queryReserveDetail(Reserve reserve);//查询订单详情
 	String insertReserve(Reserve reserve);//下单
 	int updateState(Reserve reserve);//订单状态 
-	int querySeatNum(String seatId);//查询舱位数量
+	int querySeatNum(String flightId,String seatId);//查询舱位数量
 	Reserve queryOneReserve(Reserve reserve);
 	void dealWaiteOrder(Reserve reserve);
 	List<Reserve> queryRefund();//查询订单

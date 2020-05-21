@@ -65,7 +65,7 @@ public class CustomerServiceImpl implements CustomerService {
 			customerRepository.editInfo(customer);
 			return "修改成功";
 		}
-		return "信息相同，修改失败";
+		return "用户未作出任何更改";
 	}
 
 	@Override

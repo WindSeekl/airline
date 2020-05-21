@@ -59,8 +59,7 @@
 	<menu id="menu">
 		<nav style="margin-top: -12;">
 		<ul class="menu_index">
-			<a href="customer/customerinfo.jsp"><li id="menu-myceair"
-				class="current">我的信息<i></i></li></a>
+			<a href="customer/customerinfo.jsp"><li id="menu-myceair" class="current">我的信息<i></i></li></a>
 			<a href="index.jsp"><li id="menu-booking">预订行程<i></i></li></a>
 		</ul>
 		</nav>
@@ -85,7 +84,7 @@
 				</div>
 
 				<div class="menu font14 bold m2">
-					<a href="<%=basePath%>queryOrder">机票订单</a>
+					<a href="<%=basePath%>order/ordershow.jsp">机票订单</a>
 				</div>
 				<div class="child"></div>
 				<div class="menu font14 bold m9">

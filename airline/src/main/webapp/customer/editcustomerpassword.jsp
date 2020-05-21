@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*,com.*" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -31,16 +32,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!--header-->
 <header id="header">
   <hgroup>
-    <s:if test="#session.currentUser">
-      <address class="text blue">
-    <p>欢迎您，${currentUser.username}&nbsp;&nbsp;<a href="login.jsp">注销</a></p>
-    </address>
-    </s:if>
-    <s:else>
+    <c:if test="${not empty customer}">
     <address class="text blue">
-    <p> <a id="login" href="../login.jsp">登录</a>&nbsp; | &nbsp; <a id="register" target="_blank" href="regcustomer.jsp">注册</a></p>
+    	<p>欢迎您，${customer}&nbsp;&nbsp;<a href="<%=basePath%>logout">注销</a> </p>
     </address>
-    </s:else>
+    </c:if>
+    <c:if test="${empty customer}">
+	    <address class="text blue">
+	   		<p> <a id="login" href="login.jsp">登录</a>&nbsp; | &nbsp; <a id="register" target="_blank" href="<%=basePath%>customer/regcustomer.jsp">注册</a></p>
+	    </address>
+    </c:if>
     <div class="clear"></div>
   </hgroup>
 </header>
@@ -70,9 +71,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div class="myceair">
 			<div class="left"><div class="home"></div>
 
-<div class="menu font14 bold m1"><a href="customer/customerinfo.jsp">个人信息</a></div>
+<div class="menu font14 bold m1"><a href="<%=basePath%>customerinfo?customerName=${customer}">个人信息</a></div>
 
-<div class="menu font14 bold m2"><a href="<%=basePath%>queryOrder">机票订单</a></div>
+<div class="menu font14 bold m2"><a href="<%=basePath%>order/ordershow.jsp">机票订单</a></div>
 <div class="child">
 </div>
 <div class="menu font14 bold m9"><a href="customer/editcustomerpassword.jsp">更改密码</a>
@@ -85,10 +86,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<div class="b_content active" rel="tab1">
                        
                             <form action="#" method="post" id="editpassword_form">
+                            <input type="hidden" name="customerName" value=${customer}>
 							<div class="name">
 								<b class="blue bold">更改密码</b> <span class="gray block">
 								<input id="editpassword" style="width:40px; height: 25px;" type="button" value="保存"></span>
-								
 							</div>
 							<div class="row">
 								<div class="col1">当前密码：</div>
